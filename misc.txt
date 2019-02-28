@@ -1,0 +1,8 @@
+Om man har lastModified på ett expanderat objekt, vems lastModified är det då?
+
+duty vs assignmentRole tex?
+
+studentgroup utan koppling till aktivitet
+studentmembership finns med, start o slut + referens till person med displayName + ID
+
+problem: assignmentRole saknar ändå personen, man får bara duty. ska studentgroup hämta alla duty OCH alla personer som relaterar till duties. med expandera-flagga?

@@ -1,0 +1,93 @@
+get:
+  tags:
+    - Person
+  summary: Hämta en lista med personer.
+  parameters:
+    - name: id
+      description: Begränsa urvalet till utpekade person-ID:n.
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+    - name: expand
+      description: Beskriver om expanderade data ska hämtas
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+          enum: [duties, children]
+    - name: norEduPersonNIN
+      description: Begränsa urvalet till utpekade personnummer.
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+    - name: meta.created.after
+      description: Endast poster skapade efter detta timestamp (Exkluderande)
+      in: query
+      schema:
+        type: string
+        format: date-time
+    - name: meta.created.before
+      description: Endast poster skapade på eller före detta timestamp (Inkluderande)
+      in: query
+      schema:
+        type: string
+        format: date-time
+    - name: meta.modified.after
+      description: Endast poster modifierade efter detta timestamp (Exkluderande)
+      in: query
+      schema:
+        type: string
+        format: date-time
+    - name: meta.modified.before
+      description: Endast poster modifierade på eller före detta timestamp (Inkluderande)
+      in: query
+      schema:
+        type: string
+        format: date-time
+    - in: query
+      name: offset
+      schema:
+        type: integer
+        minimum: 0
+        default: 0
+      required: false
+      description: Antal poster, från början av listan, som ska hoppas över innan resultatet börjar presenteras.
+    - in: query
+      name: limit
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 1000000
+        default: 1000000
+      required: false
+      description: Antal poster som ska visas i resultatet.
+  responses:
+    "200":
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            $ref: "../Person.yaml#/Persons"
+post:
+  tags:
+    - Person
+  summary: Skapar eller uppdaterar en person.
+  description: >
+    Anges ID i requestBody så ska ett eventuellt existerande 
+    person objekt uppdateras, annars ska objektet skapas.
+  operationId: createPerson
+  responses:
+    default:
+      description: successful operation
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: "../Person.yaml#/Person"
+    description: Created person object
+    required: true
