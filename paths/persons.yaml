@@ -72,7 +72,8 @@ get:
       content:
         application/json:
           schema:
-            $ref: "../Person.yaml#/Persons"
+            $ref: "../Person.yaml#/PersonsExpanded"
+
 post:
   tags:
     - Person

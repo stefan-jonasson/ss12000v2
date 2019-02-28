@@ -61,6 +61,8 @@ components:
       $ref: "Resource.yaml#/Resource"
     Room:
       $ref: "Room.yaml#/Room"
+    StudentGroup:
+      $ref: "StudentGroup.yaml#/StudentGroup"
     SchoolUnit:
       $ref: "SchoolUnit.yaml#/SchoolUnit"
     SchoolUnitGroup:

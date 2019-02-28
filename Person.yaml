@@ -140,8 +140,58 @@ Person:
       description: En lista med inskrivningar för personen
       items:
         $ref: "Enrolment.yaml#/Enrolment"
+    guardians:
+      type: array
+      description: Personens vårdnadshavare och andra ansvariga.
+      items:
+        type: object
+        properties:
+          id:
+            type: string
+            format: uuid
+            description: >
+              Ett objekt ska ha samma överförings-ID mellan samtliga ingående system och
+              således är det ett enda namespace för de gemensamma ID:na.
+              Objektidentifikatorn är den nyckel som skall vara persistent
+              mellan olika processer (enl figur 1).
+          relationType:
+            type: string
+            enum: ["Vårdnadshavare", "Annan ansvarig vuxen"]
+
+PersonExpanded:
+  allOf:
+    - $ref: "#/Person"
+    - type: object
+      properties:
+        children: 
+          type: array
+          description: Personens vårdnadshavare och andra ansvariga.
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                format: uuid
+                description: >
+                  Ett objekt ska ha samma överförings-ID mellan samtliga ingående system och
+                  således är det ett enda namespace för de gemensamma ID:na.
+                  Objektidentifikatorn är den nyckel som skall vara persistent
+                  mellan olika processer (enl figur 1).
+              relationType:
+                type: string
+                enum: ["Vårdnadshavare", "Annan ansvarig vuxen"]
+        duties: 
+          type: array
+          description: Personens tjänster
+          items:
+            $ref: "./Duty.yaml#/DutyReference"
 
 Persons:
   type: array
   items:
     $ref: "#/Person"
+
+PersonsExpanded:
+  type: array
+  items:
+    $ref: "#/PersonExpanded"

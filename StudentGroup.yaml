@@ -1,0 +1,111 @@
+StudentGroup:
+  type: object
+  properties:
+    id:
+      type: string
+      format: uuid
+      description: >
+        En studentgrupp. Innehåller elever eller kan vara en tom "platshållare"
+        utan medlemmar och populeras vid ett senare tillfälle.
+      $ref: "common.yaml#/Meta"
+    displayName:
+      description: Gruppens namn.
+      type: string
+    startDate:
+      type: string
+      format: date
+      description: >
+        Startdatum för gruppens giltighetstid
+        (ISO8601 format, exempelvis "2016-10-15").
+    endDate:
+      type: string
+      format: date
+      description: >
+        Slutdatum för gruppens giltighetstid
+        (ISO8601 format, exempelvis "2016-10-15").
+    studentGroupType:
+      description: >
+        Grupptyp anger vad en grupp ska användas till.
+        Ett värdeförråd för att indikera anger vilka grupptyper som finns.
+      type: string
+      enum:
+        - Undervisning
+        - Klass
+        - Mentor
+        - Schema
+        - Övrigt
+    schoolType:
+      description: Skolform
+      type: string
+      enum:
+        - FS
+        - FSK
+        - FTH
+        - GR
+        - GRS
+        - SP
+        - SAM
+        - GY
+        - GYS
+        - VUX
+        - SUV
+        - YH
+        - FHS
+        - HS
+        - AU
+    studentMemberships:
+      description: >
+        Studentmedlemskap anger att en student är medlem i en grupp
+        och vilken tidsperiod medlemskapet omfattar.,
+      type: array
+      items:
+        type: object
+        allOf:
+          - $ref: "common.yaml#/PersonReference"
+          - type: object
+            properties:
+              startDate:
+                description: >
+                  Startdatum för studentens medlemskap i gruppen
+                  (ISO8601 format, t.ex. "2016-10-15").
+                type: string
+                format: date
+              endDate:
+                description: >
+                  Slutdatum för studentens medlemskap i gruppen
+                  (ISO8601 format, t.ex. "2016-10-15").
+                type: string
+                format: date
+    owner:
+      $ref: "common.yaml#/SchoolUnitReference"
+    assignmentRoles:
+      type: array
+      items:
+        type: object
+        allOf:
+          - $ref: "Duty.yaml#/DutyReference"
+          - type: object
+            properties:
+              assignmentRole:
+                type: string
+                enum:
+                  - Mentor
+                  - Förskollärare
+                  - Barnskötare
+                  - Fritidspedagog
+                  - Specialpedagog
+                  - Elevhälsopersonal
+                  - Pedagogisk ledare
+                  - Schemaläggare
+              startDate:
+                description: >
+                  Startdatum för tjänstens relation till gruppen
+                  (ISO8601 format, t.ex. "2016-10-15").
+                type: string
+                format: date
+              endDate:
+                description: >
+                  Slutdatum för tjänstens relation till gruppen
+                  (ISO8601 format, t.ex. "2016-10-15").
+                type: string
+                format: date

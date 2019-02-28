@@ -1,19 +1,25 @@
 Duty:
-  type: object
+  allOf:
+    - $ref: "#/DutyReference"
+    - type: object
+      properties:
+        meta:
+          $ref: "common.yaml#/Meta"
+        Person:
+          allOf:
+            - $ref: "common.yaml#/PersonReference"
+            - description: Identifierare av skolenhet som tjänsten är knuten till.
+
+DutyReference:
+  description: referens till ett Dutyobjekt
   properties:
     id:
       type: string
       format: uuid
       description: Ett ID för tjänsten.
-    meta:
-      $ref: "common.yaml#/Meta"
     dutyAt:
       allOf:
         - $ref: "common.yaml#/ObjectReference"
-        - description: Identifierare av skolenhet som tjänsten är knuten till.
-    Person:
-      allOf:
-        - $ref: "common.yaml#/PersonReference"
         - description: Identifierare av skolenhet som tjänsten är knuten till.
     dutyRole:
       type: string
