@@ -86,7 +86,7 @@ StudentGroup:
           items:
             type: object
             allOf:
-              - $ref: "Duty.yaml#/DutyReference"
+              - $ref: "Duty.yaml#/DutyFragment"
               - type: object
                 properties:
                   assignmentRoleType:

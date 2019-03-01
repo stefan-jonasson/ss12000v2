@@ -23,9 +23,9 @@ paths:
   /deletedEntities:
     $ref: paths/deletedEntities.yaml
   /persons:
-    $ref: paths/persons.yaml
-  /person/{id}:
-    $ref: paths/person-by-id.yaml
+    $ref: "paths/persons.yaml#/persons"
+  /persons/{id}:
+    $ref: "paths/persons.yaml#/persons_by_id"
   /studentGroups:
     $ref: paths/studentGroups.yaml
   /Activities:

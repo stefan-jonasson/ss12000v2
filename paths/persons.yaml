@@ -1,60 +1,121 @@
-get:
-  tags:
-    - Person
-  summary: Hämta en lista med personer.
-  parameters:
-    - name: id
-      description: Begränsa urvalet till utpekade person-ID:n.
-      in: query
-      schema:
-        type: array
-        items:
+persons:
+  get:
+    tags:
+      - Person
+    summary: Hämta en lista med personer.
+    parameters:
+      - name: id
+        description: Begränsa urvalet till utpekade person-ID:n.
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: norEduPersonNIN
+        description: Begränsa urvalet till utpekade personnummer.
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - $ref: "searchParameters.yaml#/SearchCreatedBefore"
+      - $ref: "searchParameters.yaml#/SearchCreatedAfter"
+      - $ref: "searchParameters.yaml#/SearchModifiedBefore"
+      - $ref: "searchParameters.yaml#/SearchModifiedAfter"
+      - $ref: "searchParameters.yaml#/Offset"
+      - $ref: "searchParameters.yaml#/Limit"
+      - name: enrolment.schoolUnit
+        description: >
+          Begränsa urvalet till de elever som har en inskrivning (enrolment) på angiven
+          skolenhet. Detta kan kombineras med enrolment.startDate.onOrAfter
+          och enrolment.endDate.onOrBefore för att begränsa till aktiva inskrivningar.
+        in: query
+        schema:
           type: string
-    - name: expand
-      description: Beskriver om expanderade data ska hämtas
-      in: query
-      schema:
-        type: array
-        items:
+          format: uuid
+      - name: enrolment.startDate.onOrAfter
+        description: >
+          Begränsa urvalet av personer till de som har
+          inskrivningar som är aktiva inom det intervall som startar på angivet datum.
+        in: query
+        schema:
           type: string
-          enum: [duties, children]
-    - name: norEduPersonNIN
-      description: Begränsa urvalet till utpekade personnummer.
-      in: query
-      schema:
-        type: array
-        items:
+          format: date
+      - name: enrolment.endDate.onOrBefore
+        description: >
+          Begränsa urvalet av personer till de som har
+          inskrivningar som är aktiva inom det intervall som avslutas på angivet datum.
+        in: query
+        schema:
           type: string
-    - $ref: "searchParameters.yaml#/SearchCreatedBefore"
-    - $ref: "searchParameters.yaml#/SearchCreatedAfter"
-    - $ref: "searchParameters.yaml#/SearchModifiedBefore"
-    - $ref: "searchParameters.yaml#/SearchModifiedAfter"
-    - $ref: "searchParameters.yaml#/Offset"
-    - $ref: "searchParameters.yaml#/Limit"
-    
-  responses:
-    "200":
-      description: successful operation
+          format: date
+      - name: dutySchoolUnit
+        description: Begränsa urvalet till de tjänstgöringar som är kopplade till en skolenhet.
+        in: query
+        schema:
+          type: string
+          format: uuid
+      - name: expand
+        description: Beskriver om expanderade data ska hämtas
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+            enum: [duties, children]
+    responses:
+      "200":
+        description: successful operation
+        content:
+          application/json:
+            schema:
+              $ref: "../Person.yaml#/PersonsExpanded"
+
+  post:
+    tags:
+      - Person
+    summary: Hämta många personer baserat på en lista av ID:n.
+    description: >
+      Hämta många personer.
+    responses:
+      "200":
+        description: successful operation
+        content:
+          application/json:
+            schema:
+              $ref: "../Person.yaml#/PersonsExpanded"
+    requestBody:
       content:
         application/json:
           schema:
-            $ref: "../Person.yaml#/PersonsExpanded"
+            type: array
+            items:
+              type: string
+              format: uuid
+      required: true
 
-post:
-  tags:
-    - Person
-  summary: Skapar eller uppdaterar en person.
-  description: >
-    Anges ID i requestBody så ska ett eventuellt existerande 
-    person objekt uppdateras, annars ska objektet skapas.
-  operationId: createPerson
-  responses:
-    default:
-      description: successful operation
-  requestBody:
-    content:
-      application/json:
+persons_by_id:
+  get:
+    tags:
+      - Person
+    summary: Get person by person id
+    parameters:
+      - name: id
+        in: path
+        description: ID för personen som ska hämtas
+        required: true
         schema:
-          $ref: "../Person.yaml#/Person"
-    description: Created person object
-    required: true
+          type: string
+    responses:
+      "200":
+        description: successful operation
+        content:
+          application/json:
+            schema:
+              $ref: "../Person.yaml#/PersonExpanded"
+      "400":
+        description: Invalid personname supplied
+      "403":
+        description: Not authorised
+      "404":
+        description: Person not found
