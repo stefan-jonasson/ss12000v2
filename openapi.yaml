@@ -26,6 +26,10 @@ paths:
     $ref: paths/persons.yaml
   /person/{id}:
     $ref: paths/person-by-id.yaml
+  /studentGroups:
+    $ref: paths/studentGroups.yaml
+  /Activities:
+    $ref: paths/activities.yaml
 externalDocs:
   description: Find out more about Swagger
   url: "http://swagger.io"

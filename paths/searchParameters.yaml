@@ -1,0 +1,53 @@
+
+SearchCreatedAfter:
+  name: meta.created.after
+  description: Endast poster skapade efter detta timestamp (Exkluderande)
+  in: query
+  schema:
+    type: string
+    format: date-time
+ 
+SearchCreatedBefore:
+  name: meta.created.before
+  description: Endast poster skapade på eller före detta timestamp (Inkluderande)
+  in: query
+  schema:
+    type: string
+    format: date-time
+ 
+SearchModifiedAfter:
+  name: meta.modified.after
+  description: Endast poster modifierade efter detta timestamp (Exkluderande)
+  in: query
+  schema:
+    type: string
+    format: date-time
+
+SearchModifiedBefore:
+    name: meta.modified.before
+    description: Endast poster modifierade på eller före detta timestamp (Inkluderande)
+    in: query
+    schema:
+      type: string
+      format: date-time
+
+Offset:
+  in: query
+  name: offset
+  schema:
+    type: integer
+    minimum: 0
+    default: 0
+  required: false
+  description: Antal poster, från början av listan, som ska hoppas över innan resultatet börjar presenteras.
+
+Limit:
+  in: query
+  name: limit
+  schema:
+    type: integer
+    minimum: 1
+    maximum: 1000000
+    default: 1000000
+  required: false
+  description: Antal poster som ska visas i resultatet.

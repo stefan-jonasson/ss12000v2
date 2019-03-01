@@ -76,7 +76,7 @@ StudentGroup:
                   (ISO8601 format, t.ex. "2016-10-15").
                 type: string
                 format: date
-    owner:
+    schoolUnit:
       $ref: "common.yaml#/SchoolUnitReference"
     assignmentRoles:
       type: array
@@ -86,7 +86,7 @@ StudentGroup:
           - $ref: "Duty.yaml#/DutyReference"
           - type: object
             properties:
-              assignmentRole:
+              assignmentRoleType:
                 type: string
                 enum:
                   - Mentor
@@ -109,3 +109,10 @@ StudentGroup:
                   (ISO8601 format, t.ex. "2016-10-15").
                 type: string
                 format: date
+
+  required:
+    - id
+    - name
+    - studentGroupType
+    - schoolType
+    - startDate

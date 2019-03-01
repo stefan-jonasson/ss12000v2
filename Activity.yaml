@@ -95,29 +95,6 @@ Activity:
             description: Det antal minuter läraren är kopplad till aktiviteten
       description: De lärare (Duty-objekt) som är kopplade till aktiviteten.
 
-    students:
-      type: array
-      items:
-        type: object
-        properties:
-          id:
-            type: string
-            format: uuid
-            description: Identifierare för personen.
-          displayName:
-            type: string
-            description: Ett läsbart namn för att identifiera personen i visningssyfte. READ-ONLY.
-            readOnly: true
-          startDate:
-            type: string
-            format: date
-            description: Datum för när lärarens deltagande i aktiviteten startar (ISO8601 format, t.ex. "2016-10-15").
-          endDate:
-            type: string
-            format: date
-            description: Datum för när lärarens deltagande i aktiviteten slutar (ISO8601 format, t.ex. "2016-10-15").
-        description: De elever som är kopplade till aktiviteten.
-
     syllabus:
       type: object
       properties:
@@ -158,6 +135,7 @@ Activity:
   required:
     - id
     - displayName
+    - groups
     - calendarEventsRequired
     - startDate
     - endDate

@@ -1,7 +1,7 @@
 get:
   tags:
-    - Person
-  summary: Hämta en lista med personer.
+    - StudentGroupa
+  summary: Hämta en lista med studentgrupper.
   parameters:
     - name: id
       description: Begränsa urvalet till utpekade person-ID:n.
@@ -17,44 +17,17 @@ get:
         type: array
         items:
           type: string
-          enum: [duties, children]
-    - name: norEduPersonNIN
-      description: Begränsa urvalet till utpekade personnummer.
-      in: query
-      schema:
-        type: array
-        items:
-          type: string
+          enum: [assignmentRoles]
     - $ref: "searchParameters.yaml#/SearchCreatedBefore"
     - $ref: "searchParameters.yaml#/SearchCreatedAfter"
     - $ref: "searchParameters.yaml#/SearchModifiedBefore"
     - $ref: "searchParameters.yaml#/SearchModifiedAfter"
     - $ref: "searchParameters.yaml#/Offset"
     - $ref: "searchParameters.yaml#/Limit"
-    
   responses:
     "200":
       description: successful operation
       content:
         application/json:
           schema:
-            $ref: "../Person.yaml#/PersonsExpanded"
-
-post:
-  tags:
-    - Person
-  summary: Skapar eller uppdaterar en person.
-  description: >
-    Anges ID i requestBody så ska ett eventuellt existerande 
-    person objekt uppdateras, annars ska objektet skapas.
-  operationId: createPerson
-  responses:
-    default:
-      description: successful operation
-  requestBody:
-    content:
-      application/json:
-        schema:
-          $ref: "../Person.yaml#/Person"
-    description: Created person object
-    required: true
+            $ref: "../StudentGroup.yaml#/StudentGroup"

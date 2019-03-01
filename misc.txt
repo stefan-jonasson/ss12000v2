@@ -6,3 +6,12 @@ studentgroup utan koppling till aktivitet
 studentmembership finns med, start o slut + referens till person med displayName + ID
 
 problem: assignmentRole saknar ändå personen, man får bara duty. ska studentgroup hämta alla duty OCH alla personer som relaterar till duties. med expandera-flagga?
+
+
+
+ändringar:
+
+displayName -> name  när det *är* ett namn och inte ett aggregerat resultat
+
+owner -> schoolUnit för activity o studentgroup
+
