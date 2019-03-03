@@ -6,14 +6,17 @@ Stefan:
 - AttendanceEvent
 - CalendarEvent
 - ChildCareSchedule
+
+Kent
 - Room
+- Organisation
+- SchoolUnitGroup
 
 Jonas:
 
 - Duty
 - Grade
 - LeaveOfAbsence
-- Organisation
 - Person
 - Programme
 
@@ -22,6 +25,5 @@ Palle
 - Resource
 - StudentGroup
 - SchoolUnit
-- SchoolUnitGroup
 - SchoolUnitOffering
 - Activity
