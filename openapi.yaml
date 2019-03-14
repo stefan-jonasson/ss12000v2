@@ -30,6 +30,11 @@ paths:
     $ref: paths/studentGroups.yaml
   /Activities:
     $ref: paths/activities.yaml
+  /duties:
+    $ref: "paths/duties.yaml#/duties"
+  /duties/{id}:
+    $ref: "paths/duties.yaml#/duty_by_id"
+
 externalDocs:
   description: Find out more about Swagger
   url: "http://swagger.io"
