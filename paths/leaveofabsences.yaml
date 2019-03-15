@@ -53,7 +53,7 @@ leaveofabsences:
         content:
           application/json:
             schema:
-              $ref: "../LeaveOfAbsence.yaml#/LeaveOfAbsence"
+              $ref: "../LeaveOfAbsence.yaml#/LeaveOfAbsences"
 
   post:
     tags:

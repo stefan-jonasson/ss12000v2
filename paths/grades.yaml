@@ -59,7 +59,7 @@ grades:
         content:
           application/json:
             schema:
-              $ref: "../Grade.yaml#/Grade"
+              $ref: "../Grade.yaml#/Grades"
 
   post:
     tags:

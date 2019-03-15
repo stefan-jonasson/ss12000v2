@@ -47,7 +47,7 @@ duties:
         content:
           application/json:
             schema:
-              $ref: "../Duty.yaml#/Duty"
+              $ref: "../Duty.yaml#/Duties"
 
   post:
     tags:

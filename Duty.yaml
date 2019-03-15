@@ -52,3 +52,8 @@ Duty:
           allOf:
             - $ref: "common.yaml#/PersonReference"
             - description: Identifierare av person som tjänsten är knuten till.
+
+Duties:
+  type: array
+  items:
+    $ref: "#/Duty"

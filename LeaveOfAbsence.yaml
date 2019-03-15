@@ -39,3 +39,8 @@ LeaveOfAbsence:
     - endTime
     - type
     - student
+
+LeaveOfAbsences:
+  type: array
+  items:
+    $ref: "#/LeaveOfAbsence"

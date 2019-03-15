@@ -137,3 +137,8 @@ Grade:
     specialisationSyllabusContent:
       type: string
       description: Beskrivning av ett specialiseringskurs innehåll på gymnasiet.
+
+Grades:
+  type: array
+  items:
+    $ref: "#/Grade"
