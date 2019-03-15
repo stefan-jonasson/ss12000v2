@@ -46,6 +46,10 @@ paths:
     $ref: "paths/programmes.yaml#/programmes"
   /programmes/{id}:
     $ref: "paths/programmes.yaml#/programme_by_id"
+  /subscriptions:
+    $ref: "paths/subscriptions.yaml#/subscriptions"
+  /subscriptions/{id}:
+    $ref: "paths/subscriptions.yaml#/subscription_by_id"
 externalDocs:
   description: Find out more about Swagger
   url: "http://swagger.io"
@@ -89,6 +93,8 @@ components:
       $ref: "SchoolUnitGroup.yaml#/SchoolUnitGroup"
     SchoolUnitOffering:
       $ref: "SchoolUnitOffering.yaml#/SchoolUnitOffering"
+    Subscription:
+      $ref: "Subscription.yaml#/Subscription"
   parameters:
     FilterParam:
       in: query
