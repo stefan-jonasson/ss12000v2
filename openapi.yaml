@@ -34,6 +34,10 @@ paths:
     $ref: "paths/duties.yaml#/duties"
   /duties/{id}:
     $ref: "paths/duties.yaml#/duty_by_id"
+  /grades:
+    $ref: "paths/grades.yaml#/grades"
+  /grades/{id}:
+    $ref: "paths/grades.yaml#/grade_by_id"
 
 externalDocs:
   description: Find out more about Swagger
