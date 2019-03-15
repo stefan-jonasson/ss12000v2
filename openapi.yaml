@@ -38,7 +38,10 @@ paths:
     $ref: "paths/grades.yaml#/grades"
   /grades/{id}:
     $ref: "paths/grades.yaml#/grade_by_id"
-
+  /leaveofabsences:
+    $ref: "paths/leaveofabsences.yaml#/leaveofabsences"
+  /leaveofabsences/{id}:
+    $ref: "paths/leaveofabsences.yaml#/leaveofabsence_by_id"
 externalDocs:
   description: Find out more about Swagger
   url: "http://swagger.io"

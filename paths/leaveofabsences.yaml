@@ -1,0 +1,105 @@
+leaveofabsences:
+  get:
+    tags:
+      - LeaveOfAbsence
+    summary: Hämta en lista av anmäld frånvaro.
+    parameters:
+      - name: id
+        description: Begränsa urvalet till utpekade anmälda frånvaro ID.
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - $ref: "searchParameters.yaml#/SearchCreatedBefore"
+      - $ref: "searchParameters.yaml#/SearchCreatedAfter"
+      - $ref: "searchParameters.yaml#/SearchModifiedBefore"
+      - $ref: "searchParameters.yaml#/SearchModifiedAfter"
+      - $ref: "searchParameters.yaml#/Offset"
+      - $ref: "searchParameters.yaml#/Limit"
+      - name: schoolUnit
+        description: Begränsa urvalet till de anmälda frånvaro som är kopplade till skolenhet.
+        in: query
+        schema:
+          type: string
+          format: uuid
+      - name: student
+        description: Begränsa urvalet till de anmälda frånvaro som är kopplade till eleven
+        in: query
+        schema:
+          type: string
+          format: uuid
+      - name: registeredBy
+        description: Begränsa urvalet till de anmälda frånvaro som är registrerade av personen
+        in: query
+        schema:
+          type: string
+          format: uuid
+      - name: startTime.after
+        description: Endast anmälda frånvaro som startar efter detta timestamp (Exkluderande)
+        in: query
+        schema:
+          type: string
+          format: date-time
+      - name: startTime.before
+        description: Endast anmälda frånvaro som startar innan eller på detta timestamp (Inkluderande)
+        in: query
+        schema:
+          type: string
+          format: date-time
+    responses:
+      "200":
+        description: successful operation
+        content:
+          application/json:
+            schema:
+              $ref: "../LeaveOfAbsence.yaml#/LeaveOfAbsence"
+
+  post:
+    tags:
+      - LeaveOfAbsence
+    summary: Hämta många anmälda frånvaro baserat på en lista av ID:n.
+    description: >
+      Hämta många anmälda frånvaro.
+    responses:
+      "200":
+        description: successful operation
+        content:
+          application/json:
+            schema:
+              $ref: "../LeaveOfAbsence.yaml#/LeaveOfAbsence"
+    requestBody:
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: string
+              format: uuid
+      required: true
+
+leaveofabsence_by_id:
+  get:
+    tags:
+      - LeaveOfAbsence
+    summary: Hämta anmäld frånvaro baserat på  ID
+    parameters:
+      - name: id
+        in: path
+        description: ID för anmäld frånvaro som ska hämtas
+        required: true
+        schema:
+          type: string
+    responses:
+      "200":
+        description: successful operation
+        content:
+          application/json:
+            schema:
+              $ref: "../LeaveOfAbsence.yaml#/LeaveOfAbsence"
+      "400":
+        description: Invalid id supplied
+      "403":
+        description: Not authorised
+      "404":
+        description: Duty not found
