@@ -108,6 +108,13 @@ subscription_by_id:
     tags:
       - Subcription
     summary: Ta bort en prenumeration
+    parameters:
+      - name: id
+        in: path
+        description: ID för prenumerationen som ska tas bort
+        required: true
+        schema:
+          type: string
     responses:
       "204":
         description: Prenumeration borttagen.
