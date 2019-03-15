@@ -1,0 +1,107 @@
+SubscriptionFragment:
+  type: object
+  properties:
+    name:
+      description: A description name of the webhook
+      type: string
+    target:
+      description: the URL that the webhook will post to
+      type: string
+    secret:
+      description: A secret that will be used by the sha1-256 digest of the event body sent to the target
+      type: string
+    custom_headers:
+      type: array
+      items:
+        type: object
+        properties:
+          name:
+            type: string
+          value:
+            type: string
+    authType:
+      type: string
+      enum: [none, basic, oauth]
+    events:
+      type: array
+      items:
+        type: string
+        enum: [NewOrUpdate, Deleted]
+  required:
+    - target
+    - secret
+    - name
+    - authType
+    - events
+
+SubscriptionNone:
+  allOf:
+    - $ref: "#/SubscriptionFragment"
+
+SubscriptionBasic:
+  allOf:
+    - $ref: "#/SubscriptionFragment"
+    - type: object
+      properties:
+        authCredentials:
+          type: object
+          properties:
+            name:
+              type: string
+            password:
+              type: string
+
+SubscriptionOauth:
+  allOf:
+    - $ref: "#/SubscriptionFragment"
+    - type: object
+      properties:
+        authRequestDetails:
+          type: object
+          properties:
+            url:
+              type: string
+            body:
+              type: object
+              properties:
+                clientId:
+                  type: string
+                clientSecret:
+                  type: string
+                grantType:
+                  type: string
+                  enum:
+                    - client_credentials
+
+Subscription:
+  allOf:
+    - $ref: "#/CreateSubscription"
+    - type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+      required:
+        - id
+
+CreateSubscription:
+  oneOf:
+    - $ref: "#/SubscriptionNone"
+    - $ref: "#/SubscriptionBasic"
+    - $ref: "#/SubscriptionOauth"
+
+Subscriptions:
+  type: array
+  items:
+    $ref: "#/Subscription"
+
+Error:
+  required:
+    - code
+    - message
+  properties:
+    code:
+      type: integer
+      format: int32
+    message:
+      type: string

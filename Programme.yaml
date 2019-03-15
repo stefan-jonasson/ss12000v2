@@ -78,3 +78,7 @@ Programme:
     - name
     - schoolType
 
+Programmes:
+  type: array
+  items:
+    $ref: "#/Programme"

@@ -1,0 +1,101 @@
+programmes:
+  get:
+    tags:
+      - Programme
+    summary: Hämta en lista av program.
+    parameters:
+      - name: id
+        description: Begränsa urvalet till utpekade program ID.
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - $ref: "searchParameters.yaml#/SearchCreatedBefore"
+      - $ref: "searchParameters.yaml#/SearchCreatedAfter"
+      - $ref: "searchParameters.yaml#/SearchModifiedBefore"
+      - $ref: "searchParameters.yaml#/SearchModifiedAfter"
+      - $ref: "searchParameters.yaml#/Offset"
+      - $ref: "searchParameters.yaml#/Limit"
+      - name: schoolType
+        description: Begränsta urvalet till de promgram som matchar typen
+        in: query
+        schema:
+          type: string
+          enum:
+            - FS
+            - FSK
+            - FTH
+            - GR
+            - GRS
+            - SP
+            - SAM
+            - GY
+            - GYS
+            - VUX
+            - SUV
+            - YH
+            - FHS
+            - HS
+            - AU
+      - name: code
+        description: Begränsta urvalet till de program som matchar programkod
+        in: query
+        schema:
+          type: string
+    responses:
+      "200":
+        description: successful operation
+        content:
+          application/json:
+            schema:
+              $ref: "../Programme.yaml#/Programme"
+
+  post:
+    tags:
+      - Programme
+    summary: Hämta många program baserat på en lista av ID:n.
+    description: >
+      Hämta många program.
+    responses:
+      "200":
+        description: successful operation
+        content:
+          application/json:
+            schema:
+              $ref: "../Programme.yaml#/Programme"
+    requestBody:
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: string
+              format: uuid
+      required: true
+
+programme_by_id:
+  get:
+    tags:
+      - LeaveOfAbsence
+    summary: Hämta program baserat på  ID
+    parameters:
+      - name: id
+        in: path
+        description: ID för program som ska hämtas
+        required: true
+        schema:
+          type: string
+    responses:
+      "200":
+        description: successful operation
+        content:
+          application/json:
+            schema:
+              $ref: "../Programme.yaml#/Programme"
+      "400":
+        description: Invalid id supplied
+      "403":
+        description: Not authorised
+      "404":
+        description: Duty not found

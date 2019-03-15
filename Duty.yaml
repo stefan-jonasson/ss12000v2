@@ -51,4 +51,9 @@ Duty:
         Person:
           allOf:
             - $ref: "common.yaml#/PersonReference"
-            - description: Identifierare av skolenhet som tjänsten är knuten till.
+            - description: Identifierare av person som tjänsten är knuten till.
+
+Duties:
+  type: array
+  items:
+    $ref: "#/Duty"

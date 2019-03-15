@@ -1,6 +1,7 @@
 # ss12000v2
 
-Stefan: 
+Stefan:
+
 - AggregatedAttendance
 - Attendance
 - AttendanceEvent
@@ -8,19 +9,22 @@ Stefan:
 - ChildCareSchedule
 
 Kent
+
 - Room
 - Organisation
 - SchoolUnitGroup
 
 Jonas:
 
-- Duty
-- Grade
-- LeaveOfAbsence
-- Person
-- Programme
+- Duty (paths)
+- Grade (paths)
+- LeaveOfAbsence (paths)
+- Person (paths)
+- Programme (paths)
+- Subscription (model) (paths)
 
 Palle
+
 - Syllabus
 - Resource
 - StudentGroup
