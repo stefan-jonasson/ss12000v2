@@ -36,6 +36,12 @@ subscriptions:
       newOrUpdate: # Event name
         "{$request.body#/target}": # The callback URL, Refers to the passed URL
           post:
+            parameters:
+              - in: header
+                name: x-hmac-signature
+                schema:
+                  type: string
+                  description: sha1 hmac digest of responseBody (sha1=digest)
             requestBody: # Contents of the callback message
               required: true
               content:
@@ -79,16 +85,10 @@ subscriptions:
                               items:
                                 type: string
 
-                    required:
-                      - message
             responses: # Expected responses to the callback message
               "200":
                 description: Your server returns this code if it accepts the callback
-                headers:
-              x-hmac-signature:
-                schema:
-                  type: string
-                description: sha1 hmac digest of responseBody (sha1=digest)
+
     responses:
       201:
         description: response of new object
@@ -108,6 +108,13 @@ subscription_by_id:
     tags:
       - Subcription
     summary: Ta bort en prenumeration
+    parameters:
+      - name: id
+        in: path
+        description: ID för prenumerationen som ska tas bort
+        required: true
+        schema:
+          type: string
     responses:
       "204":
         description: Prenumeration borttagen.
