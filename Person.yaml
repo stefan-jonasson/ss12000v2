@@ -1,4 +1,4 @@
-Person:
+PersonFragment:
   type: object
   properties:
     id:
@@ -9,46 +9,6 @@ Person:
         således är det ett enda namespace för de gemensamma ID:na.
         Objektidentifikatorn är den nyckel som skall vara persistent
         mellan olika processer (enl figur 1).
-    meta:
-      $ref: "common.yaml#/Meta"
-    eduPersonPrincipalName:
-      type: string
-      description: >
-        Den identifierare som ska användas för att identifiera användaren
-        i skilda e-tjänster. Identifieraren ska vara en spårbar, persistent
-        och globalt unik sträng. Den ska bestå av en lokalt unik
-        användaridentifierare, ett ’@’ och en domän.
-        En domän är ofta, men inte nödvändigtvis, samma som organisationens
-        internet-domännamn.
-        _Exempel: kalko@edu.goteborg.se_
-    norEduPersonNIN:
-      type: object
-      description: Personnummer.
-      properties:
-        value:
-          type: string
-          description: |
-            Svenskt personnummer, tilldelat personnummer eller Skatteverkets
-            samordningsnummer för personen. Ska anges med 12 siffror utan
-            separatorer. _Exempel: 200112240123_
-
-            Samordningsnummer ska anges med 12 siffror utan separator.
-            Födelsedagen adderas med talet 60, det vill säga någon född den 24
-            i en månad får talet 84 som dag. _Exempel: 200112840123_
-
-            Saknas både personnummer och samordningsnummer så förekommer det att
-            "tillfälligt personnummer" definieras i elevregistret. Dessa är möjliga
-            att beskriva i detta fält och i så fall tillåts de två första positionerna
-            efter datumdelen att vara bokstäver. _Exempel: 20130101TF01_
-          pattern: '^\d{8}[A-Z0-9]{2}\d{2}$'
-        nationality:
-          type: string
-          default: SE
-          description: >
-            Landskod för det land som personnumret härstammar från,
-            enligt ISO 3166-1 alpha-2.
-      required:
-        - value
     givenName:
       type: string
       description: Förnamn.
@@ -58,112 +18,135 @@ Person:
     familyName:
       type: string
       description: Efternamn.
-    emails:
-      type: array
-      description: En lista med personens epostadresser
-      items:
-        type: object
-        properties:
-          email:
-            type: string
-            format: email
-          role:
-            type: string
-            enum:
-              - anställd
-              - elev
-              - vårdnadshavare
-        required:
-          - email
-    phoneNumbers:
-      type: array
-      description: En lista med telefonnummer till personen.
-      items:
-        required:
-          - number
-        type: object
-        properties:
-          number:
-            type: string
-            description: Telefonnumret.
-          type:
-            type: string
-            enum:
-              - hem
-              - arbete
-          mobile:
-            type: boolean
-            default: true
-    addresses:
-      type: array
-      description: Personens postadresser.
-      items:
-        type: object
-        properties:
-          type:
-            type: string
-            default: folkbokföringsadress
-            enum:
-              - folkbokföringsadress
-              - vistelseadress
-              - fakturaadress
-          streetAddress:
-            type: string
-            description: Gatuadress.
-          locality:
-            type: string
-            description: Postort.
-          postalCode:
-            type: string
-            description: Postadress.
-          country:
-            type: string
-            description: Land.
-    photos:
-      type: array
-      description: Bild på personen.
-      items:
-        type: object
-        properties:
-          photo:
-            type: string
-            format: uri
-            description: En länk där bildfilen kan hämtas.
-          type:
-            type: string
-            description: Typ av bild.
-            enum:
-              - photo
-              - thumbnail
-    enrolments:
-      type: array
-      description: En lista med inskrivningar för personen
-      items:
-        $ref: "Enrolment.yaml#/Enrolment"
-    guardians:
-      type: array
-      description: Personens vårdnadshavare och andra ansvariga.
-      items:
-        type: object
-        properties:
-          id:
-            type: string
-            format: uuid
-            description: >
-              Ett objekt ska ha samma överförings-ID mellan samtliga ingående system och
-              således är det ett enda namespace för de gemensamma ID:na.
-              Objektidentifikatorn är den nyckel som skall vara persistent
-              mellan olika processer (enl figur 1).
-          relationType:
-            type: string
-            enum: ["Vårdnadshavare", "Annan ansvarig vuxen"]
 
-PersonExpanded:
+Person:
   allOf:
-    - $ref: "#/Person"
+    - $ref: "#/PersonFragment"
     - type: object
       properties:
-        children: 
+        meta:
+          $ref: "common.yaml#/Meta"
+        eduPersonPrincipalName:
+          type: string
+          description: >
+            Den identifierare som ska användas för att identifiera användaren
+            i skilda e-tjänster. Identifieraren ska vara en spårbar, persistent
+            och globalt unik sträng. Den ska bestå av en lokalt unik
+            användaridentifierare, ett ’@’ och en domän.
+            En domän är ofta, men inte nödvändigtvis, samma som organisationens
+            internet-domännamn.
+            _Exempel: kalko@edu.goteborg.se_
+        norEduPersonNIN:
+          type: object
+          description: Personnummer.
+          properties:
+            value:
+              type: string
+              description: |
+                Svenskt personnummer, tilldelat personnummer eller Skatteverkets
+                samordningsnummer för personen. Ska anges med 12 siffror utan
+                separatorer. _Exempel: 200112240123_
+
+                Samordningsnummer ska anges med 12 siffror utan separator.
+                Födelsedagen adderas med talet 60, det vill säga någon född den 24
+                i en månad får talet 84 som dag. _Exempel: 200112840123_
+
+                Saknas både personnummer och samordningsnummer så förekommer det att
+                "tillfälligt personnummer" definieras i elevregistret. Dessa är möjliga
+                att beskriva i detta fält och i så fall tillåts de två första positionerna
+                efter datumdelen att vara bokstäver. _Exempel: 20130101TF01_
+              pattern: '^\d{8}[A-Z0-9]{2}\d{2}$'
+            nationality:
+              type: string
+              default: SE
+              description: >
+                Landskod för det land som personnumret härstammar från,
+                enligt ISO 3166-1 alpha-2.
+          required:
+            - value
+        emails:
+          type: array
+          description: En lista med personens epostadresser
+          items:
+            type: object
+            properties:
+              email:
+                type: string
+                format: email
+              role:
+                type: string
+                enum:
+                  - anställd
+                  - elev
+                  - vårdnadshavare
+            required:
+              - email
+        phoneNumbers:
+          type: array
+          description: En lista med telefonnummer till personen.
+          items:
+            required:
+              - number
+            type: object
+            properties:
+              number:
+                type: string
+                description: Telefonnumret.
+              type:
+                type: string
+                enum:
+                  - hem
+                  - arbete
+              mobile:
+                type: boolean
+                default: true
+        addresses:
+          type: array
+          description: Personens postadresser.
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+                default: folkbokföringsadress
+                enum:
+                  - folkbokföringsadress
+                  - vistelseadress
+                  - fakturaadress
+              streetAddress:
+                type: string
+                description: Gatuadress.
+              locality:
+                type: string
+                description: Postort.
+              postalCode:
+                type: string
+                description: Postadress.
+              country:
+                type: string
+                description: Land.
+        photos:
+          type: array
+          description: Bild på personen.
+          items:
+            type: object
+            properties:
+              photo:
+                type: string
+                format: uri
+                description: En länk där bildfilen kan hämtas.
+              type:
+                type: string
+                description: Typ av bild.
+                enum:
+                  - photo
+                  - thumbnail
+        enrolments:
+          type: array
+          description: En lista med inskrivningar för personen
+          items:
+            $ref: "Enrolment.yaml#/Enrolment"
+        guardians:
           type: array
           description: Personens vårdnadshavare och andra ansvariga.
           items:
@@ -180,11 +163,37 @@ PersonExpanded:
               relationType:
                 type: string
                 enum: ["Vårdnadshavare", "Annan ansvarig vuxen"]
-        duties: 
-          type: array
-          description: Personens tjänster
-          items:
-            $ref: "./Duty.yaml#/DutyReference"
+
+PersonExpanded:
+  allOf:
+    - $ref: "#/Person"
+    - type: object
+      properties:
+        _embedded:
+          type: object
+          properties:
+            children: 
+              type: array
+              description: Personens vårdnadshavare och andra ansvariga.
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                    description: >
+                      Ett objekt ska ha samma överförings-ID mellan samtliga ingående system och
+                      således är det ett enda namespace för de gemensamma ID:na.
+                      Objektidentifikatorn är den nyckel som skall vara persistent
+                      mellan olika processer (enl figur 1).
+                  relationType:
+                    type: string
+                    enum: ["Vårdnadshavare", "Annan ansvarig vuxen"]
+            duties: 
+              type: array
+              description: Personens tjänster
+              items:
+                $ref: "./Duty.yaml#/DutyFragment"
 
 Persons:
   type: array

@@ -23,9 +23,33 @@ paths:
   /deletedEntities:
     $ref: paths/deletedEntities.yaml
   /persons:
-    $ref: paths/persons.yaml
-  /person/{id}:
-    $ref: paths/person-by-id.yaml
+    $ref: "paths/persons.yaml#/persons"
+  /persons/{id}:
+    $ref: "paths/persons.yaml#/persons_by_id"
+  /studentGroups:
+    $ref: paths/studentGroups.yaml
+  /Activities:
+    $ref: paths/activities.yaml
+  /duties:
+    $ref: "paths/duties.yaml#/duties"
+  /duties/{id}:
+    $ref: "paths/duties.yaml#/duty_by_id"
+  /grades:
+    $ref: "paths/grades.yaml#/grades"
+  /grades/{id}:
+    $ref: "paths/grades.yaml#/grade_by_id"
+  /leaveofabsences:
+    $ref: "paths/leaveofabsences.yaml#/leaveofabsences"
+  /leaveofabsences/{id}:
+    $ref: "paths/leaveofabsences.yaml#/leaveofabsence_by_id"
+  /programmes:
+    $ref: "paths/programmes.yaml#/programmes"
+  /programmes/{id}:
+    $ref: "paths/programmes.yaml#/programme_by_id"
+  /subscriptions:
+    $ref: "paths/subscriptions.yaml#/subscriptions"
+  /subscriptions/{id}:
+    $ref: "paths/subscriptions.yaml#/subscription_by_id"
 externalDocs:
   description: Find out more about Swagger
   url: "http://swagger.io"
@@ -69,6 +93,8 @@ components:
       $ref: "SchoolUnitGroup.yaml#/SchoolUnitGroup"
     SchoolUnitOffering:
       $ref: "SchoolUnitOffering.yaml#/SchoolUnitOffering"
+    Subscription:
+      $ref: "Subscription.yaml#/Subscription"
   parameters:
     FilterParam:
       in: query

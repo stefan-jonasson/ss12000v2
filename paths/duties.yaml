@@ -1,0 +1,99 @@
+duties:
+  get:
+    tags:
+      - Duty
+    summary: Hämta en lista med tjänstgöringar.
+    parameters:
+      - name: id
+        description: Begränsa urvalet till utpekade tjänstgörings-ID:n.
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - $ref: "searchParameters.yaml#/SearchCreatedBefore"
+      - $ref: "searchParameters.yaml#/SearchCreatedAfter"
+      - $ref: "searchParameters.yaml#/SearchModifiedBefore"
+      - $ref: "searchParameters.yaml#/SearchModifiedAfter"
+      - $ref: "searchParameters.yaml#/Offset"
+      - $ref: "searchParameters.yaml#/Limit"
+      - name: dutySchoolUnit
+        description: Begränsa urvalet till de tjänstgöringar som är kopplade till en skolenhet.
+        in: query
+        schema:
+          type: string
+          format: uuid
+      - name: dutyRole
+        description: Begränsta urvalet till de tjänstgöringar som matchar roll
+        in: query
+        schema:
+          type: string
+          enum:
+            - Rektor
+            - Lärare
+            - Förskollärare
+            - Övrig pedagogisk personal
+            - Förskolechef
+            - Annan personal
+      - name: person
+        description: Begränsa urvalet till de tjänstgöraingar som är kopplade till person ID
+        in: query
+        schema:
+          type: string
+          format: uuid
+    responses:
+      "200":
+        description: successful operation
+        content:
+          application/json:
+            schema:
+              $ref: "../Duty.yaml#/Duties"
+
+  post:
+    tags:
+      - Duty
+    summary: Hämta många tjänstgöringar baserat på en lista av ID:n.
+    description: >
+      Hämta många tjänstgöringar.
+    responses:
+      "200":
+        description: successful operation
+        content:
+          application/json:
+            schema:
+              $ref: "../Duty.yaml#/Duty"
+    requestBody:
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: string
+              format: uuid
+      required: true
+
+duty_by_id:
+  get:
+    tags:
+      - Duty
+    summary: Hämta tjänstgöring baserat på tjänstgöraings ID
+    parameters:
+      - name: id
+        in: path
+        description: ID för tjänstgöringaren som ska hämtas
+        required: true
+        schema:
+          type: string
+    responses:
+      "200":
+        description: successful operation
+        content:
+          application/json:
+            schema:
+              $ref: "../Duty.yaml#/Duty"
+      "400":
+        description: Invalid id supplied
+      "403":
+        description: Not authorised
+      "404":
+        description: Duty not found

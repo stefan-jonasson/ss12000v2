@@ -1,16 +1,4 @@
-Duty:
-  allOf:
-    - $ref: "#/DutyReference"
-    - type: object
-      properties:
-        meta:
-          $ref: "common.yaml#/Meta"
-        Person:
-          allOf:
-            - $ref: "common.yaml#/PersonReference"
-            - description: Identifierare av skolenhet som tjänsten är knuten till.
-
-DutyReference:
+DutyFragment:
   description: referens till ett Dutyobjekt
   properties:
     id:
@@ -52,3 +40,20 @@ DutyReference:
     - dutyAt
     - dutyRole
     - startDate
+
+Duty:
+  allOf:
+    - $ref: "#/DutyFragment"
+    - type: object
+      properties:
+        meta:
+          $ref: "common.yaml#/Meta"
+        Person:
+          allOf:
+            - $ref: "common.yaml#/PersonReference"
+            - description: Identifierare av person som tjänsten är knuten till.
+
+Duties:
+  type: array
+  items:
+    $ref: "#/Duty"

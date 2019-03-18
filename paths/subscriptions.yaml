@@ -1,0 +1,150 @@
+subscriptions:
+  get:
+    tags:
+      - Subcription
+    summary: Hämta en lista av prenumerationer.
+    responses:
+      "200":
+        description: successful operation
+        content:
+          application/json:
+            schema:
+              $ref: "../Subscription.yaml#/Subscriptions"
+
+  post:
+    tags:
+      - Subcription
+    summary: Skapa en prenumeration
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "../Subscription.yaml#/CreateSubscription"
+            example:
+              name: Nya
+              target: https://pastebin/788
+              secret: hemligt
+              authType: basic
+              events:
+                - NewOrUpdate
+              authCredentials:
+                name: vemsomhelst
+                password: qwerty
+
+    callbacks:
+      newOrUpdate: # Event name
+        "{$request.body#/target}": # The callback URL, Refers to the passed URL
+          post:
+            parameters:
+              - in: header
+                name: x-hmac-signature
+                schema:
+                  type: string
+                  description: sha1 hmac digest of responseBody (sha1=digest)
+            requestBody: # Contents of the callback message
+              required: true
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      action:
+                        type: string
+                        enum:
+                          - NewOrUpdate
+                          - Deleted
+
+                      list:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            resource:
+                              type: string
+                              enum:
+                                - Activity
+                                - AggregatedAttendance
+                                - AttendanceEvent
+                                - CalendarEvent
+                                - ChildCareSchedule
+                                - Duty
+                                - Grade
+                                - LeaveOfAbsence
+                                - Organisation
+                                - Person
+                                - Programme
+                                - Resource
+                                - Room
+                                - SchoolUnit
+                                - SchoolUnitGroup
+                                - SchoolUnitOffering
+                                - Syllabus
+                            id:
+                              type: array
+                              items:
+                                type: string
+
+            responses: # Expected responses to the callback message
+              "200":
+                description: Your server returns this code if it accepts the callback
+
+    responses:
+      201:
+        description: response of new object
+        content:
+          application/json:
+            schema:
+              $ref: "../Subscription.yaml#/Subscription"
+      default:
+        description: unexpected error
+        content:
+          application/json:
+            schema:
+              $ref: "../Subscription.yaml#/Error"
+
+subscription_by_id:
+  delete:
+    tags:
+      - Subcription
+    summary: Ta bort en prenumeration
+    parameters:
+      - name: id
+        in: path
+        description: ID för prenumerationen som ska tas bort
+        required: true
+        schema:
+          type: string
+    responses:
+      "204":
+        description: Prenumeration borttagen.
+      "400":
+        description: Invalid id
+      "403":
+        description: Not authorised
+      "404":
+        description: Prenumeration not found
+  get:
+    tags:
+      - Subcription
+    summary: Hämta program baserat på  ID
+    parameters:
+      - name: id
+        in: path
+        description: ID för prenumerationen som ska hämtas
+        required: true
+        schema:
+          type: string
+    responses:
+      "200":
+        description: successful operation
+        content:
+          application/json:
+            schema:
+              $ref: "../Subscription.yaml#/Subscription"
+      "400":
+        description: Invalid id supplied
+      "403":
+        description: Not authorised
+      "404":
+        description: Prenumeration not found

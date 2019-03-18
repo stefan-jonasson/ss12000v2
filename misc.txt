@@ -20,3 +20,11 @@ Avbortt läggs till i inskrvning
 
 Enrolment
     - Specfication 
+
+
+ändringar:
+
+displayName -> name  när det *är* ett namn och inte ett aggregerat resultat
+
+owner -> schoolUnit för activity o studentgroup
+
