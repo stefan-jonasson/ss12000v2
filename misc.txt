@@ -6,3 +6,17 @@ studentgroup utan koppling till aktivitet
 studentmembership finns med, start o slut + referens till person med displayName + ID
 
 problem: assignmentRole saknar ändå personen, man får bara duty. ska studentgroup hämta alla duty OCH alla personer som relaterar till duties. med expandera-flagga?
+
+TODO:
+ - Land läggstill i adress
+
+Kontakt uppgifter
+ - Typerna Skola - Anställd 
+           Skola - Elev 
+    läggs till och kräver att uppgiften kopplas till organisation
+
+Avbortt läggs till i inskrvning
+    - Dropout date 
+
+Enrolment
+    - Specfication 
