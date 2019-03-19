@@ -1,7 +1,8 @@
 subscriptions:
   get:
     tags:
-      - Subcription
+      - Subscription
+      - Verktyg
     summary: Hämta en lista av prenumerationer.
     responses:
       "200":
@@ -13,7 +14,8 @@ subscriptions:
 
   post:
     tags:
-      - Subcription
+      - Subscription
+      - Verktyg
     summary: Skapa en prenumeration
     requestBody:
       required: true
@@ -106,7 +108,8 @@ subscriptions:
 subscription_by_id:
   delete:
     tags:
-      - Subcription
+      - Subscription
+      - Verktyg
     summary: Ta bort en prenumeration
     parameters:
       - name: id
@@ -126,7 +129,8 @@ subscription_by_id:
         description: Prenumeration not found
   get:
     tags:
-      - Subcription
+      - Subscription
+      - Verktyg
     summary: Hämta program baserat på  ID
     parameters:
       - name: id
