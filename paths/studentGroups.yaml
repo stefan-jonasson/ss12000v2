@@ -1,6 +1,6 @@
 get:
   tags:
-    - StudentGroupa
+    - StudentGroup
   summary: Hämta en lista med studentgrupper.
   parameters:
     - name: id

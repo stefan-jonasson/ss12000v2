@@ -1,0 +1,52 @@
+get:
+  tags:
+    - Närvaro
+  summary: Returnerar summerad närvaro information utifrån angivet tidsintervall.
+  parameters:
+    - name: startDate
+      description: Hämta aggregerad närvaro från och med detta datum (ISO8601 format, e.g. "2016-10-15")
+      in: query
+      required: true
+      schema:
+        type: string
+        format: date-time
+    - name: endDate
+      description: Hämta aggregerad närvaro till och med detta datum (ISO8601 format, e.g. "2016-10-15")
+      in: query
+      required: true
+      schema:
+        type: string
+        format: date-time
+    - name: schoolUnit
+      description: Inkludera endast närvaro från aktiviteter vilka ägs av information kopplad till aktiviteten (Owner, eller inskrivningen??? eller något annat???)
+      in: query
+      schema:
+        type: string
+        format: uuid
+    - name: student
+      description: Filtrera på elev (person) 
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+          format: uuid
+    - name: expand
+      description: Beskriver om och vilken expanderade data som returneras i samband med närvaro informationen
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+          enum: [ activity, student ]
+    - $ref: "searchParameters.yaml#/Offset"
+    - $ref: "searchParameters.yaml#/Limit"
+  responses:
+    "200":
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            type: array
+            items: 
+              $ref: "../AggregatedAttendance.yaml#/AggregatedAttendance"
