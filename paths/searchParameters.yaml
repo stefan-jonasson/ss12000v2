@@ -6,7 +6,7 @@ SearchCreatedAfter:
   schema:
     type: string
     format: date-time
- 
+
 SearchCreatedBefore:
   name: meta.created.before
   description: Endast poster skapade på eller före detta timestamp (Inkluderande)
@@ -14,7 +14,7 @@ SearchCreatedBefore:
   schema:
     type: string
     format: date-time
- 
+
 SearchModifiedAfter:
   name: meta.modified.after
   description: Endast poster modifierade efter detta timestamp (Exkluderande)
