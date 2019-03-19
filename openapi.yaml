@@ -16,40 +16,58 @@ info:
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
 tags:
   - name: Person
-    description: Operations about person
+    description: Operations about person.
   - name: Verktyg
-    description: Methoder för att hantera metadata
+    description: Methoder för att hantera metadata.
+  - name: Närvaro
+    description: Information runt en elevs närvaro.
+  - name: Närvarohändelser
+    description: Närvarohändelser, används för närvarohantering i förskola och fritidshem (utan kopplingar till kalenderhändelser).
+  - name: Kalenderhändelser
+    description: Kalenderposter kopplat till aktiviteter
 paths:
   /deletedEntities:
     $ref: paths/deletedEntities.yaml
   /persons:
-    $ref: "paths/persons.yaml#/persons"
+    $ref: paths/persons.yaml#/persons
   /persons/{id}:
-    $ref: "paths/persons.yaml#/persons_by_id"
+    $ref: paths/persons.yaml#/persons_by_id
   /studentGroups:
     $ref: paths/studentGroups.yaml
-  /Activities:
+  /activities:
     $ref: paths/activities.yaml
+  /calendarEvents:
+    $ref: paths/calendarEvents.yaml#/calendar_events
   /duties:
-    $ref: "paths/duties.yaml#/duties"
+    $ref: paths/duties.yaml#/duties
   /duties/{id}:
-    $ref: "paths/duties.yaml#/duty_by_id"
+    $ref: paths/duties.yaml#/duty_by_id
+  /aggregatedAttendance:
+    $ref: paths/aggregatedAttendances.yaml
+  /attendances:
+    $ref: paths/attendances.yaml#/attendances
+  /attendances/{id}:
+    $ref: paths/attendances.yaml#/attendance_by_id
+  /attendanceEvents:
+    $ref: paths/attendanceEvents.yaml#/attendance_events
+  /attendanceEvents/{id}:
+    $ref: paths/attendanceEvents.yaml#/attendance_events_by_id
   /grades:
-    $ref: "paths/grades.yaml#/grades"
+    $ref: paths/grades.yaml#/grades
   /grades/{id}:
-    $ref: "paths/grades.yaml#/grade_by_id"
+    $ref: paths/grades.yaml#/grade_by_id
   /leaveofabsences:
-    $ref: "paths/leaveofabsences.yaml#/leaveofabsences"
+    $ref: paths/leaveofabsences.yaml#/leaveofabsences
   /leaveofabsences/{id}:
-    $ref: "paths/leaveofabsences.yaml#/leaveofabsence_by_id"
+    $ref: paths/leaveofabsences.yaml#/leaveofabsence_by_id
   /programmes:
-    $ref: "paths/programmes.yaml#/programmes"
+    $ref: paths/programmes.yaml#/programmes
   /programmes/{id}:
-    $ref: "paths/programmes.yaml#/programme_by_id"
+    $ref: paths/programmes.yaml#/programme_by_id
   /subscriptions:
-    $ref: "paths/subscriptions.yaml#/subscriptions"
+    $ref: paths/subscriptions.yaml#/subscriptions
   /subscriptions/{id}:
-    $ref: "paths/subscriptions.yaml#/subscription_by_id"
+    $ref: paths/subscriptions.yaml#/subscription_by_id
 externalDocs:
   description: Find out more about Swagger
   url: "http://swagger.io"

@@ -12,7 +12,7 @@ CalendarEvent:
       format: date-time
       description: Kalenderhändelsens starttid med datum och tid (ISO8601 format tex "2015-12-12T10:00:00").
     endTime:
-      type: boolean
+      type: string
       format: date-time
       description: Kalenderhändelsens sluttid med datum och tid (ISO8601 format tex "2015-12-12T10:00:00").
     cancelled:
@@ -46,7 +46,7 @@ CalendarEvent:
                 format: date-time
                 description: Starttid för undantaget (ISO8601 format tex "2015-12-12T10:30:00").
               endTime:
-                type: boolean
+                type: string
                 format: date-time
                 description: Sluttid för undantaget (ISO8601 format tex "2015-12-12T11:00:00").
               teachingLength:
@@ -54,7 +54,12 @@ CalendarEvent:
                 description: Undervisningstid i minuter för gruppen. Om den ej anges så gäller det som är angivet i, i första hand, CalendarEvent, och annars i Activity.
             required:
               - participates
-  required:
-    - isReported
-    - calendarEvent
-    - student
+    _embedded:
+      type: object
+      properties:
+        activity:
+          $ref: "Activity.yaml#/Activity"
+        attendance:
+          type: array
+          items:
+            $ref: "Attendance.yaml#/Attendance"

@@ -7,6 +7,19 @@ studentmembership finns med, start o slut + referens till person med displayName
 
 problem: assignmentRole saknar ändå personen, man får bara duty. ska studentgroup hämta alla duty OCH alla personer som relaterar till duties. med expandera-flagga?
 
+TODO:
+ - Land läggstill i adress
+
+Kontakt uppgifter
+ - Typerna Skola - Anställd 
+           Skola - Elev 
+    läggs till och kräver att uppgiften kopplas till organisation
+
+Avbortt läggs till i inskrvning
+    - Dropout date 
+
+Enrolment
+    - Specfication 
 
 
 ändringar:
@@ -15,3 +28,22 @@ displayName -> name  när det *är* ett namn och inte ett aggregerat resultat
 
 owner -> schoolUnit för activity o studentgroup
 
+Aggregated attendence
+ - Hur skall vi särskilja på "Musikskola" och "Språkcentrum"
+   - Hänger på elevens studieplan / relaterad inskrivning
+   - Vi skulle behöva ett elev objekt eller ett id för inskrivning.
+
+Hur hanterar vi felkoder? 
+    - Ett gemensamt felobjekt?
+    - Lista med logiska felkoder + extra systemspecifika?
+    - "Hanteras ej av systemet felmeddelande?" 
+        - Ex: posta en närvaroregistrering till ett system vilket inte hanterar närvaroregistrering.
+
+CalendrEvent:
+ - Jag vill flytta ut studentExceptions till en egen typ. Tänkte usecase: Hänta kalenderhänderlser för en elev. => Få ut en massa info om vilka elever som inte skall med för en viss händelse! 
+
+ID referenser är nu både:
+  - student: {
+      id: uuid
+  }
+  - student: uuid

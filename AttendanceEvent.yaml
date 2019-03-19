@@ -1,12 +1,6 @@
-AttendanceEvent:
+CreateAttendanceEvent:
   type: object
   properties:
-    id:
-      type: string
-      format: uuid
-      description: Ett ID för närvarohändelsen.
-    meta:
-      $ref: "common.yaml#/Meta"
     time:
       type: string
       format: date-time
@@ -32,3 +26,39 @@ AttendanceEvent:
     - type
     - child
     - group
+
+AttendanceEvent:
+  allOf:
+    - type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Ett ID för närvarohändelsen.
+        meta:
+          $ref: "common.yaml#/Meta"
+      required:
+        - id
+    - $ref: "#/CreateAttendanceEvent"
+    - type: object
+      properties:
+        _embedded:
+          type: object
+          properties:
+            registeredBy:
+              $ref: "Person.yaml#/Person"
+            child: 
+              $ref: "Person.yaml#/Person"
+            group: 
+              $ref: "StudentGroup.yaml#/StudentGroup"
+
+Error:
+  required:
+    - code
+    - message
+  properties:
+    code:
+      type: integer
+      format: int32
+    message:
+      type: string

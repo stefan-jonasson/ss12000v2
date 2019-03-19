@@ -1,12 +1,6 @@
-Attendance:
+CreateAttendance:
   type: object
   properties:
-    id:
-      type: string
-      format: uuid
-      description: Ett UUID för närvaron.
-    meta:
-      $ref: 'common.yaml#/Meta'
     isReported:
       type: boolean
       description: Anger om lektionen är explicit rapporterad.
@@ -33,11 +27,45 @@ Attendance:
       type: string
       format: uuid
     student:
-      allOf:
-        - $ref: 'common.yaml#/ObjectReference'
-        - description: Referens till person som närvaron gäller.
+      type: string
+      format: uuid
+      description: Referens till person som närvaron gäller.
   required:
-    - isReported
-    - calendarEvent
     - student
-    - meta
+    - calendarEvent
+   
+Attendance:
+  allOf:
+    - type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Ett UUID för närvaron.
+        meta:
+          $ref: 'common.yaml#/Meta'
+      required:
+        - id
+    - $ref: "#/CreateAttendance"
+    - type: object
+      properties:
+        _embedded:
+          type: object
+          properties:
+            activity:
+              $ref: "Activity.yaml#/Activity"
+            student: 
+              $ref: "Person.yaml#/Person"
+            calendarEvent: 
+              $ref: "CalendarEvent.yaml#/CalendarEvent"
+
+Error:
+  required:
+    - code
+    - message
+  properties:
+    code:
+      type: integer
+      format: int32
+    message:
+      type: string
