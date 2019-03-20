@@ -1,24 +1,16 @@
-studentGroups:
+rooms:
   get:
     tags:
-      - StudentGroup
-    summary: Hämta en lista med studentgrupper.
+      - Room
+    summary: Hämta en lista med salar.
     parameters:
       - name: id
-        description: Begränsa urvalet till utpekade person-ID:n.
+        description: Begränsa urvalet till utpekade sal-ID:n.
         in: query
         schema:
           type: array
           items:
             type: string
-      - name: expand
-        description: Beskriver om expanderade data ska hämtas
-        in: query
-        schema:
-          type: array
-          items:
-            type: string
-            enum: [assignmentRoles]
       - $ref: "searchParameters.yaml#/SearchCreatedBefore"
       - $ref: "searchParameters.yaml#/SearchCreatedAfter"
       - $ref: "searchParameters.yaml#/SearchModifiedBefore"
@@ -31,12 +23,11 @@ studentGroups:
         content:
           application/json:
             schema:
-              $ref: "../StudentGroup.yaml#/StudentGroup"
-
+              $ref: "../Room.yaml#/Room"
 
   post:
     tags:
-      - StudentGroup
+      - Room
     summary: Hämta många program baserat på en lista av ID:n.
     description: >
       Hämta många program.
@@ -46,7 +37,7 @@ studentGroups:
         content:
           application/json:
             schema:
-              $ref: "../StudentGroup.yaml#/StudentGroup"
+              $ref: "../Room.yaml#/Room"
     requestBody:
       content:
         application/json:
@@ -57,15 +48,15 @@ studentGroups:
               format: uuid
       required: true
 
-studentGroups_by_id:
+room_by_id:
   get:
     tags:
-      - StudentGroup
-    summary: Hämta studentgrupper baserat på ID
+      - Room
+    summary: Hämta en sal baserat på ID
     parameters:
       - name: id
         in: path
-        description: ID för studentgrupp som ska hämtas
+        description: ID för salen som ska hämtas
         required: true
         schema:
           type: string
@@ -75,7 +66,7 @@ studentGroups_by_id:
         content:
           application/json:
             schema:
-              $ref: "../StudentGroup.yaml#/StudentGroup"
+              $ref: "../Room.yaml#/Room"
       "400":
         description: Invalid id supplied
       "403":

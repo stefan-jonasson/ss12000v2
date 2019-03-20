@@ -33,7 +33,9 @@ paths:
   /persons/{id}:
     $ref: paths/persons.yaml#/persons_by_id
   /studentGroups:
-    $ref: paths/studentGroups.yaml
+    $ref: paths/studentGroups.yaml#/studentGroups
+  /studentGroups/{id}:
+    $ref: paths/studentGroups.yaml#/studentGroups_by_id
   /activities:
     $ref: paths/activities.yaml
   /calendarEvents:
@@ -68,6 +70,35 @@ paths:
     $ref: paths/subscriptions.yaml#/subscriptions
   /subscriptions/{id}:
     $ref: paths/subscriptions.yaml#/subscription_by_id
+  /syllabuses:
+    $ref: paths/syllabuses.yaml#/syllabuses
+  /syllabuses/{id}:
+    $ref: paths/syllabuses.yaml#/syllabus_by_id
+  /resources:
+    $ref: paths/resources.yaml#/resources
+  /resources/{id}:
+    $ref: paths/resources.yaml#/resource_by_id
+  /schoolUnits:
+    $ref: paths/schoolUnits.yaml#/schoolUnits
+  /schoolUnits/{id}:
+    $ref: paths/schoolUnits.yaml#/schoolUnit_by_id
+  /schoolUnitOfferings:
+    $ref: paths/schoolUnitOfferings.yaml#/schoolUnitOfferings
+  /schoolUnitOfferings/{id}:
+    $ref: paths/SchoolUnitOfferings.yaml#/schoolUnitOffering_by_id
+  /rooms:
+    $ref: paths/rooms.yaml#/rooms
+  /rooms/{id}:
+    $ref: paths/rooms.yaml#/room_by_id
+  /organisations:
+    $ref: paths/organisations.yaml#/organisations
+  /organisations/{id}:
+    $ref: paths/organisations.yaml#/organisation_by_id
+  /schoolUnitGroups:
+    $ref: paths/schoolUnitGroups.yaml#/schoolUnitGroups
+  /schoolUnitGroups/{id}:
+    $ref: paths/SchoolUnitGroups.yaml#/schoolUnitGroup_by_id
+
 externalDocs:
   description: Find out more about Swagger
   url: "http://swagger.io"
