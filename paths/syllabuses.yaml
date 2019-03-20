@@ -1,24 +1,16 @@
-studentGroups:
+syllabuses:
   get:
     tags:
-      - StudentGroup
-    summary: Hämta en lista med studentgrupper.
+      - Syllabus
+    summary: Hämta en lista med syllabuses.
     parameters:
       - name: id
-        description: Begränsa urvalet till utpekade person-ID:n.
+        description: Begränsa urvalet till utpekade syllabus-ID:n.
         in: query
         schema:
           type: array
           items:
             type: string
-      - name: expand
-        description: Beskriver om expanderade data ska hämtas
-        in: query
-        schema:
-          type: array
-          items:
-            type: string
-            enum: [assignmentRoles]
       - $ref: "searchParameters.yaml#/SearchCreatedBefore"
       - $ref: "searchParameters.yaml#/SearchCreatedAfter"
       - $ref: "searchParameters.yaml#/SearchModifiedBefore"
@@ -31,12 +23,11 @@ studentGroups:
         content:
           application/json:
             schema:
-              $ref: "../StudentGroup.yaml#/StudentGroup"
-
+              $ref: "../Syllabus.yaml#/Syllabus"
 
   post:
     tags:
-      - StudentGroup
+      - Syllabus
     summary: Hämta många program baserat på en lista av ID:n.
     description: >
       Hämta många program.
@@ -46,7 +37,7 @@ studentGroups:
         content:
           application/json:
             schema:
-              $ref: "../StudentGroup.yaml#/StudentGroup"
+              $ref: "../Syllabus.yaml#/Syllabus"
     requestBody:
       content:
         application/json:
@@ -57,10 +48,10 @@ studentGroups:
               format: uuid
       required: true
 
-studentGroups_by_id:
+syllabus_by_id:
   get:
     tags:
-      - StudentGroup
+      - Syllabus
     summary: Hämta studentgrupper baserat på ID
     parameters:
       - name: id
@@ -75,7 +66,7 @@ studentGroups_by_id:
         content:
           application/json:
             schema:
-              $ref: "../StudentGroup.yaml#/StudentGroup"
+              $ref: "../Syllabus.yaml#/Syllabus"
       "400":
         description: Invalid id supplied
       "403":

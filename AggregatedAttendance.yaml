@@ -1,16 +1,6 @@
 AggregatedAttendance:
   type: object
   properties:
-    startDate:
-      type: string
-      format: date
-      description: Startdatum för aggregerad närvaro (ISO8601 format, e.g. "2016-10-15")
-
-    endDate:
-      type: string
-      format: date
-      description: Slutdatum för aggregerad närvaro (ISO8601 format, t.ex. "2016-10-15")
-
     attendanceSum:
       type: integer
       description: Summerad tid i minuter för elevens närvaro på kalenderhändelser
@@ -44,6 +34,15 @@ AggregatedAttendance:
       allOf:
         - $ref: "common.yaml#/ObjectReference"
         - description: Referens till en person
+
+    _embedded:
+      type: object
+      properties:
+        activity:
+          $ref: "Activity.yaml#/Activity"
+
+        student:
+          $ref: "Person.yaml#/Person"
 
   required:
     - startDate

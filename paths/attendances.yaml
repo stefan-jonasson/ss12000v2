@@ -1,0 +1,125 @@
+attendances:
+  get:
+    tags:
+      - Närvaro
+    summary: Returnerar registrerad närvaro utifrån en aktivitet eller student.
+    parameters:
+      - name: activity
+        description: Begränsa urvalet till utpekade aktiviteters ID.
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+      - name: student
+        description: Begränsa urvalet till utpekade studenters ID.
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+      - name: expand
+        description: Beskriver om expanderade data ska hämtas för aktiviteten.
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+            enum: [ student, activity, calendarEvent ]
+      - $ref: "searchParameters.yaml#/SearchCreatedBefore"
+      - $ref: "searchParameters.yaml#/SearchCreatedAfter"
+      - $ref: "searchParameters.yaml#/SearchModifiedBefore"
+      - $ref: "searchParameters.yaml#/SearchModifiedAfter"
+      - $ref: "searchParameters.yaml#/Offset"
+      - $ref: "searchParameters.yaml#/Limit"
+    responses:
+      "200":
+        description: successful operation
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: "../Attendance.yaml#/Attendance"
+  post:
+    tags:
+      - Närvaro
+    summary: Registrera en ny närvaro post.
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "../Attendance.yaml#/CreateAttendance"
+
+    responses:
+      "200":
+        description: Posten skapad.
+        content:
+          application/json:
+            schema:
+              $ref: "../Attendance.yaml#/Attendance"
+      default:
+        description: unexpected error
+        content:
+          application/json:
+            schema:
+              $ref: "../Attendance.yaml#/Error"
+
+attendance_by_id:
+  get:
+    tags:
+        - Närvaro
+    summary: Hämta en närvaro post utifrån ID.
+    parameters:
+      - name: id
+        description: Hämta en Attendance post.
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+    responses:
+      "200":
+        description: Posten returneras.
+        content:
+          application/json:
+            schema:
+              $ref: "../Attendance.yaml#/Attendance"
+      "204":
+          description: Posten borttagen.
+      "400":
+        description: Felaktigt id.
+      "403":
+        description: Otilläckliga rättigheter.
+      "404":
+        description: Posten hitades inte.
+      default:
+        description: Okänt fel.
+        content:
+          application/json:
+            schema:
+              $ref: "../Attendance.yaml#/Error"
+  delete:
+    tags:
+        - Närvaro
+    summary: Ta bort en närvaro post.
+    parameters:
+      - name: id
+        in: path
+        description: ID för närvaro posten som ska tas bort.
+        required: true
+        schema:
+          type: string
+          format: uuid
+    responses:
+      "204":
+        description: Post borttagen.
+      "400":
+        description: Felaktigt id.
+      "403":
+        description: Otilläckliga rättigheter.
+      "404":
+        description: Posten hittades inte.
