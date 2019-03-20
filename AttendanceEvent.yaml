@@ -47,9 +47,9 @@ AttendanceEvent:
           properties:
             registeredBy:
               $ref: "Person.yaml#/Person"
-            child: 
+            child:
               $ref: "Person.yaml#/Person"
-            group: 
+            group:
               $ref: "StudentGroup.yaml#/StudentGroup"
 
 Error:

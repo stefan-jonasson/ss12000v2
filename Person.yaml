@@ -172,7 +172,7 @@ PersonExpanded:
         _embedded:
           type: object
           properties:
-            children: 
+            children:
               type: array
               description: Personens vårdnadshavare och andra ansvariga.
               items:
@@ -189,7 +189,7 @@ PersonExpanded:
                   relationType:
                     type: string
                     enum: ["Vårdnadshavare", "Annan ansvarig vuxen"]
-            duties: 
+            duties:
               type: array
               description: Personens tjänster
               items:

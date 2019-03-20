@@ -1,5 +1,5 @@
-attendances: 
-  get: 
+attendances:
+  get:
     tags:
       - Närvaro
     summary: Returnerar registrerad närvaro utifrån en aktivitet eller student.
@@ -53,7 +53,7 @@ attendances:
         application/json:
           schema:
             $ref: "../Attendance.yaml#/CreateAttendance"
-         
+
     responses:
       "200":
         description: Posten skapad.

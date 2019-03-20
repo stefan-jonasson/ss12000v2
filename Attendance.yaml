@@ -33,7 +33,7 @@ CreateAttendance:
   required:
     - student
     - calendarEvent
-   
+
 Attendance:
   allOf:
     - type: object
@@ -54,9 +54,9 @@ Attendance:
           properties:
             activity:
               $ref: "Activity.yaml#/Activity"
-            student: 
+            student:
               $ref: "Person.yaml#/Person"
-            calendarEvent: 
+            calendarEvent:
               $ref: "CalendarEvent.yaml#/CalendarEvent"
 
 Error:

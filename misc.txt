@@ -11,15 +11,15 @@ TODO:
  - Land läggstill i adress
 
 Kontakt uppgifter
- - Typerna Skola - Anställd 
-           Skola - Elev 
+ - Typerna Skola - Anställd
+           Skola - Elev
     läggs till och kräver att uppgiften kopplas till organisation
 
 Avbortt läggs till i inskrvning
-    - Dropout date 
+    - Dropout date
 
 Enrolment
-    - Specfication 
+    - Specfication
 
 
 ändringar:
@@ -36,7 +36,7 @@ owner -> schoolUnit för activity o studentgroup
 # Hur hanterar vi felkoder? 
     - Ett gemensamt felobjekt?
     - Lista med logiska felkoder + extra systemspecifika?
-    - "Hanteras ej av systemet felmeddelande?" 
+    - "Hanteras ej av systemet felmeddelande?"
         - Ex: posta en närvaroregistrering till ett system vilket inte hanterar närvaroregistrering.
 
 # CalendrEvent:

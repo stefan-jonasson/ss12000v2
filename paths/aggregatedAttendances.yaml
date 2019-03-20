@@ -24,7 +24,7 @@ get:
         type: string
         format: uuid
     - name: student
-      description: Filtrera på elev (person) 
+      description: Filtrera på elev (person)
       in: query
       schema:
         type: array
@@ -48,5 +48,5 @@ get:
         application/json:
           schema:
             type: array
-            items: 
+            items:
               $ref: "../AggregatedAttendance.yaml#/AggregatedAttendance"

@@ -1,5 +1,5 @@
-attendance_events: 
-  get: 
+attendance_events:
+  get:
     tags:
       - Närvarohändelser
     summary: Returnerar registrerade in-/utcheckningar.
@@ -53,7 +53,7 @@ attendance_events:
         application/json:
           schema:
             $ref: "../AttendanceEvent.yaml#/CreateAttendanceEvent"
-         
+
     responses:
       "200":
         description: Posten skapad.
