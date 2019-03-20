@@ -31,25 +31,8 @@ SubscriptionFragment:
             type: string
             enum: [NewOrUpdate, Deleted]
           resource:
-            type: string
-            enum:
-              - Activity
-              - AggregatedAttendance
-              - AttendanceEvent
-              - CalendarEvent
-              - ChildCareSchedule
-              - Duty
-              - Grade
-              - LeaveOfAbsence
-              - Organisation
-              - Person
-              - Programme
-              - Resource
-              - Room
-              - SchoolUnit
-              - SchoolUnitGroup
-              - SchoolUnitOffering
-              - Syllabus
+            $ref: "common.yaml#/components/schemas/EndPointsEnum"
+
   required:
     - target
     - secret
