@@ -1,19 +1,19 @@
-attendances:
-  get:
+childcare_schedule: 
+  get: 
     tags:
-      - Närvaro
-    summary: Returnerar registrerad närvaro utifrån en aktivitet eller student.
+      - Barnomsorgsschema
+    summary: Returnerar registrerade in-/utcheckningar.
     parameters:
-      - name: activity
-        description: Begränsa urvalet till utpekade aktiviteters ID.
+      - name: child
+        description: Begränsa urvalet till utpekade barns ID.
         in: query
         schema:
           type: array
           items:
             type: string
             format: uuid
-      - name: student
-        description: Begränsa urvalet till utpekade studenters ID.
+      - name: group
+        description: Begränsa urvalet till utpekade groupers ID.
         in: query
         schema:
           type: array
@@ -21,13 +21,13 @@ attendances:
             type: string
             format: uuid
       - name: expand
-        description: Beskriver om expanderade data ska hämtas för närvaroregisteringen.
+        description: Beskriver om expanderade data ska hämtas för aktiviteten.
         in: query
         schema:
           type: array
           items:
             type: string
-            enum: [ student, activity, calendarEvent ]
+            enum: [ child, group ]
       - $ref: "searchParameters.yaml#/SearchCreatedBefore"
       - $ref: "searchParameters.yaml#/SearchCreatedAfter"
       - $ref: "searchParameters.yaml#/SearchModifiedBefore"
@@ -42,40 +42,40 @@ attendances:
             schema:
               type: array
               items:
-                $ref: "../Attendance.yaml#/Attendance"
+                $ref: "../ChildCareSchedule.yaml#/ChildCareSchedule"
   post:
     tags:
-      - Närvaro
-    summary: Registrera en ny närvaro post.
+      - Barnomsorgsschema
+    summary: Registrera en ny närvarohändelse (in-/utcheckning).
     requestBody:
       required: true
       content:
         application/json:
           schema:
-            $ref: "../Attendance.yaml#/CreateAttendance"
-
+            $ref: "../ChildCareSchedule.yaml#/CreateChildCareSchedule"
+         
     responses:
       "200":
         description: Posten skapad.
         content:
           application/json:
             schema:
-              $ref: "../Attendance.yaml#/Attendance"
+              $ref: "../ChildCareSchedule.yaml#/ChildCareSchedule"
       default:
         description: unexpected error
         content:
           application/json:
             schema:
-              $ref: "../Attendance.yaml#/Error"
+              $ref: "../ChildCareSchedule.yaml#/Error"
 
-attendance_by_id:
+childcare_schedule_by_id:
   get:
     tags:
-        - Närvaro
-    summary: Hämta en närvaro post utifrån ID.
+        - Barnomsorgsschema
+    summary: Hämta en närvarohändelse utifrån ID.
     parameters:
       - name: id
-        description: Hämta en Attendance post.
+        description: Hämta en närvarohändelse.
         in: path
         required: true
         schema:
@@ -87,9 +87,7 @@ attendance_by_id:
         content:
           application/json:
             schema:
-              $ref: "../Attendance.yaml#/Attendance"
-      "204":
-          description: Posten borttagen.
+              $ref: "../ChildCareSchedule.yaml#/ChildCareSchedule"
       "400":
         description: Felaktigt id.
       "403":
@@ -101,11 +99,11 @@ attendance_by_id:
         content:
           application/json:
             schema:
-              $ref: "../Attendance.yaml#/Error"
+              $ref: "../ChildCareSchedule.yaml#/Error"
   delete:
     tags:
-        - Närvaro
-    summary: Ta bort en närvaro post.
+        - Barnomsorgsschema
+    summary: Ta bort en närvarohändelse.
     parameters:
       - name: id
         in: path
