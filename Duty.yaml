@@ -23,8 +23,7 @@ DutyFragment:
       type: string
       description: En signatur för tjänstgöringen exempelvis NJN, JOAN.
     dutyPercent:
-      type: number
-      format: float
+      type: integer
       description: Tjänstgöringsgrad i procent
     hoursPerYear:
       type: integer
