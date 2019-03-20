@@ -25,8 +25,31 @@ SubscriptionFragment:
     events:
       type: array
       items:
-        type: string
-        enum: [NewOrUpdate, Deleted]
+        type: object
+        properties:
+          name:
+            type: string
+            enum: [NewOrUpdate, Deleted]
+          resource:
+            type: string
+            enum:
+              - Activity
+              - AggregatedAttendance
+              - AttendanceEvent
+              - CalendarEvent
+              - ChildCareSchedule
+              - Duty
+              - Grade
+              - LeaveOfAbsence
+              - Organisation
+              - Person
+              - Programme
+              - Resource
+              - Room
+              - SchoolUnit
+              - SchoolUnitGroup
+              - SchoolUnitOffering
+              - Syllabus
   required:
     - target
     - secret
