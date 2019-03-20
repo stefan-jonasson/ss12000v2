@@ -5,7 +5,7 @@ attendance_events:
     summary: Returnerar registrerade in-/utcheckningar.
     parameters:
       - name: group
-        description: Begränsa urvalet till utpekade groupers ID.
+        description: Begränsa urvalet till utpekade gruppers ID.
         in: query
         schema:
           type: array

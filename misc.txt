@@ -28,22 +28,33 @@ displayName -> name  när det *är* ett namn och inte ett aggregerat resultat
 
 owner -> schoolUnit för activity o studentgroup
 
-Aggregated attendence
+# Aggregated attendence
  - Hur skall vi särskilja på "Musikskola" och "Språkcentrum"
    - Hänger på elevens studieplan / relaterad inskrivning
    - Vi skulle behöva ett elev objekt eller ett id för inskrivning.
 
-Hur hanterar vi felkoder? 
+# Hur hanterar vi felkoder? 
     - Ett gemensamt felobjekt?
     - Lista med logiska felkoder + extra systemspecifika?
     - "Hanteras ej av systemet felmeddelande?" 
         - Ex: posta en närvaroregistrering till ett system vilket inte hanterar närvaroregistrering.
 
-CalendrEvent:
+# CalendrEvent:
  - Jag vill flytta ut studentExceptions till en egen typ. Tänkte usecase: Hänta kalenderhänderlser för en elev. => Få ut en massa info om vilka elever som inte skall med för en viss händelse! 
 
-ID referenser är nu både:
+# ID referenser:
+Hur skall de genererllt fungera?
   - student: {
       id: uuid
   }
   - student: uuid
+
+# AttendanceEvent 
+Skall denna heta AttendanceEvent eller ChildCareAttendanceEvent?
+Det skiljer sig i wordfilen och i openapi-spec.
+
+# ChildcareSchedule
+I våra system så är ett schema kopplat till en baromsorgsplats dvs samma barn på samma avdelning kan styras av två separata VH och betraktas som olika scheman. (Hanteras av att det är olika placeringar och schemat är kopplat till de olika placeringarna)
+Kommentarer skulle också vara bra att få till för avslag/temporära scheman mm. 
+ - message
+ - ApprovalStatus

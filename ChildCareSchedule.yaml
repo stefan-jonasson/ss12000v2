@@ -1,12 +1,6 @@
-ChildCareSchedule:
+CreateChildCareSchedule:
   type: object
   properties:
-    id:
-      type: string
-      format: uuid
-      description: Ett ID för schemat.
-    meta:
-      $ref: "common.yaml#/Meta"
     temporary:
       type: boolean
       description: Anger om detta är ett undantag som gäller istället för normalschemat, oftast under en begränsad tid.
@@ -58,3 +52,43 @@ ChildCareSchedule:
       allOf:
         - $ref: "common.yaml#/StudentGroupReference"
         - description: Den avdelning eller grupp på förskoleenheten som schemat avser.
+  required:
+    - startDate
+    - scheduleDays
+    - child
+    - group
+
+ChildCareSchedule:
+  allOf:
+    - type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Ett ID för schemat.
+        meta:
+          $ref: "common.yaml#/Meta"
+      required: 
+        - id
+    - $ref: "#/CreateChildCareSchedule"
+    - type: object
+      properties:
+        _expand:
+          type: object
+          properties:
+            child:
+              $ref: "Person.yaml#/Person"
+            group:
+              $ref: "StudentGroup.yaml#/StudentGroup"
+
+
+Error:
+  required:
+    - code
+    - message
+  properties:
+    code:
+      type: integer
+      format: int32
+    message:
+      type: string
