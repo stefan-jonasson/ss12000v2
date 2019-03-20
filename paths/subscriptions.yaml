@@ -1,7 +1,8 @@
 subscriptions:
   get:
     tags:
-      - Subcription
+      - Subscription
+      - Verktyg
     summary: Hämta en lista av prenumerationer.
     responses:
       "200":
@@ -13,7 +14,8 @@ subscriptions:
 
   post:
     tags:
-      - Subcription
+      - Subscription
+      - Verktyg
     summary: Skapa en prenumeration
     requestBody:
       required: true
@@ -61,25 +63,7 @@ subscriptions:
                           type: object
                           properties:
                             resource:
-                              type: string
-                              enum:
-                                - Activity
-                                - AggregatedAttendance
-                                - AttendanceEvent
-                                - CalendarEvent
-                                - ChildCareSchedule
-                                - Duty
-                                - Grade
-                                - LeaveOfAbsence
-                                - Organisation
-                                - Person
-                                - Programme
-                                - Resource
-                                - Room
-                                - SchoolUnit
-                                - SchoolUnitGroup
-                                - SchoolUnitOffering
-                                - Syllabus
+                              $ref: "../common.yaml#/components/schemas/EndPointsEnum"
                             id:
                               type: array
                               items:
@@ -106,7 +90,8 @@ subscriptions:
 subscription_by_id:
   delete:
     tags:
-      - Subcription
+      - Subscription
+      - Verktyg
     summary: Ta bort en prenumeration
     parameters:
       - name: id
@@ -126,7 +111,8 @@ subscription_by_id:
         description: Prenumeration not found
   get:
     tags:
-      - Subcription
+      - Subscription
+      - Verktyg
     summary: Hämta program baserat på  ID
     parameters:
       - name: id
