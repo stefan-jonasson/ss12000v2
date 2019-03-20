@@ -1,24 +1,16 @@
-studentGroups:
+resources:
   get:
     tags:
-      - StudentGroup
-    summary: Hämta en lista med studentgrupper.
+      - Resource
+    summary: Hämta en lista med resurser.
     parameters:
       - name: id
-        description: Begränsa urvalet till utpekade person-ID:n.
+        description: Begränsa urvalet till utpekade resurs-ID:n.
         in: query
         schema:
           type: array
           items:
             type: string
-      - name: expand
-        description: Beskriver om expanderade data ska hämtas
-        in: query
-        schema:
-          type: array
-          items:
-            type: string
-            enum: [assignmentRoles]
       - $ref: "searchParameters.yaml#/SearchCreatedBefore"
       - $ref: "searchParameters.yaml#/SearchCreatedAfter"
       - $ref: "searchParameters.yaml#/SearchModifiedBefore"
@@ -31,12 +23,11 @@ studentGroups:
         content:
           application/json:
             schema:
-              $ref: "../StudentGroup.yaml#/StudentGroup"
-
+              $ref: "../Resource.yaml#/Resource"
 
   post:
     tags:
-      - StudentGroup
+      - Resource
     summary: Hämta många program baserat på en lista av ID:n.
     description: >
       Hämta många program.
@@ -46,7 +37,7 @@ studentGroups:
         content:
           application/json:
             schema:
-              $ref: "../StudentGroup.yaml#/StudentGroup"
+              $ref: "../Resource.yaml#/Resource"
     requestBody:
       content:
         application/json:
@@ -57,15 +48,15 @@ studentGroups:
               format: uuid
       required: true
 
-studentGroups_by_id:
+resource_by_id:
   get:
     tags:
-      - StudentGroup
-    summary: Hämta studentgrupper baserat på ID
+      - resource
+    summary: Hämta en resurs baserat på ID
     parameters:
       - name: id
         in: path
-        description: ID för studentgrupp som ska hämtas
+        description: ID för resursen som ska hämtas
         required: true
         schema:
           type: string
@@ -75,7 +66,7 @@ studentGroups_by_id:
         content:
           application/json:
             schema:
-              $ref: "../StudentGroup.yaml#/StudentGroup"
+              $ref: "../Resource.yaml#/Resource"
       "400":
         description: Invalid id supplied
       "403":
