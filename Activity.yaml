@@ -113,7 +113,7 @@ Activity:
           format: uuid
         displayName:
           type: string
-          description: Ett läsbart namn för att identifiera skolenheten. READ-ONLY.
+          description: Ett läsbart namn för att identifiera skolenheten.
       description: Den skolenhet som aktiviteten är knuten till.
 
     parentActivity:
@@ -125,7 +125,7 @@ Activity:
           description: Identifierare för den ursprungliga aktiviteten.
         displayName:
           type: string
-          description: Ett läsbart namn för att identifiera aktiviteten. READ-ONLY.
+          description: Ett läsbart namn för att identifiera aktiviteten.
       description: Möjlighet att koppla aktiviteten till en ursprunglig "föräldraaktivitet"
 
   required:

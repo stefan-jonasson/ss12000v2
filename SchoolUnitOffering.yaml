@@ -30,7 +30,7 @@ SchoolUnitOffering:
             displayName:
               type: string
               description: >
-                Ett läsbart namn för att identifiera kursen. READ-ONLY.
+                Ett läsbart namn för att identifiera kursen.
     programmes:
       allOf:
         - description: Program som ges av skolan.
@@ -57,4 +57,4 @@ SchoolUnitOffering:
             displayName:
               type: string
               description: >
-                Ett läsbart namn för att identifiera kursen. READ-ONLY.
+                Ett läsbart namn för att identifiera kursen.
