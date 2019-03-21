@@ -1,8 +1,9 @@
 leaveofabsences:
   get:
     tags:
-      - LeaveOfAbsence
+      - Närvaro
     summary: Hämta en lista av anmäld frånvaro.
+    operationId: getLeaveOfAbsence
     parameters:
       - name: id
         description: Begränsa urvalet till utpekade anmälda frånvaro ID.
@@ -54,11 +55,36 @@ leaveofabsences:
           application/json:
             schema:
               $ref: "../LeaveOfAbsence.yaml#/LeaveOfAbsences"
-
   post:
     tags:
-      - LeaveOfAbsence
+      - Närvaro
+    summary: Registrera en ny närvaro post.
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "../LeaveOfAbsence.yaml#/CreateLeaveOfAbsence"
+    responses:
+      200:
+        description: Posten skapad.
+        content:
+          application/json:
+            schema:
+              $ref: "../LeaveOfAbsence.yaml#/LeaveOfAbsence"
+      default:
+        description: unexpected error
+        content:
+          application/json:
+            schema:
+              $ref: "../LeaveOfAbsence.yaml#/Error"
+
+leaveOfAbsenceFilter:
+  post:
+    tags:
+      - Närvaro
     summary: Hämta många anmälda frånvaro baserat på en lista av ID:n.
+    operationId: postLeaveOfAbsenceFilter
     description: >
       Hämta många anmälda frånvaro.
     responses:
@@ -81,7 +107,7 @@ leaveofabsences:
 leaveofabsence_by_id:
   get:
     tags:
-      - LeaveOfAbsence
+      - Närvaro
     summary: Hämta anmäld frånvaro baserat på  ID
     parameters:
       - name: id
