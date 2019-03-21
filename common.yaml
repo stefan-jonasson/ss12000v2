@@ -85,3 +85,22 @@ components:
         - SchoolUnitGroup
         - SchoolUnitOffering
         - Syllabus
+
+    SchoolTypesEnum:
+      enum:
+        - FS
+        - FSK
+        - FTH
+        - GR
+        - GRS
+        - SP
+        - SAM
+        - GY
+        - GYS
+        - VUX
+        - SUV
+        - YH
+        - FHS
+        - HS
+        - AU
+

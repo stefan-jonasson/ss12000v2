@@ -56,7 +56,7 @@ schoolunitofferings har inget eget id, vilket är korrekt
 däremot måste man kunna filtera på skolenhet [klart]
 och kanske andra saker [nej]
 
-schoolUnits bör kunna filtreras på organisation,kommunkod och skolform
+schoolUnits bör kunna filtreras på organisation, kommunkod och skolform [klart]
 
 är maximum för limit rimlig?
 
