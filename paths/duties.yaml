@@ -1,7 +1,7 @@
 duties:
   get:
     tags:
-      - Duty
+      - Person
     summary: Hämta en lista med tjänstgöringar.
     parameters:
       - name: id
@@ -51,7 +51,7 @@ duties:
 
   post:
     tags:
-      - Duty
+      - Person
     summary: Hämta många tjänstgöringar baserat på en lista av ID:n.
     description: >
       Hämta många tjänstgöringar.
@@ -75,7 +75,7 @@ duties:
 duty_by_id:
   get:
     tags:
-      - Duty
+      - Person
     summary: Hämta tjänstgöring baserat på tjänstgörings ID
     parameters:
       - name: id

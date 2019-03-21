@@ -28,7 +28,7 @@ schoolUnits:
         schema:
           type: array
           items:
-            $ref: "../common.yaml#/components/schemas/SchoolTypesEnum"                        format: uuid
+            $ref: "../common.yaml#/components/schemas/SchoolTypesEnum"
       - name: startDate.onOrAfter
         description: >
           Begränsa urvalet av skolenheter till de som är aktiva
@@ -61,7 +61,7 @@ schoolUnits:
 
   post:
     tags:
-      - SchoolUnit
+      - Organisation
     summary: Hämta många program baserat på en lista av ID:n.
     description: >
       Hämta många program.
@@ -85,8 +85,8 @@ schoolUnits:
 schoolUnit_by_id:
   get:
     tags:
-      - SchoolUnit
-    summary: Hämta en resurs baserat på ID
+      - Organisation
+    summary: Hämta en skolenhet baserat på ID
     parameters:
       - name: id
         in: path

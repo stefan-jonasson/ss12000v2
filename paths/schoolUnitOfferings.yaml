@@ -1,7 +1,7 @@
 schoolUnitOfferings:
   get:
     tags:
-      - SchoolUnitOffering
+      - Kurser
     summary: Hämta en lista med skolenheters erbjudanden.
     parameters:
       - name: id
@@ -33,7 +33,7 @@ schoolUnitOfferings:
 
   post:
     tags:
-      - SchoolUnitOffering
+      - Kurser
     summary: Hämta många program baserat på en lista av ID:n.
     description: >
       Hämta många program.
@@ -57,7 +57,7 @@ schoolUnitOfferings:
 schoolUnitOffering_by_id:
   get:
     tags:
-      - SchoolUnitOffering
+      - Kurser
     summary: Hämta en resurs baserat på ID
     parameters:
       - name: id

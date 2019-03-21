@@ -1,7 +1,7 @@
 rooms:
   get:
     tags:
-      - Room
+      - Rum och resurser
     summary: Hämta en lista med salar.
     parameters:
       - name: id
@@ -33,7 +33,7 @@ rooms:
 
   post:
     tags:
-      - Room
+      - Rum och resurser
     summary: Hämta många salar baserat på en lista av ID:n.
     description: >
       Hämta många program.
@@ -57,7 +57,7 @@ rooms:
 room_by_id:
   get:
     tags:
-      - Room
+      - Rum och resurser
     summary: Hämta en sal baserat på ID
     parameters:
       - name: id

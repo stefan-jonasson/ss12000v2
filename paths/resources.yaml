@@ -1,7 +1,7 @@
 resources:
   get:
     tags:
-      - Resource
+      - Rum och resurser
     summary: Hämta en lista med resurser.
     parameters:
       - name: id
@@ -33,7 +33,7 @@ resources:
 
   post:
     tags:
-      - Resource
+      - Rum och resurser
     summary: Hämta många resurser baserat på en lista av ID:n.
     description: >
       Hämta många program.
@@ -57,7 +57,7 @@ resources:
 resource_by_id:
   get:
     tags:
-      - resource
+      - Rum och resurser
     summary: Hämta en resurs baserat på ID
     parameters:
       - name: id

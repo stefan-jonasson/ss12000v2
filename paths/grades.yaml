@@ -1,7 +1,7 @@
 grades:
   get:
     tags:
-      - Grade
+      - Betyg
     summary: Hämta en lista med betyg.
     parameters:
       - name: id
@@ -63,7 +63,7 @@ grades:
 
   post:
     tags:
-      - Grade
+      - Betyg
     summary: Hämta många betyg baserat på en lista av ID:n.
     description: >
       Hämta många betyg.
@@ -87,7 +87,7 @@ grades:
 grade_by_id:
   get:
     tags:
-      - Grade
+      - Betyg
     summary: Hämta betyg baserat på ID
     parameters:
       - name: id
