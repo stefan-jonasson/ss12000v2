@@ -23,8 +23,8 @@ generellt sett, när vi POSTAR för att hämta många ID:n, så lägger vi på
 
 rimligt att kunna hitta avvikelser i attendance
 
-leave of absence bör har filter på type
-leaveofabsence bör ha post för att skapa nya rader
+leave of absence bör har filter på type [klart]
+leaveofabsence bör ha post för att skapa nya rader  [klart]
 
 enum centraliseras till common.yaml
 

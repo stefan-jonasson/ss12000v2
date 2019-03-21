@@ -1,7 +1,6 @@
-LeaveOfAbsence:
+LeaveOfAbsenceFragment:
   type: object
   properties:
-    ## id, hur ska vi hantera det?
     id:
       type: string
       format: uuid
@@ -40,7 +39,59 @@ LeaveOfAbsence:
     - type
     - student
 
+LeaveOfAbsence:
+  allOf:
+    - $ref: "#/LeaveOfAbsenceFragment"
+    - type: object
+      properties:
+        meta:
+          $ref: "common.yaml#/Meta"
+
+CreateLeaveOfAbsence:
+  type: object
+  properties:
+    startTime:
+      type: string
+      format: date-time
+      description: Starttid för den anmälda frånvaron/ledigheten.
+    endTime:
+      type: string
+      format: date-time
+      description: Sluttid för den anmälda frånvaron/ledigheten.
+    type:
+      $ref: "common.yaml#/components/schemas/LeaveOfAbsenceEnum"
+    student:
+      type: string
+      format: uuid
+      description: ID för student som den anmälda frånvaron/ledigheten avser.
+    schoolUnit:
+      type: string
+      format: uuid
+      description: ID för den skolenhet som den anmälda frånvaron/ledigheten avser.
+    registeredBy:
+      type: string
+      format: uuid
+      description: ID för den person som registrerar den anmälda frånvaron/ledigheten.
+  required:
+    - startTime
+    - endTime
+    - type
+    - student
+    - schoolUnit
+    - registeredBy
+
 LeaveOfAbsences:
   type: array
   items:
     $ref: "#/LeaveOfAbsence"
+
+Error:
+  required:
+    - code
+    - message
+  properties:
+    code:
+      type: integer
+      format: int32
+    message:
+      type: string

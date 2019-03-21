@@ -1,7 +1,7 @@
 openapi: 3.0.0
 servers:
   - description: SS12000
-    url: /v2.0
+    url: http://some.server.se/v2.0
 info:
   description: |
     This is an implementation specification of SS12000 v2
@@ -91,6 +91,8 @@ paths:
     $ref: paths/grades.yaml#/grade_by_id
   /leaveofabsences:
     $ref: paths/leaveofabsences.yaml#/leaveofabsences
+  /leaveofabsences/filter:
+    $ref: paths/leaveofabsences.yaml#/leaveOfAbsenceFilter
   /leaveofabsences/{id}:
     $ref: paths/leaveofabsences.yaml#/leaveofabsence_by_id
   /aggregatedAttendance:
