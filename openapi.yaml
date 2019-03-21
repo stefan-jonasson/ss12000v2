@@ -51,8 +51,10 @@ paths:
     $ref: paths/schoolUnits.yaml#/schoolUnitById
   /persons:
     $ref: paths/persons.yaml#/persons
+  /persons/filter:
+    $ref: paths/persons.yaml#/personsFilter
   /persons/{id}:
-    $ref: paths/persons.yaml#/persons_by_id
+    $ref: paths/persons.yaml#/personsById
   /duties:
     $ref: paths/duties.yaml#/duties
   /duties/filter:

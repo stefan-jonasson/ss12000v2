@@ -32,13 +32,14 @@ generellt sett, när vi POSTAR för att hämta många ID:n, så lägger vi på
         - Grade [klart]
         - LeaveOfAbsence [klart]
         - Organisation [klart]
-        - Person
+        - Person [klart]
         - Programme
         - Resource
         - Room
         - SchoolUnit [klart]
         - SchoolUnitOffering
         - Syllabus
+        - StudyPlan
 
 rimligt att kunna hitta avvikelser i attendance
 
