@@ -12,3 +12,8 @@ Resource:
         - $ref: "common.yaml#/ObjectReference"
         - description: >
             Möjlighet att ange vilken skolenhetsgrupp resursen tillhör.
+
+Resources:
+  type: array
+  items:
+    $ref: "#/Resource"

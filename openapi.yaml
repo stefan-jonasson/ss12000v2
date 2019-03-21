@@ -121,8 +121,10 @@ paths:
     $ref: paths/aggregatedAttendances.yaml
   /resources:
     $ref: paths/resources.yaml#/resources
+  /resourcesFilter:
+    $ref: paths/resources.yaml#/resourcesFilter
   /resources/{id}:
-    $ref: paths/resources.yaml#/resource_by_id
+    $ref: paths/resources.yaml#/resourceById
   /rooms:
     $ref: paths/rooms.yaml#/rooms
   /rooms/{id}:
