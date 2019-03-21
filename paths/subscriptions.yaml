@@ -1,7 +1,7 @@
 subscriptions:
   get:
     tags:
-      - Subscription
+      - Prenumeration
       - Verktyg
     summary: Hämta en lista av prenumerationer.
     responses:
@@ -14,7 +14,7 @@ subscriptions:
 
   post:
     tags:
-      - Subscription
+      - Prenumeration
       - Verktyg
     summary: Skapa en prenumeration
     requestBody:
@@ -90,7 +90,7 @@ subscriptions:
 subscription_by_id:
   delete:
     tags:
-      - Subscription
+      - Prenumeration
       - Verktyg
     summary: Ta bort en prenumeration
     parameters:

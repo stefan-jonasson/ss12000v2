@@ -53,7 +53,7 @@ programmes:
 
   post:
     tags:
-      - Programme
+      - Kurser
     summary: Hämta många program baserat på en lista av ID:n.
     description: >
       Hämta många program.
@@ -77,7 +77,7 @@ programmes:
 programme_by_id:
   get:
     tags:
-      - LeaveOfAbsence
+      - Kurser
     summary: Hämta program baserat på  ID
     parameters:
       - name: id

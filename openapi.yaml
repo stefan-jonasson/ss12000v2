@@ -30,8 +30,12 @@ tags:
     description: Schema som registrerats för barnets omsorgstider på förskola eller fritidshem
   - name: Närvarohändelser
     description: In- och utpassering. Används för närvarohantering i förskola och fritidshem (utan kopplingar till kalenderhändelser).
+  - name: Rum och resurser
+    description: Salar och resurser som kan schemaläggas.
   - name: Verktyg
-    description: Methoder för att hantera metadata.
+    description: Metoder för att hantera metadata.
+  - name: Prenumeration
+    description: Webhook för att prenumerera på uppdateringar.
 paths:
   /organisations:
     $ref: paths/organisations.yaml#/organisations

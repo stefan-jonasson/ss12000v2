@@ -1,6 +1,6 @@
 get:
   tags:
-    - Activitites
+    - Aktiviteter
   summary: Hämta en lista med aktiviteter.
   parameters:
     - name: id

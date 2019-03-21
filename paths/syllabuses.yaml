@@ -1,7 +1,7 @@
 syllabuses:
   get:
     tags:
-      - Syllabus
+      - Kurser
     summary: Hämta en lista med syllabuses.
     parameters:
       - name: id
@@ -27,7 +27,7 @@ syllabuses:
 
   post:
     tags:
-      - Syllabus
+      - Kurser
     summary: Hämta många program baserat på en lista av ID:n.
     description: >
       Hämta många program.
@@ -51,7 +51,7 @@ syllabuses:
 syllabus_by_id:
   get:
     tags:
-      - Syllabus
+      - Kurser
     summary: Hämta studentgrupper baserat på ID
     parameters:
       - name: id

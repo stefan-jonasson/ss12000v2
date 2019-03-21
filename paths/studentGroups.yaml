@@ -1,7 +1,7 @@
 studentGroups:
   get:
     tags:
-      - StudentGroup
+      - Grupper
     summary: Hämta en lista med studentgrupper.
     parameters:
       - name: id
@@ -36,7 +36,7 @@ studentGroups:
 
   post:
     tags:
-      - StudentGroup
+      - Grupper
     summary: Hämta många program baserat på en lista av ID:n.
     description: >
       Hämta många program.
@@ -60,7 +60,7 @@ studentGroups:
 studentGroups_by_id:
   get:
     tags:
-      - StudentGroup
+      - Grupper
     summary: Hämta studentgrupper baserat på ID
     parameters:
       - name: id
