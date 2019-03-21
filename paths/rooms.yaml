@@ -11,8 +11,8 @@ rooms:
           type: array
           items:
             type: string
-      - name: organisation
-        description: Begränsa urvalet till en viss enhet eller organisation.
+      - name: owner
+        description: Begränsa urvalet till en viss organisation.
         in: query
         schema:
           type: string

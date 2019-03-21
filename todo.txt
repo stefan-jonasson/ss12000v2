@@ -53,7 +53,8 @@ dessutom rimligtvis på namn? [nej]
 
 
 schoolunitofferings har inget eget id, vilket är korrekt
-däremot måste man kunna filtera på skolenhet och kanske andra saker
+däremot måste man kunna filtera på skolenhet [klart]
+och kanske andra saker [nej]
 
 schoolUnits bör kunna filtreras på organisation,kommunkod och skolform
 

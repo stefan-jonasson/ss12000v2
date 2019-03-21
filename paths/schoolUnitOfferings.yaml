@@ -11,6 +11,12 @@ schoolUnitOfferings:
           type: array
           items:
             type: string
+      - name: offeredAt
+        description: Begränsa urvalet till en viss skolenhet.
+        in: query
+        schema:
+          type: string
+          format: uuid
       - $ref: "searchParameters.yaml#/SearchCreatedBefore"
       - $ref: "searchParameters.yaml#/SearchCreatedAfter"
       - $ref: "searchParameters.yaml#/SearchModifiedBefore"
