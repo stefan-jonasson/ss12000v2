@@ -75,8 +75,10 @@ paths:
     $ref: paths/programmes.yaml#/programmeById
   /syllabuses:
     $ref: paths/syllabuses.yaml#/syllabuses
+  /syllabuses/filter:
+    $ref: paths/syllabuses.yaml#/syllabusesFilter
   /syllabuses/{id}:
-    $ref: paths/syllabuses.yaml#/syllabus_by_id
+    $ref: paths/syllabuses.yaml#/syllabusById
   /schoolUnitOfferings:
     $ref: paths/schoolUnitOfferings.yaml#/schoolUnitOfferings
   /schoolUnitOfferings/{id}:

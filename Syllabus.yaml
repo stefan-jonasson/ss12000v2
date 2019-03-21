@@ -80,3 +80,7 @@ Syllabus:
     - subjectName
     - official
 
+Syllabuses:
+  type: array
+  items:
+    $ref: "#/Syllabus"
