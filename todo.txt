@@ -33,7 +33,7 @@ generellt sett, när vi POSTAR för att hämta många ID:n, så lägger vi på
         - LeaveOfAbsence [klart]
         - Organisation [klart]
         - Person [klart]
-        - Programme
+        - Programme klart]
         - Resource
         - Room
         - SchoolUnit [klart]

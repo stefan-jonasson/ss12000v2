@@ -35,8 +35,9 @@ programmes:
         content:
           application/json:
             schema:
-              $ref: "../Programme.yaml#/Programme"
+              $ref: "../Programme.yaml#/Programmes"
 
+programmesFilter:
   post:
     tags:
       - Kurser
@@ -49,7 +50,7 @@ programmes:
         content:
           application/json:
             schema:
-              $ref: "../Programme.yaml#/Programme"
+              $ref: "../Programme.yaml#/Programmes"
     requestBody:
       content:
         application/json:
@@ -60,7 +61,7 @@ programmes:
               format: uuid
       required: true
 
-programme_by_id:
+programmeById:
   get:
     tags:
       - Kurser

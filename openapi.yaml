@@ -69,8 +69,10 @@ paths:
     $ref: paths/studentGroups.yaml#/studentGroupsById
   /programmes:
     $ref: paths/programmes.yaml#/programmes
+  /programmes/filter:
+    $ref: paths/programmes.yaml#/programmesFilter
   /programmes/{id}:
-    $ref: paths/programmes.yaml#/programme_by_id
+    $ref: paths/programmes.yaml#/programmeById
   /syllabuses:
     $ref: paths/syllabuses.yaml#/syllabuses
   /syllabuses/{id}:
