@@ -10,6 +10,16 @@ get:
         type: array
         items:
           type: string
+    - name: person
+      description: Begränsa urvalet till utpekad persons ID.
+      in: query
+      schema:
+        type: string
+    - name: schoolUnit
+      description: Begränsa urvalet till utpekad skolenhets ID.
+      in: query
+      schema:
+        type: string
     - name: expand
       description: Beskriver om expanderade data ska hämtas
       in: query
@@ -30,4 +40,4 @@ get:
       content:
         application/json:
           schema:
-            $ref: "../StudentGroup.yaml#/StudentGroup"
+            $ref: "../Activity.yaml#/Activity"
