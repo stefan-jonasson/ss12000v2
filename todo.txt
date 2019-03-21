@@ -74,3 +74,12 @@ studentgroup bör kunna filteraras på
 subsriptions måste förklaras ordentligt i löptext. exempel, varför,
 hur länge förväntas man försöka igen mm. hur mycket klienten ska kunna
 hantera
+
+
+obegripligt vad skillnaden är mellan
+attendanceEvent och attendance
+attendanceEvent är "in- och utpassering". finns det en bra synonym på engelska?
+
+meta saknas i vissa.
+
+tags på alla pather
