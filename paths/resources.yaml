@@ -11,6 +11,12 @@ resources:
           type: array
           items:
             type: string
+      - name: organisation
+        description: Begränsa urvalet till en viss enhet eller organisation.
+        in: query
+        schema:
+          type: string
+          format: uuid
       - $ref: "searchParameters.yaml#/SearchCreatedBefore"
       - $ref: "searchParameters.yaml#/SearchCreatedAfter"
       - $ref: "searchParameters.yaml#/SearchModifiedBefore"
