@@ -48,7 +48,7 @@ StudyPlan:
       type: string
       format: date
     lastUpdate:
-      type: dateTime
+      type: date-time
   required:
     - student
     - content
