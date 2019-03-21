@@ -71,6 +71,7 @@ persons:
             schema:
               $ref: "../Person.yaml#/PersonsExpanded"
 
+personsFilter:
   post:
     tags:
       - Person
@@ -94,7 +95,7 @@ persons:
               format: uuid
       required: true
 
-persons_by_id:
+personsById:
   get:
     tags:
       - Person

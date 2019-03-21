@@ -43,7 +43,7 @@ Attendance:
           format: uuid
           description: Ett UUID för närvaron.
         meta:
-          $ref: 'common.yaml#/Meta'
+          $ref: "common.yaml#/Meta"
       required:
         - id
     - $ref: "#/CreateAttendance"
@@ -58,6 +58,11 @@ Attendance:
               $ref: "Person.yaml#/Person"
             calendarEvent:
               $ref: "CalendarEvent.yaml#/CalendarEvent"
+
+Attendances:
+  type: array
+  items:
+    $ref: "#/Attendance"
 
 Error:
   required:

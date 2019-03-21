@@ -111,3 +111,8 @@ StudentGroup:
     - schoolType
     - startDate
     - schoolUnit
+
+StudentGroups:
+  type: array
+  items:
+    $ref: "#/StudentGroup"
