@@ -75,9 +75,9 @@ studentGroups:
         content:
           application/json:
             schema:
-              $ref: "../StudentGroup.yaml#/StudentGroup"
+              $ref: "../StudentGroup.yaml#/StudentGroups"
 
-
+studentGroupsFilter:
   post:
     tags:
       - Grupper
@@ -90,7 +90,7 @@ studentGroups:
         content:
           application/json:
             schema:
-              $ref: "../StudentGroup.yaml#/StudentGroup"
+              $ref: "../StudentGroup.yaml#/StudentGroups"
     requestBody:
       content:
         application/json:
@@ -101,7 +101,7 @@ studentGroups:
               format: uuid
       required: true
 
-studentGroups_by_id:
+studentGroupsById:
   get:
     tags:
       - Grupper

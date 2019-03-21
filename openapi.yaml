@@ -63,8 +63,10 @@ paths:
     $ref: paths/duties.yaml#/duty_by_id
   /studentGroups:
     $ref: paths/studentGroups.yaml#/studentGroups
+  /studentGroups/filter:
+    $ref: paths/studentGroups.yaml#/studentGroupsFilter
   /studentGroups/{id}:
-    $ref: paths/studentGroups.yaml#/studentGroups_by_id
+    $ref: paths/studentGroups.yaml#/studentGroupsById
   /programmes:
     $ref: paths/programmes.yaml#/programmes
   /programmes/{id}:
