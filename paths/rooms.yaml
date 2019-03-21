@@ -29,8 +29,9 @@ rooms:
         content:
           application/json:
             schema:
-              $ref: "../Room.yaml#/Room"
+              $ref: "../Room.yaml#/Rooms"
 
+roomsFilter:
   post:
     tags:
       - Rum och resurser
@@ -43,7 +44,7 @@ rooms:
         content:
           application/json:
             schema:
-              $ref: "../Room.yaml#/Room"
+              $ref: "../Room.yaml#/Rooms"
     requestBody:
       content:
         application/json:
@@ -54,7 +55,7 @@ rooms:
               format: uuid
       required: true
 
-room_by_id:
+roomById:
   get:
     tags:
       - Rum och resurser

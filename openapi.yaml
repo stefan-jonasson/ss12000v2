@@ -127,8 +127,10 @@ paths:
     $ref: paths/resources.yaml#/resourceById
   /rooms:
     $ref: paths/rooms.yaml#/rooms
+  /rooms/filter:
+    $ref: paths/rooms.yaml#/roomsFilter
   /rooms/{id}:
-    $ref: paths/rooms.yaml#/room_by_id
+    $ref: paths/rooms.yaml#/roomById
   /subscriptions:
     $ref: paths/subscriptions.yaml#/subscriptions
   /subscriptions/{id}:
