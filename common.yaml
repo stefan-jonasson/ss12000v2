@@ -104,3 +104,8 @@ components:
         - HS
         - AU
 
+    LeaveOfAbsenceEnum:
+      type: string
+      enum:
+        - Ledighet
+        - Anmälan
