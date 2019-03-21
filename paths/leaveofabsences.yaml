@@ -11,12 +11,6 @@ leaveofabsences:
           type: array
           items:
             type: string
-      - $ref: "searchParameters.yaml#/SearchCreatedBefore"
-      - $ref: "searchParameters.yaml#/SearchCreatedAfter"
-      - $ref: "searchParameters.yaml#/SearchModifiedBefore"
-      - $ref: "searchParameters.yaml#/SearchModifiedAfter"
-      - $ref: "searchParameters.yaml#/Offset"
-      - $ref: "searchParameters.yaml#/Limit"
       - name: schoolUnit
         description: Begränsa urvalet till de anmälda frånvaro som är kopplade till skolenhet.
         in: query
@@ -47,6 +41,12 @@ leaveofabsences:
         schema:
           type: string
           format: date-time
+      - $ref: "searchParameters.yaml#/SearchCreatedBefore"
+      - $ref: "searchParameters.yaml#/SearchCreatedAfter"
+      - $ref: "searchParameters.yaml#/SearchModifiedBefore"
+      - $ref: "searchParameters.yaml#/SearchModifiedAfter"
+      - $ref: "searchParameters.yaml#/Offset"
+      - $ref: "searchParameters.yaml#/Limit"
     responses:
       "200":
         description: successful operation

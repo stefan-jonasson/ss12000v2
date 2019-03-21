@@ -11,6 +11,28 @@ organisations:
           type: array
           items:
             type: string
+      - name: parent
+        description: Begränsa urvalet till utpekade organisations-ID:n.
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: type
+        description: Begränsa urvalet till utpekade typ.
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: expand
+        description: >
+          Expandera underliggande organisationselement och skolenheter.
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
       - $ref: "searchParameters.yaml#/SearchCreatedBefore"
       - $ref: "searchParameters.yaml#/SearchCreatedAfter"
       - $ref: "searchParameters.yaml#/SearchModifiedBefore"

@@ -97,10 +97,6 @@ paths:
     $ref: paths/organisations.yaml#/organisations
   /organisations/{id}:
     $ref: paths/organisations.yaml#/organisation_by_id
-  /schoolUnitGroups:
-    $ref: paths/schoolUnitGroups.yaml#/schoolUnitGroups
-  /schoolUnitGroups/{id}:
-    $ref: paths/SchoolUnitGroups.yaml#/schoolUnitGroup_by_id
 
 externalDocs:
   description: För mer information hämtas från SIS - TK450
@@ -141,8 +137,6 @@ components:
       $ref: "StudentGroup.yaml#/StudentGroup"
     SchoolUnit:
       $ref: "SchoolUnit.yaml#/SchoolUnit"
-    SchoolUnitGroup:
-      $ref: "SchoolUnitGroup.yaml#/SchoolUnitGroup"
     SchoolUnitOffering:
       $ref: "SchoolUnitOffering.yaml#/SchoolUnitOffering"
     Subscription:

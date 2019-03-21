@@ -28,7 +28,7 @@ resources:
   post:
     tags:
       - Resource
-    summary: Hämta många program baserat på en lista av ID:n.
+    summary: Hämta många resurser baserat på en lista av ID:n.
     description: >
       Hämta många program.
     responses:

@@ -1,0 +1,49 @@
+aktiviteter behöver rätt mycket filter
+- person
+- skolenhet
+
+
+vi behöbver komma överens om huruvida vi ska ha en elev
+som vi lägger på grupper mm istället för personen.
+
+
+
+- calendareEvents måste ha ett startdatum, required. och optional slutdatum.
+
+calendarEvents på id? svårt att se användarfallet? lägger in som endpoint.
+inte filter
+
+
+generellt sett, när vi POSTAR för att hämta många ID:n, så lägger vi på
+/persons/filter som vi POST:ar på. opch deå kan man bara filtrerar på ID:n
+
+rimligt att kunna hitta avvikelser i attendance
+
+leave of absence bör har filter på type
+
+organisation: parent som filter 
+
+organisation kanske skulle kunna slås ihop med skolUnitGroup (skola)
+man vill kunna schemalägga på skolan fast det ställer till det.
+
+Beslut:
+schoolUnitGroup försvinner som eget object och ersätts med organisation
+organisation får en type
+inget startdatum trots att det kanske vore bra...men det blir för komplicerat
+
+vi bör beskriva vilken information som fås ut avseende akutella/historiska data
+
+vi tror att vi inte behöver kunna filtrera på program för personer
+
+resource och room ligger numera på organisation, vilket gör att vi bör kunna filtrera på organisation.
+dessutom rimligtvis på namn?
+
+
+schoolunitofferings har inget eget id, vilket är korrekt
+däremot måste man kunna filtera på skolenhet och kanske andra saker
+
+schoolUnits bör kunna filtreras på organisation,kommunkod och skolform
+
+är maximum för limit rimlig?
+
+
