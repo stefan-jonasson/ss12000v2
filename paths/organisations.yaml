@@ -47,6 +47,7 @@ organisations:
             schema:
               $ref: "../Organisation.yaml#/Organisation"
 
+organisationsFilter:
   post:
     tags:
       - Organisation
@@ -70,7 +71,7 @@ organisations:
               format: uuid
       required: true
 
-organisation_by_id:
+organisationById:
   get:
     tags:
       - Organisation

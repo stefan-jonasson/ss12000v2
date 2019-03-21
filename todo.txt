@@ -28,9 +28,9 @@ generellt sett, när vi POSTAR för att hämta många ID:n, så lägger vi på
         - CalendarEvent [ska inte ha någon sådan]
         - ChildCareSchedule
         - Duty [klart]
-        - Grade
+        - Grade [klart]
         - LeaveOfAbsence [klart]
-        - Organisation
+        - Organisation [klart]
         - Person
         - Programme
         - Resource

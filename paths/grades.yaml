@@ -60,7 +60,7 @@ grades:
           application/json:
             schema:
               $ref: "../Grade.yaml#/Grades"
-
+gradesFilter:
   post:
     tags:
       - Betyg
@@ -84,7 +84,7 @@ grades:
               format: uuid
       required: true
 
-grade_by_id:
+gradeById:
   get:
     tags:
       - Betyg
