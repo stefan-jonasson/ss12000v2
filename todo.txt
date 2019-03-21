@@ -65,7 +65,7 @@ schoolUnits bör kunna filtreras på organisation, kommunkod och skolform [klart
 rensa read-only
 
 
-studentgroup bör kunna filteraras på
+studentgroup bör kunna filteraras på [klart]
 - studentgrouptype
 - schooltype
 - schoolunit
