@@ -1,9 +1,9 @@
 # Ola
 
 aktiviteter behöver rätt mycket filter
-- person
-- skolenhet
-
+- person      [klart]
+- skolenhet   [klart]
+(referens till modellobjekt felaktigt)
 
 vi behöbver komma överens om huruvida vi ska ha en elev
 som vi lägger på grupper mm istället för personen.
@@ -11,10 +11,11 @@ som vi lägger på grupper mm istället för personen.
 
 
 - calendareEvents måste ha ett startdatum, required.
-  och optional[fel] slutdatum.
+  och optional[fel] slutdatum.  [klart]
 
 calendarEvents på id? svårt att se användarfallet? lägger in som endpoint.
 inte filter
+(calenderEvents på id, hade massor av parameterar; dessa är borttagna [klart])
 
 # Jonas
 
