@@ -27,7 +27,7 @@ attendances:
           type: array
           items:
             type: string
-            enum: [ student, activity, calendarEvent ]
+            enum: [student, activity, calendarEvent]
       - $ref: "searchParameters.yaml#/SearchCreatedBefore"
       - $ref: "searchParameters.yaml#/SearchCreatedAfter"
       - $ref: "searchParameters.yaml#/SearchModifiedBefore"
@@ -40,9 +40,7 @@ attendances:
         content:
           application/json:
             schema:
-              type: array
-              items:
-                $ref: "../Attendance.yaml#/Attendance"
+              $ref: "../Attendance.yaml#/Attendances"
   post:
     tags:
       - Närvaro
@@ -68,10 +66,34 @@ attendances:
             schema:
               $ref: "../Attendance.yaml#/Error"
 
-attendance_by_id:
+attendancesFilter:
+  post:
+    tags:
+      - Närvaro
+    summary: Hämta frånvaro baserat på en lista av ID:n.
+    description: >
+      Hämta många program.
+    responses:
+      "200":
+        description: successful operation
+        content:
+          application/json:
+            schema:
+              $ref: "../Attendance.yaml#/Attendances"
+    requestBody:
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: string
+              format: uuid
+      required: true
+
+attendanceById:
   get:
     tags:
-        - Närvaro
+      - Närvaro
     summary: Hämta en närvaro post utifrån ID.
     parameters:
       - name: id
@@ -89,7 +111,7 @@ attendance_by_id:
             schema:
               $ref: "../Attendance.yaml#/Attendance"
       "204":
-          description: Posten borttagen.
+        description: Posten borttagen.
       "400":
         description: Felaktigt id.
       "403":
@@ -104,7 +126,7 @@ attendance_by_id:
               $ref: "../Attendance.yaml#/Error"
   delete:
     tags:
-        - Närvaro
+      - Närvaro
     summary: Ta bort en närvaro post.
     parameters:
       - name: id

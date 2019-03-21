@@ -95,8 +95,10 @@ paths:
     $ref: paths/calendarEvents.yaml#/calendarEventById
   /attendances:
     $ref: paths/attendances.yaml#/attendances
+  /attendances/filter:
+    $ref: paths/attendances.yaml#/attendancesFilter
   /attendances/{id}:
-    $ref: paths/attendances.yaml#/attendance_by_id
+    $ref: paths/attendances.yaml#/attendanceById
   /attendanceEvents:
     $ref: paths/attendanceEvents.yaml#/attendance_events
   /attendanceEvents/{id}:
