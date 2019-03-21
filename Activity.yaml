@@ -135,3 +135,8 @@ Activity:
     - calendarEventsRequired
     - startDate
     - endDate
+
+Activities:
+  type: array
+  items:
+    $ref: "#/Activity"

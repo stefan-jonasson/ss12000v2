@@ -22,6 +22,25 @@ inte filter
 generellt sett, när vi POSTAR för att hämta många ID:n, så lägger vi på
 /persons/filter som vi POST:ar på. opch deå kan man bara filtrerar på ID:n
 
+ /filter paths 
+        - Activity [klart]
+        - AggregatedAttendance  [?]
+        - AttendanceEvent [?]
+        - CalendarEvent [ska inte ha någon sådan]
+        - ChildCareSchedule
+        - Duty [klart]
+        - Grade [klart]
+        - LeaveOfAbsence [klart]
+        - Organisation [klart]
+        - Person
+        - Programme
+        - Resource
+        - Room
+        - SchoolUnit
+        - SchoolUnitGroup
+        - SchoolUnitOffering
+        - Syllabus
+
 rimligt att kunna hitta avvikelser i attendance
 
 leave of absence bör har filter på type [klart]
