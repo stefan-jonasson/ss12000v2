@@ -57,7 +57,7 @@ schoolUnitOfferings:
 schoolUnitOffering_by_id:
   get:
     tags:
-      - SchoolUnitOffering
+      - Kurser
     summary: Hämta en resurs baserat på ID
     parameters:
       - name: id
