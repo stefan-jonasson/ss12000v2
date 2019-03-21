@@ -87,3 +87,5 @@ meta saknas i vissa.
 tags på alla pather
 
 kopiera kompletta beskrivningar från dokumentet till yaml
+
+organisation kanske skulle heta organisational unit? jfr OU.
