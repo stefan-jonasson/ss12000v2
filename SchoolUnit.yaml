@@ -59,3 +59,8 @@ SchoolUnit:
       description: >
         Slutdatum för skolenhetens giltighetstid,
         från och med (ISO8601 format, e.g. "2016-10-15")
+
+SchoolUnits:
+  type: array
+  items:
+    $ref: "#/SchoolUnit"

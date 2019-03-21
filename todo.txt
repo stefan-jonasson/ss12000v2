@@ -36,8 +36,7 @@ generellt sett, när vi POSTAR för att hämta många ID:n, så lägger vi på
         - Programme
         - Resource
         - Room
-        - SchoolUnit
-        - SchoolUnitGroup
+        - SchoolUnit [klart]
         - SchoolUnitOffering
         - Syllabus
 
