@@ -87,6 +87,7 @@ components:
         - Syllabus
 
     SchoolTypesEnum:
+      type: string
       enum:
         - FS
         - FSK
@@ -109,3 +110,12 @@ components:
       enum:
         - Ledighet
         - Anmälan
+
+    StudentGroupTypesEnum:
+      type: string
+      enum:
+        - Undervisning
+        - Klass
+        - Mentor
+        - Schema
+        - Övrigt
