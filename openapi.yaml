@@ -51,6 +51,8 @@ paths:
     $ref: paths/persons.yaml#/persons_by_id
   /duties:
     $ref: paths/duties.yaml#/duties
+  /duties/filter:
+    $ref: paths/duties.yaml#/dutiesFilter
   /duties/{id}:
     $ref: paths/duties.yaml#/duty_by_id
   /studentGroups:
