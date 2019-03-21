@@ -70,7 +70,11 @@ paths:
   /schoolUnitOfferings/{id}:
     $ref: paths/SchoolUnitOfferings.yaml#/schoolUnitOffering_by_id
   /activities:
-    $ref: paths/activities.yaml
+    $ref: paths/activities.yaml#/activities
+  /activities/filter:
+    $ref: paths/activities.yaml#/activitiesFilter
+  /activities/{id}:
+    $ref: paths/activities.yaml#/activityById
   /calendarEvents:
     $ref: paths/calendarEvents.yaml#/calendarEvents
   /calendarEvents/{id}:
