@@ -139,6 +139,8 @@ components:
       $ref: "SchoolUnit.yaml#/SchoolUnit"
     SchoolUnitOffering:
       $ref: "SchoolUnitOffering.yaml#/SchoolUnitOffering"
+    StudyPlan:
+      $ref: "StudyPlan.yaml#/StudyPlan"
     Subscription:
       $ref: "Subscription.yaml#/Subscription"
   parameters:

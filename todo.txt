@@ -47,3 +47,20 @@ schoolUnits bör kunna filtreras på organisation,kommunkod och skolform
 är maximum för limit rimlig?
 
 
+justera ordningen så den motsvazrar trädet
+
+
+rensa read-only
+
+
+studentgroup bör kunna filteraras på
+- studentgrouptype
+- schooltype
+- schoolunit
+- startdate < >
+- enddate  < >
+
+
+subsriptions måste förklaras ordentligt i löptext. exempel, varför,
+hur länge förväntas man försöka igen mm. hur mycket klienten ska kunna
+hantera
