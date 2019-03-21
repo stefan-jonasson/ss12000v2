@@ -6,14 +6,12 @@ ObjectReference:
   properties:
     displayName:
       type: string
-      readOnly: true
     id:
       type: string
       format: uuid
 
 Meta:
   type: object
-  readOnly: true
   properties:
     created:
       type: string

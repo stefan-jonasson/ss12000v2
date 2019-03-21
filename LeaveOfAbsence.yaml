@@ -4,7 +4,6 @@ LeaveOfAbsenceFragment:
     id:
       type: string
       format: uuid
-      readOnly: true
     startTime:
       type: string
       format: date-time
