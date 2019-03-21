@@ -31,30 +31,32 @@ enum centraliseras till common.yaml
 # Palle
 camelCase
 
-justera ordningen så den motsvazrar trädet
+justera ordningen så den motsvazrar trädet [klart]
 
-organisation: parent som filter 
+organisation: parent som filter [klart]
 
 organisation kanske skulle kunna slås ihop med skolUnitGroup (skola)
-man vill kunna schemalägga på skolan fast det ställer till det.
+man vill kunna schemalägga på skolan fast det ställer till det. [klart]
 
 Beslut:
 schoolUnitGroup försvinner som eget object och ersätts med organisation
 organisation får en type
 inget startdatum trots att det kanske vore bra...men det blir för komplicerat
+[klart]
 
-vi bör beskriva vilken information som fås ut avseende akutella/historiska data
+vi bör beskriva vilken information som fås ut avseende aktuella/historiska data
 
 vi tror att vi inte behöver kunna filtrera på program för personer
 
-resource och room ligger numera på organisation, vilket gör att vi bör kunna filtrera på organisation.
-dessutom rimligtvis på namn?
+resource och room ligger numera på organisation, vilket gör att vi bör kunna filtrera på organisation. [klart]
+dessutom rimligtvis på namn? [nej]
 
 
 schoolunitofferings har inget eget id, vilket är korrekt
-däremot måste man kunna filtera på skolenhet och kanske andra saker
+däremot måste man kunna filtera på skolenhet [klart]
+och kanske andra saker [nej]
 
-schoolUnits bör kunna filtreras på organisation,kommunkod och skolform
+schoolUnits bör kunna filtreras på organisation, kommunkod och skolform [klart]
 
 är maximum för limit rimlig?
 
@@ -74,3 +76,17 @@ studentgroup bör kunna filteraras på
 subsriptions måste förklaras ordentligt i löptext. exempel, varför,
 hur länge förväntas man försöka igen mm. hur mycket klienten ska kunna
 hantera
+
+
+obegripligt vad skillnaden är mellan
+attendanceEvent och attendance
+attendanceEvent är "in- och utpassering". finns det en bra synonym
+på engelska?
+
+meta saknas i vissa.
+
+tags på alla pather
+
+kopiera kompletta beskrivningar från dokumentet till yaml
+
+organisation kanske skulle heta organisational unit? jfr OU.
