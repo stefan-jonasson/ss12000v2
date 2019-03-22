@@ -23,6 +23,27 @@ get:
       schema:
         type: string
         format: uuid
+    - name: schoolForm
+      description: Hämta endast närvaro informtion från aktiviteter vilka är kopplade mot angiven skolvform
+      in: query
+      schema:
+        type: string
+        enum: 
+          - FS
+          - FSK
+          - FTH
+          - GR
+          - GRS
+          - SP
+          - SAM
+          - GY
+          - GYS
+          - VUX
+          - SUV
+          - YH
+          - FHS
+          - HS
+          - AU
     - name: student
       description: Filtrera på elev (person)
       in: query
