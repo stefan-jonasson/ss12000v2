@@ -58,3 +58,16 @@ I våra system så är ett schema kopplat till en baromsorgsplats dvs samma barn
 Kommentarer skulle också vara bra att få till för avslag/temporära scheman mm. 
  - message
  - ApprovalStatus
+
+# GroupAssignment vs StudentAssignment
+Borde vi inte endast överföra det beräknade värdet (StudentAssignment)? 
+ - GroupAssignment kan ha ett värde för att hitta alla Aktiviteter för en klass?
+
+# StudentGroupException 
+Denna borde inte finnas!
+
+# Attendance
+Inkonsikvent namnsätttning reporter vs. registredBy medvetet val?
+
+# Placement
+Vi bör lägga till placeringar för att kunna moddelera förskola korrekt
