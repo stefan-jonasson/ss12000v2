@@ -55,3 +55,8 @@ StudyPlan:
     - content
     - startDate
     - lastUpdate
+
+StudyPlans:
+  type: array
+  items:
+    $ref: "#/StudyPlan"
