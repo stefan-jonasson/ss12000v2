@@ -4,6 +4,12 @@ SchoolUnit:
     En Skolenhet, i förekommande fall med skolenhetskod
     enligt Skolenhetsregistret.
   properties:
+    id:
+      type: string
+      format: uuid
+
+    meta:
+      $ref: "common.yaml#/Meta"
     organisation:
       allOf:
         - $ref: "common.yaml#/ObjectReference"

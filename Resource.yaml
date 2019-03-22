@@ -1,6 +1,12 @@
 Resource:
   type: object
   properties:
+    id:
+      type: string
+      format: uuid
+
+    meta:
+      $ref: "common.yaml#/Meta"
     displayName:
       type: string
       description: Namn på resursen.
