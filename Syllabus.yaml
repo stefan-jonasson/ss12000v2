@@ -2,6 +2,11 @@ Syllabus:
   description: Används för att referera till en specifik kurskod eller ett ämne med information om årskurs och skolform som avses med undervisningen. För officiella ämnen/kurser anges läroplan.
   type: object
   properties:
+    id:
+      type: string
+      format: uuid
+    meta:
+      $ref: "common.yaml#/Meta"
     schoolType:
       type: string
       description: Skolform där kursen eller ämnet ges. Förklaring till Skolverkets kodsystem finns på deras webbplats. Exempelvis MATMAT01a.
@@ -80,3 +85,7 @@ Syllabus:
     - subjectName
     - official
 
+Syllabuses:
+  type: array
+  items:
+    $ref: "#/Syllabus"

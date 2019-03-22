@@ -6,14 +6,12 @@ ObjectReference:
   properties:
     displayName:
       type: string
-      readOnly: true
     id:
       type: string
       format: uuid
 
 Meta:
   type: object
-  readOnly: true
   properties:
     created:
       type: string
@@ -113,6 +111,14 @@ components:
 
     StudentGroupTypesEnum:
       type: string
+      description: >
+        Grupptyp anger vad en grupp ska användas till.
+        Ett värdeförråd för att indikera anger vilka grupptyper som finns.
+        * Undervisning - Undervisningsgruppen är en elevgrupp som har koppling till ett ämne eller en kurs, och som ska schemaläggas med undervisningstid ihop med en lärare.
+        * Klass - Klassen är en organisatorisk grupp med elever som är skolplacerade på en skola med skolform FSK, GR, GRS, SP, SAM, GY eller GYS. Varje elev ska vara placerad i endast en klass. Klassen kan schemaläggas med undervisning enligt timplan.
+        * Schema - Schemagrupper är elevgrupper som utgör ett komplement till grupper av typen Undervisning. Schemagrupper ska schemaläggas för att åstadkomma anpassningar av schemat för enskilda elever eller grupper av elever. Exempel på schemagrupper är delgrupper och grupper som används för stödundervisning eller läxhjälp.
+        * Avdelning - Avdelningen är en elevgrupp för placering inom skolformerna förskola eller fritidshem.
+        * Övrigt - Övriga grupper är andra grupper som inte är något av ovanstående.   >
       enum:
         - Undervisning
         - Klass

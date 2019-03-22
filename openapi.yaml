@@ -39,46 +39,66 @@ tags:
 paths:
   /organisations:
     $ref: paths/organisations.yaml#/organisations
+  /organisations/filter:
+    $ref: paths/organisations.yaml#/organisationsFilter
   /organisations/{id}:
-    $ref: paths/organisations.yaml#/organisation_by_id
+    $ref: paths/organisations.yaml#/organisationById
   /schoolUnits:
     $ref: paths/schoolUnits.yaml#/schoolUnits
+  /schoolUnits/filter:
+    $ref: paths/schoolUnits.yaml#/schoolUnitsFilter
   /schoolUnits/{id}:
-    $ref: paths/schoolUnits.yaml#/schoolUnit_by_id
+    $ref: paths/schoolUnits.yaml#/schoolUnitById
   /persons:
     $ref: paths/persons.yaml#/persons
+  /persons/filter:
+    $ref: paths/persons.yaml#/personsFilter
   /persons/{id}:
-    $ref: paths/persons.yaml#/persons_by_id
+    $ref: paths/persons.yaml#/personsById
   /duties:
     $ref: paths/duties.yaml#/duties
+  /duties/filter:
+    $ref: paths/duties.yaml#/dutiesFilter
   /duties/{id}:
     $ref: paths/duties.yaml#/duty_by_id
   /studentGroups:
     $ref: paths/studentGroups.yaml#/studentGroups
+  /studentGroups/filter:
+    $ref: paths/studentGroups.yaml#/studentGroupsFilter
   /studentGroups/{id}:
-    $ref: paths/studentGroups.yaml#/studentGroups_by_id
+    $ref: paths/studentGroups.yaml#/studentGroupsById
   /programmes:
     $ref: paths/programmes.yaml#/programmes
+  /programmes/filter:
+    $ref: paths/programmes.yaml#/programmesFilter
   /programmes/{id}:
-    $ref: paths/programmes.yaml#/programme_by_id
+    $ref: paths/programmes.yaml#/programmeById
   /syllabuses:
     $ref: paths/syllabuses.yaml#/syllabuses
+  /syllabuses/filter:
+    $ref: paths/syllabuses.yaml#/syllabusesFilter
   /syllabuses/{id}:
-    $ref: paths/syllabuses.yaml#/syllabus_by_id
+    $ref: paths/syllabuses.yaml#/syllabusById
   /schoolUnitOfferings:
     $ref: paths/schoolUnitOfferings.yaml#/schoolUnitOfferings
   /schoolUnitOfferings/{id}:
     $ref: paths/SchoolUnitOfferings.yaml#/schoolUnitOffering_by_id
   /activities:
-    $ref: paths/activities.yaml
+    $ref: paths/activities.yaml#/activities
+  /activities/filter:
+    $ref: paths/activities.yaml#/activitiesFilter
+  /activities/{id}:
+    $ref: paths/activities.yaml#/activityById
   /calendarEvents:
     $ref: paths/calendarEvents.yaml#/calendarEvents
   /calendarEvents/{id}:
     $ref: paths/calendarEvents.yaml#/calendarEventById
   /attendances:
     $ref: paths/attendances.yaml#/attendances
+  /attendances/filter:
+    $ref: paths/attendances.yaml#/attendancesFilter
   /attendances/{id}:
-    $ref: paths/attendances.yaml#/attendance_by_id
+    $ref: paths/attendances.yaml#/attendanceById
   /attendanceEvents:
     $ref: paths/attendanceEvents.yaml#/attendance_events
   /attendanceEvents/{id}:
@@ -87,8 +107,10 @@ paths:
     $ref: paths/childCareSchedule.yaml#/childcare_schedule
   /grades:
     $ref: paths/grades.yaml#/grades
+  /grades/filter:
+    $ref: paths/grades.yaml#/gradesFilter
   /grades/{id}:
-    $ref: paths/grades.yaml#/grade_by_id
+    $ref: paths/grades.yaml#/gradeById
   /leaveofabsences:
     $ref: paths/leaveofabsences.yaml#/leaveofabsences
   /leaveofabsences/filter:
@@ -99,12 +121,16 @@ paths:
     $ref: paths/aggregatedAttendances.yaml
   /resources:
     $ref: paths/resources.yaml#/resources
+  /resourcesFilter:
+    $ref: paths/resources.yaml#/resourcesFilter
   /resources/{id}:
-    $ref: paths/resources.yaml#/resource_by_id
+    $ref: paths/resources.yaml#/resourceById
   /rooms:
     $ref: paths/rooms.yaml#/rooms
+  /rooms/filter:
+    $ref: paths/rooms.yaml#/roomsFilter
   /rooms/{id}:
-    $ref: paths/rooms.yaml#/room_by_id
+    $ref: paths/rooms.yaml#/roomById
   /subscriptions:
     $ref: paths/subscriptions.yaml#/subscriptions
   /subscriptions/{id}:

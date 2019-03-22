@@ -4,6 +4,12 @@ SchoolUnit:
     En Skolenhet, i förekommande fall med skolenhetskod
     enligt Skolenhetsregistret.
   properties:
+    id:
+      type: string
+      format: uuid
+
+    meta:
+      $ref: "common.yaml#/Meta"
     organisation:
       allOf:
         - $ref: "common.yaml#/ObjectReference"
@@ -59,3 +65,8 @@ SchoolUnit:
       description: >
         Slutdatum för skolenhetens giltighetstid,
         från och med (ISO8601 format, e.g. "2016-10-15")
+
+SchoolUnits:
+  type: array
+  items:
+    $ref: "#/SchoolUnit"

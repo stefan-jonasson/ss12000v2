@@ -49,6 +49,7 @@ duties:
             schema:
               $ref: "../Duty.yaml#/Duties"
 
+dutiesFilter:
   post:
     tags:
       - Person

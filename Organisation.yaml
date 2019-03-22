@@ -3,6 +3,12 @@ Organisation:
   required:
     - displayName
   properties:
+    id:
+      type: string
+      format: uuid
+
+    meta:
+      $ref: "common.yaml#/Meta"
     displayName:
       type: string
       description: Namn på organisationen

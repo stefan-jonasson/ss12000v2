@@ -27,15 +27,15 @@ leaveofabsences:
       - name: registeredBy
         description: Begränsa urvalet till de anmälda frånvaro som är registrerade av personen
         in: query
-        $ref: "../common.yaml#/components/schemas/LeaveOfAbsenceEnum"
+        schema:
+          type: string
+          format: uuid
       - name: type
         description: Begränsa urvalet till de anmälda frånvaro/ledigheter till typen
         in: query
         schema:
           type: string
-          enum:
-            - Ledighet
-            - Anmälan
+          $ref: "../common.yaml#/components/schemas/LeaveOfAbsenceEnum"
       - name: startTime.after
         description: Endast anmälda frånvaro som startar efter detta timestamp (Exkluderande)
         in: query

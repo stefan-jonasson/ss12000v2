@@ -23,21 +23,22 @@ syllabuses:
         content:
           application/json:
             schema:
-              $ref: "../Syllabus.yaml#/Syllabus"
+              $ref: "../Syllabus.yaml#/Syllabuses"
 
+syllabusesFilter:
   post:
     tags:
       - Kurser
-    summary: Hämta många program baserat på en lista av ID:n.
+    summary: Hämta många progsyllabusesram baserat på en lista av ID:n.
     description: >
-      Hämta många program.
+      Hämta många syllabuses.
     responses:
       "200":
         description: successful operation
         content:
           application/json:
             schema:
-              $ref: "../Syllabus.yaml#/Syllabus"
+              $ref: "../Syllabus.yaml#/Syllabuses"
     requestBody:
       content:
         application/json:
@@ -48,15 +49,15 @@ syllabuses:
               format: uuid
       required: true
 
-syllabus_by_id:
+syllabusById:
   get:
     tags:
       - Kurser
-    summary: Hämta studentgrupper baserat på ID
+    summary: Hämta syllabus baserat på ID
     parameters:
       - name: id
         in: path
-        description: ID för studentgrupp som ska hämtas
+        description: ID för studentsyllabusgrupp som ska hämtas
         required: true
         schema:
           type: string

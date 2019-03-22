@@ -29,9 +29,8 @@ SchoolUnitOffering:
                 exempelvis "2016-10-15".
             displayName:
               type: string
-              readOnly: true
               description: >
-                Ett läsbart namn för att identifiera kursen. READ-ONLY.
+                Ett läsbart namn för att identifiera kursen.
     programmes:
       allOf:
         - description: Program som ges av skolan.
@@ -57,6 +56,5 @@ SchoolUnitOffering:
                 Anges i ISO8601 format, exempelvis "2016-10-15".
             displayName:
               type: string
-              readOnly: true
               description: >
-                Ett läsbart namn för att identifiera kursen. READ-ONLY.
+                Ett läsbart namn för att identifiera kursen.
