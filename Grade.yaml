@@ -6,6 +6,8 @@ Grade:
       type: string
       format: uuid
       description: ID för betyget.
+    meta:
+      $ref: "common.yaml#/Meta"
     student:
       allOf:
         - $ref: "common.yaml#/PersonReference"
