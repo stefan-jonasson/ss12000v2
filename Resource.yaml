@@ -1,6 +1,12 @@
 Resource:
   type: object
   properties:
+    id:
+      type: string
+      format: uuid
+
+    meta:
+      $ref: "common.yaml#/Meta"
     displayName:
       type: string
       description: Namn på resursen.
@@ -12,3 +18,8 @@ Resource:
         - $ref: "common.yaml#/ObjectReference"
         - description: >
             Möjlighet att ange vilken skolenhetsgrupp resursen tillhör.
+
+Resources:
+  type: array
+  items:
+    $ref: "#/Resource"

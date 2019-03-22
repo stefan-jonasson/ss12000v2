@@ -1,0 +1,56 @@
+StudyPlan:
+  type: object
+  description: En elevs studieplan
+  properties:
+    student:
+      type: string
+      format: uuid
+    content:
+      type: array
+      items:
+        type: object
+        properties:
+          title:
+            type: string
+            description: Namn på studieplanen.
+          type:
+            type: string
+            enum:
+              - Obligatoriska
+              - Programgemensamma
+              - Inriktning
+              - Programfördjupning
+              - Gymnasiearbete
+              - Valbara
+              - Borttagna
+              - Utökade
+          points:
+            type: integer
+          syllabuses:
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  type: string
+                  format: uuid
+                note:
+                  type: string
+              required:
+                - id
+        required:
+          - type
+          - syllabuses
+    startDate:
+      type: string
+      format: date
+    endDate:
+      type: string
+      format: date
+    lastUpdate:
+      type: date-time
+  required:
+    - student
+    - content
+    - startDate
+    - lastUpdate

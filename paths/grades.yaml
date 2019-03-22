@@ -1,7 +1,7 @@
 grades:
   get:
     tags:
-      - Grade
+      - Betyg
     summary: Hämta en lista med betyg.
     parameters:
       - name: id
@@ -11,12 +11,6 @@ grades:
           type: array
           items:
             type: string
-      - $ref: "searchParameters.yaml#/SearchCreatedBefore"
-      - $ref: "searchParameters.yaml#/SearchCreatedAfter"
-      - $ref: "searchParameters.yaml#/SearchModifiedBefore"
-      - $ref: "searchParameters.yaml#/SearchModifiedAfter"
-      - $ref: "searchParameters.yaml#/Offset"
-      - $ref: "searchParameters.yaml#/Limit"
       - name: schoolUnit
         description: Begränsa urvalet till de betyg som är kopplade till skolenhet.
         in: query
@@ -53,6 +47,12 @@ grades:
         schema:
           type: string
           format: date
+      - $ref: "searchParameters.yaml#/SearchCreatedBefore"
+      - $ref: "searchParameters.yaml#/SearchCreatedAfter"
+      - $ref: "searchParameters.yaml#/SearchModifiedBefore"
+      - $ref: "searchParameters.yaml#/SearchModifiedAfter"
+      - $ref: "searchParameters.yaml#/Offset"
+      - $ref: "searchParameters.yaml#/Limit"
     responses:
       "200":
         description: successful operation
@@ -60,10 +60,10 @@ grades:
           application/json:
             schema:
               $ref: "../Grade.yaml#/Grades"
-
+gradesFilter:
   post:
     tags:
-      - Grade
+      - Betyg
     summary: Hämta många betyg baserat på en lista av ID:n.
     description: >
       Hämta många betyg.
@@ -84,10 +84,10 @@ grades:
               format: uuid
       required: true
 
-grade_by_id:
+gradeById:
   get:
     tags:
-      - Grade
+      - Betyg
     summary: Hämta betyg baserat på ID
     parameters:
       - name: id

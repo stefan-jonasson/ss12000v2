@@ -2,6 +2,12 @@ Room:
   type: object
   description: Ett rum eller en plats som kan bokas i ett skolschema.
   properties:
+    id:
+      type: string
+      format: uuid
+
+    meta:
+      $ref: "common.yaml#/Meta"
     displayName:
       type: string
       description: Namn på rum/lokal/plats.
@@ -13,3 +19,8 @@ Room:
       allOf:
         - $ref: "common.yaml#/ObjectReference"
         - description: Möjlighet att ange vilken skolenhetsgrupp resursen tillhör.
+
+Rooms:
+  type: array
+  items:
+    $ref: "#/Room"

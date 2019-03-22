@@ -1,33 +1,94 @@
-get:
-  tags:
-    - Activitites
-  summary: Hämta en lista med aktiviteter.
-  parameters:
-    - name: id
-      description: Begränsa urvalet till utpekade aktivitets-ID:n.
-      in: query
-      schema:
-        type: array
-        items:
+activities:
+  get:
+    tags:
+      - Aktiviteter
+    summary: Hämta en lista med aktiviteter.
+    parameters:
+      - name: id
+        description: Begränsa urvalet till utpekade aktivitets-ID:n.
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: person
+        description: Begränsa urvalet till utpekad persons ID.
+        in: query
+        schema:
           type: string
-    - name: expand
-      description: Beskriver om expanderade data ska hämtas
-      in: query
-      schema:
-        type: array
-        items:
+      - name: schoolUnit
+        description: Begränsa urvalet till utpekad skolenhets ID.
+        in: query
+        schema:
           type: string
-          enum: [studentGroups]
-    - $ref: "searchParameters.yaml#/SearchCreatedBefore"
-    - $ref: "searchParameters.yaml#/SearchCreatedAfter"
-    - $ref: "searchParameters.yaml#/SearchModifiedBefore"
-    - $ref: "searchParameters.yaml#/SearchModifiedAfter"
-    - $ref: "searchParameters.yaml#/Offset"
-    - $ref: "searchParameters.yaml#/Limit"
-  responses:
-    "200":
-      description: successful operation
+      - name: expand
+        description: Beskriver om expanderade data ska hämtas
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+            enum: [studentGroups]
+      - $ref: "searchParameters.yaml#/SearchCreatedBefore"
+      - $ref: "searchParameters.yaml#/SearchCreatedAfter"
+      - $ref: "searchParameters.yaml#/SearchModifiedBefore"
+      - $ref: "searchParameters.yaml#/SearchModifiedAfter"
+      - $ref: "searchParameters.yaml#/Offset"
+      - $ref: "searchParameters.yaml#/Limit"
+    responses:
+      "200":
+        description: successful operation
+        content:
+          application/json:
+            schema:
+              $ref: "../Activity.yaml#/Activities"
+
+activitiesFilter:
+  post:
+    tags:
+      - Aktiviteter
+    summary: Hämta många aktiviteter baserat på en lista av ID:n.
+    description: >
+      Hämta många aktiviteter.
+    responses:
+      "200":
+        description: successful operation
+        content:
+          application/json:
+            schema:
+              $ref: "../Activity.yaml#/Activities"
+    requestBody:
       content:
         application/json:
           schema:
-            $ref: "../StudentGroup.yaml#/StudentGroup"
+            type: array
+            items:
+              type: string
+              format: uuid
+      required: true
+
+activityById:
+  get:
+    tags:
+      - Aktiviteter
+    summary: Hämta aktivitet baserat på ID
+    parameters:
+      - name: id
+        in: path
+        description: ID för aktivitet som ska hämtas
+        required: true
+        schema:
+          type: string
+    responses:
+      "200":
+        description: successful operation
+        content:
+          application/json:
+            schema:
+              $ref: "../Activity.yaml#/Activity"
+      "400":
+        description: Invalid id supplied
+      "403":
+        description: Not authorised
+      "404":
+        description: Activity not found

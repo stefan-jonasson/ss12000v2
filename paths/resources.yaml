@@ -1,7 +1,7 @@
 resources:
   get:
     tags:
-      - Resource
+      - Rum och resurser
     summary: Hämta en lista med resurser.
     parameters:
       - name: id
@@ -11,6 +11,12 @@ resources:
           type: array
           items:
             type: string
+      - name: owner
+        description: Begränsa urvalet till en viss organisation.
+        in: query
+        schema:
+          type: string
+          format: uuid
       - $ref: "searchParameters.yaml#/SearchCreatedBefore"
       - $ref: "searchParameters.yaml#/SearchCreatedAfter"
       - $ref: "searchParameters.yaml#/SearchModifiedBefore"
@@ -23,12 +29,13 @@ resources:
         content:
           application/json:
             schema:
-              $ref: "../Resource.yaml#/Resource"
+              $ref: "../Resource.yaml#/Resources"
 
+resourcesFilter:
   post:
     tags:
-      - Resource
-    summary: Hämta många program baserat på en lista av ID:n.
+      - Rum och resurser
+    summary: Hämta många resurser baserat på en lista av ID:n.
     description: >
       Hämta många program.
     responses:
@@ -37,7 +44,7 @@ resources:
         content:
           application/json:
             schema:
-              $ref: "../Resource.yaml#/Resource"
+              $ref: "../Resource.yaml#/Resources"
     requestBody:
       content:
         application/json:
@@ -48,10 +55,10 @@ resources:
               format: uuid
       required: true
 
-resource_by_id:
+resourceById:
   get:
     tags:
-      - resource
+      - Rum och resurser
     summary: Hämta en resurs baserat på ID
     parameters:
       - name: id

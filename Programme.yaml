@@ -6,6 +6,8 @@ Programme:
       type: string
       format: uuid
       description: ID för programmet.
+    meta:
+      $ref: "common.yaml#/Meta"
     name:
       type: string
       enum:

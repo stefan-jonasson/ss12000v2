@@ -1,0 +1,9 @@
+Tanke med aggregerad närvaro är 
+
+hur gör vi med olika skolenheter, med samma elev.
+
+vi saknar en ID-satt inskrivning som skiljer sig från eleven, så vi vet vilken skolenhet som avses.
+
+När eleven byter skola kommer inte läsa samma studieplan. Vi borde troligen visa ogiltig frånvaro i vilket fall.
+kanske ska vi ha två olika aggregatedAttendance, en för betyg och en annan för statistik.
+

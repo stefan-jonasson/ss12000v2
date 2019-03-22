@@ -1,7 +1,7 @@
 rooms:
   get:
     tags:
-      - Room
+      - Rum och resurser
     summary: Hämta en lista med salar.
     parameters:
       - name: id
@@ -11,6 +11,12 @@ rooms:
           type: array
           items:
             type: string
+      - name: owner
+        description: Begränsa urvalet till en viss organisation.
+        in: query
+        schema:
+          type: string
+          format: uuid
       - $ref: "searchParameters.yaml#/SearchCreatedBefore"
       - $ref: "searchParameters.yaml#/SearchCreatedAfter"
       - $ref: "searchParameters.yaml#/SearchModifiedBefore"
@@ -23,12 +29,13 @@ rooms:
         content:
           application/json:
             schema:
-              $ref: "../Room.yaml#/Room"
+              $ref: "../Room.yaml#/Rooms"
 
+roomsFilter:
   post:
     tags:
-      - Room
-    summary: Hämta många program baserat på en lista av ID:n.
+      - Rum och resurser
+    summary: Hämta många salar baserat på en lista av ID:n.
     description: >
       Hämta många program.
     responses:
@@ -37,7 +44,7 @@ rooms:
         content:
           application/json:
             schema:
-              $ref: "../Room.yaml#/Room"
+              $ref: "../Room.yaml#/Rooms"
     requestBody:
       content:
         application/json:
@@ -48,10 +55,10 @@ rooms:
               format: uuid
       required: true
 
-room_by_id:
+roomById:
   get:
     tags:
-      - Room
+      - Rum och resurser
     summary: Hämta en sal baserat på ID
     parameters:
       - name: id

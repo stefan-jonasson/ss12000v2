@@ -24,16 +24,8 @@ StudentGroup:
         Slutdatum för gruppens giltighetstid
         (ISO8601 format, exempelvis "2016-10-15").
     studentGroupType:
-      description: >
-        Grupptyp anger vad en grupp ska användas till.
-        Ett värdeförråd för att indikera anger vilka grupptyper som finns.
-      type: string
-      enum:
-        - Undervisning
-        - Klass
-        - Mentor
-        - Schema
-        - Övrigt
+      $ref: "common.yaml#/components/schemas/StudentGroupTypesEnum"
+
     schoolType:
       description: Skolform
       type: string
@@ -119,3 +111,8 @@ StudentGroup:
     - schoolType
     - startDate
     - schoolUnit
+
+StudentGroups:
+  type: array
+  items:
+    $ref: "#/StudentGroup"

@@ -1,8 +1,9 @@
 leaveofabsences:
   get:
     tags:
-      - LeaveOfAbsence
+      - Närvaro
     summary: Hämta en lista av anmäld frånvaro.
+    operationId: getLeaveOfAbsence
     parameters:
       - name: id
         description: Begränsa urvalet till utpekade anmälda frånvaro ID.
@@ -11,12 +12,6 @@ leaveofabsences:
           type: array
           items:
             type: string
-      - $ref: "searchParameters.yaml#/SearchCreatedBefore"
-      - $ref: "searchParameters.yaml#/SearchCreatedAfter"
-      - $ref: "searchParameters.yaml#/SearchModifiedBefore"
-      - $ref: "searchParameters.yaml#/SearchModifiedAfter"
-      - $ref: "searchParameters.yaml#/Offset"
-      - $ref: "searchParameters.yaml#/Limit"
       - name: schoolUnit
         description: Begränsa urvalet till de anmälda frånvaro som är kopplade till skolenhet.
         in: query
@@ -35,6 +30,12 @@ leaveofabsences:
         schema:
           type: string
           format: uuid
+      - name: type
+        description: Begränsa urvalet till de anmälda frånvaro/ledigheter till typen
+        in: query
+        schema:
+          type: string
+          $ref: "../common.yaml#/components/schemas/LeaveOfAbsenceEnum"
       - name: startTime.after
         description: Endast anmälda frånvaro som startar efter detta timestamp (Exkluderande)
         in: query
@@ -47,6 +48,12 @@ leaveofabsences:
         schema:
           type: string
           format: date-time
+      - $ref: "searchParameters.yaml#/SearchCreatedBefore"
+      - $ref: "searchParameters.yaml#/SearchCreatedAfter"
+      - $ref: "searchParameters.yaml#/SearchModifiedBefore"
+      - $ref: "searchParameters.yaml#/SearchModifiedAfter"
+      - $ref: "searchParameters.yaml#/Offset"
+      - $ref: "searchParameters.yaml#/Limit"
     responses:
       "200":
         description: successful operation
@@ -54,11 +61,36 @@ leaveofabsences:
           application/json:
             schema:
               $ref: "../LeaveOfAbsence.yaml#/LeaveOfAbsences"
-
   post:
     tags:
-      - LeaveOfAbsence
+      - Närvaro
+    summary: Registrera en ny närvaro post.
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "../LeaveOfAbsence.yaml#/CreateLeaveOfAbsence"
+    responses:
+      200:
+        description: Posten skapad.
+        content:
+          application/json:
+            schema:
+              $ref: "../LeaveOfAbsence.yaml#/LeaveOfAbsence"
+      default:
+        description: unexpected error
+        content:
+          application/json:
+            schema:
+              $ref: "../LeaveOfAbsence.yaml#/Error"
+
+leaveOfAbsenceFilter:
+  post:
+    tags:
+      - Närvaro
     summary: Hämta många anmälda frånvaro baserat på en lista av ID:n.
+    operationId: postLeaveOfAbsenceFilter
     description: >
       Hämta många anmälda frånvaro.
     responses:
@@ -81,7 +113,7 @@ leaveofabsences:
 leaveofabsence_by_id:
   get:
     tags:
-      - LeaveOfAbsence
+      - Närvaro
     summary: Hämta anmäld frånvaro baserat på  ID
     parameters:
       - name: id
