@@ -1,0 +1,52 @@
+studyPlans:
+  get:
+    tags:
+      - Kurser
+    summary: Hämta en lista med studieplaner.
+    parameters:
+      - name: student
+        description: Begränsa urvalet till utpekade elever.
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: startDate.onOrAfter
+        description: >
+          Begränsa urvalet av studieplaner till de som är aktiva inom det intervall som startar på angivet datum.
+        in: query
+        schema:
+          type: string
+          format: date
+      - name: endDate.onOrBefore
+        description: >
+          Begränsa urvalet av studieplaner till de som är aktiva inom det intervall som avslutas på angivet datum.
+        in: query
+        schema:
+          type: string
+          format: date
+      - name: lastUpdate.after
+        description: Endast studieplaner som blivit justerade efter detta timestamp (Exkluderande)
+        in: query
+        schema:
+          type: string
+          format: date-time
+      - name: lastUpdate.before
+        description: Endast studieplaner som  blivit justerade innan eller på detta timestamp (Inkluderande)
+        in: query
+        schema:
+          type: string
+          format: date-time
+      - $ref: "searchParameters.yaml#/SearchCreatedBefore"
+      - $ref: "searchParameters.yaml#/SearchCreatedAfter"
+      - $ref: "searchParameters.yaml#/SearchModifiedBefore"
+      - $ref: "searchParameters.yaml#/SearchModifiedAfter"
+      - $ref: "searchParameters.yaml#/Offset"
+      - $ref: "searchParameters.yaml#/Limit"
+    responses:
+      "200":
+        description: successful operation
+        content:
+          application/json:
+            schema:
+              $ref: "../StudyPlan.yaml#/StudyPlans"

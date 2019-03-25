@@ -48,9 +48,15 @@ StudyPlan:
       type: string
       format: date
     lastUpdate:
-      type: date-time
+      type: string
+      format: date-time
   required:
     - student
     - content
     - startDate
     - lastUpdate
+
+StudyPlans:
+  type: array
+  items:
+    $ref: "#/StudyPlan"
