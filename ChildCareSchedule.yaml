@@ -42,10 +42,14 @@ CreateChildCareSchedule:
           length:
             type: integer
             description: Längden på den tid efter starttid som barnet ska vara
-    child:
+    placement:
       allOf:
-        - $ref: "common.yaml#/PersonReference"
-        - description: Referens till barnet
+        - $ref: "common.yaml#/PlacementReference"
+        - description: Referens till barnets placering
+    # child:
+    #   allOf:
+    #     - $ref: "common.yaml#/PersonReference"
+    #     - description: Referens till barnet
     group:
       allOf:
         - $ref: "common.yaml#/StudentGroupReference"
@@ -53,7 +57,7 @@ CreateChildCareSchedule:
   required:
     - startDate
     - scheduleDays
-    - child
+    - placement
     - group
     - state
 

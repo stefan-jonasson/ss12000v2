@@ -146,6 +146,13 @@ Person:
           description: En lista med inskrivningar för personen
           items:
             $ref: "Enrolment.yaml#/Enrolment"
+        placements:
+          type: array
+          description: >
+            En lista med placeringen för personen, 
+            används för förskoleverksamhet eller för placering på ex kulturskol
+          items:
+            $ref: "Placement.yaml#/Placement"
         guardians:
           type: array
           description: Personens vårdnadshavare och andra ansvariga.
