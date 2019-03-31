@@ -36,14 +36,14 @@ leaveofabsences:
         schema:
           type: string
           $ref: "../common.yaml#/components/schemas/LeaveOfAbsenceEnum"
-      - name: content.startTime.after
-        description: Endast anmälda frånvaro/ledighet som startar efter detta timestamp (Exkluderande)
+      - name: startTime.after
+        description: Endast anmälda frånvaro som startar efter detta timestamp (Exkluderande)
         in: query
         schema:
           type: string
           format: date-time
-      - name: content.startTime.before
-        description: Endast anmälda frånvaro/ledighet som startar innan eller på detta timestamp (Inkluderande)
+      - name: startTime.before
+        description: Endast anmälda frånvaro som startar innan eller på detta timestamp (Inkluderande)
         in: query
         schema:
           type: string
