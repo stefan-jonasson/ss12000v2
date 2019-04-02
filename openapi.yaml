@@ -73,6 +73,8 @@ paths:
     $ref: paths/programmes.yaml#/programmesFilter
   /programmes/{id}:
     $ref: paths/programmes.yaml#/programmeById
+  /studyplans:
+    $ref: paths/studyPlans.yaml#/studyPlans
   /syllabuses:
     $ref: paths/syllabuses.yaml#/syllabuses
   /syllabuses/filter:
