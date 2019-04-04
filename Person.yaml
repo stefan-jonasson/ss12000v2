@@ -73,12 +73,12 @@ Person:
               email:
                 type: string
                 format: email
-              role:
+              type:
                 type: string
                 enum:
-                  - anställd
-                  - elev
-                  - vårdnadshavare
+                  - Anställd
+                  - Elev
+                  - Vårdnadshavare
             required:
               - email
         phoneNumbers:
@@ -95,8 +95,8 @@ Person:
               type:
                 type: string
                 enum:
-                  - hem
-                  - arbete
+                  - Hem
+                  - Arbete
               mobile:
                 type: boolean
                 default: true
@@ -110,9 +110,8 @@ Person:
                 type: string
                 default: folkbokföringsadress
                 enum:
-                  - folkbokföringsadress
-                  - vistelseadress
-                  - fakturaadress
+                  - Folkbokföringsadress
+                  - Vistelseadress
               streetAddress:
                 type: string
                 description: Gatuadress.
@@ -139,8 +138,8 @@ Person:
                 type: string
                 description: Typ av bild.
                 enum:
-                  - photo
-                  - thumbnail
+                  - Photo
+                  - Thumbnail
         enrolments:
           type: array
           description: En lista med inskrivningar för personen
