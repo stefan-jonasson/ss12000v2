@@ -136,10 +136,26 @@ Grade:
         Referens till Skolverkets läroplan om det är en officiell
         kurs eller ett officiellt ämne, annars valfritt.
         Exempelvis GY2011, LGR11.
-    specialisationSyllabusContent:
-      type: string
-      description: Beskrivning av ett specialiseringskurs innehåll på gymnasiet.
-
+    specialisationCourseContent:
+      type: object
+      description: Beskrivning av innehållet i en specialiseringskurs på gymnasiet.
+      properties:
+        title:
+          type: string
+          description: Titel på specialiseringskurs.
+        description:
+          type: string
+          description: Beskrivning av specialiseringskurs.
+        titleEngish:
+          type: string
+          description: Eventuell engelsk titel på specialiseringskurs.
+        descriptionEnglish:
+          type: string
+          description: Eventuell engelsk beskrivning av specialiseringskurs.
+      required:
+        - title
+        - description
+        
 Grades:
   type: array
   items:

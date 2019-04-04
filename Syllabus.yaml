@@ -69,13 +69,29 @@ Syllabus:
         - Lpf94
         - Gy11
         - Gysär13
-        - Lvux1
+        - Lvux12
     languageCode:
       type: string
       description: Språkkod för moderna språk och modersmål. Enligt ISO 639-3.
     specialisationCourseContent:
-      type: string
+      type: object
       description: Beskrivning av innehållet i en specialiseringskurs på gymnasiet.
+      properties:
+        title:
+          type: string
+          description: Titel på specialiseringskurs.
+        description:
+          type: string
+          description: Beskrivning av specialiseringskurs.
+        titleEngish:
+          type: string
+          description: Eventuell engelsk titel på specialiseringskurs.
+        descriptionEnglish:
+          type: string
+          description: Eventuell engelsk beskrivning av specialiseringskurs.
+      required:
+        - title
+        - description
     official:
       type: boolean
       description: Attributet anger om ämnet är ett officiellt ämne från Skolverket eller annan myndighet. Icke officiella ämnen kan skapas för andra ändamål än undervisning.
