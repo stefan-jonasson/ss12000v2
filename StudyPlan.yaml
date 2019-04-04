@@ -12,20 +12,10 @@ StudyPlan:
         properties:
           title:
             type: string
-            description: Namn på studieplanen.
-          type:
-            type: string
-            enum:
-              - Obligatoriska
-              - Programgemensamma
-              - Inriktning
-              - Programfördjupning
-              - Gymnasiearbete
-              - Valbara
-              - Borttagna
-              - Utökade
+            description: Anger rubriken i elevens studieplan
           points:
             type: integer
+            description: Anger poängtalet för den aktuella kategorin av kurser
           syllabuses:
             type: array
             items:
@@ -36,11 +26,36 @@ StudyPlan:
                   format: uuid
                 note:
                   type: string
+                startDate:
+                  type: string
+                  format: date
+                endDate:
+                  type: string
+                  format: date
+                hours:
+                  type: integer
+                  description: >
+                    Planlagda timmar för elevens deltagande i kursen. 
+                    Främst avsedd för studieplaner för vuxenutbildning
               required:
                 - id
         required:
-          - type
           - syllabuses
+    notes:
+      type: array
+      items: 
+        type: object
+        properties:
+          type: 
+            type: string
+            enum:
+              - Anteckningar
+              - Andra insatser som är gynnsamma för elevens kunskapsutveckling
+              - Elevens tidigare arbetslivserfarenhet och studier
+              - Validering av kunskaper och kompetenser
+              - Elevens mål med studierna
+          note:
+            type: string
     startDate:
       type: string
       format: date
@@ -52,7 +67,6 @@ StudyPlan:
       format: date-time
   required:
     - student
-    - content
     - startDate
     - lastUpdate
 

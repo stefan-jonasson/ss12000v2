@@ -58,3 +58,66 @@ I våra system så är ett schema kopplat till en baromsorgsplats dvs samma barn
 Kommentarer skulle också vara bra att få till för avslag/temporära scheman mm. 
  - message
  - ApprovalStatus
+
+# GroupAssignment vs StudentAssignment
+Borde vi inte endast överföra det beräknade värdet (StudentAssignment)? 
+ - GroupAssignment kan ha ett värde för att hitta alla Aktiviteter för en klass?
+
+# StudentGroupException 
+Denna borde inte finnas!
+
+# Attendance
+Inkonsikvent namnsätttning reporter vs. registredBy medvetet val?
+
+# Placement
+Vi bör lägga till placeringar för att kunna moddelera förskola korrekt
+
+
+# Syllabus:
+Både rubrik OCH beskrivning på specialiseringskurser (kurser som har ett S som nionde tecken i koden)
+ 
+# Studyplan
+Saknas i flödesschemat
+
+Studieplan är kopplad till program på GY
+Man avslutar en studieplan om man avbryter ett program och upprättar en ny om man börjar på ett nytt program
+ 
+
+Typer av grupperingar i studieplan:
+Gymnasiegemensamma ämnen
+Gymnasiesärskolegemensamma ämnen
+Programgemensamma ämnen
+Individuellt val
+Gymnasiearbete
+Gymnasiesärskolearbete
+Inriktning
+Programfördjupning
+Utökade kurser
+Reducerade kurser
+Bortvalda kurser på grund av individuellt anpassat program
+Bortvalda kurser
+Gymnasiekurser
+Grundskoleämne
+Nationella kurser
+Ämnesområde
+Nationella kurser och delkurser
+Individuella kurser
+Övrigt
+ 
+Anteckningar generellt(2 GY, 3 VUX):
+Anteckningar
+Andra insatser som är gynnsamma för elevens kunskapsutveckling
+Elevens tidigare arbetslivserfarenhet och studier
+Validering av kunskaper och kompetenser
+Elevens mål med studierna
+ 
+ 
+ 
+ 
+ 
+ 
+?????
+ 
+Datum för kurser
+ 
+Man bör kunna definiera timmar per kurs för elev
