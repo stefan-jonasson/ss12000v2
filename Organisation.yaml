@@ -1,19 +1,37 @@
 Organisation:
   type: object
-  required:
-    - displayName
   properties:
     id:
       type: string
       format: uuid
-
     meta:
       $ref: "common.yaml#/Meta"
     displayName:
       type: string
       description: Namn på organisationen
+    organisationType:
+      type: string
+      description: >
+        Typ av organisation
+      enum:
+        - Huvudman
+        - Stadsdel
+        - Rektorsområde
+        - Skola
+        - Övrigt
+    organisationNumber:
+      type: string
+      description: >
+        Identitetsbeteckning för juridiska personer såsom
+        kommun eller bolag
     parentOrganisation:
       allOf:
         - $ref: "common.yaml#/ObjectReference"
-        - description: Identifierare för en eventellt överliggande organisation.
+        - description: >
+            Identifierare för en eventellt överliggande organisation.
+  required:
+    - id
+    - meta
+    - displayName
+    - organisationType
   description: En skolhuvudman eller annan slags organisatorisk enhet.

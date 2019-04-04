@@ -14,12 +14,6 @@ SchoolUnit:
       allOf:
         - $ref: "common.yaml#/ObjectReference"
         - description: Organisationstillhörighet.
-    schoolUnitGroup:
-      allOf:
-        - $ref: "common.yaml#/ObjectReference"
-        - description: >
-            Möjlighet att ange vilken skolenhetsgrupp
-            som skolenheten tillhör.
     displayName:
       type: string
       description: Namn för skolenheten.
@@ -31,6 +25,8 @@ SchoolUnit:
         skolenhetskod för varje enhet.
     schoolTypes:
       type: array
+      uniqueItems: true
+      minItems: 1
       items:
         type: string
         enum:
@@ -52,7 +48,8 @@ SchoolUnit:
     municipalityCode:
       type: string
       description: >
-        Län och kommunkod för den kommun där skolan är belägen.
+        Kommunkod. Län och kommunkod för den kommun där skolan är belägen,
+        exempelvis 0180 där 01 anger länet och 80 anger kommunen.
     startDate:
       type: string
       format: date
@@ -65,6 +62,12 @@ SchoolUnit:
       description: >
         Slutdatum för skolenhetens giltighetstid,
         från och med (ISO8601 format, e.g. "2016-10-15")
+  required:
+    - id
+    - meta
+    - organisation
+    - displayName
+    - schoolTypes
 
 SchoolUnits:
   type: array
