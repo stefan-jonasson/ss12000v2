@@ -55,6 +55,12 @@ paths:
     $ref: paths/persons.yaml#/personsFilter
   /persons/{id}:
     $ref: paths/persons.yaml#/personsById
+  /placements:
+    $ref: paths/placements.yaml#/placements
+  /placements/filter:
+    $ref: paths/placements.yaml#/placementsFilter
+  /placements/{id}:
+    $ref: paths/placements.yaml#/placementsById
   /duties:
     $ref: paths/duties.yaml#/duties
   /duties/filter:
@@ -101,10 +107,10 @@ paths:
     $ref: paths/attendances.yaml#/attendancesFilter
   /attendances/{id}:
     $ref: paths/attendances.yaml#/attendanceById
-  /attendanceEvents:
-    $ref: paths/attendanceEvents.yaml#/attendance_events
-  /attendanceEvents/{id}:
-    $ref: paths/attendanceEvents.yaml#/attendance_events_by_id
+  /childCareAttendanceEvents:
+    $ref: paths/childCareAttendanceEvents.yaml#/attendance_events
+  /childCareAttendanceEvents/{id}:
+    $ref: paths/childCareAttendanceEvents.yaml#/attendance_events_by_id
   /childCareSchedule:
     $ref: paths/childCareSchedule.yaml#/childcare_schedule
   /grades:
@@ -169,8 +175,8 @@ components:
       $ref: "CalendarEvent.yaml#/CalendarEvent"
     Attendance:
       $ref: "Attendance.yaml#/Attendance"
-    AttendanceEvent:
-      $ref: "AttendanceEvent.yaml#/AttendanceEvent"
+    ChildCareAttendanceEvent:
+      $ref: "ChildCareAttendanceEvent.yaml#/ChildCareAttendanceEvent"
     ChildCareSchedule:
       $ref: "ChildCareSchedule.yaml#/ChildCareSchedule"
     LeaveOfAbsence:

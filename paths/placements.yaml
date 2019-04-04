@@ -1,0 +1,116 @@
+placements:
+  get:
+    tags:
+      - Person
+    summary: Hämta en lista med placeringar.
+    parameters:
+      - name: id
+        description: Begränsa urvalet till utpekade placerings-ID:n.
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: personId
+        description: Begränsa urvalet till utpekade personers Id.
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - $ref: "searchParameters.yaml#/SearchCreatedBefore"
+      - $ref: "searchParameters.yaml#/SearchCreatedAfter"
+      - $ref: "searchParameters.yaml#/SearchModifiedBefore"
+      - $ref: "searchParameters.yaml#/SearchModifiedAfter"
+      - $ref: "searchParameters.yaml#/Offset"
+      - $ref: "searchParameters.yaml#/Limit"
+      - name: schoolUnit
+        description: >
+          Begränsa urvalet till de barn som har en placering  på angiven
+          skolenhet. Detta kan kombineras med startDate.onOrAfter
+          och endDate.onOrBefore för att begränsa till aktiva placeringar.
+        in: query
+        schema:
+          type: string
+          format: uuid
+      - name: startDate.onOrAfter
+        description: >
+          Begränsa urvalet av placering till de som har
+          placeringar som är aktiva inom det intervall som startar på angivet datum.
+        in: query
+        schema:
+          type: string
+          format: date
+      - name: endDate.onOrBefore
+        description: >
+          Begränsa urvalet av placering till de som har
+          placeringar som är aktiva inom det intervall som avslutas på angivet datum.
+        in: query
+        schema:
+          type: string
+          format: date
+      - name: expand
+        description: Beskriver om expanderade data ska hämtas
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+            enum: [child]
+    responses:
+      "200":
+        description: successful operation
+        content:
+          application/json:
+            schema:
+              $ref: "../Placement.yaml#/Placement"
+
+placementsFilter:
+  post:
+    tags:
+      - Person
+    summary: Hämta många placeringar baserat på en lista av ID:n.
+    description: >
+      Hämta många placeringar.
+    responses:
+      "200":
+        description: successful operation
+        content:
+          application/json:
+            schema:
+              $ref: "../Placement.yaml#/Placement"
+    requestBody:
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: string
+              format: uuid
+      required: true
+
+placementsById:
+  get:
+    tags:
+      - Person
+    summary: Placering baserat på id
+    parameters:
+      - name: id
+        in: path
+        description: ID för placering som ska hämtas
+        required: true
+        schema:
+          type: string
+    responses:
+      "200":
+        description: successful operation
+        content:
+          application/json:
+            schema:
+              $ref: "../Placement.yaml#/Placement"
+      "400":
+        description: Invalid id supplied
+      "403":
+        description: Not authorised
+      "404":
+        description: Placement not found
