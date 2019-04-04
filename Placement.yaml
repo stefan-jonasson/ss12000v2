@@ -1,0 +1,32 @@
+Placement:
+  type: object
+  properties:
+    id:
+      type: string
+      format: uuid
+    meta:
+      $ref: "common.yaml#/Meta"
+    placedAt:
+      type: string
+      format: uuid
+      description: Identifierare för (för)skolenheten där eleven är placerad.
+    schoolType:
+      type: string
+      description: Skolform, exempelvis GR, GY.
+      enum:
+        - FS
+        - FTH
+        - VUX
+    startDate:
+      type: string
+      format: date
+      description: "Startdatum för placeringen."
+    endDate:
+      type: string
+      format: date
+      description: "Slutdatum för placeringen."
+
+Placements:
+  type: array
+  items:
+    $ref: "#/Placement"

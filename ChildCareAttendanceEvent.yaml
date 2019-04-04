@@ -1,4 +1,4 @@
-CreateAttendanceEvent:
+CreateChildCareAttendanceEvent:
   type: object
   properties:
     time:
@@ -13,10 +13,14 @@ CreateAttendanceEvent:
       allOf:
         - $ref: "common.yaml#/ObjectReference"
         - description: Anger den person som registrat in- respektive utcheckning.
-    child:
+    placement:
       allOf:
-        - $ref: "common.yaml#/ObjectReference"
-        - description: Referens till barnet
+        - $ref: "common.yaml#/PlacementReference"
+        - description: Referens till barnets placering
+    # child:
+    #   allOf:
+    #     - $ref: "common.yaml#/ObjectReference"
+    #     - description: Referens till barnet
     group:
       allOf:
         - $ref: "common.yaml#/StudentGroupReference"
@@ -24,10 +28,10 @@ CreateAttendanceEvent:
   required:
     - time
     - type
-    - child
+    - placement
     - group
 
-AttendanceEvent:
+ChildCareAttendanceEvent:
   allOf:
     - type: object
       properties:
@@ -39,7 +43,7 @@ AttendanceEvent:
           $ref: "common.yaml#/Meta"
       required:
         - id
-    - $ref: "#/CreateAttendanceEvent"
+    - $ref: "#/CreateChildCareAttendanceEvent"
     - type: object
       properties:
         _embedded:

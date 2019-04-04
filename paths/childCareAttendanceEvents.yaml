@@ -27,7 +27,7 @@ attendance_events:
           type: array
           items:
             type: string
-            enum: [ child, group, registeredBy ]
+            enum: [child, group, registeredBy]
       - $ref: "searchParameters.yaml#/SearchCreatedBefore"
       - $ref: "searchParameters.yaml#/SearchCreatedAfter"
       - $ref: "searchParameters.yaml#/SearchModifiedBefore"
@@ -42,7 +42,7 @@ attendance_events:
             schema:
               type: array
               items:
-                $ref: "../AttendanceEvent.yaml#/AttendanceEvent"
+                $ref: "../ChildCareAttendanceEvent.yaml#/ChildCareAttendanceEvent"
   post:
     tags:
       - Närvarohändelser
@@ -52,7 +52,7 @@ attendance_events:
       content:
         application/json:
           schema:
-            $ref: "../AttendanceEvent.yaml#/CreateAttendanceEvent"
+            $ref: "../ChildCareAttendanceEvent.yaml#/CreateChildCareAttendanceEvent"
 
     responses:
       "200":
@@ -60,18 +60,18 @@ attendance_events:
         content:
           application/json:
             schema:
-              $ref: "../AttendanceEvent.yaml#/AttendanceEvent"
+              $ref: "../ChildCareAttendanceEvent.yaml#/ChildCareAttendanceEvent"
       default:
         description: unexpected error
         content:
           application/json:
             schema:
-              $ref: "../AttendanceEvent.yaml#/Error"
+              $ref: "../ChildCareAttendanceEvent.yaml#/Error"
 
 attendance_events_by_id:
   get:
     tags:
-        - Närvarohändelser
+      - Närvarohändelser
     summary: Hämta en närvarohändelse utifrån ID.
     parameters:
       - name: id
@@ -87,9 +87,9 @@ attendance_events_by_id:
         content:
           application/json:
             schema:
-              $ref: "../AttendanceEvent.yaml#/AttendanceEvent"
+              $ref: "../ChildCareAttendanceEvent.yaml#/ChildCareAttendanceEvent"
       "204":
-          description: Posten borttagen.
+        description: Posten borttagen.
       "400":
         description: Felaktigt id.
       "403":
@@ -101,10 +101,10 @@ attendance_events_by_id:
         content:
           application/json:
             schema:
-              $ref: "../AttendanceEvent.yaml#/Error"
+              $ref: "../ChildCareAttendanceEvent.yaml#/Error"
   delete:
     tags:
-        - Närvarohändelser
+      - Närvarohändelser
     summary: Ta bort en närvarohändelse.
     parameters:
       - name: id

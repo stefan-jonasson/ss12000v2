@@ -18,7 +18,7 @@ get:
           enum:
             - Activity
             - AggregatedAttendance
-            - AttendanceEvent
+            - ChildCareAttendanceEvent
             - CalendarEvent
             - ChildCareSchedule
             - Duty
@@ -51,7 +51,12 @@ get:
                 items:
                   type: string
                   format: uuid
-              AttendanceEvent:
+              ChildCareAttendanceEvent:
+                type: array
+                items:
+                  type: string
+                  format: uuid
+              Placement:
                 type: array
                 items:
                   type: string
