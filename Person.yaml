@@ -18,6 +18,10 @@ PersonFragment:
     familyName:
       type: string
       description: Efternamn.
+  required:
+    - id
+    - givenName
+    - familyName
 
 Person:
   allOf:
@@ -26,16 +30,33 @@ Person:
       properties:
         meta:
           $ref: "common.yaml#/Meta"
-        eduPersonPrincipalName:
-          type: string
+        eduPersonPrincipalNames:
+          type: array
           description: >
-            Den identifierare som ska användas för att identifiera användaren
+            De identifierare som ska användas för att identifiera användaren
             i skilda e-tjänster. Identifieraren ska vara en spårbar, persistent
             och globalt unik sträng. Den ska bestå av en lokalt unik
             användaridentifierare, ett ’@’ och en domän.
             En domän är ofta, men inte nödvändigtvis, samma som organisationens
             internet-domännamn.
             _Exempel: kalko@edu.goteborg.se_
+          uniqueItems: true
+          items:
+            type: object
+            properties:
+              value:
+                type: string
+                description: eduPersonPrincipalName
+                format: email
+              type:
+                type: string
+                enum:
+                  - Pedagogisk personal
+                  - Övrig personal
+                  - Elev
+                  - Vårdnadshavare
+            required: 
+              - value
         norEduPersonNIN:
           type: object
           description: Personnummer.
@@ -64,23 +85,34 @@ Person:
                 enligt ISO 3166-1 alpha-2.
           required:
             - value
+        securityMarking:
+          type: boolean
+          default: false
+        personStatus:
+          type: string
+          enum:
+            - Normal
+            - Utvandrad
+            - Avliden
+          default: Normal
         emails:
           type: array
           description: En lista med personens epostadresser
           items:
             type: object
             properties:
-              email:
+              value:
                 type: string
                 format: email
               type:
                 type: string
                 enum:
-                  - Anställd
+                  - Pedagogisk personal
+                  - Övrig personal
                   - Elev
                   - Vårdnadshavare
             required:
-              - email
+              - value
         phoneNumbers:
           type: array
           description: En lista med telefonnummer till personen.
@@ -89,7 +121,7 @@ Person:
               - number
             type: object
             properties:
-              number:
+              value:
                 type: string
                 description: Telefonnumret.
               type:
@@ -108,7 +140,7 @@ Person:
             properties:
               type:
                 type: string
-                default: folkbokföringsadress
+                default: Folkbokföringsadress
                 enum:
                   - Folkbokföringsadress
                   - Vistelseadress
@@ -130,7 +162,7 @@ Person:
           items:
             type: object
             properties:
-              photo:
+              value:
                 type: string
                 format: uri
                 description: En länk där bildfilen kan hämtas.
