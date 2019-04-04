@@ -131,7 +131,7 @@ Activity:
   required:
     - id
     - displayName
-    - groups
+    - owner
     - calendarEventsRequired
     - startDate
     - endDate
