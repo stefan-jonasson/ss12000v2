@@ -1,7 +1,7 @@
 Enrolment:
   type: object
   properties:
-    enrolledAt:
+    enroledAt:
       type: string
       format: uuid
       description: Identifierare för skolenheten där eleven är inskriven.
@@ -39,3 +39,7 @@ Enrolment:
     educationCode:
       type: string
       description: "Studievägskod för den aktuella inskrivningen."
+  required:
+    - enroledAt
+    - schoolType
+    - startDate
