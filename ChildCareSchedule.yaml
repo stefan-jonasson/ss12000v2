@@ -1,13 +1,6 @@
 CreateChildCareSchedule:
   type: object
   properties:
-    state:
-      type: string
-      enum:
-        - Tillfälligt
-        - Begärt
-        - Godkänt
-      description: Beskriver tillståndet på detta schema
     startDate:
       type: string
       format: date
@@ -42,14 +35,17 @@ CreateChildCareSchedule:
           length:
             type: integer
             description: Längden på den tid efter starttid som barnet ska vara
-    placement:
+    state:
+      type: string
+      enum:
+        - Tillfälligt
+        - Begärt
+        - Godkänt
+      description: Beskriver tillståndet på detta schema
+    child:
       allOf:
         - $ref: "common.yaml#/PlacementReference"
         - description: Referens till barnets placering
-    # child:
-    #   allOf:
-    #     - $ref: "common.yaml#/PersonReference"
-    #     - description: Referens till barnet
     group:
       allOf:
         - $ref: "common.yaml#/StudentGroupReference"

@@ -1,6 +1,6 @@
 SchoolUnitOffering:
   type: object
-  description: Ett utbud av kurser som av en skola.
+  description: Ett utbud av kurser som erbjuds av en skola.
   properties:
     offeredAt:
       $ref: "common.yaml#/ObjectReference"
@@ -31,7 +31,7 @@ SchoolUnitOffering:
               type: string
               description: >
                 Ett läsbart namn för att identifiera kursen.
-    programmes:
+    offeredProgramme:
       allOf:
         - description: Program som ges av skolan.
         - $ref: "common.yaml#/ObjectReference"

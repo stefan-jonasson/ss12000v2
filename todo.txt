@@ -112,3 +112,50 @@ tags på alla pather
 kopiera kompletta beskrivningar från dokumentet till yaml
 
 organisation kanske skulle heta organisational unit? jfr OU.
+
+
+
+
+Ändringar i dokumentet:
+Organisation, kolla descriptions från yaml och jämka.
+Organisation, ändra displayName -> namn PÅ organsationen.
+
+
+Duty ska ha AssignmentRoles lista. För studentgroup finns den...?
+
+
+skolform parameteriserar/refereras från studentgroup, minst
+
+
+duty refereras till 
+
+subjectDesignation är ett obegripligt ord.
+
+
+xor mellan syllabus och programme i SchoolUnitOffwering
+
+yaml är korrekt avseende studieplan, dok och diagram fixas
+
+
+kolla enum för aktivitetstyp återkommer och gör i så fall reference
+
+
+vi behöver kunna få ut vilka grupper en person är med i,
+resp vilka aktiviteter
+
+
+koppla rum och resurser till calendarEvent.
+
+vi har lagt till owner med exakt "1"
+
+child är kanske inte bästa attributnamnet när vi hänvisar till en placering i förskolan?
+hopblandning med det expanderade person-objektet
+
+
+sjukanmälan bör kunna göras
+
+LeaveOfAbsence bör ha en status:
+ - ansökt
+ - avslagen
+ - beviljad
+och *INGEN* frånvaroTyp. sjukanmälan, se ovan.

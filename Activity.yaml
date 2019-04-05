@@ -53,6 +53,7 @@ Activity:
 
     groups:
       type: array
+      minItems: 1
       items:
         type: object
         properties:
@@ -105,7 +106,7 @@ Activity:
           description: Beskrivning av ämnesplanen
       description: Det kurs- eller ämnesplan som aktiviteten är knuten till.
 
-    owner:
+    schoolUnit:
       type: object
       properties:
         id:
@@ -131,10 +132,10 @@ Activity:
   required:
     - id
     - displayName
-    - owner
+    - schoolUnit
     - calendarEventsRequired
     - startDate
-    - endDate
+    - groups
 
 Activities:
   type: array

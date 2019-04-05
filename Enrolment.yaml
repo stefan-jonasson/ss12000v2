@@ -11,23 +11,7 @@ Enrolment:
       minimum: 0
       maximum: 10
     schoolType:
-      type: string
-      description: Skolform, exempelvis GR, GY.
-      enum:
-        - FS
-        - FSK
-        - FTH
-        - GRS
-        - SP
-        - SAM
-        - GY
-        - GYS
-        - VUX
-        - SUV
-        - YH
-        - FHS
-        - HS
-        - AU
+      $ref: "common.yaml#/components/schemas/SchoolTypesEnum"
     startDate:
       type: string
       format: date

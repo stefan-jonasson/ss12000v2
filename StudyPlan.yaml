@@ -3,8 +3,10 @@ StudyPlan:
   description: En elevs studieplan
   properties:
     student:
-      type: string
-      format: uuid
+      allOf:
+        - $ref: "common.yaml#/PersonReference"
+        - description: >
+            Den elev som studieplanen gäller för.
     content:
       type: array
       items:

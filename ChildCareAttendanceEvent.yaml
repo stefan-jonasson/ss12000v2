@@ -4,31 +4,27 @@ CreateChildCareAttendanceEvent:
     time:
       type: string
       format: date-time
-    type:
+    eventType:
       type: string
       enum:
-        - in
-        - ut
+        - In
+        - Ut
     registeredBy:
       allOf:
         - $ref: "common.yaml#/ObjectReference"
         - description: Anger den person som registrat in- respektive utcheckning.
-    placement:
+    child:
       allOf:
         - $ref: "common.yaml#/PlacementReference"
         - description: Referens till barnets placering
-    # child:
-    #   allOf:
-    #     - $ref: "common.yaml#/ObjectReference"
-    #     - description: Referens till barnet
     group:
       allOf:
         - $ref: "common.yaml#/StudentGroupReference"
         - description: Den avdelning eller grupp på förskoleenheten som närvaron.
   required:
     - time
-    - type
-    - placement
+    - eventType
+    - child
     - group
 
 ChildCareAttendanceEvent:

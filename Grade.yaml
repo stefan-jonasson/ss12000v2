@@ -40,51 +40,37 @@ Grade:
       description: Anger om det registrerade betyget är ett slutbetyg för ämnet eller kursen.
     trial:
       type: boolean
+      default: false
       description: Anger om betyget satts vid en prövning. Förvalt värde är "false".
-    schoolType:
+    adaptedStudyPlan:
       type: string
-      description: Skolform där kursen eller ämnet ges. Förklaring till Skolverkets kodsystem finns på deras webbplats. Exempelvis MATMAT01a.
-      enum:
-        - FS
-        - FSK
-        - FTH
-        - GR
-        - GRS
-        - SP
-        - SAM
-        - GY
-        - GYS
-        - VUX
-        - SUV
-        - YH
-        - FHS
-        - HS
-        - AU
-    subjectCode:
+      description: Om en specialinriktad ämnesplan (GY) eller anpassad studiegång (GR) har använts för kursen så beskrivs här på vilket sätt studiegången anpassats.
+    remark:
       type: string
-      description: Ämneskod enligt Skolverket, om det är ett officellt ämne eller en officiell kurs, eller annars efter eget val.
-    subjectName:
-      type: string
-      description: Ämnets namn, exempelvis Matematik.
-    courseCode:
-      type: string
-      description: Kurskod enligt Skolverket, om det är en officiell kurs, eller annars efter eget val.
-    courseName:
-      type: string
-      description: Kursens namn, exempelvis Matematik A.
-    points:
-      type: integer
-      description: Antalet poäng för en specifik kurs. Exempelvis 100 poäng. Detta värde krävs för gymnasiekurser.
+      description: Andra anmärkningar för betygsraden.
+    converted:
+      type: boolean
+      default: false
+      description: Anger om betyget är omvandlat. Förvalt värde är "false".
     correctionType:
       type: string
       description: Ändringstyp för betyget, om det är ändrat.
       enum:
         - Ändring
         - Rättelse
-    converted:
-      type: boolean
-      default: false
-      description: Anger om betyget är omvandlat. Förvalt värde är "false".
+    semester:
+      type: string
+      description: Om betyget avser höst- eller vårtermin.
+      enum:
+        - HT
+        - VT
+    year:
+      type: integer
+      description: Året som betyget gäller, exempelvis 2019.
+    syllabus:
+      allOf:
+        $ref: "common.yaml#/ObjectReference"
+        description: Referens till Syllabusobjektet.
     diplomaProject:
       type: object
       properties:
@@ -103,58 +89,16 @@ Grade:
       required:
         - title
         - description
-    adaptedStudyPlan:
-      type: string
-      description: Om en specialinriktad ämnesplan (GY) eller anpassad studiegång (GR) har använts för kursen så beskrivs här på vilket sätt studiegången anpassats.
-    remark:
-      type: string
-      description: Andra anmärkningar för betygsraden.
-    schoolYear:
-      type: string
-      description: Elevens årskurs när betyget sattes, exempelvis 9. Endast applicerbart för obligatoriska skolformer.
-      enum:
-        - 0
-        - 1
-        - 2
-        - 3
-        - 4
-        - 5
-        - 6
-        - 7
-        - 8
-        - 9
-        - 10
-    semester:
-      type: string
-      description: Om betyget avser höst- eller vårtermin.
-      enum:
-        - HT
-        - VT
-    curriculum:
-      type: string
-      description: |
-        Referens till Skolverkets läroplan om det är en officiell
-        kurs eller ett officiellt ämne, annars valfritt.
-        Exempelvis GY2011, LGR11.
-    specialisationCourseContent:
-      type: object
-      description: Beskrivning av innehållet i en specialiseringskurs på gymnasiet.
-      properties:
-        title:
-          type: string
-          description: Titel på specialiseringskurs.
-        description:
-          type: string
-          description: Beskrivning av specialiseringskurs.
-        titleEngish:
-          type: string
-          description: Eventuell engelsk titel på specialiseringskurs.
-        descriptionEnglish:
-          type: string
-          description: Eventuell engelsk beskrivning av specialiseringskurs.
-      required:
-        - title
-        - description
+  required:
+    - id
+    - schoolUnit
+    - student
+    - registeredBy
+    - registeredDate
+    - gradeValue
+    - finalGrade
+    - adaptedStudyPlan
+
         
 Grades:
   type: array

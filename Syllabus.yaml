@@ -8,24 +8,9 @@ Syllabus:
     meta:
       $ref: "common.yaml#/Meta"
     schoolType:
-      type: string
-      description: Skolform där kursen eller ämnet ges. Förklaring till Skolverkets kodsystem finns på deras webbplats. Exempelvis MATMAT01a.
-      enum:
-        - FS
-        - FSK
-        - FTH
-        - GR
-        - GRS
-        - SP
-        - SAM
-        - GY
-        - GYS
-        - VUX
-        - SUV
-        - YH
-        - FHS
-        - HS
-        - AU
+      description: >
+        Beskriver vilken skolform kursen eller ämnet hör till.
+      $ref: "common.yaml#/components/schemas/SchoolTypesEnum"
     subjectCode:
       type: string
       description: En kod för ämnet som används bland annat i lärarlegitimation, till exempel GRGRMAT01. För ämnen som inte definieras av skolverket används valfri kod.
@@ -96,6 +81,7 @@ Syllabus:
       type: boolean
       description: Attributet anger om ämnet är ett officiellt ämne från Skolverket eller annan myndighet. Icke officiella ämnen kan skapas för andra ändamål än undervisning.
   required:
+    - id
     - schoolType
     - subjectCode
     - subjectName

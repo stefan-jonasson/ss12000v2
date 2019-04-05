@@ -1,5 +1,7 @@
 LeaveOfAbsenceFragment:
   type: object
+  description: >
+    Ledighetsansökan med bekräftelse.
   properties:
     id:
       type: string
