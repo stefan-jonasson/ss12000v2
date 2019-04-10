@@ -8,9 +8,10 @@ Syllabus:
     meta:
       $ref: "common.yaml#/Meta"
     schoolType:
-      description: >
-        Beskriver vilken skolform kursen eller ämnet hör till.
-      $ref: "common.yaml#/components/schemas/SchoolTypesEnum"
+      allOf:
+        - description: >
+            Beskriver vilken skolform kursen eller ämnet hör till.
+        - $ref: "common.yaml#/components/schemas/SchoolTypesEnum"
     subjectCode:
       type: string
       description: En kod för ämnet som används bland annat i lärarlegitimation, till exempel GRGRMAT01. För ämnen som inte definieras av skolverket används valfri kod.

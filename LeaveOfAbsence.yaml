@@ -15,8 +15,9 @@ LeaveOfAbsenceFragment:
       format: date-time
       description: Sluttid för den anmälda frånvaron.
     type:
-      description: Anger om det rör beviljad ledighet eller frånvaro anmäld av vårdnadshavare.
-      $ref: "common.yaml#/components/schemas/LeaveOfAbsenceEnum"
+      allOf:
+        - description: Anger om det rör beviljad ledighet eller frånvaro anmäld av vårdnadshavare.
+        - $ref: "common.yaml#/components/schemas/LeaveOfAbsenceEnum"
     student:
       allOf:
         - $ref: "common.yaml#/PersonReference"
