@@ -7,6 +7,7 @@ StudentGroup:
       description: >
         En studentgrupp. Innehåller elever eller kan vara en tom "platshållare"
         utan medlemmar och populeras vid ett senare tillfälle.
+    meta: 
       $ref: "common.yaml#/Meta"
     displayName:
       description: Gruppens namn.
@@ -27,12 +28,13 @@ StudentGroup:
       $ref: "common.yaml#/components/schemas/StudentGroupTypesEnum"
 
     schoolType:
-      description: >
-        Beskriver vilken skolform gruppen är tänkt att användas för.
-        Denna information är mest relevant för planering och schemaläggning,
-        innan gruppen populeras med elever, eftersom  elevens inskrivning är
-        ger mer specifik information.
-      $ref: "common.yaml#/components/schemas/SchoolTypesEnum"
+      allOf:
+        - description: >
+            Beskriver vilken skolform gruppen är tänkt att användas för.
+            Denna information är mest relevant för planering och schemaläggning,
+            innan gruppen populeras med elever, eftersom  elevens inskrivning är
+            ger mer specifik information.
+        - $ref: "common.yaml#/components/schemas/SchoolTypesEnum"
     studentMemberships:
       description: >
         Studentmedlemskap anger att en student är medlem i en grupp
@@ -57,8 +59,9 @@ StudentGroup:
                 type: string
                 format: date
     schoolUnit:
-      description: Den skolenhet som elevgruppen är knuten till.
-      $ref: "common.yaml#/SchoolUnitReference"
+      allOf:
+        - description: Den skolenhet som elevgruppen är knuten till.
+        - $ref: "common.yaml#/SchoolUnitReference"
     _embedded:
       type: object
       properties:
