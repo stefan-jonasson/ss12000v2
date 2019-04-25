@@ -42,19 +42,15 @@ CreateChildCareSchedule:
         - Begärt
         - Godkänt
       description: Beskriver tillståndet på detta schema
-    child:
+    placement:
       allOf:
         - $ref: "common.yaml#/PlacementReference"
         - description: Referens till barnets placering
-    group:
-      allOf:
-        - $ref: "common.yaml#/StudentGroupReference"
-        - description: Den avdelning eller grupp på förskoleenheten som schemat avser.
+    
   required:
     - startDate
     - scheduleDays
     - placement
-    - group
     - state
 
 ChildCareSchedule:
