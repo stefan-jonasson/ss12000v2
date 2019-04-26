@@ -1,4 +1,4 @@
-Placement:
+PlacementFragment:
   type: object
   properties:
     id:
@@ -50,6 +50,18 @@ Placement:
       allOf:
         - $ref: "common.yaml#/StudentGroupReference"
         - description: Barngrupp eller avdelning knutet till denna placering. Används för att 
+
+Placement:
+  allOf:
+    - $ref: "#/PlacementFragment"
+    - type: object
+      properties:
+        meta:
+          $ref: "common.yaml#/Meta"
+        person:
+          allOf:
+            - $ref: "common.yaml#/PersonReference"
+            - description: Identifierare av person som placeringen är knuten till.
 
 Placements:
   type: array

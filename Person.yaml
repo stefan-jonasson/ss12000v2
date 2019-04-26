@@ -134,7 +134,7 @@ Person:
                 default: true
         addresses:
           type: array
-          description: Personens postadresser.
+          description: En lista med personens postadresser
           items:
             type: object
             properties:
@@ -187,13 +187,6 @@ Person:
           description: En lista med inskrivningar för personen
           items:
             $ref: "Enrolment.yaml#/Enrolment"
-        placements:
-          type: array
-          description: >
-            En lista med placeringen för personen, 
-            används för förskoleverksamhet eller för placering på ex kulturskol
-          items:
-            $ref: "Placement.yaml#/Placement"
         repsonsibleRelations:
           type: array
           description: > 
@@ -218,16 +211,17 @@ Person:
                   - Familjehemsförälder
         relations:
           type: array 
-          description: >
+          description: |
             Relaterade personer. 
             Egenskapen går från en person till en annan, beskriver en relation och inte ett officiellt ansvar. 
 
-            - Agerande vårdnadshavare
+            - Agerande vårdnadshavare:
               Tilldelad relation för att delge information eller funktionalitet på liknande sätt som för den officiella vårdnadshavaren.
             - Förälder
             - Hämtare
+            - Hämtare:
               Personen får hämta upp barnet från barnomsorgsverksamhet.
-            - Kontaktperson
+            - Kontaktperson:
               Kontaktperson till kontakten.
           items:
             type: object
@@ -323,6 +317,13 @@ PersonExpanded:
                       - Barn
                       - Hämtare för
                       - Kontaktperson för
+            placements:
+              type: array
+              description: >
+                En lista med placeringen för personen,
+                används för förskoleverksamhet eller för placering på ex kulturskol
+              items:
+                $ref: "Placement.yaml#/PlacementFragment"
             duties:
               type: array
               description: Personens tjänster
