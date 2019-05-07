@@ -109,6 +109,16 @@ components:
         - HS
         - AU
 
+    RelationTypesEnum:
+      type: string
+      description: |
+        Värdeförråd för olika typer av relationer till en elev.
+      enum:
+        - Vårdnadshavare
+        - Annan ansvarig
+        - God man
+        - Utsedd behörig
+
     AbsenceEnum:
       type: string
       enum:
