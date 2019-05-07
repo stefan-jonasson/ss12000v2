@@ -20,14 +20,6 @@ attendances:
           items:
             type: string
             format: uuid
-      - name: expand
-        description: Beskriver om expanderade data ska hämtas för närvaroregisteringen.
-        in: query
-        schema:
-          type: array
-          items:
-            type: string
-            enum: [student, activity, calendarEvent]
       - $ref: "searchParameters.yaml#/SearchCreatedBefore"
       - $ref: "searchParameters.yaml#/SearchCreatedAfter"
       - $ref: "searchParameters.yaml#/SearchModifiedBefore"
