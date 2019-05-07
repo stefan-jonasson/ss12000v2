@@ -78,7 +78,7 @@ components:
         - ChildCareSchedule
         - Duty
         - Grade
-        - LeaveOfAbsence
+        - Absence
         - Organisation
         - Person
         - Programme
@@ -109,11 +109,11 @@ components:
         - HS
         - AU
 
-    LeaveOfAbsenceEnum:
+    AbsenceEnum:
       type: string
       enum:
-        - Ledighet
-        - Anmälan
+        - Beviljad ledighet
+        - Anmäld frånvaro
 
     StudentGroupTypesEnum:
       type: string

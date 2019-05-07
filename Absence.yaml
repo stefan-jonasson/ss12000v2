@@ -1,11 +1,8 @@
-LeaveOfAbsenceFragment:
+AbsenceFragment:
   type: object
   description: >
     Ledighetsansökan med bekräftelse.
   properties:
-    id:
-      type: string
-      format: uuid
     startTime:
       type: string
       format: date-time
@@ -17,7 +14,7 @@ LeaveOfAbsenceFragment:
     type:
       allOf:
         - description: Anger om det rör beviljad ledighet eller frånvaro anmäld av vårdnadshavare.
-        - $ref: "common.yaml#/components/schemas/LeaveOfAbsenceEnum"
+        - $ref: "common.yaml#/components/schemas/AbsenceEnum"
     student:
       allOf:
         - $ref: "common.yaml#/PersonReference"
@@ -32,57 +29,28 @@ LeaveOfAbsenceFragment:
         - description: |
             Referens till den person som registrerat den anmälda frånvaron.
   required:
-    - id
     - startTime
     - endTime
     - type
     - student
 
-LeaveOfAbsence:
+Absence:
   allOf:
-    - $ref: "#/LeaveOfAbsenceFragment"
+    - $ref: "#/AbsenceFragment"
     - type: object
       properties:
+        id:
+          type: string
+          format: uuid
         meta:
           $ref: "common.yaml#/Meta"
+      required:
+        - id
 
-CreateLeaveOfAbsence:
-  type: object
-  properties:
-    startTime:
-      type: string
-      format: date-time
-      description: Starttid för den anmälda frånvaron/ledigheten.
-    endTime:
-      type: string
-      format: date-time
-      description: Sluttid för den anmälda frånvaron/ledigheten.
-    type:
-      $ref: "common.yaml#/components/schemas/LeaveOfAbsenceEnum"
-    student:
-      type: string
-      format: uuid
-      description: ID för student som den anmälda frånvaron/ledigheten avser.
-    schoolUnit:
-      type: string
-      format: uuid
-      description: ID för den skolenhet som den anmälda frånvaron/ledigheten avser.
-    registeredBy:
-      type: string
-      format: uuid
-      description: ID för den person som registrerar den anmälda frånvaron/ledigheten.
-  required:
-    - startTime
-    - endTime
-    - type
-    - student
-    - schoolUnit
-    - registeredBy
-
-LeaveOfAbsences:
+Absences:
   type: array
   items:
-    $ref: "#/LeaveOfAbsence"
+    $ref: "#/Absence"
 
 Error:
   required:

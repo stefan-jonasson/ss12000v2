@@ -1,7 +1,7 @@
 childcare_schedule: 
   get: 
     tags:
-      - Barnomsorgsschema
+      - Schema
     summary: Returnerar registrerade in-/utcheckningar.
     parameters:
       - name: child

@@ -1,9 +1,9 @@
-leaveofabsences:
+absences:
   get:
     tags:
       - Närvaro
-    summary: Hämta en lista av anmäld frånvaro.
-    operationId: getLeaveOfAbsence
+    summary: Hämta en lista av beviljad ledighet och anmäld frånvaro.
+    operationId: getAbsence
     parameters:
       - name: id
         description: Begränsa urvalet till utpekade anmälda frånvaro ID.
@@ -13,37 +13,37 @@ leaveofabsences:
           items:
             type: string
       - name: schoolUnit
-        description: Begränsa urvalet till de anmälda frånvaro som är kopplade till skolenhet.
+        description: Begränsa urvalet till den frånvaro/ledighet som är kopplad till skolenheten.
         in: query
         schema:
           type: string
           format: uuid
       - name: student
-        description: Begränsa urvalet till de anmälda frånvaro som är kopplade till eleven
+        description: Begränsa urvalet till den frånvaro/ledighet som är kopplad till eleven
         in: query
         schema:
           type: string
           format: uuid
       - name: registeredBy
-        description: Begränsa urvalet till de anmälda frånvaro som är registrerade av personen
+        description: Begränsa urvalet till den frånvaro/ledighet som är registrerad av personen
         in: query
         schema:
           type: string
           format: uuid
       - name: type
-        description: Begränsa urvalet till de anmälda frånvaro/ledigheter till typen
+        description: Begränsa urvalet till den frånvaro/ledighet som är av angiven typ
         in: query
         schema:
           type: string
-          $ref: "../common.yaml#/components/schemas/LeaveOfAbsenceEnum"
-      - name: startTime.after
-        description: Endast anmälda frånvaro som startar efter detta timestamp (Exkluderande)
+          $ref: "../common.yaml#/components/schemas/AbsenceEnum"
+      - name: startTime.before
+        description: Endast anmälda frånvaro som startar innan eller på denna tidpunkt (Inkluderande)
         in: query
         schema:
           type: string
           format: date-time
-      - name: startTime.before
-        description: Endast anmälda frånvaro som startar innan eller på detta timestamp (Inkluderande)
+      - name: startTime.after
+        description: Endast anmälda frånvaro/ledighet som startar efter denna tidpunkt (Exkluderande)
         in: query
         schema:
           type: string
@@ -60,37 +60,37 @@ leaveofabsences:
         content:
           application/json:
             schema:
-              $ref: "../LeaveOfAbsence.yaml#/LeaveOfAbsences"
+              $ref: "../Absence.yaml#/Absences"
   post:
     tags:
       - Närvaro
-    summary: Registrera en ny närvaro post.
+    summary: Registrera en ny anmäld frånvaropost eller beviljad ledighet
     requestBody:
       required: true
       content:
         application/json:
           schema:
-            $ref: "../LeaveOfAbsence.yaml#/CreateLeaveOfAbsence"
+            $ref: "../Absence.yaml#/AbsenceFragment"
     responses:
       200:
         description: Posten skapad.
         content:
           application/json:
             schema:
-              $ref: "../LeaveOfAbsence.yaml#/LeaveOfAbsence"
+              $ref: "../Absence.yaml#/Absence"
       default:
         description: unexpected error
         content:
           application/json:
             schema:
-              $ref: "../LeaveOfAbsence.yaml#/Error"
+              $ref: "../Absence.yaml#/Error"
 
-leaveOfAbsenceFilter:
+AbsenceFilter:
   post:
     tags:
       - Närvaro
     summary: Hämta många anmälda frånvaro baserat på en lista av ID:n.
-    operationId: postLeaveOfAbsenceFilter
+    operationId: postAbsenceFilter
     description: >
       Hämta många anmälda frånvaro.
     responses:
@@ -99,7 +99,7 @@ leaveOfAbsenceFilter:
         content:
           application/json:
             schema:
-              $ref: "../LeaveOfAbsence.yaml#/LeaveOfAbsence"
+              $ref: "../Absence.yaml#/Absence"
     requestBody:
       content:
         application/json:
@@ -110,7 +110,7 @@ leaveOfAbsenceFilter:
               format: uuid
       required: true
 
-leaveofabsence_by_id:
+absence_by_id:
   get:
     tags:
       - Närvaro
@@ -128,7 +128,7 @@ leaveofabsence_by_id:
         content:
           application/json:
             schema:
-              $ref: "../LeaveOfAbsence.yaml#/LeaveOfAbsence"
+              $ref: "../Absence.yaml#/Absence"
       "400":
         description: Invalid id supplied
       "403":

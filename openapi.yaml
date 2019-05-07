@@ -18,20 +18,18 @@ tags:
     description: Hanterar personer och personers relationer.
   - name: Grupper
     description: Grupper.
-  - name: Kurser
+  - name: Studieinformation
     description: Information om kurser, ämnen, program och studieplaner.
   - name: Aktiviteter
     description: Aktiviteter knyter ihop lärare och elever med ämne eller kurs.
-  - name: Kalenderhändelser
+  - name: Schema
     description: Kalenderposter kopplat till aktiviteter
-  - name: Närvaro
-    description: Information runt en elevs närvaro.
-  - name: Barnomsorgsschema
-    description: Schema som registrerats för barnets omsorgstider på förskola eller fritidshem
-  - name: Närvarohändelser
-    description: In- och utpassering. Används för närvarohantering i förskola och fritidshem (utan kopplingar till kalenderhändelser).
   - name: Rum och resurser
     description: Salar och resurser som kan schemaläggas.
+  - name: Närvaro
+    description: Information runt en elevs närvaro.
+  - name: Närvarohändelser
+    description: In- och utpassering. Används för närvarohantering i förskola och fritidshem (utan kopplingar till kalenderhändelser).
   - name: Verktyg
     description: Metoder för att hantera metadata.
   - name: Prenumeration
@@ -119,12 +117,12 @@ paths:
     $ref: paths/grades.yaml#/gradesFilter
   /grades/{id}:
     $ref: paths/grades.yaml#/gradeById
-  /leaveofabsences:
-    $ref: paths/leaveofabsences.yaml#/leaveofabsences
-  /leaveofabsences/filter:
-    $ref: paths/leaveofabsences.yaml#/leaveOfAbsenceFilter
-  /leaveofabsences/{id}:
-    $ref: paths/leaveofabsences.yaml#/leaveofabsence_by_id
+  /absences:
+    $ref: paths/absences.yaml#/absences
+  /absences/filter:
+    $ref: paths/absences.yaml#/AbsenceFilter
+  /absences/{id}:
+    $ref: paths/absences.yaml#/absence_by_id
   /aggregatedAttendance:
     $ref: paths/aggregatedAttendances.yaml
   /resources:
@@ -179,8 +177,8 @@ components:
       $ref: "ChildCareAttendanceEvent.yaml#/ChildCareAttendanceEvent"
     ChildCareSchedule:
       $ref: "ChildCareSchedule.yaml#/ChildCareSchedule"
-    LeaveOfAbsence:
-      $ref: "LeaveOfAbsence.yaml#/LeaveOfAbsence"
+    Absence:
+      $ref: "Absence.yaml#/Absence"
     AggregatedAttendance:
       $ref: "AggregatedAttendance.yaml#/AggregatedAttendance"
     Grade:
