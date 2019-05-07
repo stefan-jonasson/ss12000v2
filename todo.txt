@@ -159,3 +159,29 @@ LeaveOfAbsence bör ha en status:
  - avslagen
  - beviljad
 och *INGEN* frånvaroTyp. sjukanmälan, se ovan.
+
+
+
+
+### möten med olika teman:
+
+- autentisering
+- prenumerationer / pubsub
+- scenarier
+- yaml färdigställa
+- generellt möte om detaljer såsom värdförråd mm
+
+Palle har ett förs
+
+
+är det rimligt att för "/attendances"
+
+    "student": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "reportedBy": {
+      "displayName": "string",
+      "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+    },
+
+
+dvs  att elkeven för närvaro inte har namn men reportedBy har namn?
+vårt förslag är att inga displaynames finns där dessutum
