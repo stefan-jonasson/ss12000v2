@@ -40,16 +40,20 @@ PlacementFragment:
         code: 
           type: string
           description: En kod för att beskriva orsak för placeringen.
-        description:
-          type: string
-          description: Text för att beskriva orsak för placeringen.
+          enum:
+            - Omsorg
+            - Erbjuden tid
+            - Eget behov
         maxWeeklyScheduleHours:
           type: integer
-          description: Maxtid i timmar per vecka som är tillåten för placeringen. Används för att begränsa hur många timmar som får schema läggas per vecka.
+          description: >
+            Maxtid i timmar per vecka som är tillåten för placeringen.
+            Används för att begränsa hur många timmar som får schema
+            läggas per vecka.
     studentGroup:
       allOf:
         - $ref: "common.yaml#/StudentGroupReference"
-        - description: Barngrupp eller avdelning knutet till denna placering. Används för att 
+        - description: Barngrupp eller avdelning knutet till denna placering.
 
 Placement:
   allOf:
