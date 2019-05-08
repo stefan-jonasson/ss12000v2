@@ -185,3 +185,40 @@ Palle har ett förs
 
 dvs  att elkeven för närvaro inte har namn men reportedBy har namn?
 vårt förslag är att inga displaynames finns där dessutum
+
+Ordna sortkey:
+
+Palle (några redan gjorda gemensamt):
+
+absences.yaml
+activities.yaml
+aggregatedAttendances.yaml
+attendances.yaml
+calendarEvents.yaml
+childCareAttendanceEvents.yaml
+childcareSchedule.yaml
+deletedEntities.yaml
+
+Ola
+
+duties.yaml
+grades.yaml
+organisations.yaml
+schoolUnitOfferings.yaml
+schoolUnits.yaml
+
+Jonas
+
+persons.yaml
+placements.yaml
+programmes.yaml
+resources.yaml
+rooms.yaml
+
+Stefan
+searchParameters.yaml
+studentGroups.yaml
+studyPlans.yaml
+subscriptions.yaml
+syllabuses.yaml
+
