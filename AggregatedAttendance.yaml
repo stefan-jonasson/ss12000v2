@@ -41,7 +41,7 @@ AggregatedAttendance:
         activity:
           $ref: "Activity.yaml#/Activity"
         student:
-          $ref: "Person.yaml#/Person"
+          $ref: "Person.yaml#/PersonFragment"
   required:
     - startDate
     - endDate
