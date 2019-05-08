@@ -209,11 +209,11 @@ schoolUnits.yaml
 
 Jonas
 
-persons.yaml
-placements.yaml
-programmes.yaml
-resources.yaml
-rooms.yaml
+persons.yaml [x]
+placements.yaml [x]
+programmes.yaml [x]
+resources.yaml [x]
+rooms.yaml [x]
 
 Stefan
 searchParameters.yaml
