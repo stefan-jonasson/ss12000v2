@@ -1,7 +1,8 @@
 get:
   tags:
     - Närvaro
-  summary: Returnerar summerad närvaro information utifrån angivet tidsintervall.
+  summary: >
+    Returnerar summerad närvaro information utifrån angivet tidsintervall.
   parameters:
     - name: startDate
       description: Hämta aggregerad närvaro från och med detta datum (ISO8601 format, e.g. "2016-10-15")
@@ -23,27 +24,11 @@ get:
       schema:
         type: string
         format: uuid
-    - name: schoolForm
-      description: Hämta endast närvaro informtion från aktiviteter vilka är kopplade mot angiven skolvform
+    - name: schoolType
+      description: Hämta endast närvaro information från aktiviteter vilka är kopplade mot angiven skolform
       in: query
       schema:
-        type: string
-        enum: 
-          - FS
-          - FSK
-          - FTH
-          - GR
-          - GRS
-          - SP
-          - SAM
-          - GY
-          - GYS
-          - VUX
-          - SUV
-          - YH
-          - FHS
-          - HS
-          - AU
+        $ref: "../common.yaml#/SchoolTypesEnum"
     - name: student
       description: Filtrera på elev (person)
       in: query
@@ -60,10 +45,8 @@ get:
         items:
           type: string
           enum: [ activity, student ]
-    - $ref: "searchParameters.yaml#/Offset"
-    - $ref: "searchParameters.yaml#/Limit"
   responses:
-    "200":
+    200:
       description: successful operation
       content:
         application/json:

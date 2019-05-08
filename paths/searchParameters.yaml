@@ -31,6 +31,18 @@ SearchModifiedBefore:
       type: string
       format: date-time
 
+Sortkey:
+  in: query
+  name: sortkey
+  schema:
+    type: string
+    enum:
+      - DisplayName
+      - LastModifiedDesc
+      - StartTimeAsc
+      - StartTimeDesc
+    default: LastModifiedDesc
+
 Offset:
   in: query
   name: offset
@@ -39,7 +51,9 @@ Offset:
     minimum: 0
     default: 0
   required: false
-  description: Antal poster, från början av listan, som ska hoppas över innan resultatet börjar presenteras.
+  description: >
+    Antal poster, från början av listan, som ska hoppas över
+    innan resultatet börjar presenteras.
 
 Limit:
   in: query
@@ -47,7 +61,7 @@ Limit:
   schema:
     type: integer
     minimum: 1
-    maximum: 1000000
-    default: 1000000
   required: false
-  description: Antal poster som ska visas i resultatet.
+  description: >
+    Antal poster som ska visas i resultatet.
+    Utelämnas det så returnas samtliga poster utan begränsning.

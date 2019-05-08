@@ -2,7 +2,8 @@ absences:
   get:
     tags:
       - Närvaro
-    summary: Hämta en lista av beviljad ledighet och anmäld frånvaro.
+    summary: >
+      Hämta en lista av beviljad ledighet och anmäld frånvaro.
     operationId: getAbsence
     parameters:
       - name: id
@@ -52,6 +53,16 @@ absences:
       - $ref: "searchParameters.yaml#/SearchCreatedAfter"
       - $ref: "searchParameters.yaml#/SearchModifiedBefore"
       - $ref: "searchParameters.yaml#/SearchModifiedAfter"
+      - name: sortkey
+        description: Anger hur resultatet ska sorteras.
+        in: query
+        schema:
+          type: string
+          enum:
+            - LastModifiedDesc
+            - StartTimeAsc
+            - StartTimeDesc
+          default: LastModifiedDesc
       - $ref: "searchParameters.yaml#/Offset"
       - $ref: "searchParameters.yaml#/Limit"
     responses:
