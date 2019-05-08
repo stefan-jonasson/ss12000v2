@@ -28,7 +28,7 @@ get:
       description: Hämta endast närvaro information från aktiviteter vilka är kopplade mot angiven skolform
       in: query
       schema:
-        $ref: "../common.yaml#/SchoolTypesEnum"
+        $ref: "../common.yaml#/components/schemas/SchoolTypesEnum"
     - name: student
       description: Filtrera på elev (person)
       in: query
