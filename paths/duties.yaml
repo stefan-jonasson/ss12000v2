@@ -35,6 +35,15 @@ duties:
         schema:
           type: string
           format: uuid
+      - name: expand
+        description: Beskriver om expanderade data ska hämtas
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+            enum: 
+             - assignedToStudentGroupAs
       - $ref: "searchParameters.yaml#/SearchCreatedBefore"
       - $ref: "searchParameters.yaml#/SearchCreatedAfter"
       - $ref: "searchParameters.yaml#/SearchModifiedBefore"

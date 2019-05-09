@@ -141,3 +141,15 @@ components:
         - Mentor
         - Schema
         - Övrigt
+
+    AssignmentRoleTypeEnum:
+      type: string
+      enum:
+        - Mentor
+        - Förskollärare
+        - Barnskötare
+        - Fritidspedagog
+        - Specialpedagog
+        - Elevhälsopersonal
+        - Pedagogisk ledare
+        - Schemaläggare
