@@ -30,13 +30,11 @@ filterParam: # <-- Arbitrary name for the definition that will be used to refer 
       minimum: 0
       default: 0
     required: false
-    description: The number of items to skip before starting to collect the result set.
+    description: Antal poster, räknat från första posten, att hoppa över i resultatmängden.
   - in: query
     name: limit
     schema:
       type: integer
       minimum: 1
-      maximum: 100
-      default: 20
     required: false
-    description: The number of items to return.
+    description: Antar poster som maximalt ska returneras i resultatmängden.
