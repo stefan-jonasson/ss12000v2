@@ -56,7 +56,9 @@ subscriptions:
                         enum:
                           - NewOrUpdate
                           - Deleted
-
+                      triggeredAt: 
+                        type: string
+                        format: date-time 
                       list:
                         type: array
                         items:
@@ -68,6 +70,7 @@ subscriptions:
                               type: array
                               items:
                                 type: string
+                                format: uuid
 
             responses: # Expected responses to the callback message
               "200":

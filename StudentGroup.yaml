@@ -74,16 +74,7 @@ StudentGroup:
               - type: object
                 properties:
                   assignmentRoleType:
-                    type: string
-                    enum:
-                      - Mentor
-                      - Förskollärare
-                      - Barnskötare
-                      - Fritidspedagog
-                      - Specialpedagog
-                      - Elevhälsopersonal
-                      - Pedagogisk ledare
-                      - Schemaläggare
+                    $ref:  "common.yaml#/components/schemas/AssignmentRoleTypeEnum"
                   startDate:
                     description: >
                       Startdatum för tjänstens relation till gruppen
