@@ -71,6 +71,7 @@ components:
     EndPointsEnum:
       type: string
       enum:
+        - Absence
         - Activity
         - AggregatedAttendance
         - AttendanceEvent
@@ -78,9 +79,9 @@ components:
         - ChildCareSchedule
         - Duty
         - Grade
-        - Absence
         - Organisation
         - Person
+        - Placement
         - Programme
         - Resource
         - Room
@@ -88,7 +89,6 @@ components:
         - SchoolUnitGroup
         - SchoolUnitOffering
         - Syllabus
-        - Placement
 
     SchoolTypesEnum:
       type: string
