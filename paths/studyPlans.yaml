@@ -26,13 +26,13 @@ studyPlans:
           type: string
           format: date
       - name: lastUpdate.after
-        description: Endast studieplaner som blivit justerade efter detta timestamp (Exkluderande)
+        description: Endast studieplaner som blivit justerade efter denna tidpunkt (Exkluderande)
         in: query
         schema:
           type: string
           format: date-time
       - name: lastUpdate.before
-        description: Endast studieplaner som  blivit justerade innan eller på detta timestamp (Inkluderande)
+        description: Endast studieplaner som  blivit justerade innan eller på denna tidpunkt (Inkluderande)
         in: query
         schema:
           type: string

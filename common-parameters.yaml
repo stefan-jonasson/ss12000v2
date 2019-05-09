@@ -1,24 +1,24 @@
 filterParam: # <-- Arbitrary name for the definition that will be used to refer to it.
   - name: meta.created.after
-    description: Endast poster skapade efter detta timestamp (Exkluderande)
+    description: Endast poster skapade efter denna tidpunkt (Exkluderande)
     in: query
     schema:
       type: string
       format: date-time
   - name: meta.created.before
-    description: Endast poster skapade på eller före detta timestamp (Inkluderande)
+    description: Endast poster skapade på eller före denna tidpunkt (Inkluderande)
     in: query
     schema:
       type: string
       format: date-time
   - name: meta.modified.after
-    description: Endast poster modifierade efter detta timestamp (Exkluderande)
+    description: Endast poster modifierade efter denna tidpunkt (Exkluderande)
     in: query
     schema:
       type: string
       format: date-time
   - name: meta.modified.before
-    description: Endast poster modifierade på eller före detta timestamp (Inkluderande)
+    description: Endast poster modifierade på eller före denna tidpunkt (Inkluderande)
     in: query
     schema:
       type: string
