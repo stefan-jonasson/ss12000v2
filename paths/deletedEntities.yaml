@@ -23,7 +23,7 @@ get:
             - ChildCareSchedule
             - Duty
             - Grade
-            - LeaveOfAbsence
+            - Absence
             - Organisation
             - Person
             - Programme
@@ -81,7 +81,7 @@ get:
                 items:
                   type: string
                   format: uuid
-              LeaveOfAbsence:
+              Absence:
                 type: array
                 items:
                   type: string

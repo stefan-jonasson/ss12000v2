@@ -33,6 +33,7 @@ activities:
       - $ref: "searchParameters.yaml#/SearchCreatedAfter"
       - $ref: "searchParameters.yaml#/SearchModifiedBefore"
       - $ref: "searchParameters.yaml#/SearchModifiedAfter"
+      - $ref: "searchParameters.yaml#/Sortkey"
       - $ref: "searchParameters.yaml#/Offset"
       - $ref: "searchParameters.yaml#/Limit"
     responses:

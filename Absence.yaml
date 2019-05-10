@@ -1,0 +1,64 @@
+AbsenceFragment:
+  type: object
+  description: >
+    Ledighetsansökan med bekräftelse.
+  properties:
+    startTime:
+      type: string
+      format: date-time
+      description: Starttid för den anmälda frånvaron.
+    endTime:
+      type: string
+      format: date-time
+      description: Sluttid för den anmälda frånvaron.
+    type:
+      allOf:
+        - description: Anger om det rör beviljad ledighet eller frånvaro anmäld av vårdnadshavare.
+        - $ref: "common.yaml#/components/schemas/AbsenceEnum"
+    student:
+      allOf:
+        - $ref: "common.yaml#/PersonReference"
+        - description: Referens till eleven.
+    schoolUnit:
+      allOf:
+        - $ref: "common.yaml#/SchoolUnitReference"
+        - description: Den skolenhet som den anmälda frånvaron avser.
+    registeredBy:
+      allOf:
+        - $ref: "common.yaml#/PersonReference"
+        - description: |
+            Referens till den person som registrerat den anmälda frånvaron.
+  required:
+    - startTime
+    - endTime
+    - type
+    - student
+
+Absence:
+  allOf:
+    - $ref: "#/AbsenceFragment"
+    - type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        meta:
+          $ref: "common.yaml#/Meta"
+      required:
+        - id
+
+Absences:
+  type: array
+  items:
+    $ref: "#/Absence"
+
+Error:
+  required:
+    - code
+    - message
+  properties:
+    code:
+      type: integer
+      format: int32
+    message:
+      type: string

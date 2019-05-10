@@ -1,4 +1,4 @@
-Placement:
+PlacementFragment:
   type: object
   properties:
     id:
@@ -10,21 +10,62 @@ Placement:
       type: string
       format: uuid
       description: Identifierare för (för)skolenheten där eleven är placerad.
+    child:
+      allOf:
+        - $ref: "common.yaml#/PersonReference"
+        - description: Identifierare av person som placeringen avser.
+    owners:
+      type: array
+      description: En lista med indetifierare för de personer som äger placeringen. Används primärt för att styra vilka som skall kunna se och lägga schema.
+      items:
+        type: string
+        format: uuid
     schoolType:
       type: string
-      description: Skolform, exempelvis GR, GY.
+      description: Skolform, exempelvis FS, FTH.
       enum:
         - FS
         - FTH
-        - VUX
     startDate:
       type: string
       format: date
-      description: "Startdatum för placeringen."
+      description: Startdatum för placeringen.
     endDate:
       type: string
       format: date
-      description: "Slutdatum för placeringen."
+      description: Slutdatum för placeringen.
+    reason:
+      type: object
+      properties:
+        code: 
+          type: string
+          description: En kod för att beskriva orsak för placeringen.
+          enum:
+            - Omsorg
+            - Erbjuden tid
+            - Eget behov
+        maxWeeklyScheduleHours:
+          type: integer
+          description: >
+            Maxtid i timmar per vecka som är tillåten för placeringen.
+            Används för att begränsa hur många timmar som får schema
+            läggas per vecka.
+    studentGroup:
+      allOf:
+        - $ref: "common.yaml#/StudentGroupReference"
+        - description: Barngrupp eller avdelning knutet till denna placering.
+
+Placement:
+  allOf:
+    - $ref: "#/PlacementFragment"
+    - type: object
+      properties:
+        meta:
+          $ref: "common.yaml#/Meta"
+        person:
+          allOf:
+            - $ref: "common.yaml#/PersonReference"
+            - description: Identifierare av person som placeringen är knuten till.
 
 Placements:
   type: array

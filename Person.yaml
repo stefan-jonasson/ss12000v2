@@ -134,7 +134,7 @@ Person:
                 default: true
         addresses:
           type: array
-          description: Personens postadresser.
+          description: En lista med personens postadresser
           items:
             type: object
             properties:
@@ -144,6 +144,7 @@ Person:
                 enum:
                   - Folkbokföringsadress
                   - Vistelseadress
+                  - Särskildpostadress
               streetAddress:
                 type: string
                 description: Gatuadress.
@@ -153,6 +154,15 @@ Person:
               postalCode:
                 type: string
                 description: Postadress.
+              countyCode:
+                type: integer
+                description: Län, kod
+              municipalityCode:
+                type: integer
+                description: Kommun, kod
+              realEstateDesignation:
+                type: string
+                description: Fastighetsbeteckning
               country:
                 type: string
                 description: Land.
@@ -177,27 +187,11 @@ Person:
           description: En lista med inskrivningar för personen
           items:
             $ref: "Enrolment.yaml#/Enrolment"
-        placements:
+        responsibles:
           type: array
-          description: >
-            En lista med placeringen för personen, 
-            används för förskoleverksamhet eller för placering på ex kulturskol
-          items:
-            $ref: "Placement.yaml#/Placement"
-        guardians:
-          type: array
-          description: Personens vårdnadshavare enligt folkbokföringsregistret.
-          items:
-            type: string
-            format: uuid
-            description: >
-              Ett objekt ska ha samma överförings-ID mellan samtliga ingående system och
-              således är det ett enda namespace för de gemensamma ID:na.
-              Objektidentifikatorn är den nyckel som skall vara persistent
-              mellan olika processer (enl figur 1).
-        otherResponsiblePersons:
-          type: array
-          description: Andra ansvariga personer, exempelvis hämtare på förskola.
+          description: > 
+            Personens vårdnadshavare eller motsvarande relationer så som familjehemsförälder.
+            Denna relation beskriver ett officiellt ansvarsförhållande.
           items:
             type: object
             properties:
@@ -210,10 +204,9 @@ Person:
                   Objektidentifikatorn är den nyckel som skall vara persistent
                   mellan olika processer (enl figur 1).
               relationType:
-                type: string
-                enum:
-                  - Ansvarig vuxen
-                  - Annan ansvarig vuxen
+                $ref: "common.yaml#/components/schemas/RelationTypesEnum"
+
+
 PersonExpanded:
   allOf:
     - $ref: "#/Person"
@@ -222,37 +215,30 @@ PersonExpanded:
         _embedded:
           type: object
           properties:
-            children:
-              type: array
-              description: >
-                De barn som personen är vårdnadshavare för
-                enligt folkbokföringsregistret.
-              items:
-                type: string
-                format: uuid
-                description: >
-                  Ett objekt ska ha samma överförings-ID mellan samtliga ingående system och
-                  således är det ett enda namespace för de gemensamma ID:na.
-                  Objektidentifikatorn är den nyckel som skall vara persistent
-                  mellan olika processer (enl figur 1).
             responsibleFor:
               type: array
               description: >
-                Barn som personen har något slags ansvar för, exempelvis
-                för att hämta från förskola.
+                De barn/barnen vilka personen har ansvar för.
               items:
-                type: string
-                format: uuid
-                description: >
-                  Ett objekt ska ha samma överförings-ID mellan samtliga ingående system och
-                  således är det ett enda namespace för de gemensamma ID:na.
-                  Objektidentifikatorn är den nyckel som skall vara persistent
-                  mellan olika processer (enl figur 1).
-              relationType:
-                type: string
-                enum:
-                  - Ansvarig vuxen
-                  - Annan ansvarig vuxen
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                    description: >
+                      Ett objekt ska ha samma överförings-ID mellan samtliga ingående system och
+                      således är det ett enda namespace för de gemensamma ID:na.
+                      Objektidentifikatorn är den nyckel som skall vara persistent
+                      mellan olika processer (enl figur 1).
+                  relationType:
+                    $ref: "common.yaml#/components/schemas/RelationTypesEnum"
+            placements:
+              type: array
+              description: >
+                En lista med placeringen för personen,
+                används för förskoleverksamhet eller för placering på ex kulturskol
+              items:
+                $ref: "Placement.yaml#/PlacementFragment"
             duties:
               type: array
               description: Personens tjänster

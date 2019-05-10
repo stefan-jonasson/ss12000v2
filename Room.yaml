@@ -5,7 +5,6 @@ Room:
     id:
       type: string
       format: uuid
-
     meta:
       $ref: "common.yaml#/Meta"
     displayName:
@@ -18,7 +17,12 @@ Room:
       type: object
       allOf:
         - $ref: "common.yaml#/ObjectReference"
-        - description: Möjlighet att ange vilken skolenhetsgrupp resursen tillhör.
+        - description: Möjlighet att ange vilket organisationselement resursen tillhör.
+  required:
+    - id
+    - meta
+    - displayName
+    - owner
 
 Rooms:
   type: array

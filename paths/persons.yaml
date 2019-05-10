@@ -22,6 +22,20 @@ persons:
       - $ref: "searchParameters.yaml#/SearchCreatedAfter"
       - $ref: "searchParameters.yaml#/SearchModifiedBefore"
       - $ref: "searchParameters.yaml#/SearchModifiedAfter"
+      - name: sortkey
+        description: Anger hur resultatet ska sorteras.
+        in: query
+        schema:
+          type: string
+          enum:
+            - DisplayName
+            - GivenNameDesc
+            - GivenNameAsc
+            - FamilyNameDesc
+            - FamilyNameAsc 
+            - NorEduPersonNIN
+            - LastModifiedDesc
+          default: LastModifiedDesc
       - $ref: "searchParameters.yaml#/Offset"
       - $ref: "searchParameters.yaml#/Limit"
       - name: enrolment.schoolUnit

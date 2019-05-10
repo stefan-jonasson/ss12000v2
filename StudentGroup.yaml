@@ -7,6 +7,7 @@ StudentGroup:
       description: >
         En studentgrupp. Innehåller elever eller kan vara en tom "platshållare"
         utan medlemmar och populeras vid ett senare tillfälle.
+    meta: 
       $ref: "common.yaml#/Meta"
     displayName:
       description: Gruppens namn.
@@ -27,28 +28,17 @@ StudentGroup:
       $ref: "common.yaml#/components/schemas/StudentGroupTypesEnum"
 
     schoolType:
-      description: Skolform
-      type: string
-      enum:
-        - FS
-        - FSK
-        - FTH
-        - GR
-        - GRS
-        - SP
-        - SAM
-        - GY
-        - GYS
-        - VUX
-        - SUV
-        - YH
-        - FHS
-        - HS
-        - AU
+      allOf:
+        - description: >
+            Beskriver vilken skolform gruppen är tänkt att användas för.
+            Denna information är mest relevant för planering och schemaläggning,
+            innan gruppen populeras med elever, eftersom  elevens inskrivning är
+            ger mer specifik information.
+        - $ref: "common.yaml#/components/schemas/SchoolTypesEnum"
     studentMemberships:
       description: >
         Studentmedlemskap anger att en student är medlem i en grupp
-        och vilken tidsperiod medlemskapet omfattar.,
+        och vilken tidsperiod medlemskapet omfattar.
       type: array
       items:
         type: object
@@ -58,18 +48,20 @@ StudentGroup:
             properties:
               startDate:
                 description: >
-                  Startdatum för studentens medlemskap i gruppen
+                  Startdatum för elevens medlemskap i gruppen, från och med
                   (ISO8601 format, t.ex. "2016-10-15").
                 type: string
                 format: date
               endDate:
                 description: >
-                  Slutdatum för studentens medlemskap i gruppen
+                  Slutdatum för elevens medlemskap i gruppen, till och med
                   (ISO8601 format, t.ex. "2016-10-15").
                 type: string
                 format: date
     schoolUnit:
-      $ref: "common.yaml#/SchoolUnitReference"
+      allOf:
+        - description: Den skolenhet som elevgruppen är knuten till.
+        - $ref: "common.yaml#/SchoolUnitReference"
     _embedded:
       type: object
       properties:
@@ -82,16 +74,7 @@ StudentGroup:
               - type: object
                 properties:
                   assignmentRoleType:
-                    type: string
-                    enum:
-                      - Mentor
-                      - Förskollärare
-                      - Barnskötare
-                      - Fritidspedagog
-                      - Specialpedagog
-                      - Elevhälsopersonal
-                      - Pedagogisk ledare
-                      - Schemaläggare
+                    $ref:  "common.yaml#/components/schemas/AssignmentRoleTypeEnum"
                   startDate:
                     description: >
                       Startdatum för tjänstens relation till gruppen
@@ -106,9 +89,8 @@ StudentGroup:
                     format: date
   required:
     - id
-    - name
+    - displayName
     - studentGroupType
-    - schoolType
     - startDate
     - schoolUnit
 

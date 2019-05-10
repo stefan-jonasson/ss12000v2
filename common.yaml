@@ -71,6 +71,7 @@ components:
     EndPointsEnum:
       type: string
       enum:
+        - Absence
         - Activity
         - AggregatedAttendance
         - AttendanceEvent
@@ -78,9 +79,9 @@ components:
         - ChildCareSchedule
         - Duty
         - Grade
-        - LeaveOfAbsence
         - Organisation
         - Person
+        - Placement
         - Programme
         - Resource
         - Room
@@ -88,7 +89,6 @@ components:
         - SchoolUnitGroup
         - SchoolUnitOffering
         - Syllabus
-        - Placement
 
     SchoolTypesEnum:
       type: string
@@ -109,25 +109,47 @@ components:
         - HS
         - AU
 
-    LeaveOfAbsenceEnum:
+    RelationTypesEnum:
+      type: string
+      description: |
+        Värdeförråd för olika typer av relationer till en elev.
+      enum:
+        - Vårdnadshavare
+        - Annan ansvarig
+        - God man
+        - Utsedd behörig
+
+    AbsenceEnum:
       type: string
       enum:
-        - Ledighet
-        - Anmälan
+        - Beviljad ledighet
+        - Anmäld frånvaro
 
     StudentGroupTypesEnum:
       type: string
-      description: >
+      description: |
         Grupptyp anger vad en grupp ska användas till.
         Ett värdeförråd för att indikera anger vilka grupptyper som finns.
-        * Undervisning - Undervisningsgruppen är en elevgrupp som har koppling till ett ämne eller en kurs, och som ska schemaläggas med undervisningstid ihop med en lärare.
-        * Klass - Klassen är en organisatorisk grupp med elever som är skolplacerade på en skola med skolform FSK, GR, GRS, SP, SAM, GY eller GYS. Varje elev ska vara placerad i endast en klass. Klassen kan schemaläggas med undervisning enligt timplan.
-        * Schema - Schemagrupper är elevgrupper som utgör ett komplement till grupper av typen Undervisning. Schemagrupper ska schemaläggas för att åstadkomma anpassningar av schemat för enskilda elever eller grupper av elever. Exempel på schemagrupper är delgrupper och grupper som används för stödundervisning eller läxhjälp.
-        * Avdelning - Avdelningen är en elevgrupp för placering inom skolformerna förskola eller fritidshem.
-        * Övrigt - Övriga grupper är andra grupper som inte är något av ovanstående.   >
+        * _Undervisning_ - Undervisningsgruppen är en elevgrupp som har koppling till ett ämne eller en kurs, och som ska schemaläggas med undervisningstid ihop med en lärare.
+        * _Klass_ - Klassen är en organisatorisk grupp med elever som är skolplacerade på en skola med skolform FSK, GR, GRS, SP, SAM, GY eller GYS. Varje elev ska vara placerad i endast en klass. Klassen kan schemaläggas med undervisning enligt timplan.
+        * _Schema_ - Schemagrupper är elevgrupper som utgör ett komplement till grupper av typen Undervisning. Schemagrupper ska schemaläggas för att åstadkomma anpassningar av schemat för enskilda elever eller grupper av elever. Exempel på schemagrupper är delgrupper och grupper som används för stödundervisning eller läxhjälp.
+        * _Avdelning_ - Avdelningen är en elevgrupp för placering inom skolformerna förskola eller fritidshem.
+        * _Övrigt_ - Övriga grupper är andra grupper som inte är något av ovanstående.   >
       enum:
         - Undervisning
         - Klass
         - Mentor
         - Schema
         - Övrigt
+
+    AssignmentRoleTypeEnum:
+      type: string
+      enum:
+        - Mentor
+        - Förskollärare
+        - Barnskötare
+        - Fritidspedagog
+        - Specialpedagog
+        - Elevhälsopersonal
+        - Pedagogisk ledare
+        - Schemaläggare

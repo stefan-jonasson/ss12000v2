@@ -37,6 +37,7 @@ DutyFragment:
       format: date
       description: Slutdatum för personens anställning på en viss skolenhet eller skola (ISO8601 format, e.g. "2016-10-15").
   required:
+    - id
     - dutyAt
     - dutyRole
     - startDate
@@ -48,10 +49,35 @@ Duty:
       properties:
         meta:
           $ref: "common.yaml#/Meta"
-        Person:
+        person:
           allOf:
             - $ref: "common.yaml#/PersonReference"
             - description: Identifierare av person som tjänsten är knuten till.
+        _embedded:
+          type: object
+          properties:
+            assignedToStudentGroupAs:
+              type: array
+              items:
+                type: object
+                allOf:
+                  - $ref: "common.yaml#/StudentGroupReference"
+                  - type: object
+                    properties:
+                      assignmentRoleType:
+                        $ref:  "common.yaml#/components/schemas/AssignmentRoleTypeEnum"
+                      startDate:
+                        description: >
+                          Startdatum för tjänstens relation till gruppen
+                          (ISO8601 format, t.ex. "2016-10-15").
+                        type: string
+                        format: date
+                      endDate:
+                        description: >
+                          Slutdatum för tjänstens relation till gruppen
+                          (ISO8601 format, t.ex. "2016-10-15").
+                        type: string
+                        format: date 
 
 Duties:
   type: array

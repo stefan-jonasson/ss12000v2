@@ -112,3 +112,113 @@ tags på alla pather
 kopiera kompletta beskrivningar från dokumentet till yaml
 
 organisation kanske skulle heta organisational unit? jfr OU.
+
+
+
+
+Ändringar i dokumentet:
+Organisation, kolla descriptions från yaml och jämka.
+Organisation, ändra displayName -> namn PÅ organsationen.
+
+
+Duty ska ha AssignmentRoles lista. För studentgroup finns den...?
+
+
+skolform parameteriserar/refereras från studentgroup, minst
+
+
+duty refereras till 
+
+subjectDesignation är ett obegripligt ord.
+
+
+xor mellan syllabus och programme i SchoolUnitOffwering
+
+yaml är korrekt avseende studieplan, dok och diagram fixas
+
+
+kolla enum för aktivitetstyp återkommer och gör i så fall reference
+
+
+vi behöver kunna få ut vilka grupper en person är med i,
+resp vilka aktiviteter
+
+
+koppla rum och resurser till calendarEvent.
+
+vi har lagt till owner med exakt "1"
+
+child är kanske inte bästa attributnamnet när vi hänvisar till en placering i förskolan?
+hopblandning med det expanderade person-objektet
+
+
+sjukanmälan bör kunna göras
+
+LeaveOfAbsence bör ha en status:
+ - ansökt
+ - avslagen
+ - beviljad
+och *INGEN* frånvaroTyp. sjukanmälan, se ovan.
+
+
+
+
+### möten med olika teman:
+
+- autentisering
+- prenumerationer / pubsub
+- scenarier
+- yaml färdigställa
+- generellt möte om detaljer såsom värdförråd mm
+
+Palle har ett förs
+
+
+är det rimligt att för "/attendances"
+
+    "student": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "reportedBy": {
+      "displayName": "string",
+      "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+    },
+
+
+dvs  att elkeven för närvaro inte har namn men reportedBy har namn?
+vårt förslag är att inga displaynames finns där dessutum
+
+Ordna sortkey:
+
+Palle (några redan gjorda gemensamt):
+
+absences.yaml
+activities.yaml
+aggregatedAttendances.yaml
+attendances.yaml
+calendarEvents.yaml
+childCareAttendanceEvents.yaml
+childcareSchedule.yaml
+deletedEntities.yaml
+
+Ola
+
+duties.yaml
+grades.yaml
+organisations.yaml
+schoolUnitOfferings.yaml
+schoolUnits.yaml
+
+Jonas
+
+persons.yaml [x]
+placements.yaml [x]
+programmes.yaml [x]
+resources.yaml [x]
+rooms.yaml [x]
+
+Stefan
+searchParameters.yaml
+studentGroups.yaml
+studyPlans.yaml
+subscriptions.yaml
+syllabuses.yaml
+
