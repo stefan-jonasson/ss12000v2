@@ -4,13 +4,6 @@ organisations:
       - Organisation
     summary: Hämta en lista med organisationer.
     parameters:
-      - name: id
-        description: Begränsa urvalet till utpekade organisations-ID:n.
-        in: query
-        schema:
-          type: array
-          items:
-            type: string
       - name: parent
         description: Begränsa urvalet till utpekade organisations-ID:n.
         in: query
@@ -47,7 +40,7 @@ organisations:
             schema:
               $ref: "../Organisation.yaml#/Organisation"
 
-organisationsFilter:
+organisationsLookup:
   post:
     tags:
       - Organisation
@@ -64,11 +57,10 @@ organisationsFilter:
     requestBody:
       content:
         application/json:
-          schema:
-            type: array
-            items:
-              type: string
-              format: uuid
+         schema:
+            $ref : "../common.yaml#/components/schemas/IdLookup"
+          
+             
       required: true
 
 organisationById:

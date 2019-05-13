@@ -4,20 +4,6 @@ placements:
       - Person
     summary: Hämta en lista med placeringar.
     parameters:
-      - name: id
-        description: Begränsa urvalet till utpekade placerings-ID:n.
-        in: query
-        schema:
-          type: array
-          items:
-            type: string
-      - name: personId
-        description: Begränsa urvalet till utpekade personers Id.
-        in: query
-        schema:
-          type: array
-          items:
-            type: string
       - $ref: "searchParameters.yaml#/SearchCreatedBefore"
       - $ref: "searchParameters.yaml#/SearchCreatedAfter"
       - $ref: "searchParameters.yaml#/SearchModifiedBefore"
@@ -76,11 +62,11 @@ placements:
             schema:
               $ref: "../Placement.yaml#/Placement"
 
-placementsFilter:
+placementsLookup:
   post:
     tags:
       - Person
-    summary: Hämta många placeringar baserat på en lista av ID:n.
+    summary: Hämta många placeringar baserat på en lista av ID:n eller av Id från personer.
     description: >
       Hämta många placeringar.
     responses:
@@ -94,10 +80,19 @@ placementsFilter:
       content:
         application/json:
           schema:
-            type: array
-            items:
-              type: string
-              format: uuid
+              type: object
+              properties:
+                ids:
+                  type: array
+                  items:
+                    type: string
+                    format: uuid
+                personIds:
+                  type: array
+                  items:
+                    type: string
+                    format: uuid
+           
       required: true
 
 placementsById:

@@ -4,13 +4,6 @@ rooms:
       - Rum och resurser
     summary: Hämta en lista med salar.
     parameters:
-      - name: id
-        description: Begränsa urvalet till utpekade sal-ID:n.
-        in: query
-        schema:
-          type: array
-          items:
-            type: string
       - name: owner
         description: Begränsa urvalet till en viss organisation.
         in: query
@@ -40,7 +33,7 @@ rooms:
             schema:
               $ref: "../Room.yaml#/Rooms"
 
-roomsFilter:
+roomsLookup:
   post:
     tags:
       - Rum och resurser
@@ -58,10 +51,7 @@ roomsFilter:
       content:
         application/json:
           schema:
-            type: array
-            items:
-              type: string
-              format: uuid
+           $ref : "../common.yaml#/components/schemas/IdLookup"
       required: true
 
 roomById:

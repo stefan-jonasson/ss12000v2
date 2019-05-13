@@ -4,20 +4,6 @@ persons:
       - Person
     summary: Hämta en lista med personer.
     parameters:
-      - name: id
-        description: Begränsa urvalet till utpekade person-ID:n.
-        in: query
-        schema:
-          type: array
-          items:
-            type: string
-      - name: norEduPersonNIN
-        description: Begränsa urvalet till utpekade personnummer.
-        in: query
-        schema:
-          type: array
-          items:
-            type: string
       - $ref: "searchParameters.yaml#/SearchCreatedBefore"
       - $ref: "searchParameters.yaml#/SearchCreatedAfter"
       - $ref: "searchParameters.yaml#/SearchModifiedBefore"
@@ -111,11 +97,11 @@ persons:
             schema:
               $ref: "../Person.yaml#/PersonsExpanded"
 
-personsFilter:
+personsLookup:
   post:
     tags:
       - Person
-    summary: Hämta många personer baserat på en lista av ID:n.
+    summary: Hämta många personer baserat på en lista av ID:n eller personnummer.
     description: >
       Hämta många personer.
     responses:
@@ -129,10 +115,23 @@ personsFilter:
       content:
         application/json:
           schema:
-            type: array
-            items:
-              type: string
-              format: uuid
+            type: object
+            properties:
+              ids:
+                type: array
+                items:
+                  type: string
+                  format: uuid
+              norEduPersonNINs:
+                type: array
+                items:
+                  type: string
+                  pattern: '^\d{8}[A-Z0-9]{2}\d{2}$'
+            example:
+              ids:  
+                - d544563a-747a-42d3-8d37-415a101537fa
+              norEduPersonNINs:
+                - 100203-7271
       required: true
 
 personsById:

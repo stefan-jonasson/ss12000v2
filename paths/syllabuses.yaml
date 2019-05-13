@@ -4,13 +4,6 @@ syllabuses:
       - Kurser
     summary: Hämta en lista med syllabuses.
     parameters:
-      - name: id
-        description: Begränsa urvalet till utpekade syllabus-ID:n.
-        in: query
-        schema:
-          type: array
-          items:
-            type: string
       - $ref: "searchParameters.yaml#/SearchCreatedBefore"
       - $ref: "searchParameters.yaml#/SearchCreatedAfter"
       - $ref: "searchParameters.yaml#/SearchModifiedBefore"
@@ -25,7 +18,7 @@ syllabuses:
             schema:
               $ref: "../Syllabus.yaml#/Syllabuses"
 
-syllabusesFilter:
+syllabusesLookup:
   post:
     tags:
       - Kurser
@@ -43,10 +36,7 @@ syllabusesFilter:
       content:
         application/json:
           schema:
-            type: array
-            items:
-              type: string
-              format: uuid
+           $ref : "../common.yaml#/components/schemas/IdLookup"
       required: true
 
 syllabusById:
