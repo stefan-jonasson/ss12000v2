@@ -41,6 +41,18 @@ studyPlans:
       - $ref: "searchParameters.yaml#/SearchCreatedAfter"
       - $ref: "searchParameters.yaml#/SearchModifiedBefore"
       - $ref: "searchParameters.yaml#/SearchModifiedAfter"
+      - name: sortkey
+        description: Anger hur resultatet ska sorteras.
+        in: query
+        schema:
+          type: string
+          enum:
+            - LastUpdateDesc
+            - StartDateAsc
+            - StartDateDesc
+            - EndDateAsc
+            - EndDateDesc
+          default: LastUpdateDesc
       - $ref: "searchParameters.yaml#/Offset"
       - $ref: "searchParameters.yaml#/Limit"
     responses:
