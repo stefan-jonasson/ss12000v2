@@ -6,13 +6,6 @@ absences:
       Hämta en lista av beviljad ledighet och anmäld frånvaro.
     operationId: getAbsence
     parameters:
-      - name: id
-        description: Begränsa urvalet till utpekade anmälda frånvaro ID.
-        in: query
-        schema:
-          type: array
-          items:
-            type: string
       - name: schoolUnit
         description: Begränsa urvalet till den frånvaro/ledighet som är kopplad till skolenheten.
         in: query
@@ -96,7 +89,7 @@ absences:
             schema:
               $ref: "../Absence.yaml#/Error"
 
-AbsenceFilter:
+AbsenceLookup:
   post:
     tags:
       - Närvaro
@@ -115,10 +108,7 @@ AbsenceFilter:
       content:
         application/json:
           schema:
-            type: array
-            items:
-              type: string
-              format: uuid
+            $ref : "../common.yaml#/components/schemas/IdLookup"
       required: true
 
 absence_by_id:

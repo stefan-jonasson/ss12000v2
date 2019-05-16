@@ -153,3 +153,13 @@ components:
         - Elevhälsopersonal
         - Pedagogisk ledare
         - Schemaläggare
+
+    IdLookup:
+      type: object
+      properties:
+        ids:
+          type: array
+          items:
+            type: string
+            format: uuid
+     

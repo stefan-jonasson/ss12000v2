@@ -4,13 +4,6 @@ schoolUnitOfferings:
       - Kurser
     summary: Hämta en lista med skolenheters erbjudanden.
     parameters:
-      - name: id
-        description: Begränsa urvalet till utpekade skolenheters erbjudandens ID:n.
-        in: query
-        schema:
-          type: array
-          items:
-            type: string
       - name: offeredAt
         description: Begränsa urvalet till en viss skolenhet.
         in: query
@@ -48,10 +41,7 @@ schoolUnitOfferings:
       content:
         application/json:
           schema:
-            type: array
-            items:
-              type: string
-              format: uuid
+             $ref : "../common.yaml#/components/schemas/IdLookup"
       required: true
 
 schoolUnitOffering_by_id:
