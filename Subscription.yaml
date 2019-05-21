@@ -1,4 +1,4 @@
-SubscriptionFragment:
+CreateSubscription:
   type: object
   properties:
     name:
@@ -7,122 +7,47 @@ SubscriptionFragment:
     target:
       description: the URL that the webhook will post to
       type: string
-    secret:
-      description: A secret that will be used by the sha1-256 digest of the event body sent to the target
+    clientAuthenticationToken:
+      description: |
+        Ska placeras i "Authentication: Bearer XXX"
       type: string
-    customHeaders:
+    resourceTypes:
       type: array
       items:
         type: object
         properties:
-          name:
-            type: string
-          value:
-            type: string
-    authType:
-      type: string
-      enum: [none, basic, oauth]
-    events:
-      type: array
-      items:
-        type: object
-        properties:
-          name:
-            type: string
-            enum: [NewOrUpdate, Deleted]
           resource:
             $ref: "common.yaml#/components/schemas/EndPointsEnum"
-
+    organisations:
+      description: |
+        Begränsa till data härledd till listade organisationer.
+        Om denna utelämnas så fås samliga organisationer som klienten har rätt till.
+        Vårdnadshavare relateras till organisationer genom sina barn.
+        Anställdas barn kan inte härledas till organisationen baserat sina föräldrar.
+      type: array
+      items:
+        type: string
+        format: uuid
   required:
-    - target
-    - secret
     - name
-    - authType
+    - target
+    - clientAuthenticationToken
     - events
-
-SubscriptionNone:
-  allOf:
-    - $ref: "#/SubscriptionFragment"
-
-SubscriptionBasic:
-  allOf:
-    - $ref: "#/SubscriptionFragment"
-    - type: object
-      properties:
-        authCredentials:
-          type: object
-          properties:
-            name:
-              type: string
-            password:
-              type: string
-
-SubscriptionOauth:
-  allOf:
-    - $ref: "#/SubscriptionFragment"
-    - type: object
-      properties:
-        authRequestDetails:
-          type: object
-          properties:
-            url:
-              type: string
-            body:
-              type: object
-              properties:
-                clientId:
-                  type: string
-                clientSecret:
-                  type: string
-                grantType:
-                  type: string
-                  enum:
-                    - clientCredentials
-
-Active:
-  type: object 
-  properties:
-    status:
-      type: boolean
-      default: true
-
-InActive: 
-  type: object
-  properties:
-    status:
-      type: boolean
-      default: false
-    reason:
-      type: string  
-      enum:
-        - Callback EndPoint don't respond
-        - Other
-
-ActiveOrNot:
-   oneOf:
-      - $ref: "#/Active"
-      - $ref: "#/InActive"
 
 Subscription:
   allOf:
-    - $ref: "#/CreateSubscription"
     - type: object
       properties:
         id:
           type: string
           format: uuid
-        active:
-          $ref: "#/ActiveOrNot"
-          
-      
+        expires:
+          type: string
+          format: date-time
       required:
         - id
-
-CreateSubscription:
-  oneOf:
-    - $ref: "#/SubscriptionNone"
-    - $ref: "#/SubscriptionBasic"
-    - $ref: "#/SubscriptionOauth"
+        - expires
+    - $ref: "#/CreateSubscription"
 
 Subscriptions:
   type: array

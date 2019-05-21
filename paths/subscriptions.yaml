@@ -26,24 +26,23 @@ subscriptions:
             example:
               name: Nya
               target: https://pastebin/788
-              secret: hemligt
-              authType: basic
-              events:
-                - NewOrUpdate
-              authCredentials:
-                name: vemsomhelst
-                password: qwerty
-
+              resourceTypes:
+                - Organsation
+                - SchoolUnit
+                - Person
+                - Duty
+              clientAuthenticationToken: HemLiGt
     callbacks:
-      newOrUpdate: # Event name
+      subscriptionEvent: # Event name
         "{$request.body#/target}": # The callback URL, Refers to the passed URL
           post:
             parameters:
               - in: header
-                name: x-hmac-signature
+                name: Authentication
                 schema:
                   type: string
-                  description: sha1 hmac digest of responseBody (sha1=digest)
+                  description: >
+                    Bearer HemLiGt
             requestBody: # Contents of the callback message
               required: true
               content:
@@ -56,9 +55,6 @@ subscriptions:
                         enum:
                           - NewOrUpdate
                           - Deleted
-                      triggeredAt: 
-                        type: string
-                        format: date-time 
                       list:
                         type: array
                         items:
@@ -114,13 +110,38 @@ subscription_by_id:
         description: Prenumeration not found
   get:
     tags:
-      - Subscription
+      - Prenumeration
       - Verktyg
-    summary: Hämta program baserat på  ID
+    summary: Hämta prenumeration baserat på ID
     parameters:
       - name: id
         in: path
         description: ID för prenumerationen som ska hämtas
+        required: true
+        schema:
+          type: string
+    responses:
+      "200":
+        description: successful operation
+        content:
+          application/json:
+            schema:
+              $ref: "../Subscription.yaml#/Subscription"
+      "400":
+        description: Invalid id supplied
+      "403":
+        description: Not authorised
+      "404":
+        description: Prenumeration not found
+  patch:
+    tags:
+      - Prenumeration
+      - Verktyg
+    summary: Uppdatera expire time på prenumerationen baserat på ID
+    parameters:
+      - name: id
+        in: path
+        description: ID för prenumerationen som ska uppdateras
         required: true
         schema:
           type: string

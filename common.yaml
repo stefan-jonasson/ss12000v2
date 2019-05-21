@@ -73,7 +73,6 @@ components:
       enum:
         - Absence
         - Activity
-        - AggregatedAttendance
         - AttendanceEvent
         - CalendarEvent
         - ChildCareSchedule
@@ -86,7 +85,6 @@ components:
         - Resource
         - Room
         - SchoolUnit
-        - SchoolUnitGroup
         - SchoolUnitOffering
         - Syllabus
 
