@@ -251,6 +251,13 @@ Persons:
     $ref: "#/Person"
 
 PersonsExpanded:
-  type: array
-  items:
-    $ref: "#/PersonExpanded"
+  type: object
+  properties:
+      data:
+        type: array
+        items:
+          $ref: "#/PersonExpanded"
+      pageToken:
+        type: string
+  required:
+    - data
