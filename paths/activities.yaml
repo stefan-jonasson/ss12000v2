@@ -4,13 +4,6 @@ activities:
       - Aktiviteter
     summary: Hämta en lista med aktiviteter.
     parameters:
-      - name: id
-        description: Begränsa urvalet till utpekade aktivitets-ID:n.
-        in: query
-        schema:
-          type: array
-          items:
-            type: string
       - name: person
         description: Begränsa urvalet till utpekad persons ID.
         in: query
@@ -44,7 +37,7 @@ activities:
             schema:
               $ref: "../Activity.yaml#/Activities"
 
-activitiesFilter:
+activitiesLookup:
   post:
     tags:
       - Aktiviteter
@@ -62,10 +55,7 @@ activitiesFilter:
       content:
         application/json:
           schema:
-            type: array
-            items:
-              type: string
-              format: uuid
+            $ref : "../common.yaml#/components/schemas/IdLookup"
       required: true
 
 activityById:

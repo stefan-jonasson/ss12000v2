@@ -4,13 +4,6 @@ resources:
       - Rum och resurser
     summary: Hämta en lista med resurser.
     parameters:
-      - name: id
-        description: Begränsa urvalet till utpekade resurs-ID:n.
-        in: query
-        schema:
-          type: array
-          items:
-            type: string
       - name: owner
         description: Begränsa urvalet till en viss organisation.
         in: query
@@ -40,7 +33,7 @@ resources:
             schema:
               $ref: "../Resource.yaml#/Resources"
 
-resourcesFilter:
+resourcesLookup:
   post:
     tags:
       - Rum och resurser
@@ -58,10 +51,7 @@ resourcesFilter:
       content:
         application/json:
           schema:
-            type: array
-            items:
-              type: string
-              format: uuid
+            $ref : "../common.yaml#/components/schemas/IdLookup"
       required: true
 
 resourceById:

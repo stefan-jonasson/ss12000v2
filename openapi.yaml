@@ -37,52 +37,52 @@ tags:
 paths:
   /organisations:
     $ref: paths/organisations.yaml#/organisations
-  /organisations/filter:
-    $ref: paths/organisations.yaml#/organisationsFilter
+  /organisations/lookup:
+    $ref: paths/organisations.yaml#/organisationsLookup
   /organisations/{id}:
     $ref: paths/organisations.yaml#/organisationById
   /schoolUnits:
     $ref: paths/schoolUnits.yaml#/schoolUnits
-  /schoolUnits/filter:
-    $ref: paths/schoolUnits.yaml#/schoolUnitsFilter
+  /schoolUnits/lookup:
+    $ref: paths/schoolUnits.yaml#/schoolUnitsLookup
   /schoolUnits/{id}:
     $ref: paths/schoolUnits.yaml#/schoolUnitById
   /persons:
     $ref: paths/persons.yaml#/persons
-  /persons/filter:
-    $ref: paths/persons.yaml#/personsFilter
+  /persons/lookup:
+    $ref: paths/persons.yaml#/personsLookup
   /persons/{id}:
     $ref: paths/persons.yaml#/personsById
   /placements:
     $ref: paths/placements.yaml#/placements
-  /placements/filter:
-    $ref: paths/placements.yaml#/placementsFilter
+  /placements/lookup:
+    $ref: paths/placements.yaml#/placementsLookup
   /placements/{id}:
     $ref: paths/placements.yaml#/placementsById
   /duties:
     $ref: paths/duties.yaml#/duties
-  /duties/filter:
-    $ref: paths/duties.yaml#/dutiesFilter
+  /duties/lookup:
+    $ref: paths/duties.yaml#/dutiesLookup
   /duties/{id}:
     $ref: paths/duties.yaml#/duty_by_id
   /studentGroups:
     $ref: paths/studentGroups.yaml#/studentGroups
-  /studentGroups/filter:
-    $ref: paths/studentGroups.yaml#/studentGroupsFilter
+  /studentGroups/lookup:
+    $ref: paths/studentGroups.yaml#/studentGroupsLookup
   /studentGroups/{id}:
     $ref: paths/studentGroups.yaml#/studentGroupsById
   /programmes:
     $ref: paths/programmes.yaml#/programmes
-  /programmes/filter:
-    $ref: paths/programmes.yaml#/programmesFilter
+  /programmes/lookup:
+    $ref: paths/programmes.yaml#/programmesLookup
   /programmes/{id}:
     $ref: paths/programmes.yaml#/programmeById
   /studyplans:
     $ref: paths/studyPlans.yaml#/studyPlans
   /syllabuses:
     $ref: paths/syllabuses.yaml#/syllabuses
-  /syllabuses/filter:
-    $ref: paths/syllabuses.yaml#/syllabusesFilter
+  /syllabuses/lookup:
+    $ref: paths/syllabuses.yaml#/syllabusesLookup
   /syllabuses/{id}:
     $ref: paths/syllabuses.yaml#/syllabusById
   /schoolUnitOfferings:
@@ -91,8 +91,8 @@ paths:
     $ref: paths/SchoolUnitOfferings.yaml#/schoolUnitOffering_by_id
   /activities:
     $ref: paths/activities.yaml#/activities
-  /activities/filter:
-    $ref: paths/activities.yaml#/activitiesFilter
+  /activities/lookup:
+    $ref: paths/activities.yaml#/activitiesLookup
   /activities/{id}:
     $ref: paths/activities.yaml#/activityById
   /calendarEvents:
@@ -101,8 +101,8 @@ paths:
     $ref: paths/calendarEvents.yaml#/calendarEventById
   /attendances:
     $ref: paths/attendances.yaml#/attendances
-  /attendances/filter:
-    $ref: paths/attendances.yaml#/attendancesFilter
+  /attendances/lookup:
+    $ref: paths/attendances.yaml#/attendancesLookup
   /attendances/{id}:
     $ref: paths/attendances.yaml#/attendanceById
   /childCareAttendanceEvents:
@@ -113,28 +113,28 @@ paths:
     $ref: paths/childCareSchedule.yaml#/childcare_schedule
   /grades:
     $ref: paths/grades.yaml#/grades
-  /grades/filter:
-    $ref: paths/grades.yaml#/gradesFilter
+  /grades/lookup:
+    $ref: paths/grades.yaml#/gradesLookup
   /grades/{id}:
     $ref: paths/grades.yaml#/gradeById
   /absences:
     $ref: paths/absences.yaml#/absences
-  /absences/filter:
-    $ref: paths/absences.yaml#/AbsenceFilter
+  /absences/lookup:
+    $ref: paths/absences.yaml#/AbsenceLookup
   /absences/{id}:
     $ref: paths/absences.yaml#/absence_by_id
   /aggregatedAttendance:
     $ref: paths/aggregatedAttendances.yaml
   /resources:
     $ref: paths/resources.yaml#/resources
-  /resourcesFilter:
-    $ref: paths/resources.yaml#/resourcesFilter
+  /resources/lookup:
+    $ref: paths/resources.yaml#/resourcesLookup
   /resources/{id}:
     $ref: paths/resources.yaml#/resourceById
   /rooms:
     $ref: paths/rooms.yaml#/rooms
-  /rooms/filter:
-    $ref: paths/rooms.yaml#/roomsFilter
+  /rooms/lookup:
+    $ref: paths/rooms.yaml#/roomsLookup
   /rooms/{id}:
     $ref: paths/rooms.yaml#/roomById
   /subscriptions:

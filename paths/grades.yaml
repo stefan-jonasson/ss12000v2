@@ -4,13 +4,6 @@ grades:
       - Betyg
     summary: Hämta en lista med betyg.
     parameters:
-      - name: id
-        description: Begränsa urvalet till utpekade betygs-ID:n.
-        in: query
-        schema:
-          type: array
-          items:
-            type: string
       - name: schoolUnit
         description: Begränsa urvalet till de betyg som är kopplade till skolenhet.
         in: query
@@ -51,6 +44,15 @@ grades:
       - $ref: "searchParameters.yaml#/SearchCreatedAfter"
       - $ref: "searchParameters.yaml#/SearchModifiedBefore"
       - $ref: "searchParameters.yaml#/SearchModifiedAfter"
+      - name: sortkey
+        description: Anger hur resultatet ska sorteras.
+        in: query
+        schema:
+          type: string
+          enum:
+            - Student
+            - LastModifiedDesc
+          default: LastModifiedDesc
       - $ref: "searchParameters.yaml#/Offset"
       - $ref: "searchParameters.yaml#/Limit"
     responses:
@@ -60,7 +62,7 @@ grades:
           application/json:
             schema:
               $ref: "../Grade.yaml#/Grades"
-gradesFilter:
+gradesLookup:
   post:
     tags:
       - Betyg
@@ -78,10 +80,7 @@ gradesFilter:
       content:
         application/json:
           schema:
-            type: array
-            items:
-              type: string
-              format: uuid
+           $ref : "../common.yaml#/components/schemas/IdLookup"
       required: true
 
 gradeById:

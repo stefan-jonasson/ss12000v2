@@ -4,26 +4,22 @@ schoolUnits:
       - Organisation
     summary: Hämta en lista med skolenheter.
     parameters:
-      - name: id
-        description: Begränsa urvalet till utpekade skolenheters ID:n.
-        in: query
-        schema:
-          type: array
-          items:
-            type: string
       - name: organisation
-        description: >
+        description: > 
+                  Begränsa urvalet till de skolenheter som hör till det angivna Organisations Id.
         in: query
         schema:
           type: string
           format: uuid
       - name: municipalityCode
         description: >
+          Begränsa urvalet till de  skolenheter som har angiven kommunkoden. 
         in: query
         schema:
           type: string
       - name: schoolTypes
         description: >
+          Begränsa urvalet till de skolenheter som har den angivna skolformen.
         in: query
         schema:
           type: array
@@ -49,6 +45,15 @@ schoolUnits:
       - $ref: "searchParameters.yaml#/SearchCreatedAfter"
       - $ref: "searchParameters.yaml#/SearchModifiedBefore"
       - $ref: "searchParameters.yaml#/SearchModifiedAfter"
+      - name: sortkey
+        description: Anger hur resultatet ska sorteras.
+        in: query
+        schema:
+          type: string
+          enum:
+            - DisplayName
+            - LastModifiedDesc
+          default: LastModifiedDesc
       - $ref: "searchParameters.yaml#/Offset"
       - $ref: "searchParameters.yaml#/Limit"
     responses:
@@ -59,7 +64,7 @@ schoolUnits:
             schema:
               $ref: "../SchoolUnit.yaml#/SchoolUnits"
 
-schoolUnitsFilter:
+schoolUnitsLookup:
   post:
     tags:
       - Organisation
@@ -77,10 +82,7 @@ schoolUnitsFilter:
       content:
         application/json:
           schema:
-            type: array
-            items:
-              type: string
-              format: uuid
+           $ref : "../common.yaml#/components/schemas/IdLookup"
       required: true
 
 schoolUnitById:

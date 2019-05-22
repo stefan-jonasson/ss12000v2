@@ -4,13 +4,6 @@ programmes:
       - Kurser
     summary: Hämta en lista av program.
     parameters:
-      - name: id
-        description: Begränsa urvalet till de program som pekas ut med ett ID.
-        in: query
-        schema:
-          type: array
-          items:
-            type: string
       - name: schoolType
         description: Begränsa urvalet till de program som matchar skolformen.
         in: query
@@ -48,7 +41,7 @@ programmes:
             schema:
               $ref: "../Programme.yaml#/Programmes"
 
-programmesFilter:
+programmesLookup:
   post:
     tags:
       - Kurser
@@ -66,10 +59,7 @@ programmesFilter:
       content:
         application/json:
           schema:
-            type: array
-            items:
-              type: string
-              format: uuid
+           $ref : "../common.yaml#/components/schemas/IdLookup"
       required: true
 
 programmeById:

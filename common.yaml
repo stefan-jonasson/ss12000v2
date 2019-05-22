@@ -74,7 +74,6 @@ components:
       enum:
         - Absence
         - Activity
-        - AggregatedAttendance
         - AttendanceEvent
         - CalendarEvent
         - ChildCareSchedule
@@ -87,7 +86,6 @@ components:
         - Resource
         - Room
         - SchoolUnit
-        - SchoolUnitGroup
         - SchoolUnitOffering
         - Syllabus
 
@@ -154,3 +152,13 @@ components:
         - Elevhälsopersonal
         - Pedagogisk ledare
         - Schemaläggare
+
+    IdLookup:
+      type: object
+      properties:
+        ids:
+          type: array
+          items:
+            type: string
+            format: uuid
+     

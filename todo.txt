@@ -201,11 +201,11 @@ deletedEntities.yaml
 
 Ola
 
-duties.yaml
-grades.yaml
-organisations.yaml
+duties.yaml [x]
+grades.yaml [x]
+organisations.yaml [x]
 schoolUnitOfferings.yaml
-schoolUnits.yaml
+schoolUnits.yaml [x]
 
 Jonas
 

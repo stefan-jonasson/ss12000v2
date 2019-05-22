@@ -4,13 +4,6 @@ duties:
       - Person
     summary: Hämta en lista med tjänstgöringar.
     parameters:
-      - name: id
-        description: Begränsa urvalet till utpekade tjänstgörings-ID:n.
-        in: query
-        schema:
-          type: array
-          items:
-            type: string
       - name: dutySchoolUnit
         description: Begränsa urvalet till de tjänstgöringar som är kopplade till en skolenhet.
         in: query
@@ -48,6 +41,16 @@ duties:
       - $ref: "searchParameters.yaml#/SearchCreatedAfter"
       - $ref: "searchParameters.yaml#/SearchModifiedBefore"
       - $ref: "searchParameters.yaml#/SearchModifiedAfter"
+      - name: sortkey
+        description: Anger hur resultatet ska sorteras.
+        in: query
+        schema:
+          type: string
+          enum:
+            - StartDateDesc
+            - StartDateAsc
+            - LastModifiedDesc
+          default: LastModifiedDesc
       - $ref: "searchParameters.yaml#/Offset"
       - $ref: "searchParameters.yaml#/Limit"
     responses:
@@ -58,7 +61,7 @@ duties:
             schema:
               $ref: "../Duty.yaml#/Duties"
 
-dutiesFilter:
+dutiesLookup:
   post:
     tags:
       - Person
@@ -76,10 +79,7 @@ dutiesFilter:
       content:
         application/json:
           schema:
-            type: array
-            items:
-              type: string
-              format: uuid
+            $ref : "../common.yaml#/components/schemas/IdLookup"
       required: true
 
 duty_by_id:
