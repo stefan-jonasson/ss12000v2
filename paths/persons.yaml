@@ -89,6 +89,8 @@ persons:
           items:
             type: string
             enum: [duties, children]
+      - $ref: "searchParameters.yaml#/ExpandReferenceNames"
+
     responses:
       "200":
         description: successful operation

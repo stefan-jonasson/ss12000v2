@@ -14,6 +14,7 @@ rooms:
       - $ref: "searchParameters.yaml#/SearchCreatedAfter"
       - $ref: "searchParameters.yaml#/SearchModifiedBefore"
       - $ref: "searchParameters.yaml#/SearchModifiedAfter"
+      - $ref: "searchParameters.yaml#/ExpandReferenceNames"
       - name: sortkey
         description: Anger hur resultatet ska sorteras.
         in: query
