@@ -55,6 +55,16 @@ Offset:
     Antal poster, från början av listan, som ska hoppas över
     innan resultatet börjar presenteras.
 
+PageToken:
+  in: query
+  name: pageToken
+  schema:
+    type: string
+  description: >
+    Ett opakt värde som servern givit som svar på en tidigare ställd fråga.
+    Kan inte komibineras med andra filter men väl med `limit`.
+   
+
 Limit:
   in: query
   name: limit
