@@ -20,6 +20,11 @@ attendance_events:
           items:
             type: string
             format: uuid
+     
+      - $ref: "searchParameters.yaml#/SearchCreatedBefore"
+      - $ref: "searchParameters.yaml#/SearchCreatedAfter"
+      - $ref: "searchParameters.yaml#/SearchModifiedBefore"
+      - $ref: "searchParameters.yaml#/SearchModifiedAfter"
       - name: expand
         description: Beskriver om expanderade data ska hämtas för aktiviteten.
         in: query
@@ -28,10 +33,7 @@ attendance_events:
           items:
             type: string
             enum: [child, group, registeredBy]
-      - $ref: "searchParameters.yaml#/SearchCreatedBefore"
-      - $ref: "searchParameters.yaml#/SearchCreatedAfter"
-      - $ref: "searchParameters.yaml#/SearchModifiedBefore"
-      - $ref: "searchParameters.yaml#/SearchModifiedAfter"
+      - $ref: "searchParameters.yaml#/ExpandReferenceNames"
       - $ref: "searchParameters.yaml#/Offset"
       - $ref: "searchParameters.yaml#/Limit"
     responses:

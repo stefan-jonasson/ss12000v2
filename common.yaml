@@ -2,16 +2,20 @@ ObjectReference:
   type: object
   required:
     - id
-    - displayName
   properties:
-    displayName:
-      type: string
     id:
       type: string
       format: uuid
-
+    displayName:
+      type: string
+      readOnly: true
+      description: >
+        Namn för visinigsyfte för det refereade objektet. 
+        Skall endast retuneras när query parametern `expandReferenceNames` är satt till sann.
+    
 Meta:
   type: object
+  readOnly: true
   properties:
     created:
       type: string
@@ -43,13 +47,12 @@ PlacementReference:
 StudentGroupReference:
   allOf:
     - $ref: "#/ObjectReference"
-    - type: object
-      description: Referens till en elevgrupp
+    - description: Referens till en elevgrupp
 
 SyllabusReference:
   allOf:
     - $ref: "#/ObjectReference"
-    - type: object
+    - description: Referens till en Syllabus
 
 DateConstrainedObjectReference:
   allOf:
