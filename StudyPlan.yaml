@@ -64,7 +64,7 @@ StudyPlan:
     endDate:
       type: string
       format: date
-    lastUpdate:
+    lastModified:
       type: string
       format: date-time
   required:
