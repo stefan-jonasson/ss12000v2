@@ -18,6 +18,10 @@ organisations:
           type: array
           items:
             type: string
+      - $ref: "searchParameters.yaml#/SearchCreatedBefore"
+      - $ref: "searchParameters.yaml#/SearchCreatedAfter"
+      - $ref: "searchParameters.yaml#/SearchModifiedBefore"
+      - $ref: "searchParameters.yaml#/SearchModifiedAfter"
       - name: expand
         description: >
           Expandera underliggande organisationselement och skolenheter.
@@ -26,10 +30,7 @@ organisations:
           type: array
           items:
             type: string
-      - $ref: "searchParameters.yaml#/SearchCreatedBefore"
-      - $ref: "searchParameters.yaml#/SearchCreatedAfter"
-      - $ref: "searchParameters.yaml#/SearchModifiedBefore"
-      - $ref: "searchParameters.yaml#/SearchModifiedAfter"
+      - $ref: "searchParameters.yaml#/ExpandReferenceNames"
       - name: sortkey
         description: Anger hur resultatet ska sorteras.
         in: query

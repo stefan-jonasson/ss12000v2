@@ -33,6 +33,11 @@ calendarEvents:
           items:
             type: string
             format: uuid
+    
+      - $ref: "searchParameters.yaml#/SearchCreatedBefore"
+      - $ref: "searchParameters.yaml#/SearchCreatedAfter"
+      - $ref: "searchParameters.yaml#/SearchModifiedBefore"
+      - $ref: "searchParameters.yaml#/SearchModifiedAfter"
       - name: expand
         description: Beskriver om expanderade data ska hämtas för aktiviteten.
         in: query
@@ -40,11 +45,8 @@ calendarEvents:
           type: array
           items:
             type: string
-            enum: [  activity, attendance ]
-      - $ref: "searchParameters.yaml#/SearchCreatedBefore"
-      - $ref: "searchParameters.yaml#/SearchCreatedAfter"
-      - $ref: "searchParameters.yaml#/SearchModifiedBefore"
-      - $ref: "searchParameters.yaml#/SearchModifiedAfter"
+            enum: [  activity, attendance ]           
+      - $ref: "searchParameters.yaml#/ExpandReferenceNames"  
       - $ref: "searchParameters.yaml#/Offset"
       - $ref: "searchParameters.yaml#/Limit"
     responses:

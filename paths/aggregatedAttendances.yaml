@@ -47,6 +47,8 @@ get:
         items:
           type: string
           enum: [ activity, student ]
+    - $ref: "searchParameters.yaml#/ExpandReferenceNames"
+
   responses:
     200:
       description: successful operation

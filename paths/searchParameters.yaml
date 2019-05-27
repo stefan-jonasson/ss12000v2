@@ -31,6 +31,13 @@ SearchModifiedBefore:
       type: string
       format: date-time
 
+ExpandReferenceNames:
+    name: expandReferenceNames
+    description: Returnera `displayName` för alla refererade objekt. 
+    in: query
+    schema:
+      type: boolean
+
 Sortkey:
   in: query
   name: sortkey

@@ -28,6 +28,10 @@ duties:
         schema:
           type: string
           format: uuid
+      - $ref: "searchParameters.yaml#/SearchCreatedBefore"
+      - $ref: "searchParameters.yaml#/SearchCreatedAfter"
+      - $ref: "searchParameters.yaml#/SearchModifiedBefore"
+      - $ref: "searchParameters.yaml#/SearchModifiedAfter"
       - name: expand
         description: Beskriver om expanderade data ska hämtas
         in: query
@@ -37,10 +41,7 @@ duties:
             type: string
             enum: 
              - assignedToStudentGroupAs
-      - $ref: "searchParameters.yaml#/SearchCreatedBefore"
-      - $ref: "searchParameters.yaml#/SearchCreatedAfter"
-      - $ref: "searchParameters.yaml#/SearchModifiedBefore"
-      - $ref: "searchParameters.yaml#/SearchModifiedAfter"
+      - $ref: "searchParameters.yaml#/ExpandReferenceNames"
       - name: sortkey
         description: Anger hur resultatet ska sorteras.
         in: query
