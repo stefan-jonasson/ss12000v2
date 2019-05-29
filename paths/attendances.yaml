@@ -50,6 +50,8 @@ attendancesLookup:
     summary: Hämta närvaro baserat på en lista av ID:n eller av Id från aktiviteter eller av Id från elever.
     description: >
       Hämta många närvaro.
+    parameters:
+      - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
       "200":
         description: successful operation

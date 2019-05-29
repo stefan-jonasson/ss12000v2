@@ -47,18 +47,11 @@ studentGroups:
         schema:
           type: string
           format: date
-      - name: expand
-        description: Beskriver om expanderade data ska hämtas
-        in: query
-        schema:
-          type: array
-          items:
-            type: string
-            enum: [assignmentRoles]
       - $ref: "searchParameters.yaml#/SearchCreatedBefore"
       - $ref: "searchParameters.yaml#/SearchCreatedAfter"
       - $ref: "searchParameters.yaml#/SearchModifiedBefore"
       - $ref: "searchParameters.yaml#/SearchModifiedAfter"
+      - $ref: "#/ExpandParameter"
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
       - name: sortkey
         description: Anger hur resultatet ska sorteras.
@@ -89,6 +82,9 @@ studentGroupsLookup:
     summary: Hämta många program baserat på en lista av ID:n.
     description: >
       Hämta många program.
+    parameters:
+      - $ref: "#/ExpandParameter"
+      - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
       "200":
         description: successful operation
@@ -115,6 +111,8 @@ studentGroupsById:
         required: true
         schema:
           type: string
+      - $ref: "#/ExpandParameter"
+      - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
       "200":
         description: successful operation
@@ -128,3 +126,13 @@ studentGroupsById:
         description: Not authorised
       "404":
         description: Duty not found
+
+ExpandParameter: 
+  name: expand
+  description: Beskriver om expanderade data ska hämtas
+  in: query
+  schema:
+    type: array
+    items:
+      type: string
+      enum: [assignmentRoles]

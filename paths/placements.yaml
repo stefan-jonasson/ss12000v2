@@ -4,23 +4,6 @@ placements:
       - Person
     summary: Hämta en lista med placeringar.
     parameters:
-      - $ref: "searchParameters.yaml#/SearchCreatedBefore"
-      - $ref: "searchParameters.yaml#/SearchCreatedAfter"
-      - $ref: "searchParameters.yaml#/SearchModifiedBefore"
-      - $ref: "searchParameters.yaml#/SearchModifiedAfter"
-      - name: sortkey
-        description: Anger hur resultatet ska sorteras.
-        in: query
-        schema:
-          type: string
-          enum:
-            - SchoolType
-            - StartDateDesc
-            - StartDateAsc 
-            - LastModifiedDesc
-          default: LastModifiedDesc
-      - $ref: "searchParameters.yaml#/Offset"
-      - $ref: "searchParameters.yaml#/Limit"
       - name: schoolUnit
         description: >
           Begränsa urvalet till de barn som har en placering  på angiven
@@ -46,15 +29,26 @@ placements:
         schema:
           type: string
           format: date
-      - name: expand
-        description: Beskriver om expanderade data ska hämtas
+      - $ref: "searchParameters.yaml#/SearchCreatedBefore"
+      - $ref: "searchParameters.yaml#/SearchCreatedAfter"
+      - $ref: "searchParameters.yaml#/SearchModifiedBefore"
+      - $ref: "searchParameters.yaml#/SearchModifiedAfter"
+      - $ref: "#/ExpandParameter"
+      - $ref: "searchParameters.yaml#/ExpandReferenceNames"
+      - name: sortkey
+        description: Anger hur resultatet ska sorteras.
         in: query
         schema:
-          type: array
-          items:
-            type: string
-            enum: [ child ]
-      - $ref: "searchParameters.yaml#/ExpandReferenceNames"
+          type: string
+          enum:
+            - SchoolType
+            - StartDateDesc
+            - StartDateAsc 
+            - LastModifiedDesc
+          default: LastModifiedDesc
+
+      - $ref: "searchParameters.yaml#/Offset"
+      - $ref: "searchParameters.yaml#/Limit"
 
     responses:
       "200":
@@ -71,6 +65,9 @@ placementsLookup:
     summary: Hämta många placeringar baserat på en lista av ID:n eller av Id från personer.
     description: >
       Hämta många placeringar.
+    parameters:
+      - $ref: "#/ExpandParameter"
+      - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
       "200":
         description: successful operation
@@ -109,6 +106,8 @@ placementsById:
         required: true
         schema:
           type: string
+      - $ref: "#/ExpandParameter"
+      - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
       "200":
         description: successful operation
@@ -122,3 +121,13 @@ placementsById:
         description: Not authorised
       "404":
         description: Placement not found
+
+ExpandParameter:
+  name: expand
+  description: Beskriver om expanderade data ska hämtas
+  in: query
+  schema:
+    type: array
+    items:
+      type: string
+      enum: [ child ]

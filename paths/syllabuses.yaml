@@ -44,6 +44,8 @@ syllabusesLookup:
     summary: Hämta många progsyllabusesram baserat på en lista av ID:n.
     description: >
       Hämta många syllabuses.
+    parameters:
+      - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
       "200":
         description: successful operation
@@ -70,6 +72,7 @@ syllabusById:
         required: true
         schema:
           type: string
+      - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
       "200":
         description: successful operation

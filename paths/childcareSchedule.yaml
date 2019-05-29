@@ -25,14 +25,7 @@ childcare_schedule:
       - $ref: "searchParameters.yaml#/SearchCreatedAfter"
       - $ref: "searchParameters.yaml#/SearchModifiedBefore"
       - $ref: "searchParameters.yaml#/SearchModifiedAfter"
-      - name: expand
-        description: Beskriver om expanderade data ska hämtas för aktiviteten.
-        in: query
-        schema:
-          type: array
-          items:
-            type: string
-            enum: [ child, group ]
+      - $ref: "#/ExpandParameter"
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
       - $ref: "searchParameters.yaml#/Offset"
       - $ref: "searchParameters.yaml#/Limit"
@@ -83,6 +76,8 @@ childcare_schedule_by_id:
         schema:
           type: string
           format: uuid
+      - $ref: "#/ExpandParameter"
+      - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
       "200":
         description: Posten returneras.
@@ -123,3 +118,14 @@ childcare_schedule_by_id:
         description: Otilläckliga rättigheter.
       "404":
         description: Posten hittades inte.
+
+
+ExpandParameter:
+  name: expand
+  description: Beskriver om expanderade data ska hämtas för aktiviteten.
+  in: query
+  schema:
+    type: array
+    items:
+      type: string
+      enum: [ child, group ]

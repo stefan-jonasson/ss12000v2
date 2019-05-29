@@ -72,6 +72,8 @@ schoolUnitsLookup:
     summary: Hämta många skolenheter baserat på en lista av ID:n.
     description: >
       Hämta många skolenheter.
+    parameters:
+      - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
       "200":
         description: successful operation
@@ -98,6 +100,7 @@ schoolUnitById:
         required: true
         schema:
           type: string
+      - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
       "200":
         description: successful operation

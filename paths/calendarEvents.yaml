@@ -38,14 +38,7 @@ calendarEvents:
       - $ref: "searchParameters.yaml#/SearchCreatedAfter"
       - $ref: "searchParameters.yaml#/SearchModifiedBefore"
       - $ref: "searchParameters.yaml#/SearchModifiedAfter"
-      - name: expand
-        description: Beskriver om expanderade data ska hämtas för aktiviteten.
-        in: query
-        schema:
-          type: array
-          items:
-            type: string
-            enum: [  activity, attendance ]           
+      - $ref: "#/ExpandParameter"   
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"  
       - $ref: "searchParameters.yaml#/Offset"
       - $ref: "searchParameters.yaml#/Limit"
@@ -72,6 +65,8 @@ calendarEventById:
         schema:
           type: string
           format: uuid
+      - $ref: "#/ExpandParameter"   
+      - $ref: "searchParameters.yaml#/ExpandReferenceNames"  
     responses:
       "200":
         description: successful operation
@@ -79,3 +74,13 @@ calendarEventById:
           application/json:
             schema:
               $ref: "../CalendarEvent.yaml#/CalendarEvent"
+
+ExpandParameter: 
+  name: expand
+  description: Beskriver om expanderade data ska hämtas för aktiviteten.
+  in: query
+  schema:
+    type: array
+    items:
+      type: string
+      enum: [  activity, attendance ]           

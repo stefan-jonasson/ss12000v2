@@ -98,6 +98,8 @@ AbsenceLookup:
     operationId: postAbsenceFilter
     description: >
       Hämta många anmälda frånvaro.
+    parameters:
+      - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
       "200":
         description: successful operation
