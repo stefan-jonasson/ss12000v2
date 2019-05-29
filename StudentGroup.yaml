@@ -94,7 +94,22 @@ StudentGroup:
     - startDate
     - schoolUnit
 
+
+StudentGroupsArray:
+        type: array
+        items:
+          $ref: "#/StudentGroup"
+
 StudentGroups:
-  type: array
-  items:
-    $ref: "#/StudentGroup"
+  type: object
+  properties:
+      data:
+        type: array
+        items:
+          $ref: "#/StudentGroup"
+      pageToken:
+        type: string
+        nullable: true
+        description:  Om värdet är null finns inget mer att hämta på det token som skickades in som query parameter.
+  required:
+    - data

@@ -1,3 +1,5 @@
+
+
 get:
   tags:
     - Verktyg
@@ -33,12 +35,22 @@ get:
             - SchoolUnitGroup
             - SchoolUnitOffering
             - Syllabus
+    - $ref: "searchParameters.yaml#/Limit"
+    - $ref: "searchParameters.yaml#/PageToken"
   responses:
-    "200":
+    200:
       description: successful operation
       content:
         application/json:
           schema:
+            $ref: "#/DeletedEntities"
+    400:
+        description: >
+          Filter (ex `after`, `entity`) kan inte kombineras med `pageToken`
+
+
+
+DeletedEntity:
             type: object
             properties:
               Activity:
@@ -131,3 +143,18 @@ get:
                 items:
                   type: string
                   format: uuid
+
+
+DeletedEntities:
+ type: object
+ properties:
+      data:
+        type: array
+        items:
+          $ref: "#/DeletedEntity"
+      pageToken:
+        type: string
+        nullable: true
+        description:  Om värdet är null finns inget mer att hämta på det token som skickades in som query parameter.
+ required:
+    - data

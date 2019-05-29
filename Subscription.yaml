@@ -49,10 +49,22 @@ Subscription:
         - expires
     - $ref: "#/CreateSubscription"
 
+
+
+
 Subscriptions:
-  type: array
-  items:
-    $ref: "#/Subscription"
+  type: object
+  properties:
+      data:
+        type: array
+        items:
+          $ref: "#/Subscription"
+      pageToken:
+        type: string
+        nullable: true
+        description:  Om värdet är null finns inget mer att hämta på det token som skickades in som query parameter.
+  required:
+    - data
 
 Error:
   required:

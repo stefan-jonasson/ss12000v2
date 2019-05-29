@@ -24,7 +24,21 @@ Room:
     - displayName
     - owner
 
+RoomsArray:
+        type: array
+        items:
+          $ref: "#/Room"
+
 Rooms:
-  type: array
-  items:
-    $ref: "#/Room"
+  type: object
+  properties:
+      data:
+        type: array
+        items:
+          $ref: "#/Room"
+      pageToken:
+        type: string
+        nullable: true
+        description:  Om värdet är null finns inget mer att hämta på det token som skickades in som query parameter.
+  required:
+    - data

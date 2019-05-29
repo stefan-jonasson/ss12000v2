@@ -80,7 +80,22 @@ Programme:
     - name
     - schoolType
 
+ProgrammesArray:
+    type: array
+    items:
+      $ref: "#/Programme"
+
 Programmes:
-  type: array
-  items:
-    $ref: "#/Programme"
+  type: object
+  properties:
+      data:
+        type: array
+        items:
+          $ref: "#/Programme"
+      pageToken:
+        type: string
+        nullable: true
+        description:  Om värdet är null finns inget mer att hämta på det token som skickades in som query parameter.
+  required:
+    - data
+

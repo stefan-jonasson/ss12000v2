@@ -27,15 +27,21 @@ syllabuses:
             - SubjectDesignationAsc
             - SubjectDesignationDesc
           default: LastModifiedDesc
-      - $ref: "searchParameters.yaml#/Offset"
+     
       - $ref: "searchParameters.yaml#/Limit"
+      - $ref: "searchParameters.yaml#/PageToken"
     responses:
-      "200":
+      200:
         description: successful operation
         content:
           application/json:
             schema:
               $ref: "../Syllabus.yaml#/Syllabuses"
+      400:
+         description: >
+          Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`, `meta.created.after`, `meta.created.before`
+          , `expand`) kan inte kombineras med `pageToken`
+
 
 syllabusesLookup:
   post:
@@ -45,12 +51,14 @@ syllabusesLookup:
     description: >
       Hämta många syllabuses.
     responses:
-      "200":
-        description: successful operation
-        content:
-          application/json:
-            schema:
-              $ref: "../Syllabus.yaml#/Syllabuses"
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "../Syllabus.yaml#/SyllabusesArray"
+        503:
+          description: The response is too large for the server ie overload
     requestBody:
       content:
         application/json:

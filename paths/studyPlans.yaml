@@ -54,12 +54,17 @@ studyPlans:
             - EndDateAsc
             - EndDateDesc
           default: LastUpdateDesc
-      - $ref: "searchParameters.yaml#/Offset"
+    
       - $ref: "searchParameters.yaml#/Limit"
+      - $ref: "searchParameters.yaml#/PageToken"
     responses:
-      "200":
+      200:
         description: successful operation
         content:
           application/json:
             schema:
               $ref: "../StudyPlan.yaml#/StudyPlans"
+      400:
+         description: >
+          Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`, `meta.created.after`, `meta.created.before`
+          , `expand`, `student`, `startDate.onOrAfter` , `endDate.onOrBefore`, `lastUpdate.before`) kan inte kombineras med `pageToken`

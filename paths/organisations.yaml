@@ -40,15 +40,20 @@ organisations:
             - DisplayName
             - LastModifiedDesc
           default: LastModifiedDesc
-      - $ref: "searchParameters.yaml#/Offset"
+      
       - $ref: "searchParameters.yaml#/Limit"
+      - $ref: "searchParameters.yaml#/PageToken"
     responses:
-      "200":
+      200:
         description: successful operation
         content:
           application/json:
             schema:
-              $ref: "../Organisation.yaml#/Organisation"
+              $ref: "../Organisation.yaml#/Organisations"
+      400:
+       description: >
+        Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`, `meta.created.after`, `meta.created.before`
+        , `expand`, `parent`, `type`) kan inte kombineras med `pageToken`
 
 organisationsLookup:
   post:
@@ -58,12 +63,14 @@ organisationsLookup:
     description: >
       Hämta många program.
     responses:
-      "200":
+      200:
         description: successful operation
         content:
           application/json:
             schema:
-              $ref: "../Organisation.yaml#/Organisation"
+              $ref: "../Organisation.yaml#/OrganisationsArray"
+      503:
+        description: The response is too large for the server ie overload
     requestBody:
       content:
         application/json:

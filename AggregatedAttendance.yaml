@@ -48,3 +48,19 @@ AggregatedAttendance:
     - activity
     - student
     - attendanceSum
+
+
+
+AggregatedAttendances:
+  type: object
+  properties:
+      data:
+        type: array
+        items:
+          $ref: "#/AggregatedAttendance"
+      pageToken:
+        type: string
+        nullable: true
+        description:  Om värdet är null finns inget mer att hämta på det token som skickades in som query parameter.
+  required:
+    - data

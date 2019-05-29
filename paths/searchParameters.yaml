@@ -81,4 +81,4 @@ Limit:
   required: false
   description: >
     Antal poster som ska visas i resultatet.
-    Utelämnas det så returnas samtliga poster utan begränsning.
+    Utelämnas det så returnas så många poster som möjligt av servern, se `pageToken`.

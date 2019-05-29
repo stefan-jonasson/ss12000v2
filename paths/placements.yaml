@@ -19,8 +19,6 @@ placements:
             - StartDateAsc 
             - LastModifiedDesc
           default: LastModifiedDesc
-      - $ref: "searchParameters.yaml#/Offset"
-      - $ref: "searchParameters.yaml#/Limit"
       - name: schoolUnit
         description: >
           Begränsa urvalet till de barn som har en placering  på angiven
@@ -54,15 +52,22 @@ placements:
           items:
             type: string
             enum: [ child ]
+     
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
-
+      - $ref: "searchParameters.yaml#/Limit"
+      - $ref: "searchParameters.yaml#/PageToken"
     responses:
-      "200":
+      200:
         description: successful operation
         content:
           application/json:
             schema:
-              $ref: "../Placement.yaml#/Placement"
+              $ref: "../Placement.yaml#/Placements"
+      400:
+       description: >
+        Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`, `meta.created.after`, `meta.created.before`
+         `expand`, `schoolUnit`, `startDate.onOrAfter`,`endDate.onOrBefore`) kan inte kombineras med `pageToken`
+
 
 placementsLookup:
   post:
@@ -72,12 +77,14 @@ placementsLookup:
     description: >
       Hämta många placeringar.
     responses:
-      "200":
+      200:
         description: successful operation
         content:
           application/json:
             schema:
-              $ref: "../Placement.yaml#/Placement"
+              $ref: "../Placement.yaml#/PlacementsArray"
+      503:
+        description: The response is too large for the server ie overload
     requestBody:
       content:
         application/json:

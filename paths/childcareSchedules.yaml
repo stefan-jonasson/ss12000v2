@@ -34,17 +34,22 @@ childcare_schedules:
             type: string
             enum: [ child, group ]
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
-      - $ref: "searchParameters.yaml#/Offset"
+      
       - $ref: "searchParameters.yaml#/Limit"
+      - $ref: "searchParameters.yaml#/PageToken"
     responses:
-      "200":
+      200:
         description: successful operation
         content:
           application/json:
             schema:
-              type: array
-              items:
-                $ref: "../ChildCareSchedule.yaml#/ChildCareSchedule"
+                $ref: "../ChildCareSchedule.yaml#/ChildCareSchedules"
+      400:
+        description: >
+          Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`, `meta.created.after`, `meta.created.before`
+          ,   `expand`, `child`,`group`) kan inte kombineras med `pageToken`
+
+
   post:
     tags:
       - Barnomsorgsschema

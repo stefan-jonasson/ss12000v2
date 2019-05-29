@@ -48,6 +48,8 @@ get:
           type: string
           enum: [ activity, student ]
     - $ref: "searchParameters.yaml#/ExpandReferenceNames"
+    - $ref: "searchParameters.yaml#/Limit"
+    - $ref: "searchParameters.yaml#/PageToken"
 
   responses:
     200:
@@ -55,6 +57,8 @@ get:
       content:
         application/json:
           schema:
-            type: array
-            items:
-              $ref: "../AggregatedAttendance.yaml#/AggregatedAttendance"
+              $ref: "../AggregatedAttendance.yaml#/AggregatedAttendances"
+    400:
+        description: >
+          Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`, `meta.created.after`, `meta.created.before`
+          ,   `expand`, `startDate`,`endDate`,`schoolUnit`,`schoolType`, `student`) kan inte kombineras med `pageToken`
