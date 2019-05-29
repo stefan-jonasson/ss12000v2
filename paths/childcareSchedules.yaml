@@ -1,4 +1,4 @@
-childcare_schedule: 
+childcare_schedules: 
   get: 
     tags:
       - Schema

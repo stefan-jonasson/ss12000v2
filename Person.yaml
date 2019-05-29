@@ -251,6 +251,15 @@ Persons:
     $ref: "#/Person"
 
 PersonsExpanded:
-  type: array
-  items:
-    $ref: "#/PersonExpanded"
+  type: object
+  properties:
+      data:
+        type: array
+        items:
+          $ref: "#/PersonExpanded"
+      pageToken:
+        type: string
+        nullable: true
+        description:  Om värdet är null finns inget mer att hämta på det token som skickades in som query parameter.
+  required:
+    - data
