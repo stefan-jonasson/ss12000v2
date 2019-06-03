@@ -31,6 +31,13 @@ SearchModifiedBefore:
       type: string
       format: date-time
 
+ExpandReferenceNames:
+    name: expandReferenceNames
+    description: Returnera `displayName` för alla refererade objekt. 
+    in: query
+    schema:
+      type: boolean
+
 Sortkey:
   in: query
   name: sortkey
@@ -54,6 +61,16 @@ Offset:
   description: >
     Antal poster, från början av listan, som ska hoppas över
     innan resultatet börjar presenteras.
+
+PageToken:
+  in: query
+  name: pageToken
+  schema:
+    type: string
+  description: >
+    Ett opakt värde som servern givit som svar på en tidigare ställd fråga.
+    Kan inte komibineras med andra filter men väl med `limit`.
+
 
 Limit:
   in: query

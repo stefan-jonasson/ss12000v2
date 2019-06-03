@@ -22,8 +22,7 @@ persons:
             - NorEduPersonNIN
             - LastModifiedDesc
           default: LastModifiedDesc
-      - $ref: "searchParameters.yaml#/Offset"
-      - $ref: "searchParameters.yaml#/Limit"
+
       - name: enrolment.schoolUnit
         description: >
           Begränsa urvalet till de elever som har en inskrivning (enrolment) på angiven
@@ -89,6 +88,9 @@ persons:
           items:
             type: string
             enum: [duties, children]
+      - $ref: "searchParameters.yaml#/ExpandReferenceNames"
+      - $ref: "searchParameters.yaml#/Limit"
+      - $ref: "searchParameters.yaml#/PageToken"
     responses:
       "200":
         description: successful operation
@@ -96,6 +98,11 @@ persons:
           application/json:
             schema:
               $ref: "../Person.yaml#/PersonsExpanded"
+      400:
+       description: >
+        Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`, `meta.created.after`, `meta.created.before`
+        `enrolment.schoolUnit`, `enrolment.startDate.onOrAfter`,`enrolment.endDate.onOrBefore`,`placement.schoolUnit`,
+        `placement.startDate.onOrAfter`, `placement.endDate.onOrBefore`,`dutySchoolUnit`, `expand`) kan inte kombineras med `pageToken`
 
 personsLookup:
   post:

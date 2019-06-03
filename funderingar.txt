@@ -32,3 +32,16 @@ rooms
    - DisplayName
 
 
+2019-05-22 (SJ) 
+ 1. För organisation hur skall denna fungera? Skall vi verkligen ha den kvar? 
+    - name: expand
+      description: >
+        Expandera underliggande organisationselement och skolenheter.
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+
+ 2. I lookup funktionerna behöver vi lägga till Expand? ( och ExpandReferenceNames ).     
+

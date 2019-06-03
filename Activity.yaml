@@ -41,7 +41,23 @@ Activity:
         - Mentorskap
         - Omsorg
         - Övrigt
-      description: Beskriver vilken typ av aktivitet som avses.
+      description: |
+        Beskriver vilken typ av aktivitet som avses.
+        - Värde
+
+            Beskrivning
+        - Undervisning
+
+            Schemalagd tid med koppling till timplan, som ska närvarorapporteras.
+        - Elevaktivitet
+
+            Schemalagd tid för elever som inte är undervisning enligt timplan, och som ska närvarorapporteras, exempelvis mentorstid, klassråd eller friluftsdag
+        - Läraraktivitet
+
+            Tid för lärare som inte är undervisning och som ingår i lärarens arbetstid, kan vara schemalagd, men ska inte närvarorapporteras, exempelvis konferenstid.
+        - Övrigt
+
+            Läxhjälp, lunch, bokning och annat som finns på schemat, men inte är undervisning och inte ska närvarorapporteras`
 
     comment:
       type: string

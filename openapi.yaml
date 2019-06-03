@@ -110,7 +110,7 @@ paths:
   /childCareAttendanceEvents/{id}:
     $ref: paths/childCareAttendanceEvents.yaml#/attendance_events_by_id
   /childCareSchedule:
-    $ref: paths/childCareSchedule.yaml#/childcare_schedule
+    $ref: paths/childCareSchedules.yaml#/childcare_schedules
   /grades:
     $ref: paths/grades.yaml#/grades
   /grades/lookup:
