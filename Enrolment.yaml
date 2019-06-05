@@ -23,6 +23,9 @@ Enrolment:
     educationCode:
       type: string
       description: "Studievägskod för den aktuella inskrivningen."
+    specification:
+      type: string
+      description: "Kompletterande information angående innehåll i elevens utbildning, används som avgränsning av ett visst utbildningsalternativ för exempelvis lärlingsutbildning."
   required:
     - enroledAt
     - schoolType

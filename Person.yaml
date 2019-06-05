@@ -90,11 +90,12 @@ Person:
           default: false
         personStatus:
           type: string
+          description: Anger ifall en person har en aktiv status eller en annan status, såsom utvandrad eller avliden.
           enum:
-            - Normal
+            - Aktiv
             - Utvandrad
             - Avliden
-          default: Normal
+          default: Aktiv
         emails:
           type: array
           description: En lista med personens epostadresser
@@ -239,9 +240,9 @@ PersonExpanded:
                 används för förskoleverksamhet eller för placering på ex kulturskol
               items:
                 $ref: "Placement.yaml#/PlacementFragment"
-            duties:
+            duty:
               type: array
-              description: Personens tjänster
+              description: Personens aktuella tjänstgöring
               items:
                 $ref: "./Duty.yaml#/DutyFragment"
 
