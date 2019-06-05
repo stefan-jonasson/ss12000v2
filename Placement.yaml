@@ -67,7 +67,22 @@ Placement:
             - $ref: "common.yaml#/PersonReference"
             - description: Identifierare av person som placeringen är knuten till.
 
-Placements:
-  type: array
-  items:
+PlacementsArray:
+ type: array
+ items:
     $ref: "#/Placement"
+
+Placements:
+  type: object
+  properties:
+      data:
+        type: array
+        items:
+          $ref: "#/Placement"
+      pageToken:
+        type: string
+        nullable: true
+        description:  Om värdet är null finns inget mer att hämta på det token som skickades in som query parameter.
+  required:
+    - data
+

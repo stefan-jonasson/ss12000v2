@@ -69,7 +69,21 @@ SchoolUnit:
     - displayName
     - schoolTypes
 
+SchoolUnitsArray:
+        type: array
+        items:
+          $ref: "#/SchoolUnit"
+
 SchoolUnits:
-  type: array
-  items:
-    $ref: "#/SchoolUnit"
+ type: object
+ properties:
+      data:
+        type: array
+        items:
+          $ref: "#/SchoolUnit"
+      pageToken:
+        type: string
+        nullable: true
+        description:  Om värdet är null finns inget mer att hämta på det token som skickades in som query parameter.
+ required:
+    - data

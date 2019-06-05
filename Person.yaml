@@ -250,6 +250,11 @@ Persons:
   items:
     $ref: "#/Person"
 
+PersonsExpandedArray:
+  type: array
+  items:
+    $ref: "#/PersonExpanded"
+
 PersonsExpanded:
   type: object
   properties:

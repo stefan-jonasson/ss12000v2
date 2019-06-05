@@ -48,10 +48,28 @@ Attendance:
       required:
         - meta
 
+
+
+AttendancesArray:
+    type: array
+    items:
+      $ref: "#/Attendance"
+
+
+
 Attendances:
-  type: array
-  items:
-    $ref: "#/Attendance"
+  type: object
+  properties:
+      data:
+        type: array
+        items:
+          $ref: "#/Attendance"
+      pageToken:
+        type: string
+        nullable: true
+        description:  Om värdet är null finns inget mer att hämta på det token som skickades in som query parameter.
+  required:
+    - data
 
 Error:
   required:

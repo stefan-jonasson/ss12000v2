@@ -26,7 +26,7 @@ attendance_events:
       - $ref: "searchParameters.yaml#/SearchModifiedBefore"
       - $ref: "searchParameters.yaml#/SearchModifiedAfter"
       - name: expand
-        description: Beskriver om expanderade data ska hämtas för aktiviteten.
+        description: Beskriver om expanderade data ska hämtas för in-/utcheckningar.
         in: query
         schema:
           type: array
@@ -34,17 +34,21 @@ attendance_events:
             type: string
             enum: [child, group, registeredBy]
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
-      - $ref: "searchParameters.yaml#/Offset"
+    
       - $ref: "searchParameters.yaml#/Limit"
+      - $ref: "searchParameters.yaml#/PageToken"
     responses:
-      "200":
+      200:
         description: successful operation
         content:
           application/json:
             schema:
-              type: array
-              items:
-                $ref: "../ChildCareAttendanceEvent.yaml#/ChildCareAttendanceEvent"
+                $ref: "../ChildCareAttendanceEvent.yaml#/ChildCareAttendanceEvents"
+      400:
+        description: >
+          Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`, `meta.created.after`, `meta.created.before`
+          ,   `expand`,`group`, `child`) kan inte kombineras med `pageToken`
+
   post:
     tags:
       - Närvarohändelser

@@ -92,7 +92,7 @@ persons:
       - $ref: "searchParameters.yaml#/Limit"
       - $ref: "searchParameters.yaml#/PageToken"
     responses:
-      "200":
+      200:
         description: successful operation
         content:
           application/json:
@@ -112,12 +112,14 @@ personsLookup:
     description: >
       Hämta många personer.
     responses:
-      "200":
+      200:
         description: successful operation
         content:
           application/json:
             schema:
-              $ref: "../Person.yaml#/PersonsExpanded"
+              $ref: "../Person.yaml#/PersonsExpandedArray"
+      503:
+        description: The response is too large for the server ie overload
     requestBody:
       content:
         application/json:

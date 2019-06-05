@@ -4,8 +4,11 @@ subscriptions:
       - Prenumeration
       - Verktyg
     summary: Hämta en lista av prenumerationer.
+    parameters:
+      - $ref: "searchParameters.yaml#/Limit"
+      - $ref: "searchParameters.yaml#/PageToken" 
     responses:
-      "200":
+      200:
         description: successful operation
         content:
           application/json:

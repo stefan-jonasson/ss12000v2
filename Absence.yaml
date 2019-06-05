@@ -47,10 +47,28 @@ Absence:
       required:
         - id
 
+
+
+AbsencesArray:
+    type: array
+    items:
+      $ref: "#/Absence"
+   
+
 Absences:
-  type: array
-  items:
-    $ref: "#/Absence"
+  type: object
+  properties:
+      data:
+        type: array
+        items:
+          $ref: "#/Absence"
+      pageToken:
+        type: string
+        nullable: true
+        description:  Om värdet är null finns inget mer att hämta på det token som skickades in som query parameter.
+  required:
+    - data
+
 
 Error:
   required:

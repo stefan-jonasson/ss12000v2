@@ -29,15 +29,21 @@ activities:
             enum: [studentGroups]
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
       - $ref: "searchParameters.yaml#/Sortkey"
-      - $ref: "searchParameters.yaml#/Offset"
       - $ref: "searchParameters.yaml#/Limit"
+      - $ref: "searchParameters.yaml#/PageToken"
     responses:
-      "200":
+      200:
         description: successful operation
         content:
           application/json:
             schema:
               $ref: "../Activity.yaml#/Activities"
+      400:
+        description: >
+          Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`, `meta.created.after`, `meta.created.before`
+          ,   `expand`, `person`,`schoolUnit`) kan inte kombineras med `pageToken`
+
+
 
 activitiesLookup:
   post:
@@ -47,12 +53,14 @@ activitiesLookup:
     description: >
       Hämta många aktiviteter.
     responses:
-      "200":
+      200:
         description: successful operation
         content:
           application/json:
             schema:
-              $ref: "../Activity.yaml#/Activities"
+              $ref: "../Activity.yaml#/ActivitiesArray"
+      503:
+        description: The response is too large for the server ie overload
     requestBody:
       content:
         application/json:
