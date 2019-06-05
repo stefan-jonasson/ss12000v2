@@ -76,6 +76,8 @@ gradesLookup:
     summary: Hämta många betyg baserat på en lista av ID:n.
     description: >
       Hämta många betyg.
+    parameters:
+      - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
       200:
         description: successful operation
@@ -104,6 +106,7 @@ gradeById:
         required: true
         schema:
           type: string
+      - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
       "200":
         description: successful operation

@@ -25,14 +25,7 @@ attendance_events:
       - $ref: "searchParameters.yaml#/SearchCreatedAfter"
       - $ref: "searchParameters.yaml#/SearchModifiedBefore"
       - $ref: "searchParameters.yaml#/SearchModifiedAfter"
-      - name: expand
-        description: Beskriver om expanderade data ska hämtas för in-/utcheckningar.
-        in: query
-        schema:
-          type: array
-          items:
-            type: string
-            enum: [child, group, registeredBy]
+      - $ref: "#/ExpandParameter"
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     
       - $ref: "searchParameters.yaml#/Limit"
@@ -87,6 +80,8 @@ attendance_events_by_id:
         schema:
           type: string
           format: uuid
+      - $ref: "#/ExpandParameter"
+      - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
       "200":
         description: Posten returneras.
@@ -129,3 +124,13 @@ attendance_events_by_id:
         description: Otilläckliga rättigheter.
       "404":
         description: Posten hittades inte.
+
+ExpandParameter: 
+  name: expand
+  description: Beskriver om expanderade data ska hämtas för aktiviteten.
+  in: query
+  schema:
+    type: array
+    items:
+      type: string
+      enum: [child, group, registeredBy]

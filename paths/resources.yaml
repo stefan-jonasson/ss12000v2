@@ -45,6 +45,8 @@ resourcesLookup:
     summary: Hämta många resurser baserat på en lista av ID:n.
     description: >
       Hämta många program.
+    parameters:
+      - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
       200:
         description: successful operation
@@ -73,6 +75,7 @@ resourceById:
         required: true
         schema:
           type: string
+      - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
       "200":
         description: successful operation
