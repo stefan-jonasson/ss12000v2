@@ -15,15 +15,30 @@ schoolUnitOfferings:
       - $ref: "searchParameters.yaml#/SearchModifiedBefore"
       - $ref: "searchParameters.yaml#/SearchModifiedAfter"
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
-      - $ref: "searchParameters.yaml#/Offset"
+      - name: sortkey
+        in: query
+        schema:
+          type: string
+          enum:
+            - LastModifiedDesc
+            - StartDateAsc
+            - StartDateDesc
+            - EndDateAsc
+            - EndDateDesc
+        default: LastModifiedDesc
       - $ref: "searchParameters.yaml#/Limit"
+      - $ref: "searchParameters.yaml#/PageToken"
     responses:
-      "200":
+      200:
         description: successful operation
         content:
           application/json:
             schema:
-              $ref: "../SchoolUnitOffering.yaml#/SchoolUnitOffering"
+              $ref: "../SchoolUnitOffering.yaml#/SchoolUnitOfferings"
+      400:
+        description: >
+          Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`, `meta.created.after`, 
+          `meta.created.before`, `offeredAt`) kan inte kombineras med `pageToken`
 
   post:
     tags:
@@ -31,13 +46,17 @@ schoolUnitOfferings:
     summary: Hämta många program baserat på en lista av ID:n.
     description: >
       Hämta många program.
+    parameters:
+      - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
-      "200":
+      200:
         description: successful operation
         content:
           application/json:
             schema:
-              $ref: "../SchoolUnitOffering.yaml#/SchoolUnitOffering"
+              $ref: "../SchoolUnitOffering.yaml#/SchoolUnitOfferingsArray"
+      503:
+        description: The response is too large for the server ie overload
     requestBody:
       content:
         application/json:
@@ -57,16 +76,17 @@ schoolUnitOffering_by_id:
         required: true
         schema:
           type: string
+      - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
-      "200":
+      200:
         description: successful operation
         content:
           application/json:
             schema:
               $ref: "../SchoolUnitOffering.yaml#/SchoolUnitOffering"
-      "400":
+      400:
         description: Invalid id supplied
-      "403":
+      403:
         description: Not authorised
-      "404":
+      404:
         description: Duty not found

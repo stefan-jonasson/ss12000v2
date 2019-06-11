@@ -79,7 +79,21 @@ Duty:
                         type: string
                         format: date 
 
+DutiesArray:
+    type: array
+    items:
+      $ref: "#/Duty"
+
 Duties:
-  type: array
-  items:
-    $ref: "#/Duty"
+ type: object
+ properties:
+      data:
+        type: array
+        items:
+          $ref: "#/Duty"
+      pageToken:
+        type: string
+        nullable: true
+        description:  Om värdet är null finns inget mer att hämta på det token som skickades in som query parameter.
+ required:
+    - data

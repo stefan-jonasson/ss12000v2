@@ -25,26 +25,23 @@ attendance_events:
       - $ref: "searchParameters.yaml#/SearchCreatedAfter"
       - $ref: "searchParameters.yaml#/SearchModifiedBefore"
       - $ref: "searchParameters.yaml#/SearchModifiedAfter"
-      - name: expand
-        description: Beskriver om expanderade data ska hämtas för aktiviteten.
-        in: query
-        schema:
-          type: array
-          items:
-            type: string
-            enum: [child, group, registeredBy]
+      - $ref: "#/ExpandParameter"
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
-      - $ref: "searchParameters.yaml#/Offset"
+    
       - $ref: "searchParameters.yaml#/Limit"
+      - $ref: "searchParameters.yaml#/PageToken"
     responses:
-      "200":
+      200:
         description: successful operation
         content:
           application/json:
             schema:
-              type: array
-              items:
-                $ref: "../ChildCareAttendanceEvent.yaml#/ChildCareAttendanceEvent"
+                $ref: "../ChildCareAttendanceEvent.yaml#/ChildCareAttendanceEvents"
+      400:
+        description: >
+          Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`, `meta.created.after`, `meta.created.before`
+          ,   `expand`,`group`, `child`) kan inte kombineras med `pageToken`
+
   post:
     tags:
       - Närvarohändelser
@@ -83,6 +80,8 @@ attendance_events_by_id:
         schema:
           type: string
           format: uuid
+      - $ref: "#/ExpandParameter"
+      - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
       "200":
         description: Posten returneras.
@@ -125,3 +124,13 @@ attendance_events_by_id:
         description: Otilläckliga rättigheter.
       "404":
         description: Posten hittades inte.
+
+ExpandParameter: 
+  name: expand
+  description: Beskriver om expanderade data ska hämtas för aktiviteten.
+  in: query
+  schema:
+    type: array
+    items:
+      type: string
+      enum: [child, group, registeredBy]

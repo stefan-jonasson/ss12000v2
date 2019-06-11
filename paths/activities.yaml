@@ -19,25 +19,24 @@ activities:
       - $ref: "searchParameters.yaml#/SearchCreatedAfter"
       - $ref: "searchParameters.yaml#/SearchModifiedBefore"
       - $ref: "searchParameters.yaml#/SearchModifiedAfter"
-      - name: expand
-        description: Beskriver om expanderade data ska hämtas
-        in: query
-        schema:
-          type: array
-          items:
-            type: string
-            enum: [studentGroups]
+      - $ref: "#/ExpandParameter"
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
       - $ref: "searchParameters.yaml#/Sortkey"
-      - $ref: "searchParameters.yaml#/Offset"
       - $ref: "searchParameters.yaml#/Limit"
+      - $ref: "searchParameters.yaml#/PageToken"
     responses:
-      "200":
+      200:
         description: successful operation
         content:
           application/json:
             schema:
               $ref: "../Activity.yaml#/Activities"
+      400:
+        description: >
+          Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`, `meta.created.after`, `meta.created.before`
+          ,   `expand`, `person`,`schoolUnit`) kan inte kombineras med `pageToken`
+
+
 
 activitiesLookup:
   post:
@@ -46,13 +45,18 @@ activitiesLookup:
     summary: Hämta många aktiviteter baserat på en lista av ID:n.
     description: >
       Hämta många aktiviteter.
+    parameters:
+      - $ref: "#/ExpandParameter"
+      - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
-      "200":
+      200:
         description: successful operation
         content:
           application/json:
             schema:
-              $ref: "../Activity.yaml#/Activities"
+              $ref: "../Activity.yaml#/ActivitiesArray"
+      503:
+        description: The response is too large for the server ie overload
     requestBody:
       content:
         application/json:
@@ -72,6 +76,8 @@ activityById:
         required: true
         schema:
           type: string
+      - $ref: "#/ExpandParameter"
+      - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
       "200":
         description: successful operation
@@ -85,3 +91,13 @@ activityById:
         description: Not authorised
       "404":
         description: Activity not found
+
+ExpandParameter:
+  name: expand
+  description: Beskriver om expanderade data ska hämtas
+  in: query
+  schema:
+    type: array
+    items:
+      type: string
+      enum: [studentGroups]

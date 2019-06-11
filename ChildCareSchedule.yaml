@@ -92,3 +92,18 @@ Error:
       format: int32
     message:
       type: string
+
+
+ChildCareSchedules:
+  type: object
+  properties:
+      data:
+        type: array
+        items:
+          $ref: "#/ChildCareSchedule"
+      pageToken:
+        type: string
+        nullable: true
+        description:  Om värdet är null finns inget mer att hämta på det token som skickades in som query parameter.
+  required:
+    - data

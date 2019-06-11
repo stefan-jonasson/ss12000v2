@@ -72,7 +72,20 @@ StudyPlan:
     - startDate
     - lastUpdate
 
+
+
+
+
 StudyPlans:
-  type: array
-  items:
-    $ref: "#/StudyPlan"
+  type: object
+  properties:
+      data:
+        type: array
+        items:
+          $ref: "#/StudyPlan"
+      pageToken:
+        type: string
+        nullable: true
+        description:  Om värdet är null finns inget mer att hämta på det token som skickades in som query parameter.
+  required:
+    - data

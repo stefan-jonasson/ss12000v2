@@ -9,15 +9,20 @@ attendances:
       - $ref: "searchParameters.yaml#/SearchModifiedBefore"
       - $ref: "searchParameters.yaml#/SearchModifiedAfter"
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
-      - $ref: "searchParameters.yaml#/Offset"
       - $ref: "searchParameters.yaml#/Limit"
+      - $ref: "searchParameters.yaml#/PageToken"
     responses:
-      "200":
+      200:
         description: successful operation
         content:
           application/json:
             schema:
               $ref: "../Attendance.yaml#/Attendances"
+      400:
+        description: >
+          Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`, `meta.created.after`, `meta.created.before`
+          ,   `expand`) kan inte kombineras med `pageToken`
+
   post:
     tags:
       - Närvaro
@@ -50,13 +55,17 @@ attendancesLookup:
     summary: Hämta närvaro baserat på en lista av ID:n eller av Id från aktiviteter eller av Id från elever.
     description: >
       Hämta många närvaro.
+    parameters:
+      - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
-      "200":
+      200:
         description: successful operation
         content:
           application/json:
             schema:
-              $ref: "../Attendance.yaml#/Attendances"
+              $ref: "../Attendance.yaml#/AttendancesArray"
+      503:
+        description: The response is too large for the server ie overload
     requestBody:
       content:
         application/json:

@@ -25,26 +25,24 @@ childcare_schedules:
       - $ref: "searchParameters.yaml#/SearchCreatedAfter"
       - $ref: "searchParameters.yaml#/SearchModifiedBefore"
       - $ref: "searchParameters.yaml#/SearchModifiedAfter"
-      - name: expand
-        description: Beskriver om expanderade data ska hämtas för aktiviteten.
-        in: query
-        schema:
-          type: array
-          items:
-            type: string
-            enum: [ child, group ]
+      - $ref: "#/ExpandParameter"
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
-      - $ref: "searchParameters.yaml#/Offset"
+      
       - $ref: "searchParameters.yaml#/Limit"
+      - $ref: "searchParameters.yaml#/PageToken"
     responses:
-      "200":
+      200:
         description: successful operation
         content:
           application/json:
             schema:
-              type: array
-              items:
-                $ref: "../ChildCareSchedule.yaml#/ChildCareSchedule"
+                $ref: "../ChildCareSchedule.yaml#/ChildCareSchedules"
+      400:
+        description: >
+          Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`, `meta.created.after`, `meta.created.before`
+          ,   `expand`, `child`,`group`) kan inte kombineras med `pageToken`
+
+
   post:
     tags:
       - Barnomsorgsschema
@@ -83,6 +81,8 @@ childcare_schedule_by_id:
         schema:
           type: string
           format: uuid
+      - $ref: "#/ExpandParameter"
+      - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
       "200":
         description: Posten returneras.
@@ -123,3 +123,14 @@ childcare_schedule_by_id:
         description: Otilläckliga rättigheter.
       "404":
         description: Posten hittades inte.
+
+
+ExpandParameter:
+  name: expand
+  description: Beskriver om expanderade data ska hämtas för aktiviteten.
+  in: query
+  schema:
+    type: array
+    items:
+      type: string
+      enum: [ child, group ]

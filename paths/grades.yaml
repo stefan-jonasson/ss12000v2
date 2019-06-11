@@ -54,15 +54,21 @@ grades:
             - Student
             - LastModifiedDesc
           default: LastModifiedDesc
-      - $ref: "searchParameters.yaml#/Offset"
+   
       - $ref: "searchParameters.yaml#/Limit"
+      - $ref: "searchParameters.yaml#/PageToken"
     responses:
-      "200":
+      200:
         description: successful operation
         content:
           application/json:
             schema:
               $ref: "../Grade.yaml#/Grades"
+      400:
+        description: >
+          Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`, `meta.created.after`, `meta.created.before`
+          ,`expand`, `schoolUnit`,`student`, `registeredBy`,`gradingTeacher`,`registeredDate.onOrAfter`, `registeredDate.onOrBefore`) kan inte kombineras med `pageToken`
+
 gradesLookup:
   post:
     tags:
@@ -70,13 +76,17 @@ gradesLookup:
     summary: Hämta många betyg baserat på en lista av ID:n.
     description: >
       Hämta många betyg.
+    parameters:
+      - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
-      "200":
+      200:
         description: successful operation
         content:
           application/json:
             schema:
-              $ref: "../Grade.yaml#/Grade"
+              $ref: "../Grade.yaml#/GradesArray"
+      503:
+        description: The response is too large for the server ie overload
     requestBody:
       content:
         application/json:
@@ -96,6 +106,7 @@ gradeById:
         required: true
         schema:
           type: string
+      - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
       "200":
         description: successful operation

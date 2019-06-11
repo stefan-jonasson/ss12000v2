@@ -22,14 +22,6 @@ organisations:
       - $ref: "searchParameters.yaml#/SearchCreatedAfter"
       - $ref: "searchParameters.yaml#/SearchModifiedBefore"
       - $ref: "searchParameters.yaml#/SearchModifiedAfter"
-      - name: expand
-        description: >
-          Expandera underliggande organisationselement och skolenheter.
-        in: query
-        schema:
-          type: array
-          items:
-            type: string
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
       - name: sortkey
         description: Anger hur resultatet ska sorteras.
@@ -40,15 +32,20 @@ organisations:
             - DisplayName
             - LastModifiedDesc
           default: LastModifiedDesc
-      - $ref: "searchParameters.yaml#/Offset"
+      
       - $ref: "searchParameters.yaml#/Limit"
+      - $ref: "searchParameters.yaml#/PageToken"
     responses:
-      "200":
+      200:
         description: successful operation
         content:
           application/json:
             schema:
-              $ref: "../Organisation.yaml#/Organisation"
+              $ref: "../Organisation.yaml#/Organisations"
+      400:
+       description: >
+        Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`, `meta.created.after`, `meta.created.before`
+        , `expand`, `parent`, `type`) kan inte kombineras med `pageToken`
 
 organisationsLookup:
   post:
@@ -57,13 +54,17 @@ organisationsLookup:
     summary: Hämta många organisationer baserat på en lista av ID:n.
     description: >
       Hämta många program.
+    parameters:
+      - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
-      "200":
+      200:
         description: successful operation
         content:
           application/json:
             schema:
-              $ref: "../Organisation.yaml#/Organisation"
+              $ref: "../Organisation.yaml#/OrganisationsArray"
+      503:
+        description: The response is too large for the server ie overload
     requestBody:
       content:
         application/json:
@@ -85,6 +86,7 @@ organisationById:
         required: true
         schema:
           type: string
+      - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
       "200":
         description: successful operation

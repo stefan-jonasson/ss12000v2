@@ -55,15 +55,20 @@ schoolUnits:
             - DisplayName
             - LastModifiedDesc
           default: LastModifiedDesc
-      - $ref: "searchParameters.yaml#/Offset"
+     
       - $ref: "searchParameters.yaml#/Limit"
+      - $ref: "searchParameters.yaml#/PageToken"
     responses:
-      "200":
+      200:
         description: successful operation
         content:
           application/json:
             schema:
               $ref: "../SchoolUnit.yaml#/SchoolUnits"
+      400:
+        description: >
+          Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`, `meta.created.after`, `meta.created.before`
+          ,   `expand`, `organisation`,`municipalityCode`, `schoolTypes`,`startDate.onOrAfter`, `endDate.onOrBefore`) kan inte kombineras med `pageToken`
 
 schoolUnitsLookup:
   post:
@@ -72,13 +77,17 @@ schoolUnitsLookup:
     summary: Hämta många skolenheter baserat på en lista av ID:n.
     description: >
       Hämta många skolenheter.
+    parameters:
+      - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
-      "200":
+      200:
         description: successful operation
         content:
           application/json:
             schema:
-              $ref: "../SchoolUnit.yaml#/SchoolUnits"
+              $ref: "../SchoolUnit.yaml#/SchoolUnitsArray"
+      503:
+        description: The response is too large for the server ie overload
     requestBody:
       content:
         application/json:
@@ -98,6 +107,7 @@ schoolUnitById:
         required: true
         schema:
           type: string
+      - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
       "200":
         description: successful operation

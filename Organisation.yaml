@@ -35,3 +35,24 @@ Organisation:
     - displayName
     - organisationType
   description: En skolhuvudman eller annan slags organisatorisk enhet.
+
+OrganisationsArray:
+    type: array
+    items:
+      $ref: "#/Organisation"  
+
+
+
+Organisations:
+ type: object
+ properties:
+      data:
+        type: array
+        items:
+          $ref: "#/Organisation"
+      pageToken:
+        type: string
+        nullable: true
+        description:  Om värdet är null finns inget mer att hämta på det token som skickades in som query parameter.
+ required:
+    - data

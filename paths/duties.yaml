@@ -32,15 +32,7 @@ duties:
       - $ref: "searchParameters.yaml#/SearchCreatedAfter"
       - $ref: "searchParameters.yaml#/SearchModifiedBefore"
       - $ref: "searchParameters.yaml#/SearchModifiedAfter"
-      - name: expand
-        description: Beskriver om expanderade data ska hämtas
-        in: query
-        schema:
-          type: array
-          items:
-            type: string
-            enum: 
-             - assignedToStudentGroupAs
+      - $ref: "#/ExpandParameter"
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
       - name: sortkey
         description: Anger hur resultatet ska sorteras.
@@ -52,15 +44,20 @@ duties:
             - StartDateAsc
             - LastModifiedDesc
           default: LastModifiedDesc
-      - $ref: "searchParameters.yaml#/Offset"
       - $ref: "searchParameters.yaml#/Limit"
+      - $ref: "searchParameters.yaml#/PageToken"
     responses:
-      "200":
+      200:
         description: successful operation
         content:
           application/json:
             schema:
               $ref: "../Duty.yaml#/Duties"
+      400:
+        description: >
+          Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`, `meta.created.after`, `meta.created.before`
+          ,`expand`, `dutySchoolUnit`,`dutyRole`, `person`) kan inte kombineras med `pageToken`
+
 
 dutiesLookup:
   post:
@@ -69,13 +66,18 @@ dutiesLookup:
     summary: Hämta många tjänstgöringar baserat på en lista av ID:n.
     description: >
       Hämta många tjänstgöringar.
+    parameters:
+      - $ref: "#/ExpandParameter" 
+      - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
-      "200":
+      200:
         description: successful operation
         content:
           application/json:
             schema:
-              $ref: "../Duty.yaml#/Duties"
+              $ref: "../Duty.yaml#/DutiesArray"
+      503:
+        description: The response is too large for the server ie overload
     requestBody:
       content:
         application/json:
@@ -95,6 +97,8 @@ duty_by_id:
         required: true
         schema:
           type: string
+      - $ref: "#/ExpandParameter"
+      - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
       "200":
         description: successful operation
@@ -108,3 +112,16 @@ duty_by_id:
         description: Not authorised
       "404":
         description: Duty not found
+
+
+ExpandParameter:
+  name: expand
+  description: Beskriver om expanderade data ska hämtas
+  in: query
+  schema:
+    type: array
+    items:
+      type: string
+      enum: 
+        - assignedToStudentGroupAs
+

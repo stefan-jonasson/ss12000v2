@@ -38,26 +38,23 @@ calendarEvents:
       - $ref: "searchParameters.yaml#/SearchCreatedAfter"
       - $ref: "searchParameters.yaml#/SearchModifiedBefore"
       - $ref: "searchParameters.yaml#/SearchModifiedAfter"
-      - name: expand
-        description: Beskriver om expanderade data ska hämtas för aktiviteten.
-        in: query
-        schema:
-          type: array
-          items:
-            type: string
-            enum: [  activity, attendance ]           
+      - $ref: "#/ExpandParameter"   
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"  
-      - $ref: "searchParameters.yaml#/Offset"
+     
       - $ref: "searchParameters.yaml#/Limit"
+      - $ref: "searchParameters.yaml#/PageToken"
     responses:
-      "200":
+      200:
         description: successful operation
         content:
           application/json:
             schema:
-              type: array
-              items:
-                $ref: "../CalendarEvent.yaml#/CalendarEvent"
+                $ref: "../CalendarEvent.yaml#/CalendarEvents"
+      400:
+        description: >
+          Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`, `meta.created.after`, `meta.created.before`
+          ,   `expand`,`startTime`, `endTime`, `activity`,`student`) kan inte kombineras med `pageToken`
+
 
 calendarEventById: 
   get:
@@ -72,6 +69,8 @@ calendarEventById:
         schema:
           type: string
           format: uuid
+      - $ref: "#/ExpandParameter"   
+      - $ref: "searchParameters.yaml#/ExpandReferenceNames"  
     responses:
       "200":
         description: successful operation
@@ -79,3 +78,13 @@ calendarEventById:
           application/json:
             schema:
               $ref: "../CalendarEvent.yaml#/CalendarEvent"
+
+ExpandParameter: 
+  name: expand
+  description: Beskriver om expanderade data ska hämtas för aktiviteten.
+  in: query
+  schema:
+    type: array
+    items:
+      type: string
+      enum: [  activity, attendance ]           

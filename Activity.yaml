@@ -153,7 +153,23 @@ Activity:
     - startDate
     - groups
 
+
+
+ActivitiesArray:
+    type: array
+    items:
+      $ref: "#/Activity"
+
 Activities:
-  type: array
-  items:
-    $ref: "#/Activity"
+  type: object
+  properties:
+      data:
+        type: array
+        items:
+          $ref: "#/Activity"
+      pageToken:
+        type: string
+        nullable: true
+        description:  Om värdet är null finns inget mer att hämta på det token som skickades in som query parameter.
+  required:
+    - data

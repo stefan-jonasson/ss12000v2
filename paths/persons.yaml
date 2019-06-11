@@ -4,25 +4,6 @@ persons:
       - Person
     summary: Hämta en lista med personer.
     parameters:
-      - $ref: "searchParameters.yaml#/SearchCreatedBefore"
-      - $ref: "searchParameters.yaml#/SearchCreatedAfter"
-      - $ref: "searchParameters.yaml#/SearchModifiedBefore"
-      - $ref: "searchParameters.yaml#/SearchModifiedAfter"
-      - name: sortkey
-        description: Anger hur resultatet ska sorteras.
-        in: query
-        schema:
-          type: string
-          enum:
-            - DisplayName
-            - GivenNameDesc
-            - GivenNameAsc
-            - FamilyNameDesc
-            - FamilyNameAsc 
-            - NorEduPersonNIN
-            - LastModifiedDesc
-          default: LastModifiedDesc
-
       - name: enrolment.schoolUnit
         description: >
           Begränsa urvalet till de elever som har en inskrivning (enrolment) på angiven
@@ -80,19 +61,30 @@ persons:
         schema:
           type: string
           format: uuid
-      - name: expand
-        description: Beskriver om expanderade data ska hämtas
+      - $ref: "searchParameters.yaml#/SearchCreatedBefore"
+      - $ref: "searchParameters.yaml#/SearchCreatedAfter"
+      - $ref: "searchParameters.yaml#/SearchModifiedBefore"
+      - $ref: "searchParameters.yaml#/SearchModifiedAfter"
+      - $ref: "#/ExpandParameter"
+      - $ref: "searchParameters.yaml#/ExpandReferenceNames"
+      - name: sortkey
+        description: Anger hur resultatet ska sorteras.
         in: query
         schema:
-          type: array
-          items:
-            type: string
-            enum: [duties, children]
-      - $ref: "searchParameters.yaml#/ExpandReferenceNames"
+          type: string
+          enum:
+            - DisplayName
+            - GivenNameDesc
+            - GivenNameAsc
+            - FamilyNameDesc
+            - FamilyNameAsc 
+            - NorEduPersonNIN
+            - LastModifiedDesc
+          default: LastModifiedDesc
       - $ref: "searchParameters.yaml#/Limit"
       - $ref: "searchParameters.yaml#/PageToken"
     responses:
-      "200":
+      200:
         description: successful operation
         content:
           application/json:
@@ -111,13 +103,18 @@ personsLookup:
     summary: Hämta många personer baserat på en lista av ID:n eller personnummer.
     description: >
       Hämta många personer.
+    parameters:
+      - $ref: "#/ExpandParameter"
+      - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
-      "200":
+      200:
         description: successful operation
         content:
           application/json:
             schema:
-              $ref: "../Person.yaml#/PersonsExpanded"
+              $ref: "../Person.yaml#/PersonsExpandedArray"
+      503:
+        description: The response is too large for the server ie overload
     requestBody:
       content:
         application/json:
@@ -153,6 +150,8 @@ personsById:
         required: true
         schema:
           type: string
+      - $ref: "#/ExpandParameter"
+      - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
       "200":
         description: successful operation
@@ -166,3 +165,13 @@ personsById:
         description: Not authorised
       "404":
         description: Person not found
+
+ExpandParameter:        
+  name: expand
+  description: Beskriver om expanderade data ska hämtas
+  in: query
+  schema:
+    type: array
+    items:
+      type: string
+      enum: [duties, children]

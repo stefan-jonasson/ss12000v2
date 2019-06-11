@@ -99,8 +99,22 @@ Grade:
     - finalGrade
     - adaptedStudyPlan
 
-        
+GradesArray:
+    type: array
+    items:
+      $ref: "#/Grade"  
+
+
 Grades:
-  type: array
-  items:
-    $ref: "#/Grade"
+ type: object
+ properties:
+      data:
+        type: array
+        items:
+          $ref: "#/Grade"
+      pageToken:
+        type: string
+        nullable: true
+        description:  Om värdet är null finns inget mer att hämta på det token som skickades in som query parameter.
+ required:
+    - data
