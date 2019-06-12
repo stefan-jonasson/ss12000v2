@@ -40,6 +40,8 @@ schoolUnitOfferings:
           Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`, `meta.created.after`, 
           `meta.created.before`, `offeredAt`) kan inte kombineras med `pageToken`
 
+
+schoolUnitOfferingsLookup:
   post:
     tags:
       - Kurser
@@ -64,7 +66,7 @@ schoolUnitOfferings:
              $ref : "../common.yaml#/components/schemas/IdLookup"
       required: true
 
-schoolUnitOffering_by_id:
+schoolUnitOfferingById:
   get:
     tags:
       - Kurser
