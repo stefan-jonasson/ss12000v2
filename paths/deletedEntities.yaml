@@ -1,54 +1,51 @@
-
-
-get:
-  tags:
-    - Verktyg
-  summary: Get a list of events regarding the entities handled by the service.
-  parameters:
-    - name: after
-      in: query
-      description: Get events that occured after the specified timestamp
-      schema:
-        type: string
-        format: date-time
-    - name: entity
-      in: query
-      schema:
-        type: array
-        items:
+deletedEntities:
+  get:
+    tags:
+      - Verktyg
+    summary: Get a list of events regarding the entities handled by the service.
+    parameters:
+      - name: after
+        in: query
+        description: Get events that occured after the specified timestamp
+        schema:
           type: string
-          enum:
-            - Activity
-            - AggregatedAttendance
-            - ChildCareAttendanceEvent
-            - CalendarEvent
-            - ChildCareSchedule
-            - Duty
-            - Grade
-            - Absence
-            - Organisation
-            - Person
-            - Programme
-            - Resource
-            - Room
-            - SchoolUnit
-            - SchoolUnitGroup
-            - SchoolUnitOffering
-            - Syllabus
-    - $ref: "searchParameters.yaml#/Limit"
-    - $ref: "searchParameters.yaml#/PageToken"
-  responses:
-    200:
-      description: successful operation
-      content:
-        application/json:
-          schema:
-            $ref: "#/DeletedEntities"
-    400:
-        description: >
-          Filter (ex `after`, `entity`) kan inte kombineras med `pageToken`
-
-
+          format: date-time
+      - name: entity
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+              - Activity
+              - AggregatedAttendance
+              - ChildCareAttendanceEvent
+              - CalendarEvent
+              - ChildCareSchedule
+              - Duty
+              - Grade
+              - Absence
+              - Organisation
+              - Person
+              - Programme
+              - Resource
+              - Room
+              - SchoolUnit
+              - SchoolUnitGroup
+              - SchoolUnitOffering
+              - Syllabus
+      - $ref: "searchParameters.yaml#/Limit"
+      - $ref: "searchParameters.yaml#/PageToken"
+    responses:
+      200:
+        description: successful operation
+        content:
+          application/json:
+            schema:
+              $ref: "#/DeletedEntities"
+      400:
+          description: >
+            Filter (ex `after`, `entity`) kan inte kombineras med `pageToken`
 
 DeletedEntity:
             type: object

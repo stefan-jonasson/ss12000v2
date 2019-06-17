@@ -144,7 +144,7 @@ paths:
   /subscriptions/{id}:
     $ref: paths/subscriptions.yaml#/subscription_by_id
   /deletedEntities:
-    $ref: paths/deletedEntities.yaml
+    $ref: paths/deletedEntities.yaml#/deletedEntities
 
 externalDocs:
   description: För mer information hämtas från SIS - TK450

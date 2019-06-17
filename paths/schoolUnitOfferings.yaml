@@ -1,7 +1,7 @@
 schoolUnitOfferings:
   get:
     tags:
-      - Kurser
+      - Studieinformation
     summary: Hämta en lista med skolenheters erbjudanden.
     parameters:
       - name: offeredAt
@@ -25,7 +25,6 @@ schoolUnitOfferings:
             - StartDateDesc
             - EndDateAsc
             - EndDateDesc
-        default: LastModifiedDesc
       - $ref: "searchParameters.yaml#/Limit"
       - $ref: "searchParameters.yaml#/PageToken"
     responses:
@@ -44,7 +43,7 @@ schoolUnitOfferings:
 schoolUnitOfferingsLookup:
   post:
     tags:
-      - Kurser
+      - Studieinformation
     summary: Hämta många program baserat på en lista av ID:n.
     description: >
       Hämta många program.
@@ -69,7 +68,7 @@ schoolUnitOfferingsLookup:
 schoolUnitOfferingById:
   get:
     tags:
-      - Kurser
+      - Studieinformation
     summary: Hämta en resurs baserat på ID
     parameters:
       - name: id

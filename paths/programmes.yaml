@@ -1,7 +1,7 @@
 programmes:
   get:
     tags:
-      - Kurser
+      - Studieinformation
     summary: Hämta en lista av program.
     parameters:
       - name: schoolType
@@ -13,6 +13,11 @@ programmes:
             $ref: "../common.yaml#/components/schemas/SchoolTypesEnum"
       - name: code
         description: Begränsta urvalet till de program som matchar programkod
+        in: query
+        schema:
+          type: string
+      - name: parentProgramme
+        description: Begränsta urvalet till de program som matchar angivet parentProgramme.
         in: query
         schema:
           type: string
@@ -50,7 +55,7 @@ programmes:
 programmesLookup:
   post:
     tags:
-      - Kurser
+      - Studieinformation
     summary: Hämta många program baserat på en lista av ID:n.
     description: >
       Hämta många program.
@@ -75,7 +80,7 @@ programmesLookup:
 programmeById:
   get:
     tags:
-      - Kurser
+      - Studieinformation
     summary: Hämta program baserat på  ID
     parameters:
       - name: id

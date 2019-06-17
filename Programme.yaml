@@ -5,16 +5,29 @@ Programme:
     id:
       type: string
       format: uuid
-      description: ID för programmet.
+      description: Identifierare för programmet.
     meta:
       $ref: "common.yaml#/Meta"
     name:
+      type: string
+      description: Program-/inriktningens namn.
+    type:
       type: string
       enum:
         - Yrkesprogram
         - Högskoleförberedande
         - Intruduktionsprogram
+        - Programinriktning
+        - Yrkesutgång
       description: Typ av program.
+    parentProgramme:
+      type: string
+      format: uuid
+      description: | 
+        Referens till det program en programinriktning/yrkesutgång tillhör. 
+        Anges endast för typerna _Programinriktning_ och _Yrkesutgång_. 
+        Program av typen _Yrkesutgång_ pekar alltid ett program av typen _Programinriktning_. 
+        Program av typen _Programinriktning_ perkar alltid på ett program av typen _Yrkesprogram_, _Högskoleförberedande_ eller _Intruduktionsprogram_.
     schoolType:
       type: string
       enum:
@@ -33,18 +46,15 @@ Programme:
         - FHS
         - HS
         - AU
-      description: |
-        Skolform där kursen eller ämnet ges.
-        Förklaring till Skolverkets kodsystem finns på deras webbplats.
-        Exempelvis MATMAT01a.
+      description: Skolform för programmet.
     code:
       type: string
       description: |
-        Programmets programkod.
-        För gymnasieskolans program måste denna finnas och vara enligt Skolverket.
+        Program-/inriktningskod(studievägskod).  
+        För gymnasieskolans program/inriktningar måste denna finnas och vara enligt Skolverkets definition.
     content:
       type: array
-      description: Kurser som ges inom programmet.
+      description: Kurser/ämnen som ingår i utbildningen.
       items:
         type: object
         required:
@@ -53,7 +63,7 @@ Programme:
         properties:
           type:
             type: string
-            description: Typ för gruppering av kurser.
+            description: Anger ingående kursers relation till programmet, såsom Programgemensamma. Typen _Inriktning_ kan endast anges för program av typen _Programinriktning_.
             enum:
               - Obligatoriska
               - Programgemensamma
@@ -61,12 +71,6 @@ Programme:
               - Programfördjupning
               - Gymnasiearbete
               - Valbara
-          orientationCode:
-            type: string
-            description: Identifierare för en inriktning inom vilken kursen ges.
-          orientationName:
-            type: string
-            description: Identifierare för en inriktning inom vilken kursen ges.
           points:
             type: integer
             description: Poäng för innehållstypen i förekommande fall.
