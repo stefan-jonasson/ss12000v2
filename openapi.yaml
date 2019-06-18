@@ -87,8 +87,10 @@ paths:
     $ref: paths/syllabuses.yaml#/syllabusById
   /schoolUnitOfferings:
     $ref: paths/schoolUnitOfferings.yaml#/schoolUnitOfferings
+  /schoolUnitOfferings/lookup:
+    $ref: paths/schoolUnitOfferings.yaml#/schoolUnitOfferingsLookup
   /schoolUnitOfferings/{id}:
-    $ref: paths/SchoolUnitOfferings.yaml#/schoolUnitOffering_by_id
+    $ref: paths/schoolUnitOfferings.yaml#/schoolUnitOfferingById
   /activities:
     $ref: paths/activities.yaml#/activities
   /activities/lookup:
@@ -142,7 +144,7 @@ paths:
   /subscriptions/{id}:
     $ref: paths/subscriptions.yaml#/subscription_by_id
   /deletedEntities:
-    $ref: paths/deletedEntities.yaml
+    $ref: paths/deletedEntities.yaml#/deletedEntities
 
 externalDocs:
   description: För mer information hämtas från SIS - TK450

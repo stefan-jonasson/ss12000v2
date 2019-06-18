@@ -41,17 +41,17 @@ SchoolUnitOfferingsArray:
   type: array
   items: 
     $ref: "#/SchoolUnitOffering"
-    
+
 SchoolUnitOfferings:
   type: object
   properties:
-    data:
-      type: array
-      items:
-        $ref: "#/SchoolUnitOffering"
-    pageToken:
-      type: string
-      nullable: true
-      description:  Om värdet är null finns inget mer att hämta på det token som skickades in som query parameter.
-    required:
-      - data
+      data:
+        type: array
+        items:
+          $ref: "#/SchoolUnitOffering"
+      pageToken:
+        type: string
+        nullable: true
+        description:  Om värdet är null finns inget mer att hämta på det token som skickades in som query parameter.
+  required:
+    - data

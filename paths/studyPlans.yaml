@@ -1,7 +1,7 @@
 studyPlans:
   get:
     tags:
-      - Kurser
+      - Studieinformation
     summary: Hämta en lista med studieplaner.
     parameters:
       - name: student

@@ -1,7 +1,7 @@
 schoolUnitOfferings:
   get:
     tags:
-      - Kurser
+      - Studieinformation
     summary: Hämta en lista med skolenheters erbjudanden.
     parameters:
       - name: offeredAt
@@ -25,7 +25,6 @@ schoolUnitOfferings:
             - StartDateDesc
             - EndDateAsc
             - EndDateDesc
-        default: LastModifiedDesc
       - $ref: "searchParameters.yaml#/Limit"
       - $ref: "searchParameters.yaml#/PageToken"
     responses:
@@ -40,9 +39,11 @@ schoolUnitOfferings:
           Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`, `meta.created.after`, 
           `meta.created.before`, `offeredAt`) kan inte kombineras med `pageToken`
 
+
+schoolUnitOfferingsLookup:
   post:
     tags:
-      - Kurser
+      - Studieinformation
     summary: Hämta många program baserat på en lista av ID:n.
     description: >
       Hämta många program.
@@ -64,10 +65,10 @@ schoolUnitOfferings:
              $ref : "../common.yaml#/components/schemas/IdLookup"
       required: true
 
-schoolUnitOffering_by_id:
+schoolUnitOfferingById:
   get:
     tags:
-      - Kurser
+      - Studieinformation
     summary: Hämta en resurs baserat på ID
     parameters:
       - name: id

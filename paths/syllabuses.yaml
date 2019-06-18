@@ -1,7 +1,7 @@
 syllabuses:
   get:
     tags:
-      - Kurser
+      - Studieinformation
     summary: Hämta en lista med syllabuses.
     parameters:
       - $ref: "searchParameters.yaml#/SearchCreatedBefore"
@@ -46,8 +46,8 @@ syllabuses:
 syllabusesLookup:
   post:
     tags:
-      - Kurser
-    summary: Hämta många progsyllabusesram baserat på en lista av ID:n.
+      - Studieinformation
+    summary: Hämta många syllabuses baserat på en lista av ID:n.
     description: >
       Hämta många syllabuses.
     parameters:
@@ -71,7 +71,7 @@ syllabusesLookup:
 syllabusById:
   get:
     tags:
-      - Kurser
+      - Studieinformation
     summary: Hämta syllabus baserat på ID
     parameters:
       - name: id

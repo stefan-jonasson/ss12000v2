@@ -23,6 +23,10 @@ Enrolment:
     educationCode:
       type: string
       description: "Studievägskod för den aktuella inskrivningen."
+    programme:
+      type: string
+      format: uuid
+      description: Identifierare för ett program/inriktining eller yrkesutgång (_Programme_) eleven läser.
     specification:
       type: string
       description: "Kompletterande information angående innehåll i elevens utbildning, används som avgränsning av ett visst utbildningsalternativ för exempelvis lärlingsutbildning."
