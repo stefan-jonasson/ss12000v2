@@ -28,23 +28,7 @@ SchoolUnit:
       uniqueItems: true
       minItems: 1
       items:
-        type: string
-        enum:
-          - FS
-          - FSK
-          - FTH
-          - GR
-          - GRS
-          - SP
-          - SAM
-          - GY
-          - GYS
-          - VUX
-          - SUV
-          - YH
-          - FHS
-          - HS
-          - AU
+         - $ref: "common.yaml#/components/schemas/SchoolTypesEnum"
     municipalityCode:
       type: string
       description: >
