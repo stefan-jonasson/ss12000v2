@@ -43,13 +43,16 @@ Person:
           uniqueItems: true
           items:
             type: object
+            title: EduPersonPrincipalName
             properties:
               value:
                 type: string
-                description: eduPersonPrincipalName
+                description: Identifierare för användaren.
                 format: email
               type:
                 type: string
+                description: Anger för vilket syfte användaridentifieraren har skapats, kan ange en roll eller ett utpekat system.
+                title: Code_EduPersonPrincipalType
                 enum:
                   - Pedagogisk personal
                   - Övrig personal
@@ -91,6 +94,7 @@ Person:
         personStatus:
           type: string
           description: Anger ifall en person har en aktiv status eller en annan status, såsom utvandrad eller avliden.
+          title: Code_PersonStatus
           enum:
             - Aktiv
             - Utvandrad
@@ -101,17 +105,19 @@ Person:
           description: En lista med personens epostadresser
           items:
             type: object
+            title: Email
             properties:
               value:
                 type: string
                 format: email
               type:
                 type: string
+                title: Code_EmailType
                 enum:
-                  - Pedagogisk personal
-                  - Övrig personal
-                  - Elev
-                  - Vårdnadshavare
+                  - Privat
+                  - Skola elev
+                  - Skola personal
+                  - Arbete övrigt
             required:
               - value
         phoneNumbers:
@@ -121,12 +127,14 @@ Person:
             required:
               - number
             type: object
+            title: Phonenumber
             properties:
               value:
                 type: string
                 description: Telefonnumret.
               type:
                 type: string
+                title: Code_PhoneNumberType
                 enum:
                   - Hem
                   - Arbete
@@ -142,6 +150,7 @@ Person:
               type:
                 type: string
                 default: Folkbokföringsadress
+                title: Code_AddressType
                 enum:
                   - Folkbokföringsadress
                   - Vistelseadress
@@ -172,6 +181,7 @@ Person:
           description: Bild på personen.
           items:
             type: object
+            title: Photo
             properties:
               value:
                 type: string
@@ -179,6 +189,7 @@ Person:
                 description: En länk där bildfilen kan hämtas.
               type:
                 type: string
+                title: Code_PhotoType
                 description: Typ av bild.
                 enum:
                   - Photo
@@ -236,10 +247,15 @@ PersonExpanded:
             placements:
               type: array
               description: >
-                En lista med placeringen för personen,
-                används för förskoleverksamhet eller för placering på ex kulturskol
+                En lista med placeringar för personen.
               items:
-                $ref: "Placement.yaml#/PlacementFragment"
+                $ref: "Placement.yaml#/Placement"
+            ownedPlacements:
+              type: array
+              description: >
+                En lista med placeringar där personen är satt som ägare. 
+              items:
+                $ref: "Placement.yaml#/Placement"
             duty:
               type: array
               description: Personens aktuella tjänstgöring

@@ -55,12 +55,14 @@ Grade:
     correctionType:
       type: string
       description: Ändringstyp för betyget, om det är ändrat.
+      title: Code_GradeCorrectionType
       enum:
         - Ändring
         - Rättelse
     semester:
       type: string
       description: Om betyget avser höst- eller vårtermin.
+      title: Code_Semester
       enum:
         - HT
         - VT

@@ -6,8 +6,17 @@ placements:
     parameters:
       - name: schoolUnit
         description: >
-          Begränsa urvalet till de barn som har en placering  på angiven
+          Begränsa urvalet till de barn som har en placering på angiven
           skolenhet. Detta kan kombineras med startDate.onOrAfter
+          och endDate.onOrBefore för att begränsa till aktiva placeringar.
+        in: query
+        schema:
+          type: string
+          format: uuid
+      - name: studentGroup
+        description: >
+          Begränsa urvalet till de barn som har en placering på angiven grupp. 
+          Detta kan kombineras med startDate.onOrAfter
           och endDate.onOrBefore för att begränsa till aktiva placeringar.
         in: query
         schema:
@@ -29,6 +38,23 @@ placements:
         schema:
           type: string
           format: date
+      - name: child
+        description: >
+          Begränsa urvalet till ett barn. Detta kan kombineras med startDate.onOrAfter
+          och endDate.onOrBefore för att begränsa till aktiva placeringar.
+        in: query
+        schema:
+          type: string
+          format: uuid
+      - name: owner
+        description: >
+          Begränsa urvalet till placeringar med denna ägare. Detta kan kombineras med startDate.onOrAfter
+          och endDate.onOrBefore för att begränsa till aktiva placeringar.
+        in: query
+        schema:
+          type: string
+          format: uuid
+     
       - $ref: "searchParameters.yaml#/SearchCreatedBefore"
       - $ref: "searchParameters.yaml#/SearchCreatedAfter"
       - $ref: "searchParameters.yaml#/SearchModifiedBefore"

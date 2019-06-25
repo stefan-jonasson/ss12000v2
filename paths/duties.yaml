@@ -14,14 +14,7 @@ duties:
         description: Begränsta urvalet till de tjänstgöringar som matchar roll
         in: query
         schema:
-          type: string
-          enum:
-            - Rektor
-            - Lärare
-            - Förskollärare
-            - Övrig pedagogisk personal
-            - Förskolechef
-            - Annan personal
+          $ref: "../common.yaml#/components/schemas/DutyRole"
       - name: person
         description: Begränsa urvalet till de tjänstgöringar som är kopplade till person ID
         in: query

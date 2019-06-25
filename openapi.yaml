@@ -22,7 +22,7 @@ tags:
     description: Information om kurser, ämnen, program och studieplaner.
   - name: Aktiviteter
     description: Aktiviteter knyter ihop lärare och elever med ämne eller kurs.
-  - name: Schema
+  - name: Kalenderhändelser
     description: Kalenderposter kopplat till aktiviteter
   - name: Rum och resurser
     description: Salar och resurser som kan schemaläggas.
@@ -79,6 +79,8 @@ paths:
     $ref: paths/programmes.yaml#/programmeById
   /studyplans:
     $ref: paths/studyPlans.yaml#/studyPlans
+  /studyplans/{id}:
+    $ref: paths/studyPlans.yaml#/studyPlanById
   /syllabuses:
     $ref: paths/syllabuses.yaml#/syllabuses
   /syllabuses/lookup:
@@ -107,12 +109,16 @@ paths:
     $ref: paths/attendances.yaml#/attendancesLookup
   /attendances/{id}:
     $ref: paths/attendances.yaml#/attendanceById
-  /childCareAttendanceEvents:
-    $ref: paths/childCareAttendanceEvents.yaml#/attendance_events
-  /childCareAttendanceEvents/{id}:
-    $ref: paths/childCareAttendanceEvents.yaml#/attendance_events_by_id
+  /attendanceEvents:
+    $ref: paths/attendanceEvents.yaml#/attendance_events
+  /attendanceEvents/{id}:
+    $ref: paths/attendanceEvents.yaml#/attendance_events_by_id
   /childCareSchedule:
-    $ref: paths/childCareSchedules.yaml#/childcare_schedules
+    $ref: paths/childCareSchedules.yaml#/childCareSchedules
+  /childCareSchedule/{id}:
+    $ref: paths/childCareSchedules.yaml#/childCareSchedulesById
+  /childCareSchedule/lookup:
+    $ref: paths/childCareSchedules.yaml#/childCareSchedulesLookup
   /grades:
     $ref: paths/grades.yaml#/grades
   /grades/lookup:
@@ -175,8 +181,8 @@ components:
       $ref: "CalendarEvent.yaml#/CalendarEvent"
     Attendance:
       $ref: "Attendance.yaml#/Attendance"
-    ChildCareAttendanceEvent:
-      $ref: "ChildCareAttendanceEvent.yaml#/ChildCareAttendanceEvent"
+    AttendanceEvent:
+      $ref: "AttendanceEvent.yaml#/AttendanceEvent"
     ChildCareSchedule:
       $ref: "ChildCareSchedule.yaml#/ChildCareSchedule"
     Absence:

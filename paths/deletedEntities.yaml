@@ -15,25 +15,7 @@ deletedEntities:
         schema:
           type: array
           items:
-            type: string
-            enum:
-              - Activity
-              - AggregatedAttendance
-              - ChildCareAttendanceEvent
-              - CalendarEvent
-              - ChildCareSchedule
-              - Duty
-              - Grade
-              - Absence
-              - Organisation
-              - Person
-              - Programme
-              - Resource
-              - Room
-              - SchoolUnit
-              - SchoolUnitGroup
-              - SchoolUnitOffering
-              - Syllabus
+            $ref:  "../common.yaml#/components/schemas/EndPointsEnum"
       - $ref: "searchParameters.yaml#/Limit"
       - $ref: "searchParameters.yaml#/PageToken"
     responses:
@@ -60,7 +42,7 @@ DeletedEntity:
                 items:
                   type: string
                   format: uuid
-              ChildCareAttendanceEvent:
+              AttendanceEvent:
                 type: array
                 items:
                   type: string

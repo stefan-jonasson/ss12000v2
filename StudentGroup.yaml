@@ -1,16 +1,21 @@
 StudentGroup:
   type: object
+  title: StudentGroup
+  description: >
+    StudentGroup kan innehålla elever eller bara vara en tom "platshållare" utan medlemmar, 
+    som kan populeras vid ett senare tillfälle. 
+    Notera att gruppens koppling till ämnen/kurser och lärare görs via Aktivitet. 
+    Grupper har olika egenskaper baserat på grupptyp. 
+    Individer kan ha olika roller i relation till en viss grupp. Grupper har specifika egenskaper.
   properties:
     id:
       type: string
       format: uuid
-      description: >
-        En studentgrupp. Innehåller elever eller kan vara en tom "platshållare"
-        utan medlemmar och populeras vid ett senare tillfälle.
+      description: Identifierare för elevgruppen
     meta: 
       $ref: "common.yaml#/Meta"
     displayName:
-      description: Gruppens namn.
+      description: Gruppens benämning.
       type: string
     startDate:
       type: string
@@ -45,17 +50,16 @@ StudentGroup:
         allOf:
           - $ref: "common.yaml#/PersonReference"
           - type: object
+            title: StudentMembership 
             properties:
               startDate:
                 description: >
-                  Startdatum för elevens medlemskap i gruppen, från och med
-                  (ISO8601 format, t.ex. "2016-10-15").
+                  Startdatum för elevens medlemskap i gruppen, från och med.
                 type: string
                 format: date
               endDate:
                 description: >
-                  Slutdatum för elevens medlemskap i gruppen, till och med
-                  (ISO8601 format, t.ex. "2016-10-15").
+                  Slutdatum för elevens medlemskap i gruppen, till och med.
                 type: string
                 format: date
     schoolUnit:
@@ -77,14 +81,12 @@ StudentGroup:
                     $ref:  "common.yaml#/components/schemas/AssignmentRoleTypeEnum"
                   startDate:
                     description: >
-                      Startdatum för tjänstens relation till gruppen
-                      (ISO8601 format, t.ex. "2016-10-15").
+                      Startdatum för tjänstens relation till gruppen.
                     type: string
                     format: date
                   endDate:
                     description: >
-                      Slutdatum för tjänstens relation till gruppen
-                      (ISO8601 format, t.ex. "2016-10-15").
+                      Slutdatum för tjänstens relation till gruppen.
                     type: string
                     format: date
   required:

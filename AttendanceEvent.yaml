@@ -1,22 +1,24 @@
-CreateChildCareAttendanceEvent:
+CreateAttendanceEvent:
   type: object
+  title: AttendanceEvent 
   properties:
     time:
       type: string
       format: date-time
     eventType:
       type: string
+      title: Code_AttendanceEventType
       enum:
         - In
         - Ut
+    person:
+      allOf:
+        - $ref: "common.yaml#/PersonReference"
+        - description: Referens till barnet eller eleven
     registeredBy:
       allOf:
-        - $ref: "common.yaml#/ObjectReference"
+        - $ref: "common.yaml#/PersonReference"
         - description: Anger den person som registrat in- respektive utcheckning.
-    child:
-      allOf:
-        - $ref: "common.yaml#/PlacementReference"
-        - description: Referens till barnets placering
     group:
       allOf:
         - $ref: "common.yaml#/StudentGroupReference"
@@ -27,7 +29,7 @@ CreateChildCareAttendanceEvent:
     - child
     - group
 
-ChildCareAttendanceEvent:
+AttendanceEvent:
   allOf:
     - type: object
       properties:
@@ -39,7 +41,7 @@ ChildCareAttendanceEvent:
           $ref: "common.yaml#/Meta"
       required:
         - id
-    - $ref: "#/CreateChildCareAttendanceEvent"
+    - $ref: "#/CreateAttendanceEvent"
     - type: object
       properties:
         _embedded:
@@ -52,13 +54,13 @@ ChildCareAttendanceEvent:
             group:
               $ref: "StudentGroup.yaml#/StudentGroup"
 
-ChildCareAttendanceEvents:
+AttendanceEvents:
   type: object
   properties:
       data:
         type: array
         items:
-          $ref: "#/ChildCareAttendanceEvent"
+          $ref: "#/AttendanceEvent"
       pageToken:
         type: string
         nullable: true

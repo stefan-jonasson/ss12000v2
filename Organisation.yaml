@@ -1,5 +1,6 @@
 Organisation:
   type: object
+  title: Organisation
   properties:
     id:
       type: string
@@ -11,6 +12,7 @@ Organisation:
       description: Namn på organisationen
     organisationType:
       type: string
+      title: Code_OrganisationType
       description: >
         Typ av organisation
       enum:
@@ -26,7 +28,7 @@ Organisation:
         kommun eller bolag
     parentOrganisation:
       allOf:
-        - $ref: "common.yaml#/ObjectReference"
+        - $ref: "common.yaml#/OrganisationReference"
         - description: >
             Identifierare för en eventellt överliggande organisation.
   required:

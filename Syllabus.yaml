@@ -1,6 +1,7 @@
 Syllabus:
   description: Används för att referera till en specifik kurskod eller ett ämne med information om årskurs och skolform som avses med undervisningen. För officiella ämnen/kurser anges läroplan.
   type: object
+  title: Syllabus
   properties:
     id:
       type: string
@@ -9,8 +10,7 @@ Syllabus:
       $ref: "common.yaml#/Meta"
     schoolType:
       allOf:
-        - description: >
-            Beskriver vilken skolform kursen eller ämnet hör till.
+        - description: Skolform för undervisningen
         - $ref: "common.yaml#/components/schemas/SchoolTypesEnum"
     subjectCode:
       type: string
@@ -41,26 +41,15 @@ Syllabus:
       type: integer
       description: Antalet poäng för en specifik kurs. Exempelvis 100 poäng.
     curriculum:
-      type: string
-      description: Referens till Skolverkets läroplan om det är en officiell kurs eller ett officiellt ämne. Exempelvis GY2011, LGR11.
-      enum:
-        - Lpfö98
-        - Lgr80
-        - Lpo94
-        - Lgr11
-        - Lgrsär11
-        - Lspec11
-        - Lsam11
-        - Lgy70
-        - Lpf94
-        - Gy11
-        - Gysär13
-        - Lvux12
+      allOf:
+        - $ref: "common.yaml#/components/schemas/CurriculumEnum"
+        - description: Referens till Skolverkets läroplan om det är en officiell kurs eller ett officiellt ämne. Exempelvis GY2011, LGR11.
     languageCode:
       type: string
       description: Språkkod för moderna språk och modersmål. Enligt ISO 639-3.
     specialisationCourseContent:
       type: object
+      title: SpecialisationCourseContent
       description: Beskrivning av innehållet i en specialiseringskurs på gymnasiet.
       properties:
         title:

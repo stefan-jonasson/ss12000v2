@@ -1,5 +1,6 @@
 Resource:
   type: object
+  title: Resource
   properties:
     id:
       type: string
@@ -15,7 +16,8 @@ Resource:
     owner:
       allOf:
         - $ref: "common.yaml#/ObjectReference"
-        - description: >
+        - title: OrganisationReference
+          description: >
             Möjlighet att ange vilket organisationselement resursen tillhör.
   required:
     - id

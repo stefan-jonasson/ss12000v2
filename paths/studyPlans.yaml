@@ -25,18 +25,6 @@ studyPlans:
         schema:
           type: string
           format: date
-      - name: lastUpdate.after
-        description: Endast studieplaner som blivit justerade efter denna tidpunkt (Exkluderande)
-        in: query
-        schema:
-          type: string
-          format: date-time
-      - name: lastUpdate.before
-        description: Endast studieplaner som  blivit justerade innan eller på denna tidpunkt (Inkluderande)
-        in: query
-        schema:
-          type: string
-          format: date-time
       - $ref: "searchParameters.yaml#/SearchCreatedBefore"
       - $ref: "searchParameters.yaml#/SearchCreatedAfter"
       - $ref: "searchParameters.yaml#/SearchModifiedBefore"
@@ -68,3 +56,30 @@ studyPlans:
          description: >
           Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`, `meta.created.after`, `meta.created.before`
           , `expand`, `student`, `startDate.onOrAfter` , `endDate.onOrBefore`, `lastUpdate.before`) kan inte kombineras med `pageToken`
+
+studyPlanById:
+  get:
+    tags:
+      - Studieinformation
+    summary: Hämta studieplan baserat på ID
+    parameters:
+      - name: id
+        in: path
+        description: ID för studieplan som ska hämtas
+        required: true
+        schema:
+          type: string
+      - $ref: "searchParameters.yaml#/ExpandReferenceNames"
+    responses:
+      "200":
+        description: successful operation
+        content:
+          application/json:
+            schema:
+              $ref: "../StudyPlan.yaml#/StudyPlan"
+      "400":
+        description: Invalid id supplied
+      "403":
+        description: Not authorised
+      "404":
+        description: StudyPlan not found

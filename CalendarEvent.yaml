@@ -4,111 +4,96 @@ CalendarEvent:
     id:
       type: string
       format: uuid
-      description: Ett UUID för kalenderhändelsen.
+      description: Identifierare för kalenderhändelsen.
     meta:
       $ref: "common.yaml#/Meta"
     activity:
       allOf:
-        - $ref: 'common.yaml#/ObjectReference'
-        - description: Referens till en aktivitet
+        - $ref: 'common.yaml#/ActivityReference'
+        - description: Den aktivitet kalenderhändelsen är kopplad till
     startTime:
       type: string
       format: date-time
-      description: Kalenderhändelsens starttid med datum och tid (ISO8601 format tex "2015-12-12T10:00:00").
+      description: Kalenderhändelsens starttid med datum och tid.
     endTime:
       type: string
       format: date-time
-      description: Kalenderhändelsens sluttid med datum och tid (ISO8601 format tex "2015-12-12T10:00:00").
+      description: Kalenderhändelsens sluttid med datum och tid.
     cancelled:
       type: boolean
-      description: Inställd används för att ange att en planerad kalenderhändelse inte ska äga rum till följd av en avbokning eller annan tillfällig avvikelse. Förvalt värde är false.
-    teachingLengthStudent:
-      type: integer
-      description: Faktisk undervisningstid, i minuter, för studenter. Tiden kan vara kortare eller längre än tiden för kalenderhändelsen till exempel då en rast ingår i tiden.
+      description: Inställd används för att ange att en planerad kalenderhändelse inte ska äga rum till följd av en avbokning eller annan tillfällig avvikelse. Förvalt värde är False. 
     teachingLengthTeacher:
       type: integer
-      description: Faktisk undervisningstid, i minuter, för lärare. Lärartiden kan vara kortare eller längre än tiden för kalenderhändelsen.
+      description: Faktisk undervisningstid för lärare anges i minuter. Lärartiden kan vara kortare eller längre än tiden för kalenderhändelsen.
+    teachingLengthStudent:
+      type: integer
+      description: Faktisk undervisningstid för elever (och elever ingående i grupper) anges i minuter. Tiden kan vara kortare eller längre än tiden för kalenderhändelsen, till exempel då en rast ingår i tiden. 
     comment:
       type: string
       description: En text med kompletterande information.
     studentExceptions:
       type: array
       items:
-        allOf:
-          - $ref: 'common.yaml#/ObjectReference'
-          - description: Anger avvikelser beträffande elevs deltagande, tid och längd för ett enstaka kalendertillfälle.
-            properties:
-              participates:
-                type: boolean
-                description: Används för att ange om en elev deltar på ett visst kalendertillfälle.
-              startTime:
-                type: string
-                format: date-time
-                description: Starttid för undantaget (ISO8601 format tex "2015-12-12T10:30:00").
-              endTime:
-                type: string
-                format: date-time
-                description: Sluttid för undantaget (ISO8601 format tex "2015-12-12T11:00:00").
-              teachingLength:
-                type: integer
-                description: Undervisningstid i minuter för eleven. Om den ej anges så gäller det som är angivet i, i första hand, CalendarEvent, och annars i Activity.
-            required:
-              - id
-              - participates
+        type: object
+        title: StudentException 
+        description: Anger avvikelser beträffande elevs deltagande, tid och längd för ett enstaka kalendertillfälle.            
+        properties:
+          student:
+            type: string
+            format: uuid
+            description: Referens till en person  
+          participates:
+            type: boolean
+            description: Används för att ange om en elev deltar på ett visst kalendertillfälle.
+          startTime:
+            type: string
+            format: date-time
+            description: Starttid för undantaget (ISO8601 format tex "2015-12-12T10:30:00").
+          endTime:
+            type: string
+            format: date-time
+            description: Sluttid för undantaget (ISO8601 format tex "2015-12-12T11:00:00").
+          teachingLength:
+            type: integer
+            description: Undervisningstid i minuter för eleven. Om den ej anges så gäller det som är angivet i, i första hand, CalendarEvent, och annars i Activity.
+        required:
+          - student
+          - participates
     teacherExceptions:
       type: array
       items:
-        allOf:
-          - $ref: 'common.yaml#/ObjectReference'
-          - description: Anger avvikelser beträffande lärares ansvar, tid och längd för ett enstaka kalendertillfälle.
-            properties:
-              participates:
-                type: boolean
-                description: Används för att ange om en lärare deltar på ett visst kalendertillfälle.
-              startTime:
-                type: string
-                format: date-time
-                description: Starttid för undantaget (ISO8601 format tex "2015-12-12T10:30:00").
-              endTime:
-                type: string
-                format: date-time
-                description: Sluttid för undantaget (ISO8601 format tex "2015-12-12T11:00:00").
-              teachingLength:
-                type: integer
-                description: Undervisningstid i minuter för läraren. Om den ej anges så gäller det som är angivet i, i första hand, CalendarEvent, och annars i Activity.
-            required:
-              - id
-              - participates
-    studentGroupExceptions:
-      type: array
-      items:
-        allOf:
-          - $ref: 'common.yaml#/ObjectReference'
-          - description: Anger avvikelser beträffande elevgruppens deltagande, tid och längd för ett enstaka kalendertillfälle.
-            properties:
-              participates:
-                type: boolean
-                description: Används för att ange om en grupp deltar på ett visst kalendertillfälle.
-              startTime:
-                type: string
-                format: date-time
-                description: Starttid för undantaget (ISO8601 format tex "2015-12-12T10:30:00").
-              endTime:
-                type: string
-                format: date-time
-                description: Sluttid för undantaget (ISO8601 format tex "2015-12-12T11:00:00").
-              teachingLength:
-                type: integer
-                description: Undervisningstid i minuter för gruppen. Om den ej anges så gäller det som är angivet i, i första hand, CalendarEvent, och annars i Activity.
-            required:
-              - id
-              - participates
+        type: object
+        title: TeacherException 
+        description: Anger avvikelser beträffande lärares ansvar, tid och längd för ett enstaka kalendertillfälle.
+        properties:
+          duty:
+            type: string
+            format: uuid
+            description: Anger vilken anställning (Duty) undantaget avser.
+          participates:
+            type: boolean
+            description: Används för att ange om en lärare ska delta på ett visst kalendertillfälle. 
+          startTime:
+            type: string
+            format: date-time
+            description: Starttid för undantaget.
+          endTime:
+            type: string
+            format: date-time
+            description: Sluttid för undantaget.
+          teachingLength:
+            type: integer
+            description: Undervisningstid i minuter för läraren. Om den ej anges så gäller det som är angivet i, i första hand, CalendarEvent, och annars i Activity.
+        required:
+          - duty
+          - participates
     rooms:
         type: array
         items:
           allOf:
             - $ref: 'common.yaml#/ObjectReference'
-            - description: De lokaler eller platser som är bokade för kalenderhändelsen.
+            - title: RoomReference
+              description: Den lokal eller plats som är bokad för kalenderhändelsen.
               required:
                 - id
     resources:
@@ -116,7 +101,8 @@ CalendarEvent:
         items:
           allOf:
             - $ref: 'common.yaml#/ObjectReference'
-            - description: De resurser som är bokade för kalenderhändelsen.
+            - title: ResourceReference
+              description: En bokningsbar resurs som inte är en lokal.
               required:
                 - id
     _embedded:

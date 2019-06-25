@@ -13,6 +13,7 @@ Programme:
       description: Program-/inriktningens namn.
     type:
       type: string
+      title: Code_ProgrammeType
       enum:
         - Yrkesprogram
         - Högskoleförberedande program
@@ -34,24 +35,9 @@ Programme:
         _Yrkesprogram_, _Högskoleförberedande program_, _Intruduktionsprogram_, _Nationellt yrkespaket_, _Regionalt yrkespaket_ eller _Fjärde tekniskt år_.
         För övriga programtyper skall värdet inte vara definierat.
     schoolType:
-      type: string
-      enum:
-        - FS
-        - FSK
-        - FTH
-        - GR
-        - GRS
-        - SP
-        - SAM
-        - GY
-        - GYS
-        - VUX
-        - SUV
-        - YH
-        - FHS
-        - HS
-        - AU
-      description: Skolform för programmet.
+      allOf: 
+       - $ref: "common.yaml#/components/schemas/SchoolTypesEnum"
+       - description: Skolform för programmet.
     code:
       type: string
       description: |
@@ -68,6 +54,7 @@ Programme:
         properties:
           type:
             type: string
+            title: Code_ProgrammeContentType
             description: Anger ingående kursers relation till programmet, såsom Programgemensamma. Typen _Inriktning_ kan endast anges för program av typen _Programinriktning_.
             enum:
               - Gymnasiegemensamma
@@ -83,8 +70,8 @@ Programme:
             type: array
             items:
               allOf:
+                - $ref: "common.yaml#/SyllabusReference"
                 - description: Lista av ingående kursers kursplaner.
-                - $ref: "common.yaml#/ObjectReference"
   required:
     - name
     - schoolType
