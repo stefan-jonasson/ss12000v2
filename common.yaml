@@ -1,4 +1,5 @@
 ObjectReference:
+  title: ObjectReference
   type: object
   required:
     - id
@@ -14,6 +15,7 @@ ObjectReference:
         Skall endast retuneras när query parametern `expandReferenceNames` är satt till sann.
     
 Meta:
+  title: Meta
   type: object
   readOnly: true
   properties:
@@ -27,37 +29,62 @@ Meta:
 SchoolUnitReference:
   allOf:
     - $ref: "#/ObjectReference"
-    - description: Referens till skolenhet
+    - title: SchoolUnitReference
+      description: Referens till skolenhet
+
+ProgrammeReference:
+  allOf:
+    - $ref: "common.yaml#/ObjectReference"
+    - description: Identifierare för program (Programme)
+      title: ProgrammeReference
+
+OrganisationReference:
+  allOf:
+    - $ref: "#/ObjectReference"
+    - title: OrganisationReference
+      description: Referens till ett Organisations elemet
 
 ActivityReference:
   allOf:
     - $ref: "#/ObjectReference"
-    - description: Referens till en aktivitet
+    - title: ActivityReference
+      description: Referens till en aktivitet
 
 PersonReference:
   allOf:
     - $ref: "#/ObjectReference"
-    - description: Referens till en person
+    - title: PersonReference
+      description: Referens till en person
 
 PlacementReference:
   allOf:
     - $ref: "#/ObjectReference"
-    - description: Referens till en placering
+    - title: PlacementReference
+      description: Referens till en placering
 
 StudentGroupReference:
   allOf:
     - $ref: "#/ObjectReference"
-    - description: Referens till en elevgrupp
+    - title: StudentGroupReference
+      description: Referens till en elevgrupp
 
 SyllabusReference:
   allOf:
     - $ref: "#/ObjectReference"
-    - description: Referens till en Syllabus
+    - title: SyllabusReference
+      description: Referens till en Syllabus
+ 
+CalendarEventReference:
+  allOf:
+    - $ref: "#/ObjectReference"
+    - title: CalendarEventReference
+      description: Referens till en kalenderhändelse
 
 DateConstrainedObjectReference:
   allOf:
     - $ref: "#/ObjectReference"
     - type: object
+      title: DateConstrainedObjectReference
       required:
         - startDate
         - endDate
@@ -72,6 +99,7 @@ DateConstrainedObjectReference:
 components:
   schemas:
     EndPointsEnum:
+      title: Code_ObjectType
       type: string
       enum:
         - Absence
@@ -92,19 +120,22 @@ components:
         - Syllabus
 
     SchoolTypesEnum:
+      title: Code_SchoolType
       type: string
       enum:
         - FS
-        - FSK
+        - FKLASS
         - FTH
+        - OPPFTH
         - GR
         - GRS
         - SP
         - SAM
         - GY
         - GYS
-        - VUX
-        - SUV
+        - KOMVUX
+        - SARVUX
+        - SFI
         - YH
         - FHS
         - HS
@@ -112,6 +143,7 @@ components:
 
     RelationTypesEnum:
       type: string
+      title: Code_RelationType
       description: |
         Värdeförråd för olika typer av relationer till en elev.
       enum:
@@ -122,12 +154,38 @@ components:
 
     AbsenceEnum:
       type: string
+      title: Code_AbsenceType
       enum:
         - Beviljad ledighet
         - Anmäld frånvaro
+    
+    CurriculumEnum: 
+      type: string
+      title: Code_Curriculum
+      enum:
+        - Lgy70
+        - Lgr80
+        - Lpo94
+        - Lpf94
+        - Lpfö98
+        - GR2000
+        - GY2000
+        - GYSÄR2000
+        - GYVUX2000
+        - GYVUX2001
+        - GYVUX2002
+        - GR2011
+        - GRSÄR2011
+        - SPEC2011
+        - SAM2011
+        - Lvux12
+        - GY2011
+        - GYSÄR2013
+        - VU2013
 
     StudentGroupTypesEnum:
       type: string
+      title: Code_StudentGroupType
       description: |
         Grupptyp anger vad en grupp ska användas till.
         Ett värdeförråd för att indikera anger vilka grupptyper som finns.
@@ -142,8 +200,20 @@ components:
         - Mentor
         - Schema
         - Övrigt
+ 
+    DutyRole:
+      type: string
+      title: Code_DutyRole
+      enum:
+        - Rektor
+        - Lärare
+        - Förskollärare
+        - Övrig pedagogisk personal
+        - Förskolechef
+        - Annan personal
 
     AssignmentRoleTypeEnum:
+      title: Code_AssignmentRole
       type: string
       enum:
         - Mentor

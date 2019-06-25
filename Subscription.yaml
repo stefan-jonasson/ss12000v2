@@ -1,8 +1,9 @@
 CreateSubscription:
   type: object
+  title: Subscription
   properties:
     name:
-      description: A description name of the webhook
+      description: A descriptive name of the webhook
       type: string
     target:
       description: the URL that the webhook will post to

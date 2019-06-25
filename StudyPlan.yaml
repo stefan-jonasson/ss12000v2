@@ -1,20 +1,38 @@
 StudyPlan:
   type: object
+  title: StudyPlan
   description: En elevs studieplan
   properties:
+    id:
+      type: string
+      format: uuid
     student:
       allOf:
         - $ref: "common.yaml#/PersonReference"
-        - description: >
-            Den elev som studieplanen gäller för.
+        - description: Den elev som studieplanen gäller för.
+    meta:
+      $ref: "common.yaml#/Meta"
     content:
       type: array
       items:
         type: object
+        title: StudyPlanContent
         properties:
           title:
             type: string
             description: Anger rubriken i elevens studieplan
+          type: 
+            type: string
+            title: Code_StudyPlanContentType
+            enum:
+              - Gymnasiegemensamma
+              - Programgemensamma
+              - Inriktning
+              - Programfördjupning
+              - Gymnasiearbete
+              - Individuellt val
+              - Borttagna
+              - Utökade
           points:
             type: integer
             description: Anger poängtalet för den aktuella kategorin av kurser
@@ -22,12 +40,16 @@ StudyPlan:
             type: array
             items:
               type: object
+              title: StudyPlanSyllabus
               properties:
-                id:
+                syllabus:
                   type: string
+                  title: SyllabusReference
+                  description: Rererens till en kursplan.
                   format: uuid
                 note:
                   type: string
+                  description: Notering angående kursens status i elevens studieplan
                 startDate:
                   type: string
                   format: date
@@ -38,18 +60,20 @@ StudyPlan:
                   type: integer
                   description: >
                     Planlagda timmar för elevens deltagande i kursen. 
-                    Främst avsedd för studieplaner för vuxenutbildning
+                    Främst avsedd för studieplaner till vuxenutbildning.
               required:
-                - id
+                - syllabus
         required:
           - syllabuses
     notes:
       type: array
       items: 
         type: object
+        title: StudyPlanNotes
         properties:
           type: 
             type: string
+            title: Code_StudyPlanNoteType
             enum:
               - Anteckningar
               - Andra insatser som är gynnsamma för elevens kunskapsutveckling
@@ -64,17 +88,10 @@ StudyPlan:
     endDate:
       type: string
       format: date
-    lastModified:
-      type: string
-      format: date-time
   required:
+    - id
     - student
     - startDate
-    - lastUpdate
-
-
-
-
 
 StudyPlans:
   type: object

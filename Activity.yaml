@@ -1,4 +1,5 @@
 Activity:
+  title: Activity
   type: object
   properties:
     id:
@@ -21,19 +22,16 @@ Activity:
     startDate:
       type: string
       format: date
-      description: >
-        Datum för när aktiviteten startar (ISO8601 format,
-        t.ex. "2016-10-15")
-
+      description: Datum för när aktiviteten startar.
+    
     endDate:
       type: string
       format: date
-      description: >
-        Datum för när aktiviteten slutar (ISO8601 format,
-        t.ex. "2016-10-15".
+      description: Datum för när aktiviteten slutar.
 
     activityType:
       type: string
+      title: Code_ActivityType
       enum:
         - Undervisning
         - Elevaktivitet
@@ -43,9 +41,6 @@ Activity:
         - Övrigt
       description: |
         Beskriver vilken typ av aktivitet som avses.
-        - Värde
-
-            Beskrivning
         - Undervisning
 
             Schemalagd tid med koppling till timplan, som ska närvarorapporteras.
@@ -71,25 +66,14 @@ Activity:
       type: array
       minItems: 1
       items:
-        type: object
-        properties:
-          id:
-            type: string
-            format: uuid
-          displayName:
-            type: string
-          startDate:
-            type: string
-            format: date
-          endDate:
-            type: string
-            format: date
+        $ref: "common.yaml#/StudentGroupReference"
       description: De grupper som är kopplade till aktiviteten.
 
     teachers:
       type: array
       items:
         type: object
+        title: DutyAssignment
         properties:
           id:
             type: string
@@ -112,38 +96,19 @@ Activity:
       description: De lärare (Duty-objekt) som är kopplade till aktiviteten.
 
     syllabus:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        displayName:
-          type: string
-          description: Beskrivning av ämnesplanen
-      description: Det kurs- eller ämnesplan som aktiviteten är knuten till.
+      allOf: 
+        - $ref: "common.yaml#/SyllabusReference"
+        - description: Det kurs- eller ämnesplan som aktiviteten är knuten till.
 
     schoolUnit:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        displayName:
-          type: string
-          description: Ett läsbart namn för att identifiera skolenheten.
-      description: Den skolenhet som aktiviteten är knuten till.
+      allOf: 
+       - $ref: "common.yaml#/SchoolUnitReference"
+       - description: Den skolenhet som aktiviteten är knuten till.
 
     parentActivity:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-          description: Identifierare för den ursprungliga aktiviteten.
-        displayName:
-          type: string
-          description: Ett läsbart namn för att identifiera aktiviteten.
-      description: Möjlighet att koppla aktiviteten till en ursprunglig "föräldraaktivitet"
+      allOf: 
+       - $ref: "common.yaml#/ActivityReference"
+       - description: Möjlighet att koppla aktiviteten till en eller flera ursprungliga “föräldraaktiviteter”.
 
   required:
     - id

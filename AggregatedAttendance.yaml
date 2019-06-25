@@ -1,14 +1,13 @@
 AggregatedAttendance:
   type: object
+  title: AggregatedAttendance
   properties:
     activity:
-      allOf:
-      - $ref: "common.yaml#/ObjectReference"
-      - description: Referens till en aktivitet
+     $ref: "common.yaml#/ActivityReference"
     student:
       allOf:
-        - $ref: "common.yaml#/ObjectReference"
-        - description: Referens till en person
+        - $ref: "common.yaml#/PersonReference"
+        - description: Referens till eleven
     startDate:
       type: string
       format: date
@@ -31,10 +30,10 @@ AggregatedAttendance:
       description: Summerad tid i minuter för elevens deltagande i annan skolaktivitet, såsom elevråd, i stället för deltagande på kalenderhändelser
     reportedSum:
       type: integer
-      description: Summan av den rapporterade tiden för elevens kalenderhändelser
+      description: Summerad tid i minuter för alla elevens kalenderhändelser där läraren eller annan personal har markerat lektionen som färdigrapporterad
     offeredSum:
       type: integer
-      description: Summan av den erbjudna tiden minuter för elevens kalenderhändelser
+      description: Summerad tid i minuter för alla kalenderhändelser där eleven har erbjudits möjlighet att närvara
     _embedded:
       type: object
       properties:

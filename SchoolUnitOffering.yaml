@@ -1,6 +1,7 @@
 SchoolUnitOffering:
   type: object
-  description: Ett utbud av kurser/program som erbjuds av en skola.
+  title: SchoolUnitOffering
+  description: Används för att beskriva vilka program, ämnen och kurser en skolenhet erbjuder under ett visst tidsintervall. 
   properties:
     startDate:
       type: string
@@ -17,20 +18,18 @@ SchoolUnitOffering:
         Anges i ISO8601 format, exempelvis "2016-10-15".
     offeredAt:
       allOf:
-       - $ref: "common.yaml#/ObjectReference"
+       - $ref: "common.yaml#/SchoolUnitReference"
        - description: Identifierare för skolenheten (SchoolUnit)
     offeredSyllabuses:
       type: array
       items: 
         allOf:
-          - $ref: "common.yaml#/ObjectReference"
-          - description: Identifierare för kursplaner (Syllabus), innehåller alla ämnen/kurser, även de som också beskrivs genom offeredProgrammes
+          - $ref: "common.yaml#/SyllabusReference"
+          - description: Identifierare för kursplaner (Syllabus), innehåller alla ämnen/kurser, även de som också beskrivs genom offeredProgrammes.
     offeredProgrammes:
       type: array
       items:
-        allOf:
-          - $ref: "common.yaml#/ObjectReference"
-          - description: Identifierare för program (Programme)
+        $ref: "common.yaml#/ProgrammeReference"
   required:
     - offeredSyllabuses
     - offeredAt

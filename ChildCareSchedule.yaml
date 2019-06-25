@@ -1,21 +1,61 @@
 CreateChildCareSchedule:
   type: object
+  title: ChildCareSchedule
   properties:
-    startDate:
-      type: string
-      format: date
-      description: Startdatum för schemat (ISO8601 format, t.ex. "2016-10-15").
-    endDate:
-      type: string
-      format: date
-      description: Startdatum för schemat (ISO8601 format, t.ex. "2016-10-15").
+    placement:
+      allOf:
+        - $ref: "common.yaml#/PlacementReference"
+        - description: Referens till en placeringen schemat avser.
     numberOfWeeks:
       type: integer
       description: Hur många veckor schemat gäller för innan det "börjar om".
-    scheduleDays:
+    startDate:
+      type: string
+      format: date
+      description: Anger datum då schemat startar.
+    endDate:
+      type: string
+      format: date
+      description: Anger datum då schemat slutar.
+    temporary:
+      type: boolean
+      description: |
+        Anger om detta är ett undantag som gäller i stället för normalschemat under en begränsad tid. 
+        Slutdatum måste anges. 
+      default: false
+    state:
       type: array
       items:
         type: object
+        title: ChildCareScheduleState
+        properties:
+          state:
+            type: string
+            title: Code_ChildCareScheduleState
+            enum:
+              - Godkänt
+              - Begärt
+              - Nekat
+            description: Beskriver schemats tillstånd.
+          registeredAt:
+            type: string
+            format: date-time
+            description: Tid och datum för tillstånd.
+          comment:
+            type: string
+            description: En kommentar angående tillståndet.
+          registeredBy:
+            allOf:
+              - $ref: "common.yaml#/PersonReference"
+              - description: Referens till den person som registrerat tillståndet.
+        required: 
+          - state
+          - registeredAt
+    scheduleEntries:
+      type: array
+      items:
+        type: object
+        title: ChildCareScheduleEntry
         properties:
           weekOffset:
             type: integer
@@ -41,17 +81,6 @@ CreateChildCareSchedule:
           length:
             type: integer
             description: Längden på den tid efter starttid som barnet ska vara
-    state:
-      type: string
-      enum:
-        - Tillfälligt
-        - Begärt
-        - Godkänt
-      description: Beskriver tillståndet på detta schema
-    placement:
-      allOf:
-        - $ref: "common.yaml#/PlacementReference"
-        - description: Referens till barnets placering
     
   required:
     - startDate
@@ -72,15 +101,6 @@ ChildCareSchedule:
       required:
         - id
     - $ref: "#/CreateChildCareSchedule"
-    - type: object
-      properties:
-        _expand:
-          type: object
-          properties:
-            child:
-              $ref: "Person.yaml#/Person"
-            group:
-              $ref: "StudentGroup.yaml#/StudentGroup"
 
 Error:
   required:

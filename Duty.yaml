@@ -1,4 +1,6 @@
 DutyFragment:
+  type: object
+  title: Duty
   description: referens till ett Dutyobjekt
   properties:
     id:
@@ -10,15 +12,9 @@ DutyFragment:
         - $ref: "common.yaml#/ObjectReference"
         - description: Identifierare av skolenhet som tjänsten är knuten till.
     dutyRole:
-      type: string
-      enum:
-        - Rektor
-        - Lärare
-        - Förskollärare
-        - Övrig pedagogisk personal
-        - Förskolechef
-        - Annan personal
-      description: Syfte med tjänsten, den roll tjänsen avser, till exempel lärare eller rektor.
+      allOf:
+        - $ref: "common.yaml#/components/schemas/DutyRole"
+        - description: Syfte med tjänsten, den roll tjänsen avser, till exempel lärare eller rektor.
     signature:
       type: string
       description: En signatur för tjänstgöringen exempelvis NJN, JOAN.
@@ -67,15 +63,11 @@ Duty:
                       assignmentRoleType:
                         $ref:  "common.yaml#/components/schemas/AssignmentRoleTypeEnum"
                       startDate:
-                        description: >
-                          Startdatum för tjänstens relation till gruppen
-                          (ISO8601 format, t.ex. "2016-10-15").
+                        description: Startdatum för tjänstens relation till gruppen.
                         type: string
                         format: date
                       endDate:
-                        description: >
-                          Slutdatum för tjänstens relation till gruppen
-                          (ISO8601 format, t.ex. "2016-10-15").
+                        description: Slutdatum för tjänstens relation till gruppen.
                         type: string
                         format: date 
 
@@ -94,6 +86,6 @@ Duties:
       pageToken:
         type: string
         nullable: true
-        description:  Om värdet är null finns inget mer att hämta på det token som skickades in som query parameter.
+        description: Om värdet är null finns inget mer att hämta på det token som skickades in som query parameter.
  required:
     - data

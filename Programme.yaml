@@ -13,6 +13,7 @@ Programme:
       description: Program-/inriktningens namn.
     type:
       type: string
+      title: Code_ProgrammeType
       enum:
         - Yrkesprogram
         - Högskoleförberedande program
@@ -53,6 +54,7 @@ Programme:
         properties:
           type:
             type: string
+            title: Code_ProgrammeContentType
             description: Anger ingående kursers relation till programmet, såsom Programgemensamma. Typen _Inriktning_ kan endast anges för program av typen _Programinriktning_.
             enum:
               - Gymnasiegemensamma
@@ -68,8 +70,8 @@ Programme:
             type: array
             items:
               allOf:
+                - $ref: "common.yaml#/SyllabusReference"
                 - description: Lista av ingående kursers kursplaner.
-                - $ref: "common.yaml#/ObjectReference"
   required:
     - name
     - schoolType

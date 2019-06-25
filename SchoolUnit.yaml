@@ -1,5 +1,6 @@
 SchoolUnit:
   type: object
+  title: SchoolUnit
   description: >
     En Skolenhet, i förekommande fall med skolenhetskod
     enligt Skolenhetsregistret.
@@ -13,7 +14,8 @@ SchoolUnit:
     organisation:
       allOf:
         - $ref: "common.yaml#/ObjectReference"
-        - description: Organisationstillhörighet.
+        - title: OrganisationReference
+          description: Organisationstillhörighet.
     displayName:
       type: string
       description: Namn för skolenheten.
@@ -28,7 +30,7 @@ SchoolUnit:
       uniqueItems: true
       minItems: 1
       items:
-         - $ref: "common.yaml#/components/schemas/SchoolTypesEnum"
+        $ref: "common.yaml#/components/schemas/SchoolTypesEnum"
     municipalityCode:
       type: string
       description: >

@@ -36,7 +36,7 @@ attendance_events:
         content:
           application/json:
             schema:
-                $ref: "../ChildCareAttendanceEvent.yaml#/ChildCareAttendanceEvents"
+                $ref: "../AttendanceEvent.yaml#/AttendanceEvents"
       400:
         description: >
           Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`, `meta.created.after`, `meta.created.before`
@@ -51,7 +51,7 @@ attendance_events:
       content:
         application/json:
           schema:
-            $ref: "../ChildCareAttendanceEvent.yaml#/CreateChildCareAttendanceEvent"
+            $ref: "../AttendanceEvent.yaml#/CreateAttendanceEvent"
 
     responses:
       "200":
@@ -59,13 +59,13 @@ attendance_events:
         content:
           application/json:
             schema:
-              $ref: "../ChildCareAttendanceEvent.yaml#/ChildCareAttendanceEvent"
+              $ref: "../AttendanceEvent.yaml#/AttendanceEvent"
       default:
         description: unexpected error
         content:
           application/json:
             schema:
-              $ref: "../ChildCareAttendanceEvent.yaml#/Error"
+              $ref: "../AttendanceEvent.yaml#/Error"
 
 attendance_events_by_id:
   get:
@@ -88,7 +88,7 @@ attendance_events_by_id:
         content:
           application/json:
             schema:
-              $ref: "../ChildCareAttendanceEvent.yaml#/ChildCareAttendanceEvent"
+              $ref: "../AttendanceEvent.yaml#/AttendanceEvent"
       "204":
         description: Posten borttagen.
       "400":
@@ -102,7 +102,7 @@ attendance_events_by_id:
         content:
           application/json:
             schema:
-              $ref: "../ChildCareAttendanceEvent.yaml#/Error"
+              $ref: "../AttendanceEvent.yaml#/Error"
   delete:
     tags:
       - Närvarohändelser

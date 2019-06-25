@@ -1,7 +1,8 @@
 AbsenceFragment:
+  title: Absence
   type: object
   description: >
-    Ledighetsansökan med bekräftelse.
+   Absence ska användas för att beskriva anmäld frånvaro för en elev. Den anmälda frånvaron kan avse en av skolan beviljad ledighet eller en frånvaro av annan art som anmäls av eleven själv eller elevens vårdnadshavare.
   properties:
     startTime:
       type: string

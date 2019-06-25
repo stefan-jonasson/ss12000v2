@@ -133,7 +133,7 @@ studentGroupsById:
       "403":
         description: Not authorised
       "404":
-        description: Duty not found
+        description: StudentGroup not found
 
 ExpandParameter: 
   name: expand
