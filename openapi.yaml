@@ -113,12 +113,12 @@ paths:
     $ref: paths/attendanceEvents.yaml#/attendance_events
   /attendanceEvents/{id}:
     $ref: paths/attendanceEvents.yaml#/attendance_events_by_id
-  /childCareSchedule:
-    $ref: paths/childCareSchedules.yaml#/childCareSchedules
-  /childCareSchedule/{id}:
-    $ref: paths/childCareSchedules.yaml#/childCareSchedulesById
-  /childCareSchedule/lookup:
-    $ref: paths/childCareSchedules.yaml#/childCareSchedulesLookup
+  /attendanceSchedule:
+    $ref: paths/attendanceSchedules.yaml#/attendanceSchedules
+  /attendanceSchedule/{id}:
+    $ref: paths/attendanceSchedules.yaml#/attendanceSchedulesById
+  /attendanceSchedule/lookup:
+    $ref: paths/attendanceSchedules.yaml#/attendanceSchedulesLookup
   /grades:
     $ref: paths/grades.yaml#/grades
   /grades/lookup:
@@ -183,8 +183,8 @@ components:
       $ref: "Attendance.yaml#/Attendance"
     AttendanceEvent:
       $ref: "AttendanceEvent.yaml#/AttendanceEvent"
-    ChildCareSchedule:
-      $ref: "ChildCareSchedule.yaml#/ChildCareSchedule"
+    AttendanceSchedule:
+      $ref: "AttendanceSchedule.yaml#/AttendanceSchedule"
     Absence:
       $ref: "Absence.yaml#/Absence"
     AggregatedAttendance:

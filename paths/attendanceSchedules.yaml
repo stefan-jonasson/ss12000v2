@@ -1,4 +1,4 @@
-childCareSchedules: 
+attendanceSchedules: 
   get: 
     tags:
       - Barnomsorgsschema
@@ -41,7 +41,7 @@ childCareSchedules:
         content:
           application/json:
             schema:
-                $ref: "../ChildCareSchedule.yaml#/ChildCareSchedules"
+                $ref: "../AttendanceSchedule.yaml#/AttendanceSchedules"
       400:
         description: >
           Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`, `meta.created.after`, `meta.created.before`
@@ -57,7 +57,7 @@ childCareSchedules:
       content:
         application/json:
           schema:
-            $ref: "../ChildCareSchedule.yaml#/CreateChildCareSchedule"
+            $ref: "../AttendanceSchedule.yaml#/CreateAttendanceSchedule"
          
     responses:
       "200":
@@ -65,15 +65,15 @@ childCareSchedules:
         content:
           application/json:
             schema:
-              $ref: "../ChildCareSchedule.yaml#/ChildCareSchedule"
+              $ref: "../AttendanceSchedule.yaml#/AttendanceSchedule"
       default:
         description: unexpected error
         content:
           application/json:
             schema:
-              $ref: "../ChildCareSchedule.yaml#/Error"
+              $ref: "../AttendanceSchedule.yaml#/Error"
 
-childCareSchedulesLookup:
+attendanceSchedulesLookup:
   post:
     tags:
       - Barnomsorgsschema
@@ -98,7 +98,7 @@ childCareSchedulesLookup:
             $ref : "../common.yaml#/components/schemas/IdLookup"
       required: true
 
-childCareSchedulesById:
+attendanceSchedulesById:
   get:
     tags:
         - Barnomsorgsschema
@@ -118,7 +118,7 @@ childCareSchedulesById:
         content:
           application/json:
             schema:
-              $ref: "../ChildCareSchedule.yaml#/ChildCareSchedule"
+              $ref: "../AttendanceSchedule.yaml#/AttendanceSchedule"
       "400":
         description: Felaktigt id.
       "403":
@@ -130,7 +130,7 @@ childCareSchedulesById:
         content:
           application/json:
             schema:
-              $ref: "../ChildCareSchedule.yaml#/Error"
+              $ref: "../AttendanceSchedule.yaml#/Error"
   delete:
     tags:
         - Barnomsorgsschema

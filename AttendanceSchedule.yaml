@@ -1,6 +1,6 @@
-CreateChildCareSchedule:
+CreateAttendanceSchedule:
   type: object
-  title: ChildCareSchedule
+  title: AttendanceSchedule
   properties:
     placement:
       allOf:
@@ -27,11 +27,11 @@ CreateChildCareSchedule:
       type: array
       items:
         type: object
-        title: ChildCareScheduleState
+        title: AttendanceScheduleState
         properties:
           state:
             type: string
-            title: Code_ChildCareScheduleState
+            title: Code_AttendanceScheduleState
             enum:
               - Godkänt
               - Begärt
@@ -55,7 +55,7 @@ CreateChildCareSchedule:
       type: array
       items:
         type: object
-        title: ChildCareScheduleEntry
+        title: AttendanceScheduleEntry
         properties:
           weekOffset:
             type: integer
@@ -88,7 +88,7 @@ CreateChildCareSchedule:
     - placement
     - state
 
-ChildCareSchedule:
+AttendanceSchedule:
   allOf:
     - type: object
       properties:
@@ -100,7 +100,7 @@ ChildCareSchedule:
           $ref: "common.yaml#/Meta"
       required:
         - id
-    - $ref: "#/CreateChildCareSchedule"
+    - $ref: "#/CreateAttendanceSchedule"
 
 Error:
   required:
@@ -114,13 +114,13 @@ Error:
       type: string
 
 
-ChildCareSchedules:
+AttendanceSchedules:
   type: object
   properties:
       data:
         type: array
         items:
-          $ref: "#/ChildCareSchedule"
+          $ref: "#/AttendanceSchedule"
       pageToken:
         type: string
         nullable: true
