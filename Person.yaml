@@ -176,24 +176,10 @@ Person:
               country:
                 type: string
                 description: Land.
-        photos:
-          type: array
-          description: Bild på personen.
-          items:
-            type: object
-            title: Photo
-            properties:
-              value:
-                type: string
-                format: uri
-                description: En länk där bildfilen kan hämtas.
-              type:
-                type: string
-                title: Code_PhotoType
-                description: Typ av bild.
-                enum:
-                  - Photo
-                  - Thumbnail
+        photo:
+          type: string
+          format: uri
+          description: Pekar ut en resurs med en bild på personen, specificeras som en URI enligt rfc3986.
         enrolments:
           type: array
           description: En lista med inskrivningar för personen
