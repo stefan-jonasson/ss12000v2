@@ -1,8 +1,8 @@
 attendanceSchedules: 
   get: 
     tags:
-      - Barnomsorgsschema
-    summary: Returnerar registrerade barnomsorgsschema.
+      - vistelseschema
+    summary: Returnerar registrerade vistelsescheman.
     parameters:
       - name: placement
         description: Begränsa urvalet till scheman för utpekade placeringar.
@@ -14,7 +14,7 @@ attendanceSchedules:
             format: uuid
       - name: startDate.onOrAfter
         description: >
-          Begränsa urvalet till barnomsorgsschema som är aktiva inom det 
+          Begränsa urvalet till vistelseschema som är aktiva inom det 
           intervall som startar på angivet datum.
         in: query
         schema:
@@ -22,7 +22,7 @@ attendanceSchedules:
           format: date
       - name: endDate.onOrBefore
         description: >
-          Begränsa urvalet till barnomsorgsschema som är aktiva inom det 
+          Begränsa urvalet till vistelseschema som är aktiva inom det 
           intervall som avslutas på angivet datum.
         in: query
         schema:
@@ -50,8 +50,8 @@ attendanceSchedules:
 
   post:
     tags:
-      - Barnomsorgsschema
-    summary: Registrera ett nytt barnomsorgsschema.
+      - vistelseschema
+    summary: Registrera ett nytt vistelseschema.
     requestBody:
       required: true
       content:
@@ -76,10 +76,10 @@ attendanceSchedules:
 attendanceSchedulesLookup:
   post:
     tags:
-      - Barnomsorgsschema
-    summary: Hämta många barnomsorgsschema baserat på en lista av ID:n.
+      - vistelseschema
+    summary: Hämta många vistelseschema baserat på en lista av ID:n.
     description: >
-      Hämta många barnomsorgsschema.
+      Hämta många vistelseschema.
     parameters:
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
@@ -101,11 +101,11 @@ attendanceSchedulesLookup:
 attendanceSchedulesById:
   get:
     tags:
-        - Barnomsorgsschema
-    summary: Hämta ett barnomsorgsschema utifrån ID.
+        - vistelseschema
+    summary: Hämta ett vistelseschema utifrån ID.
     parameters:
       - name: id
-        description: Id för barnomsorgsschema att hämta.
+        description: Id för vistelseschema att hämta.
         in: path
         required: true
         schema:
@@ -133,12 +133,12 @@ attendanceSchedulesById:
               $ref: "../AttendanceSchedule.yaml#/Error"
   delete:
     tags:
-        - Barnomsorgsschema
-    summary: Ta bort ett barnomsorgsschema.
+        - vistelseschema
+    summary: Ta bort ett vistelseschema.
     parameters:
       - name: id
         in: path
-        description: ID för barnomsorgsschema som ska tas bort.
+        description: ID för vistelseschema som ska tas bort.
         required: true
         schema:
           type: string
