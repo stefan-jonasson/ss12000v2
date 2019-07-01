@@ -75,13 +75,8 @@ Activity:
         type: object
         title: DutyAssignment
         properties:
-          id:
-            type: string
-            format: uuid
-            description: Identifierare för lärarens anställning (Duty).
-          displayName:
-            type: string
-            description: Lärarens namn.
+          duty:
+            $ref: "common.yaml#/DutyReference"
           startDate:
             type: string
             format: date
