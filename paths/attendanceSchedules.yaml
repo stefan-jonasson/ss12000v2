@@ -1,7 +1,7 @@
 attendanceSchedules: 
   get: 
     tags:
-      - vistelseschema
+      - Vistelseschema
     summary: Returnerar registrerade vistelsescheman.
     parameters:
       - name: placement
@@ -101,7 +101,7 @@ attendanceSchedulesLookup:
 attendanceSchedulesById:
   get:
     tags:
-        - vistelseschema
+        - Vistelseschema
     summary: Hämta ett vistelseschema utifrån ID.
     parameters:
       - name: id
@@ -133,7 +133,7 @@ attendanceSchedulesById:
               $ref: "../AttendanceSchedule.yaml#/Error"
   delete:
     tags:
-        - vistelseschema
+        - Vistelseschema
     summary: Ta bort ett vistelseschema.
     parameters:
       - name: id
