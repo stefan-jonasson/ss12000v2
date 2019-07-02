@@ -28,7 +28,7 @@ tags:
     description: Salar och resurser som kan schemaläggas.
   - name: Närvaro
     description: Information runt en elevs närvaro.
-  - name: Vistelsechema
+  - name: Vistelseschema
     description: Schema för omsorgstider på förskola eller fritidshem.
   - name: Närvarohändelser
     description: In- och utpassering. Används för närvarohantering i förskola och fritidshem (utan kopplingar till kalenderhändelser).

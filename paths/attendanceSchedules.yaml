@@ -50,7 +50,7 @@ attendanceSchedules:
 
   post:
     tags:
-      - vistelseschema
+      - Vistelseschema
     summary: Registrera ett nytt vistelseschema.
     requestBody:
       required: true
@@ -76,7 +76,7 @@ attendanceSchedules:
 attendanceSchedulesLookup:
   post:
     tags:
-      - vistelseschema
+      - Vistelseschema
     summary: Hämta många vistelseschema baserat på en lista av ID:n.
     description: >
       Hämta många vistelseschema.
