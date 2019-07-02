@@ -73,7 +73,13 @@ SyllabusReference:
     - $ref: "#/ObjectReference"
     - title: SyllabusReference
       description: Referens till en Syllabus
- 
+
+DutyReference:
+  allOf:
+    - $ref: "#/ObjectReference"
+    - title: DutyReference
+      description: Referens till en Duty
+
 CalendarEventReference:
   allOf:
     - $ref: "#/ObjectReference"
