@@ -1,8 +1,8 @@
-childCareSchedules: 
+attendanceSchedules: 
   get: 
     tags:
-      - Barnomsorgsschema
-    summary: Returnerar registrerade barnomsorgsschema.
+      - Vistelseschema
+    summary: Returnerar registrerade vistelsescheman.
     parameters:
       - name: placement
         description: Begränsa urvalet till scheman för utpekade placeringar.
@@ -14,7 +14,7 @@ childCareSchedules:
             format: uuid
       - name: startDate.onOrAfter
         description: >
-          Begränsa urvalet till barnomsorgsschema som är aktiva inom det 
+          Begränsa urvalet till vistelseschema som är aktiva inom det 
           intervall som startar på angivet datum.
         in: query
         schema:
@@ -22,7 +22,7 @@ childCareSchedules:
           format: date
       - name: endDate.onOrBefore
         description: >
-          Begränsa urvalet till barnomsorgsschema som är aktiva inom det 
+          Begränsa urvalet till vistelseschema som är aktiva inom det 
           intervall som avslutas på angivet datum.
         in: query
         schema:
@@ -41,7 +41,7 @@ childCareSchedules:
         content:
           application/json:
             schema:
-                $ref: "../ChildCareSchedule.yaml#/ChildCareSchedules"
+                $ref: "../AttendanceSchedule.yaml#/AttendanceSchedules"
       400:
         description: >
           Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`, `meta.created.after`, `meta.created.before`
@@ -50,14 +50,14 @@ childCareSchedules:
 
   post:
     tags:
-      - Barnomsorgsschema
-    summary: Registrera ett nytt barnomsorgsschema.
+      - vistelseschema
+    summary: Registrera ett nytt vistelseschema.
     requestBody:
       required: true
       content:
         application/json:
           schema:
-            $ref: "../ChildCareSchedule.yaml#/CreateChildCareSchedule"
+            $ref: "../AttendanceSchedule.yaml#/CreateAttendanceSchedule"
          
     responses:
       "200":
@@ -65,21 +65,21 @@ childCareSchedules:
         content:
           application/json:
             schema:
-              $ref: "../ChildCareSchedule.yaml#/ChildCareSchedule"
+              $ref: "../AttendanceSchedule.yaml#/AttendanceSchedule"
       default:
         description: unexpected error
         content:
           application/json:
             schema:
-              $ref: "../ChildCareSchedule.yaml#/Error"
+              $ref: "../AttendanceSchedule.yaml#/Error"
 
-childCareSchedulesLookup:
+attendanceSchedulesLookup:
   post:
     tags:
-      - Barnomsorgsschema
-    summary: Hämta många barnomsorgsschema baserat på en lista av ID:n.
+      - vistelseschema
+    summary: Hämta många vistelseschema baserat på en lista av ID:n.
     description: >
-      Hämta många barnomsorgsschema.
+      Hämta många vistelseschema.
     parameters:
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
@@ -98,14 +98,14 @@ childCareSchedulesLookup:
             $ref : "../common.yaml#/components/schemas/IdLookup"
       required: true
 
-childCareSchedulesById:
+attendanceSchedulesById:
   get:
     tags:
-        - Barnomsorgsschema
-    summary: Hämta ett barnomsorgsschema utifrån ID.
+        - Vistelseschema
+    summary: Hämta ett vistelseschema utifrån ID.
     parameters:
       - name: id
-        description: Id för barnomsorgsschema att hämta.
+        description: Id för vistelseschema att hämta.
         in: path
         required: true
         schema:
@@ -118,7 +118,7 @@ childCareSchedulesById:
         content:
           application/json:
             schema:
-              $ref: "../ChildCareSchedule.yaml#/ChildCareSchedule"
+              $ref: "../AttendanceSchedule.yaml#/AttendanceSchedule"
       "400":
         description: Felaktigt id.
       "403":
@@ -130,15 +130,15 @@ childCareSchedulesById:
         content:
           application/json:
             schema:
-              $ref: "../ChildCareSchedule.yaml#/Error"
+              $ref: "../AttendanceSchedule.yaml#/Error"
   delete:
     tags:
-        - Barnomsorgsschema
-    summary: Ta bort ett barnomsorgsschema.
+        - Vistelseschema
+    summary: Ta bort ett vistelseschema.
     parameters:
       - name: id
         in: path
-        description: ID för barnomsorgsschema som ska tas bort.
+        description: ID för vistelseschema som ska tas bort.
         required: true
         schema:
           type: string

@@ -57,7 +57,7 @@ DeletedEntity:
                 items:
                   type: string
                   format: uuid
-              ChildCareSchedule:
+              AttendanceSchedule:
                 type: array
                 items:
                   type: string

@@ -106,7 +106,7 @@ components:
         - Activity
         - AttendanceEvent
         - CalendarEvent
-        - ChildCareSchedule
+        - AttendanceSchedule
         - Duty
         - Grade
         - Organisation
