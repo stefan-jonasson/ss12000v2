@@ -48,11 +48,11 @@ CalendarEvent:
           startTime:
             type: string
             format: date-time
-            description: Starttid för undantaget (ISO8601 format tex "2015-12-12T10:30:00").
+            description: Starttid för undantaget (RFC 3339 format tex "2015-12-12T10:30:00+01:00").
           endTime:
             type: string
             format: date-time
-            description: Sluttid för undantaget (ISO8601 format tex "2015-12-12T11:00:00").
+            description: Sluttid för undantaget (RFC 3339 format tex "2015-12-12T11:00:00+01:00").
           teachingLength:
             type: integer
             description: Undervisningstid i minuter för eleven. Om den ej anges så gäller det som är angivet i, i första hand, CalendarEvent, och annars i Activity.
