@@ -51,7 +51,9 @@ Person:
                 format: email
               type:
                 type: string
-                description: Anger för vilket syfte användaridentifieraren har skapats, kan ange en roll eller ett utpekat system.
+                description: >
+                  Anger för vilket syfte användaridentifieraren har skapats,
+                  kan ange en roll eller ett utpekat system.
                 title: Code_EduPersonPrincipalType
                 enum:
                   - Pedagogisk personal
@@ -93,7 +95,9 @@ Person:
           default: false
         personStatus:
           type: string
-          description: Anger ifall en person har en aktiv status eller en annan status, såsom utvandrad eller avliden.
+          description: >
+            Anger ifall en person har en aktiv status eller en annan status,
+            såsom utvandrad eller avliden.
           title: Code_PersonStatus
           enum:
             - Aktiv
@@ -179,7 +183,9 @@ Person:
         photo:
           type: string
           format: uri
-          description: Pekar ut en resurs med en bild på personen, specificeras som en URI enligt rfc3986.
+          description: >
+            Pekar ut en resurs med en bild på personen,
+            specificeras som en URI enligt RFC 3986.
         enrolments:
           type: array
           description: En lista med inskrivningar för personen
@@ -224,10 +230,10 @@ PersonExpanded:
                     type: string
                     format: uuid
                     description: >
-                      Ett objekt ska ha samma överförings-ID mellan samtliga ingående system och
-                      således är det ett enda namespace för de gemensamma ID:na.
-                      Objektidentifikatorn är den nyckel som skall vara persistent
-                      mellan olika processer (enl figur 1).
+                      Ett objekt ska ha samma överförings-ID mellan samtliga
+                      ingående system och således är det ett enda namespace
+                      för de gemensamma ID:na. Objektidentifikatorn är den nyckel
+                      som skall vara persistent mellan olika processer (enl figur 1).
                   relationType:
                     $ref: "common.yaml#/components/schemas/RelationTypesEnum"
             placements:
@@ -268,6 +274,8 @@ PersonsExpanded:
       pageToken:
         type: string
         nullable: true
-        description:  Om värdet är null finns inget mer att hämta på det token som skickades in som query parameter.
+        description: >
+          Om värdet är null finns inget mer att hämta på det token
+          som skickades in som query parameter.
   required:
     - data

@@ -6,7 +6,7 @@ schoolUnits:
     parameters:
       - name: organisation
         description: > 
-                  Begränsa urvalet till de skolenheter som hör till det angivna Organisations Id.
+          Begränsa urvalet till de skolenheter som hör till det angivna Organisations Id.
         in: query
         schema:
           type: string
@@ -67,8 +67,10 @@ schoolUnits:
               $ref: "../SchoolUnit.yaml#/SchoolUnits"
       400:
         description: >
-          Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`, `meta.created.after`, `meta.created.before`
-          ,   `expand`, `organisation`,`municipalityCode`, `schoolTypes`,`startDate.onOrAfter`, `endDate.onOrBefore`) kan inte kombineras med `pageToken`
+          Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`,
+          `meta.created.after`, `meta.created.before`, `expand`, `organisation`,
+          `municipalityCode`, `schoolTypes`,`startDate.onOrAfter`,
+          `endDate.onOrBefore`). Kan inte kombineras med `pageToken`.
 
 schoolUnitsLookup:
   post:

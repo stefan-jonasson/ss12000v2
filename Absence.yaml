@@ -2,7 +2,10 @@ AbsenceFragment:
   title: Absence
   type: object
   description: >
-   Absence ska användas för att beskriva anmäld frånvaro för en elev. Den anmälda frånvaron kan avse en av skolan beviljad ledighet eller en frånvaro av annan art som anmäls av eleven själv eller elevens vårdnadshavare.
+    Absence ska användas för att beskriva anmäld frånvaro för en elev.
+    Den anmälda frånvaron kan avse en av skolan beviljad ledighet
+    eller en frånvaro av annan art som anmäls av eleven själv
+    eller elevens vårdnadshavare.
   properties:
     startTime:
       type: string
@@ -14,7 +17,8 @@ AbsenceFragment:
       description: Sluttid för den anmälda frånvaron.
     type:
       allOf:
-        - description: Anger om det rör beviljad ledighet eller frånvaro anmäld av vårdnadshavare.
+        - description: >
+            Anger om det rör beviljad ledighet eller frånvaro anmäld av vårdnadshavare.
         - $ref: "common.yaml#/components/schemas/AbsenceEnum"
     student:
       allOf:
@@ -27,7 +31,7 @@ AbsenceFragment:
     registeredBy:
       allOf:
         - $ref: "common.yaml#/PersonReference"
-        - description: |
+        - description: >
             Referens till den person som registrerat den anmälda frånvaron.
   required:
     - startTime
@@ -66,7 +70,9 @@ Absences:
       pageToken:
         type: string
         nullable: true
-        description:  Om värdet är null finns inget mer att hämta på det token som skickades in som query parameter.
+        description: >
+          Om värdet är null finns inget mer att hämta på det token som skickades in
+          som query parameter.
   required:
     - data
 

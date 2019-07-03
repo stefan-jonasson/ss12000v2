@@ -1,7 +1,9 @@
 SchoolUnitOffering:
   type: object
   title: SchoolUnitOffering
-  description: Används för att beskriva vilka program, ämnen och kurser en skolenhet erbjuder under ett visst tidsintervall. 
+  description: >
+    Används för att beskriva vilka program, ämnen och kurser en skolenhet erbjuder
+    under ett visst tidsintervall. 
   properties:
     startDate:
       type: string
@@ -25,7 +27,9 @@ SchoolUnitOffering:
       items: 
         allOf:
           - $ref: "common.yaml#/SyllabusReference"
-          - description: Identifierare för kursplaner (Syllabus), innehåller alla ämnen/kurser, även de som också beskrivs genom offeredProgrammes.
+          - description: >
+              Identifierare för kursplaner (Syllabus), innehåller alla ämnen/kurser,
+              även de som också beskrivs genom offeredProgrammes.
     offeredProgrammes:
       type: array
       items:
@@ -51,6 +55,8 @@ SchoolUnitOfferings:
       pageToken:
         type: string
         nullable: true
-        description:  Om värdet är null finns inget mer att hämta på det token som skickades in som query parameter.
+        description: >
+          Om värdet är null finns inget mer att hämta på det token
+          som skickades in som query parameter.
   required:
     - data

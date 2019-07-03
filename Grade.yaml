@@ -37,14 +37,17 @@ Grade:
       description: Anger vilket betyg eleven har tilldelats.
     finalGrade:
       type: boolean
-      description: Anger om det registrerade betyget är ett slutbetyg för ämnet eller kursen.
+      description: >
+        Anger om det registrerade betyget är ett slutbetyg för ämnet eller kursen.
     trial:
       type: boolean
       default: false
       description: Anger om betyget satts vid en prövning. Förvalt värde är "false".
     adaptedStudyPlan:
       type: string
-      description: Om en specialinriktad ämnesplan (GY) eller anpassad studiegång (GR) har använts för kursen så beskrivs här på vilket sätt studiegången anpassats.
+      description: >
+        Om en specialinriktad ämnesplan (GY) eller anpassad studiegång (GR)
+        har använts för kursen så beskrivs här på vilket sätt studiegången anpassats.
     remark:
       type: string
       description: Andra anmärkningar för betygsraden.
@@ -117,6 +120,8 @@ Grades:
       pageToken:
         type: string
         nullable: true
-        description:  Om värdet är null finns inget mer att hämta på det token som skickades in som query parameter.
+        description: >
+          Om värdet är null finns inget mer att hämta på det token
+          som skickades in som query parameter.
  required:
     - data

@@ -31,7 +31,9 @@ tags:
   - name: Vistelseschema
     description: Schema för omsorgstider på förskola eller fritidshem.
   - name: Närvarohändelser
-    description: In- och utpassering. Används för närvarohantering i förskola och fritidshem (utan kopplingar till kalenderhändelser).
+    description: >
+      In- och utpassering. Används för närvarohantering i förskola och fritidshem
+      (utan kopplingar till kalenderhändelser).
   - name: Verktyg
     description: Metoder för att hantera metadata.
   - name: Prenumeration

@@ -20,8 +20,9 @@ attendances:
               $ref: "../Attendance.yaml#/Attendances"
       400:
         description: >
-          Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`, `meta.created.after`, `meta.created.before`
-          ,   `expand`) kan inte kombineras med `pageToken`
+          Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`,
+          `meta.created.after`, `meta.created.before`, `expand`).
+          Kan inte kombineras med `pageToken`.
 
   post:
     tags:
@@ -52,7 +53,9 @@ attendancesLookup:
   post:
     tags:
       - Närvaro
-    summary: Hämta närvaro baserat på en lista av ID:n eller av Id från aktiviteter eller av Id från elever.
+    summary: >
+      Hämta närvaro baserat på en lista av ID:n eller av Id från aktiviteter
+      eller av Id från elever.
     description: >
       Hämta många närvaro.
     parameters:

@@ -21,13 +21,21 @@ CalendarEvent:
       description: Kalenderhändelsens sluttid med datum och tid.
     cancelled:
       type: boolean
-      description: Inställd används för att ange att en planerad kalenderhändelse inte ska äga rum till följd av en avbokning eller annan tillfällig avvikelse. Förvalt värde är False. 
+      description: >
+        Inställd används för att ange att en planerad kalenderhändelse
+        inte ska äga rum till följd av en avbokning eller annan
+        tillfällig avvikelse. Förvalt värde är False.
     teachingLengthTeacher:
       type: integer
-      description: Faktisk undervisningstid för lärare anges i minuter. Lärartiden kan vara kortare eller längre än tiden för kalenderhändelsen.
+      description: >
+        Faktisk undervisningstid för lärare anges i minuter.
+        Lärartiden kan vara kortare eller längre än tiden för kalenderhändelsen.
     teachingLengthStudent:
       type: integer
-      description: Faktisk undervisningstid för elever (och elever ingående i grupper) anges i minuter. Tiden kan vara kortare eller längre än tiden för kalenderhändelsen, till exempel då en rast ingår i tiden. 
+      description: >
+        Faktisk undervisningstid för elever (och elever ingående i grupper).
+        Anges i minuter. Tiden kan vara kortare eller längre än tiden för
+        kalenderhändelsen, till exempel då en rast ingår i tiden.
     comment:
       type: string
       description: En text med kompletterande information.
@@ -35,27 +43,34 @@ CalendarEvent:
       type: array
       items:
         type: object
-        title: StudentException 
-        description: Anger avvikelser beträffande elevs deltagande, tid och längd för ett enstaka kalendertillfälle.            
+        title: StudentException
+        description: >
+          Anger avvikelser beträffande elevs deltagande,
+          tid och längd för ett enstaka kalendertillfälle.
         properties:
           student:
             type: string
             format: uuid
-            description: Referens till en person  
+            description: Referens till en person
           participates:
             type: boolean
-            description: Används för att ange om en elev deltar på ett visst kalendertillfälle.
+            description: >
+              Används för att ange om en elev deltar på ett visst kalendertillfälle.
           startTime:
             type: string
             format: date-time
-            description: Starttid för undantaget (RFC 3339 format tex "2015-12-12T10:30:00+01:00").
+            description: >
+              Starttid för undantaget (RFC 3339 format tex "2015-12-12T10:30:00+01:00").
           endTime:
             type: string
             format: date-time
-            description: Sluttid för undantaget (RFC 3339 format tex "2015-12-12T11:00:00+01:00").
+            description: >
+              Sluttid för undantaget (RFC 3339 format tex "2015-12-12T11:00:00+01:00").
           teachingLength:
             type: integer
-            description: Undervisningstid i minuter för eleven. Om den ej anges så gäller det som är angivet i, i första hand, CalendarEvent, och annars i Activity.
+            description: >
+              Undervisningstid i minuter för eleven. Om den ej anges så gäller det
+              som är angivet i, i första hand, CalendarEvent, och annars i Activity.
         required:
           - student
           - participates
@@ -63,8 +78,10 @@ CalendarEvent:
       type: array
       items:
         type: object
-        title: TeacherException 
-        description: Anger avvikelser beträffande lärares ansvar, tid och längd för ett enstaka kalendertillfälle.
+        title: TeacherException
+        description: >
+          Anger avvikelser beträffande lärares ansvar, tid och längd
+          för ett enstaka kalendertillfälle.
         properties:
           duty:
             type: string
@@ -72,7 +89,8 @@ CalendarEvent:
             description: Anger vilken anställning (Duty) undantaget avser.
           participates:
             type: boolean
-            description: Används för att ange om en lärare ska delta på ett visst kalendertillfälle. 
+            description: >
+              Används för att ange om en lärare ska delta på ett visst kalendertillfälle.
           startTime:
             type: string
             format: date-time
@@ -83,7 +101,9 @@ CalendarEvent:
             description: Sluttid för undantaget.
           teachingLength:
             type: integer
-            description: Undervisningstid i minuter för läraren. Om den ej anges så gäller det som är angivet i, i första hand, CalendarEvent, och annars i Activity.
+            description: >
+              Undervisningstid i minuter för läraren. Om den ej anges så gäller det
+              som är angivet i, i första hand, CalendarEvent, och annars i Activity.
         required:
           - duty
           - participates
@@ -133,6 +153,8 @@ CalendarEvents:
       pageToken:
         type: string
         nullable: true
-        description:  Om värdet är null finns inget mer att hämta på det token som skickades in som query parameter.
+        description: >
+          Om värdet är null finns inget mer att hämta på det token
+          som skickades in som query parameter.
  required:
     - data

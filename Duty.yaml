@@ -14,7 +14,8 @@ DutyFragment:
     dutyRole:
       allOf:
         - $ref: "common.yaml#/components/schemas/DutyRole"
-        - description: Syfte med tjänsten, den roll tjänsen avser, till exempel lärare eller rektor.
+        - description: >
+            Syfte med tjänsten, den roll tjänsen avser, till exempel lärare eller rektor.
     signature:
       type: string
       description: En signatur för tjänstgöringen exempelvis NJN, JOAN.
@@ -27,11 +28,15 @@ DutyFragment:
     startDate:
       type: string
       format: date
-      description: Startdatum för personens anställning på en viss skolenhet eller skola (ISO8601 format, t.ex. "2016-10-15")
+      description: >
+        Startdatum för personens anställning på en viss skolenhet eller skola
+        (RFC 3339-format, t.ex. "2016-10-15")
     endDate:
       type: string
       format: date
-      description: Slutdatum för personens anställning på en viss skolenhet eller skola (ISO8601 format, e.g. "2016-10-15").
+      description: >
+        Slutdatum för personens anställning på en viss skolenhet eller skola
+        (RFC 3339-format, e.g. "2016-10-15").
   required:
     - id
     - dutyAt
@@ -86,6 +91,8 @@ Duties:
       pageToken:
         type: string
         nullable: true
-        description: Om värdet är null finns inget mer att hämta på det token som skickades in som query parameter.
+        description: >
+          Om värdet är null finns inget mer att hämta på det token
+          som skickades in som query parameter.
  required:
     - data
