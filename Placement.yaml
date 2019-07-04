@@ -21,7 +21,9 @@ Placement:
         - description: Identifierare av person som placeringen avser.
     owners:
       type: array
-      description: En lista med identifierare för de personer som äger placeringen. Används primärt för att styra vilka som skall kunna se och lägga schema.
+      description: >
+        En lista med identifierare för de personer som äger placeringen.
+        Används primärt för att styra vilka som skall kunna se och lägga schema.
       items:
         $ref: "common.yaml#/PersonReference"        
     schoolType:
@@ -68,7 +70,9 @@ Placements:
       pageToken:
         type: string
         nullable: true
-        description:  Om värdet är null finns inget mer att hämta på det token som skickades in som query parameter.
+        description: >
+          Om värdet är null finns inget mer att hämta på det token
+          som skickades in som query parameter.
   required:
     - data
 

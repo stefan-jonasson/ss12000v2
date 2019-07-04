@@ -8,7 +8,9 @@ Enrolment:
       description: Identifierare för skolenheten där eleven är inskriven.
     schoolYear:
       type: integer
-      description: "Värdet årskurs anger det år efter skolstarten för vilket en student följer undervisningen."
+      description: >
+        Värdet årskurs anger det år efter skolstarten
+        för vilket en student följer undervisningen.
       minimum: 0
       maximum: 10
     schoolType:
@@ -27,10 +29,14 @@ Enrolment:
     programme:
       type: string
       format: uuid
-      description: Identifierare för ett program/inriktining eller yrkesutgång (_Programme_) eleven läser.
+      description: >
+        Identifierare för ett program/inriktining eller yrkesutgång
+        (_Programme_) eleven läser.
     specification:
       type: string
-      description: "Kompletterande information angående innehåll i elevens utbildning, används som avgränsning av ett visst utbildningsalternativ för exempelvis lärlingsutbildning."
+      description: >
+        Kompletterande information angående innehåll i elevens utbildning, används som
+        avgränsning av ett visst utbildningsalternativ för exempelvis lärlingsutbildning.
   required:
     - enroledAt
     - schoolType

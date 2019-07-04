@@ -35,8 +35,9 @@ organisations:
               $ref: "../Organisation.yaml#/Organisations"
       400:
        description: >
-        Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`, `meta.created.after`, `meta.created.before`
-        , `expand`, `parent`, `type`) kan inte kombineras med `pageToken`
+        Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`,
+        `meta.created.after`, `meta.created.before`, `expand`, `parent`, `type`).
+        Kan inte kombineras med `pageToken`.
 
 organisationsLookup:
   post:

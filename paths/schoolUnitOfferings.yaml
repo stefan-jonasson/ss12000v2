@@ -36,8 +36,9 @@ schoolUnitOfferings:
               $ref: "../SchoolUnitOffering.yaml#/SchoolUnitOfferings"
       400:
         description: >
-          Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`, `meta.created.after`, 
-          `meta.created.before`, `offeredAt`) kan inte kombineras med `pageToken`
+          Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`,
+          `meta.created.after`, `meta.created.before`, `offeredAt`).
+          Kan inte kombineras med `pageToken`.
 
 
 schoolUnitOfferingsLookup:

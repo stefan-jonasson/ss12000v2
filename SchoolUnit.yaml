@@ -68,6 +68,8 @@ SchoolUnits:
       pageToken:
         type: string
         nullable: true
-        description:  Om värdet är null finns inget mer att hämta på det token som skickades in som query parameter.
+        description: >
+          Om värdet är null finns inget mer att hämta på det token
+          som skickades in som query parameter.
  required:
     - data

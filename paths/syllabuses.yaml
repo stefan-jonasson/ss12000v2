@@ -39,8 +39,9 @@ syllabuses:
               $ref: "../Syllabus.yaml#/Syllabuses"
       400:
          description: >
-          Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`, `meta.created.after`, `meta.created.before`
-          , `expand`) kan inte kombineras med `pageToken`
+          Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`,
+          `meta.created.after`, `meta.created.before`, `expand`).
+          Kan inte kombineras med `pageToken`.
 
 
 syllabusesLookup:

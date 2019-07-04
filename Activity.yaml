@@ -41,18 +41,26 @@ Activity:
         - Övrigt
       description: |
         Beskriver vilken typ av aktivitet som avses.
-        - Undervisning
+
+        - _Undervisning_
 
             Schemalagd tid med koppling till timplan, som ska närvarorapporteras.
-        - Elevaktivitet
 
-            Schemalagd tid för elever som inte är undervisning enligt timplan, och som ska närvarorapporteras, exempelvis mentorstid, klassråd eller friluftsdag
-        - Läraraktivitet
+        - _Elevaktivitet_
 
-            Tid för lärare som inte är undervisning och som ingår i lärarens arbetstid, kan vara schemalagd, men ska inte närvarorapporteras, exempelvis konferenstid.
-        - Övrigt
+            Schemalagd tid för elever som inte är undervisning enligt timplan,
+            och som ska närvarorapporteras, exempelvis mentorstid, klassråd
+            eller friluftsdag
 
-            Läxhjälp, lunch, bokning och annat som finns på schemat, men inte är undervisning och inte ska närvarorapporteras`
+        - _Läraraktivitet_
+
+            Tid för lärare som inte är undervisning och som ingår i lärarens arbetstid,
+            kan vara schemalagd, men ska inte närvarorapporteras, exempelvis konferenstid.
+
+        - _Övrigt_
+
+            Läxhjälp, lunch, bokning och annat som finns på schemat,
+            men inte är undervisning och inte ska närvarorapporteras`
 
     comment:
       type: string
@@ -80,11 +88,15 @@ Activity:
           startDate:
             type: string
             format: date
-            description: Datum för när lärarens deltagande i aktiviteten startar.
+            description: >
+              Datum för när lärarens deltagande i aktiviteten startar
+              (RFC 3339-format, t.ex. "2016-10-15").
           endDate:
             type: string
             format: date
-            description: Datum för när lärarens deltagande i aktiviteten slutar.
+            description: >
+              Datum för när lärarens deltagande i aktiviteten slutar
+              (RFC 3339-format, t.ex. "2016-10-15").
           minutesPlanned:
             type: integer
             description: Det antal minuter läraren är kopplad till aktiviteten
@@ -103,7 +115,9 @@ Activity:
     parentActivity:
       allOf: 
        - $ref: "common.yaml#/ActivityReference"
-       - description: Möjlighet att koppla aktiviteten till en eller flera ursprungliga “föräldraaktiviteter”.
+       - description: >
+          Möjlighet att koppla aktiviteten till en eller flera
+          ursprungliga “föräldraaktiviteter”.
 
   required:
     - id
@@ -130,6 +144,8 @@ Activities:
       pageToken:
         type: string
         nullable: true
-        description:  Om värdet är null finns inget mer att hämta på det token som skickades in som query parameter.
+        description: >
+          Om värdet är null finns inget mer att hämta på det token
+          som skickades in som query parameter.
   required:
     - data

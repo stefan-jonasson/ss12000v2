@@ -23,8 +23,8 @@ studentGroups:
             $ref: "../common.yaml#/components/schemas/SchoolTypesEnum"
       - name: owner
         description: >
-          Begränsa urvalet av studentgrupper till de som vars ansvariga skolenhet är en
-          av de som anges av parametern.
+          Begränsa urvalet av studentgrupper till de som vars ansvariga skolenhet
+          är en av de som anges av parametern.
         in: query
         schema:
           type: array
@@ -77,8 +77,10 @@ studentGroups:
               $ref: "../StudentGroup.yaml#/StudentGroups"
       400:
         description: >
-          Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`, `meta.created.after`, `meta.created.before`
-          ,   `expand`, `studentGroupType`,`schoolTypes`, `owner`,`startDate.onOrAfter`, `endDate.onOrBefore`) kan inte kombineras med `pageToken`
+          Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`,
+          `meta.created.after`, `meta.created.before`, `expand`, `studentGroupType`,
+          `schoolTypes`, `owner`,`startDate.onOrAfter`, `endDate.onOrBefore`).
+          Kan inte kombineras med `pageToken`.
 
 
 studentGroupsLookup:

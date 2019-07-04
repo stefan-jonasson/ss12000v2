@@ -2,11 +2,11 @@ StudentGroup:
   type: object
   title: StudentGroup
   description: >
-    StudentGroup kan innehålla elever eller bara vara en tom "platshållare" utan medlemmar, 
-    som kan populeras vid ett senare tillfälle. 
-    Notera att gruppens koppling till ämnen/kurser och lärare görs via Aktivitet. 
-    Grupper har olika egenskaper baserat på grupptyp. 
-    Individer kan ha olika roller i relation till en viss grupp. Grupper har specifika egenskaper.
+    StudentGroup kan innehålla elever eller bara vara en tom "platshållare" utan
+    medlemmar, som kan populeras vid ett senare tillfälle. Notera att gruppens
+    koppling till ämnen/kurser och lärare görs via Aktivitet. Grupper har olika
+    egenskaper baserat på grupptyp. Individer kan ha olika roller
+    i relation till en viss grupp. Grupper har specifika egenskaper.
   properties:
     id:
       type: string
@@ -110,6 +110,8 @@ StudentGroups:
       pageToken:
         type: string
         nullable: true
-        description:  Om värdet är null finns inget mer att hämta på det token som skickades in som query parameter.
+        description: >
+          Om värdet är null finns inget mer att hämta på det token
+          som skickades in som query parameter.
   required:
     - data

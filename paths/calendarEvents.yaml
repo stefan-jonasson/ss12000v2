@@ -5,14 +5,18 @@ calendarEvents:
     summary: Returnerar kalenderhändelser utifrån en aktivitet eller student.
     parameters:
       - name: startTime
-        description: Hämta kalenderhändelser från och med denna tidpunkt.
+        description: >
+          Hämta kalenderhändelser från och med denna tidpunkt
+          (RFC 3339 format, t.ex. "2016-10-15T09:00:00+02:00").
         in: query
         required: true
         schema:
           type: string
           format: date-time
       - name: endTime
-        description: Hämta kalenderhändelser till och med denna tidpunkt.
+        description: >
+          Hämta kalenderhändelser till och med denna tidpunkt
+          (RFC 3339 format, t.ex. "2016-10-15T11:00:00+02:00").
         in: query
         schema:
           type: string
@@ -61,8 +65,9 @@ calendarEvents:
                 $ref: "../CalendarEvent.yaml#/CalendarEvents"
       400:
         description: >
-          Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`, `meta.created.after`, `meta.created.before`
-          ,   `expand`,`startTime`, `endTime`, `activity`,`student`) kan inte kombineras med `pageToken`
+          Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`,
+          `meta.created.after`, `meta.created.before`, `expand`, `startTime`,
+          `endTime`, `activity`,`student`). Kan inte kombineras med `pageToken`.
 
 
 calendarEventById: 
@@ -96,4 +101,4 @@ ExpandParameter:
     type: array
     items:
       type: string
-      enum: [  activity, attendance ]           
+      enum: [ activity, attendance ]

@@ -26,7 +26,9 @@ CreateAttendance:
       description: Längd i minuter för elevens ogiltiga frånvaro på kalenderhändelsen.
     otherAttendanceMinutes:
       type: integer
-      description: Tid i  minuter för elevens deltagande i annan skolaktivitet, såsom elevråd, i stället för deltagande på kalenderhändelsen.
+      description: >
+        Tid i  minuter för elevens deltagande i annan skolaktivitet,
+        såsom elevråd, i stället för deltagande på kalenderhändelsen.
     absenceReason:
       type: string
       description: Angiven anledning till frånvaro.
@@ -69,7 +71,9 @@ Attendances:
       pageToken:
         type: string
         nullable: true
-        description:  Om värdet är null finns inget mer att hämta på det token som skickades in som query parameter.
+        description: >
+          Om värdet är null finns inget mer att hämta på det token
+          som skickades in som query parameter.
   required:
     - data
 

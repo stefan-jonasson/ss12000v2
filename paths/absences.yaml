@@ -69,8 +69,9 @@ absences:
               $ref: "../Absence.yaml#/Absences"
       400:
         description: >
-          Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`, `meta.created.after`, `meta.created.before`
-          ,   `expand`,`schoolUnit`, `student`,`registeredBy`,`type`, `startTime.before`, `startTime.after`) kan inte kombineras med `pageToken`
+          Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`, `meta.created.after`,
+          `meta.created.before`,   `expand`,`schoolUnit`, `student`,`registeredBy`,`type`,
+          `startTime.before`, `startTime.after`) kan inte kombineras med `pageToken`
 
   post:
     tags:

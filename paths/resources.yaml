@@ -27,8 +27,9 @@ resources:
               $ref: "../Resource.yaml#/Resources"
       400:
         description: >
-          Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`, `meta.created.after`, `meta.created.before`
-          ,   `expand`, `owner`) kan inte kombineras med `pageToken`
+          Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`,
+          `meta.created.after`, `meta.created.before`, `expand`, `owner`).
+          Kan inte kombineras med `pageToken`.
 
 resourcesLookup:
   post:

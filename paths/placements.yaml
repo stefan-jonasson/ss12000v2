@@ -48,8 +48,9 @@ placements:
           format: uuid
       - name: owner
         description: >
-          Begränsa urvalet till placeringar med denna ägare. Detta kan kombineras med startDate.onOrAfter
-          och endDate.onOrBefore för att begränsa till aktiva placeringar.
+          Begränsa urvalet till placeringar med denna ägare. Detta kan kombineras med
+          startDate.onOrAfter och endDate.onOrBefore för att begränsa till aktiva
+          placeringar.
         in: query
         schema:
           type: string
@@ -86,15 +87,18 @@ placements:
               $ref: "../Placement.yaml#/Placements"
       400:
        description: >
-        Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`, `meta.created.after`, `meta.created.before`
-         `expand`, `schoolUnit`, `startDate.onOrAfter`,`endDate.onOrBefore`) kan inte kombineras med `pageToken`
+        Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`,
+        `meta.created.after`, `meta.created.before`, `expand`, `schoolUnit`,
+        `startDate.onOrAfter`,`endDate.onOrBefore`).
+        Kan inte kombineras med `pageToken`.
 
 
 placementsLookup:
   post:
     tags:
       - Person
-    summary: Hämta många placeringar baserat på en lista av ID:n eller av Id från personer.
+    summary: >
+      Hämta många placeringar baserat på en lista av ID:n eller av Id från personer.
     description: >
       Hämta många placeringar.
     parameters:

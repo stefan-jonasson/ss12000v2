@@ -29,13 +29,17 @@ grades:
           type: string
           format: uuid
       - name: registeredDate.onOrAfter
-        description: Begränsa urvalet av betyg till de som är registerade inom det intervall som startar på angivet datum.
+        description: >
+          Begränsa urvalet av betyg till de som är registerade inom det intervall
+          som startar på angivet datum.
         in: query
         schema:
           type: string
           format: date
       - name: registeredDate.onOrBefore
-        description: Begränsa urvalet av betyg till de som är registerade inom det intervall som slutar på angivet datum.
+        description: >
+          Begränsa urvalet av betyg till de som är registerade inom det intervall
+          som slutar på angivet datum.
         in: query
         schema:
           type: string
@@ -67,8 +71,10 @@ grades:
               $ref: "../Grade.yaml#/Grades"
       400:
         description: >
-          Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`, `meta.created.after`, `meta.created.before`
-          ,`expand`, `schoolUnit`,`student`, `registeredBy`,`gradingTeacher`,`registeredDate.onOrAfter`, `registeredDate.onOrBefore`) kan inte kombineras med `pageToken`
+          Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`,
+          `meta.created.after`, `meta.created.before`, `expand`, `schoolUnit`,
+          `student`, `registeredBy`,`gradingTeacher`,`registeredDate.onOrAfter`,
+          `registeredDate.onOrBefore`). Kan inte kombineras med `pageToken`.
 
 gradesLookup:
   post:

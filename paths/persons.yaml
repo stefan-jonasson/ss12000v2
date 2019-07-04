@@ -56,7 +56,8 @@ persons:
           type: string
           format: date
       - name: dutySchoolUnit
-        description: Begränsa urvalet till de tjänstgöringar som är kopplade till en skolenhet.
+        description: >
+          Begränsa urvalet till de tjänstgöringar som är kopplade till en skolenhet.
         in: query
         schema:
           type: string
@@ -92,9 +93,12 @@ persons:
               $ref: "../Person.yaml#/PersonsExpanded"
       400:
        description: >
-        Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`, `meta.created.after`, `meta.created.before`
-        `enrolment.schoolUnit`, `enrolment.startDate.onOrAfter`,`enrolment.endDate.onOrBefore`,`placement.schoolUnit`,
-        `placement.startDate.onOrAfter`, `placement.endDate.onOrBefore`,`dutySchoolUnit`, `expand`) kan inte kombineras med `pageToken`
+        Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`,
+        `meta.created.after`, `meta.created.before`, `enrolment.schoolUnit`,
+        `enrolment.startDate.onOrAfter`, `enrolment.endDate.onOrBefore`,
+        `placement.schoolUnit`, `placement.startDate.onOrAfter`,
+        `placement.endDate.onOrBefore`,`dutySchoolUnit`, `expand`).
+        Kan inte kombineras med `pageToken`.
 
 personsLookup:
   post:
