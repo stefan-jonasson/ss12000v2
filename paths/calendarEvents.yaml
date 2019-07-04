@@ -5,14 +5,14 @@ calendarEvents:
     summary: Returnerar kalenderhändelser utifrån en aktivitet eller student.
     parameters:
       - name: startTime
-        description: Hämta kalenderhändelser från och med denna tidpunkt (ISO8601 format, t.ex. "2016-10-15T09:00:00")
+        description: Hämta kalenderhändelser från och med denna tidpunkt.
         in: query
         required: true
         schema:
           type: string
           format: date-time
       - name: endTime
-        description: Hämta kalenderhändelser till och med denna tidpunkt (ISO8601 format, t.ex. "2016-10-15T11:00:00")
+        description: Hämta kalenderhändelser till och med denna tidpunkt.
         in: query
         schema:
           type: string
@@ -40,7 +40,16 @@ calendarEvents:
       - $ref: "searchParameters.yaml#/SearchModifiedAfter"
       - $ref: "#/ExpandParameter"   
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"  
-     
+      - name: sortkey
+        description: Anger hur resultatet ska sorteras.
+        in: query
+        schema:
+          type: string
+          enum:
+            - LastModifiedDesc
+            - StartTimeAsc
+            - StartTimeDesc
+          default: LastModifiedDesc
       - $ref: "searchParameters.yaml#/Limit"
       - $ref: "searchParameters.yaml#/PageToken"
     responses:

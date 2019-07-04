@@ -44,10 +44,8 @@ Sortkey:
   schema:
     type: string
     enum:
-      - DisplayName
+      - DisplayNameAsc
       - LastModifiedDesc
-      - StartTimeAsc
-      - StartTimeDesc
     default: LastModifiedDesc
 
 Offset:

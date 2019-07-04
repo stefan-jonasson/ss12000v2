@@ -67,9 +67,10 @@ placements:
         schema:
           type: string
           enum:
-            - SchoolType
-            - StartDateDesc
             - StartDateAsc 
+            - StartDateDesc
+            - EndDateAsc 
+            - EndDateDesc
             - LastModifiedDesc
           default: LastModifiedDesc
 

@@ -36,12 +36,12 @@ studyPlans:
         schema:
           type: string
           enum:
-            - LastUpdateDesc
+            - LastModifiedDesc
             - StartDateAsc
             - StartDateDesc
             - EndDateAsc
             - EndDateDesc
-          default: LastUpdateDesc
+          default: LastModifiedDesc
     
       - $ref: "searchParameters.yaml#/Limit"
       - $ref: "searchParameters.yaml#/PageToken"

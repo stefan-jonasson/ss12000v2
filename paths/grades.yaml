@@ -51,7 +51,8 @@ grades:
         schema:
           type: string
           enum:
-            - Student
+            - registeredDateAsc
+            - registeredDateDesc
             - LastModifiedDesc
           default: LastModifiedDesc
    

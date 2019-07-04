@@ -73,7 +73,7 @@ persons:
         schema:
           type: string
           enum:
-            - DisplayName
+            - DisplayNameAsc
             - GivenNameDesc
             - GivenNameAsc
             - FamilyNameDesc
