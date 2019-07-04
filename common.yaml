@@ -22,9 +22,11 @@ Meta:
     created:
       type: string
       format: date-time
-    lastModified:
+      description: Datum och tid för när entiteten skapades (RFC 3339 format tex "2015-12-12T10:30:00+01:00").
+    modified:
       type: string
       format: date-time
+      description: Datum och tid för när entiteten senast uppdaterades (RFC 3339 format tex "2015-12-12T10:30:00+01:00").
 
 SchoolUnitReference:
   allOf:
