@@ -9,13 +9,15 @@ SchoolUnitOffering:
       type: string
       format: date
       description: >
-        Startdatum för när uppsättningen av program/kurser erbjuds vid skolan.
+        Startdatum för när uppsättningen av program/kurser erbjuds vid skolan. 
+        (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
     endDate:
       type: string
       format: date
       description: >
         Slutdatum för när uppsättningen av program/kurser erbjuds vid skolan. 
-        Ett angivet datum innebär att utbudet inte längre är giltigt efter angivet datum.
+        Ett angivet datum innebär att utbudet inte längre är giltigt efter angivet datum. 
+        (RFC 3339-format, t.ex. "2016-10-15").
     offeredAt:
       allOf:
        - $ref: "common.yaml#/SchoolUnitReference"

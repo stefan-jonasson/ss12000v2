@@ -21,12 +21,12 @@ StudentGroup:
       type: string
       format: date
       description: >
-        Startdatum för gruppens giltighetstid.
+        Startdatum för gruppens giltighetstid (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
     endDate:
       type: string
       format: date
       description: >
-        Slutdatum för gruppens giltighetstid.
+        Slutdatum för gruppens giltighetstid (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
     studentGroupType:
       $ref: "common.yaml#/components/schemas/StudentGroupTypesEnum"
 
@@ -52,12 +52,12 @@ StudentGroup:
             properties:
               startDate:
                 description: >
-                  Startdatum för elevens medlemskap i gruppen, från och med.
+                  Startdatum för elevens medlemskap i gruppen (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
                 type: string
                 format: date
               endDate:
                 description: >
-                  Slutdatum för elevens medlemskap i gruppen, till och med.
+                  Slutdatum för elevens medlemskap i gruppen (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
                 type: string
                 format: date
     schoolUnit:
@@ -79,12 +79,12 @@ StudentGroup:
                     $ref:  "common.yaml#/components/schemas/AssignmentRoleTypeEnum"
                   startDate:
                     description: >
-                      Startdatum för tjänstens relation till gruppen.
+                      Startdatum för tjänstens relation till gruppen (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
                     type: string
                     format: date
                   endDate:
                     description: >
-                      Slutdatum för tjänstens relation till gruppen.
+                      Slutdatum för tjänstens relation till gruppen (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
                     type: string
                     format: date
   required:

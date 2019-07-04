@@ -22,12 +22,12 @@ Activity:
     startDate:
       type: string
       format: date
-      description: Datum för när aktiviteten startar.
+      description: Datum för när aktiviteten startar (RFC 3339-format, t.ex. "2016-10-15").
     
     endDate:
       type: string
       format: date
-      description: Datum för när aktiviteten slutar.
+      description: Datum för när aktiviteten slutar (RFC 3339-format, t.ex. "2016-10-15").
 
     activityType:
       type: string

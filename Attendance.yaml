@@ -35,7 +35,7 @@ CreateAttendance:
     reportedTimestamp:
       type: string
       format: date-time
-      description: Tidpunkt för rapportering av kalenderhändelsen.
+      description: Tidpunkt för rapportering av kalenderhändelsen (RFC 3339 format tex "2015-12-12T10:30:00+01:00").
   required:
     - student
     - calendarEvent

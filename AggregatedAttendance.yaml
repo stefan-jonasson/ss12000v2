@@ -11,11 +11,11 @@ AggregatedAttendance:
     startDate:
       type: string
       format: date
-      description: Startdatum för den aggregerade närvaron. Inkluderande.
+      description: Startdatum för den aggregerade närvaron (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
     endDate:
       type: string
       format: date
-      description: Slutdatum för den aggregerade närvaron. Inkluderande.
+      description: Slutdatum för den aggregerade närvaron (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
     attendanceSum:
       type: integer
       description: Summerad tid i minuter för elevens närvaro på kalenderhändelser.

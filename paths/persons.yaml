@@ -16,7 +16,9 @@ persons:
       - name: enrolment.startDate.onOrAfter
         description: >
           Begränsa urvalet av personer till de som har
-          inskrivningar som är aktiva inom det intervall som startar på angivet datum.
+          inskrivningar som är aktiva inom det intervall 
+          som startar på angivet datum (RFC 3339-format,
+          t.ex. "2016-10-15"). Inkluderande.
         in: query
         schema:
           type: string
@@ -24,7 +26,9 @@ persons:
       - name: enrolment.endDate.onOrBefore
         description: >
           Begränsa urvalet av personer till de som har
-          inskrivningar som är aktiva inom det intervall som avslutas på angivet datum.
+          inskrivningar som är aktiva inom det intervall 
+          som avslutas på angivet datum (RFC 3339-format,
+          t.ex. "2016-10-15"). Inkluderande.
         in: query
         schema:
           type: string
@@ -42,7 +46,9 @@ persons:
       - name: placement.startDate.onOrAfter
         description: >
           Begränsa urvalet av personer till de som har
-          placeringar som är aktiva inom det intervall som startar på angivet datum.
+          placeringar som är aktiva inom det intervall 
+          som startar på angivet datum (RFC 3339-format, 
+          t.ex. "2016-10-15"). Inkluderande.
         in: query
         schema:
           type: string
@@ -50,7 +56,9 @@ persons:
       - name: placement.endDate.onOrBefore
         description: >
           Begränsa urvalet av personer till de som har
-          placeringar som är aktiva inom det intervall som avslutas på angivet datum.
+          placeringar som är aktiva inom det intervall 
+          som avslutas på angivet datum (RFC 3339-format,
+          t.ex. "2016-10-15"). Inkluderande.
         in: query
         schema:
           type: string

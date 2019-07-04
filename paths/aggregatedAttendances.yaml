@@ -12,7 +12,7 @@ get:
       required: true
       schema:
         type: string
-        format: date-time
+        format: date
     - name: endDate
       description: >
         Hämta aggregerad närvaro till och med detta datum
@@ -21,7 +21,7 @@ get:
       required: true
       schema:
         type: string
-        format: date-time
+        format: date
     - name: schoolUnit
       description: Inkludera endast närvaro från aktiviteter vilka ägs av angiven skolenhet.
       in: query

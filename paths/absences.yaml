@@ -31,13 +31,13 @@ absences:
           type: string
           $ref: "../common.yaml#/components/schemas/AbsenceEnum"
       - name: startTime.before
-        description: Endast anmälda frånvaro som startar innan eller på denna tidpunkt (Inkluderande)
+        description: Endast anmälda frånvaro som startar innan eller på denna tidpunkt (RFC 3339 format tex "2015-12-12T10:30:00+01:00"). Inkluderande.
         in: query
         schema:
           type: string
           format: date-time
       - name: startTime.after
-        description: Endast anmälda frånvaro/ledighet som startar efter denna tidpunkt (Exkluderande)
+        description: Endast anmälda frånvaro/ledighet som startar efter denna tidpunkt (RFC 3339 format tex "2015-12-12T10:30:00+01:00"). Exkluderande.
         in: query
         schema:
           type: string
