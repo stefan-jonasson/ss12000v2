@@ -8,14 +8,12 @@ SchoolUnitOffering:
       format: date
       description: >
         Startdatum för när uppsättningen av program/kurser erbjuds vid skolan.
-        Anges i ISO8601 format, exempelvis "2016-10-15".
     endDate:
       type: string
       format: date
       description: >
         Slutdatum för när uppsättningen av program/kurser erbjuds vid skolan. 
         Ett angivet datum innebär att utbudet inte längre är giltigt efter angivet datum.
-        Anges i ISO8601 format, exempelvis "2016-10-15".
     offeredAt:
       allOf:
        - $ref: "common.yaml#/SchoolUnitReference"

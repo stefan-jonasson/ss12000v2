@@ -27,11 +27,11 @@ DutyFragment:
     startDate:
       type: string
       format: date
-      description: Startdatum för personens anställning på en viss skolenhet eller skola (ISO8601 format, t.ex. "2016-10-15")
+      description: Startdatum för personens anställning på en viss skolenhet eller skola
     endDate:
       type: string
       format: date
-      description: Slutdatum för personens anställning på en viss skolenhet eller skola (ISO8601 format, e.g. "2016-10-15").
+      description: Slutdatum för personens anställning på en viss skolenhet eller skola.
   required:
     - id
     - dutyAt

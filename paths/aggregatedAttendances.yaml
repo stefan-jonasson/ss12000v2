@@ -5,34 +5,34 @@ get:
     Returnerar summerad närvaro information utifrån angivet tidsintervall.
   parameters:
     - name: startDate
-      description: Hämta aggregerad närvaro från och med detta datum (ISO8601 format, e.g. "2016-10-15")
+      description: Hämta aggregerad närvaro från och med detta datum.
       in: query
       required: true
       schema:
         type: string
         format: date-time
     - name: endDate
-      description: Hämta aggregerad närvaro till och med detta datum (ISO8601 format, e.g. "2016-10-15")
+      description: Hämta aggregerad närvaro till och med detta datum.
       in: query
       required: true
       schema:
         type: string
         format: date-time
     - name: schoolUnit
-      description: Inkludera endast närvaro från aktiviteter vilka ägs av information kopplad till aktiviteten (Owner, eller inskrivningen??? eller något annat???)
+      description: Inkludera endast närvaro från aktiviteter vilka ägs av angiven skolenhet.
       in: query
       schema:
         type: string
         format: uuid
     - name: schoolType
-      description: Hämta endast närvaro information från aktiviteter vilka är kopplade mot angiven skolform
+      description: Hämta endast närvaro information från aktiviteter vilka är kopplade mot angiven skolform.
       in: query
       schema:
         type: array
         items:
           $ref: "../common.yaml#/components/schemas/SchoolTypesEnum"
     - name: student
-      description: Filtrera på elev (person)
+      description: Filtrera på elev (person).
       in: query
       schema:
         type: array
@@ -40,7 +40,7 @@ get:
           type: string
           format: uuid
     - name: expand
-      description: Beskriver om och vilken expanderade data som returneras i samband med närvaro informationen
+      description: Beskriver om och vilken expanderade data som returneras i samband med närvaro informationen.
       in: query
       schema:
         type: array

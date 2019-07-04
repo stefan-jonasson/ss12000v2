@@ -21,14 +21,12 @@ StudentGroup:
       type: string
       format: date
       description: >
-        Startdatum för gruppens giltighetstid
-        (ISO8601 format, exempelvis "2016-10-15").
+        Startdatum för gruppens giltighetstid.
     endDate:
       type: string
       format: date
       description: >
-        Slutdatum för gruppens giltighetstid
-        (ISO8601 format, exempelvis "2016-10-15").
+        Slutdatum för gruppens giltighetstid.
     studentGroupType:
       $ref: "common.yaml#/components/schemas/StudentGroupTypesEnum"
 

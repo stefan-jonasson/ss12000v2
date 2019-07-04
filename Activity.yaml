@@ -80,11 +80,11 @@ Activity:
           startDate:
             type: string
             format: date
-            description: Datum för när lärarens deltagande i aktiviteten startar (ISO8601 format, t.ex. "2016-10-15").
+            description: Datum för när lärarens deltagande i aktiviteten startar.
           endDate:
             type: string
             format: date
-            description: Datum för när lärarens deltagande i aktiviteten slutar (ISO8601 format, t.ex. "2016-10-15").
+            description: Datum för när lärarens deltagande i aktiviteten slutar.
           minutesPlanned:
             type: integer
             description: Det antal minuter läraren är kopplad till aktiviteten

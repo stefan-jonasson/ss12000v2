@@ -40,14 +40,12 @@ SchoolUnit:
       type: string
       format: date
       description: >
-        Startdatum för skolenhetens giltighetstid,
-        från och med (ISO8601 format, e.g. "1976-01-01")
+        Startdatum för skolenhetens giltighetstid, från och med.
     endDate:
       type: string
       format: date
       description: >
-        Slutdatum för skolenhetens giltighetstid,
-        från och med (ISO8601 format, e.g. "2016-10-15")
+        Slutdatum för skolenhetens giltighetstid, till och med.
   required:
     - id
     - meta
