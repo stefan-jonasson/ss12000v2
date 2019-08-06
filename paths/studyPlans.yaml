@@ -14,7 +14,8 @@ studyPlans:
       - name: startDate.onOrAfter
         description: >
           Begränsa urvalet av studieplaner till de som är aktiva inom det intervall
-          som startar på angivet datum.
+          som startar på angivet datum (RFC 3339-format, t.ex. "2016-10-15"). 
+          Inkluderande.
         in: query
         schema:
           type: string
@@ -22,7 +23,8 @@ studyPlans:
       - name: endDate.onOrBefore
         description: >
           Begränsa urvalet av studieplaner till de som är aktiva inom det intervall
-          som avslutas på angivet datum.
+          som avslutas på angivet datum (RFC 3339-format, t.ex. "2016-10-15"). 
+          Inkluderande.
         in: query
         schema:
           type: string
@@ -38,12 +40,12 @@ studyPlans:
         schema:
           type: string
           enum:
-            - LastUpdateDesc
+            - LastModifiedDesc
             - StartDateAsc
             - StartDateDesc
             - EndDateAsc
             - EndDateDesc
-          default: LastUpdateDesc
+          default: LastModifiedDesc
     
       - $ref: "searchParameters.yaml#/Limit"
       - $ref: "searchParameters.yaml#/PageToken"

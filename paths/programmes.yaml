@@ -33,9 +33,8 @@ programmes:
         schema:
           type: string
           enum:
-            - Name
-            - SchoolType
-            - Code
+            - NameAsc
+            - CodeAsc
             - LastModifiedDesc
           default: LastModifiedDesc
       

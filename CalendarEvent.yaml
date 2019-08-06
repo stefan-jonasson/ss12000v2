@@ -14,11 +14,11 @@ CalendarEvent:
     startTime:
       type: string
       format: date-time
-      description: Kalenderhändelsens starttid med datum och tid.
+      description: Kalenderhändelsens starttid med datum och tid (RFC 3339 format tex "2015-12-12T10:30:00+01:00").
     endTime:
       type: string
       format: date-time
-      description: Kalenderhändelsens sluttid med datum och tid.
+      description: Kalenderhändelsens sluttid med datum och tid (RFC 3339 format tex "2015-12-12T10:30:00+01:00").
     cancelled:
       type: boolean
       description: >
@@ -94,11 +94,11 @@ CalendarEvent:
           startTime:
             type: string
             format: date-time
-            description: Starttid för undantaget.
+            description: Starttid för undantaget (RFC 3339 format tex "2015-12-12T10:30:00+01:00"). 
           endTime:
             type: string
             format: date-time
-            description: Sluttid för undantaget.
+            description: Sluttid för undantaget (RFC 3339 format tex "2015-12-12T10:30:00+01:00").
           teachingLength:
             type: integer
             description: >

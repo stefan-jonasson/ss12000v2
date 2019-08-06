@@ -53,9 +53,11 @@ StudyPlan:
                 startDate:
                   type: string
                   format: date
+                  description: Startdatum när eleven läser kursen (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
                 endDate:
                   type: string
                   format: date
+                  description: Slutdatum för när eleven läser kursen (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
                 hours:
                   type: integer
                   description: >
@@ -85,9 +87,11 @@ StudyPlan:
     startDate:
       type: string
       format: date
+      description: Startdatum för studieplanen (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
     endDate:
       type: string
       format: date
+      description: Slutdatum för studieplanen (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
   required:
     - id
     - student

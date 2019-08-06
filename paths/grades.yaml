@@ -31,7 +31,7 @@ grades:
       - name: registeredDate.onOrAfter
         description: >
           Begränsa urvalet av betyg till de som är registerade inom det intervall
-          som startar på angivet datum.
+          som startar på angivet datum (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
         in: query
         schema:
           type: string
@@ -39,7 +39,7 @@ grades:
       - name: registeredDate.onOrBefore
         description: >
           Begränsa urvalet av betyg till de som är registerade inom det intervall
-          som slutar på angivet datum.
+          som slutar på angivet datum (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
         in: query
         schema:
           type: string
@@ -55,7 +55,8 @@ grades:
         schema:
           type: string
           enum:
-            - Student
+            - registeredDateAsc
+            - registeredDateDesc
             - LastModifiedDesc
           default: LastModifiedDesc
    

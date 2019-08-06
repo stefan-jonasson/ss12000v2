@@ -10,11 +10,11 @@ AbsenceFragment:
     startTime:
       type: string
       format: date-time
-      description: Starttid för den anmälda frånvaron.
+      description: Starttid för den anmälda frånvaron (RFC 3339 format tex "2015-12-12T10:30:00+01:00").
     endTime:
       type: string
       format: date-time
-      description: Sluttid för den anmälda frånvaron.
+      description: Sluttid för den anmälda frånvaron (RFC 3339 format tex "2015-12-12T10:30:00+01:00").
     type:
       allOf:
         - description: >

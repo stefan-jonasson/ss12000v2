@@ -25,7 +25,9 @@ placements:
       - name: startDate.onOrAfter
         description: >
           Begränsa urvalet av placering till de som har
-          placeringar som är aktiva inom det intervall som startar på angivet datum.
+          placeringar som är aktiva inom det intervall 
+          som startar på angivet datum (RFC 3339-format, 
+          t.ex. "2016-10-15"). Inkluderande.
         in: query
         schema:
           type: string
@@ -33,7 +35,9 @@ placements:
       - name: endDate.onOrBefore
         description: >
           Begränsa urvalet av placering till de som har
-          placeringar som är aktiva inom det intervall som avslutas på angivet datum.
+          placeringar som är aktiva inom det intervall 
+          som avslutas på angivet datum (RFC 3339-format, 
+          t.ex. "2016-10-15"). Inkluderande.
         in: query
         schema:
           type: string
@@ -68,9 +72,10 @@ placements:
         schema:
           type: string
           enum:
-            - SchoolType
-            - StartDateDesc
             - StartDateAsc 
+            - StartDateDesc
+            - EndDateAsc 
+            - EndDateDesc
             - LastModifiedDesc
           default: LastModifiedDesc
 

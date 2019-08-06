@@ -37,11 +37,11 @@ Placement:
     startDate:
       type: string
       format: date
-      description: Startdatum för placeringen.
+      description: Startdatum för placeringen (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
     endDate:
       type: string
       format: date
-      description: Slutdatum för placeringen.
+      description: Slutdatum för placeringen (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
     reason:
       type: string
       title: Code_Reason

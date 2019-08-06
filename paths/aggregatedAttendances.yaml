@@ -12,7 +12,7 @@ get:
       required: true
       schema:
         type: string
-        format: date-time
+        format: date
     - name: endDate
       description: >
         Hämta aggregerad närvaro till och med detta datum
@@ -21,26 +21,22 @@ get:
       required: true
       schema:
         type: string
-        format: date-time
+        format: date
     - name: schoolUnit
-      description: >
-        Inkludera endast närvaro från aktiviteter vilka ägs av information
-        kopplad till aktiviteten.
+      description: Inkludera endast närvaro från aktiviteter vilka ägs av angiven skolenhet.
       in: query
       schema:
         type: string
         format: uuid
     - name: schoolType
-      description: >
-        Hämta endast närvaro information från aktiviteter
-        vilka är kopplade mot angiven skolform
+      description: Hämta endast närvaro information från aktiviteter vilka är kopplade mot angiven skolform.
       in: query
       schema:
         type: array
         items:
           $ref: "../common.yaml#/components/schemas/SchoolTypesEnum"
     - name: student
-      description: Filtrera på elev (person)
+      description: Filtrera på elev (person).
       in: query
       schema:
         type: array
