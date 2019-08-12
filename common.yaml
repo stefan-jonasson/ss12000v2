@@ -11,8 +11,8 @@ ObjectReference:
       type: string
       readOnly: true
       description: >
-        Namn för visinigsyfte för det refereade objektet.
-        Skall endast retuneras när query parametern `expandReferenceNames` är satt till sann.
+        Namn för visningsyfte för det refererade objektet.
+        Skall endast returneras när query parametern `expandReferenceNames` är satt till "true".
 
 Meta:
   title: Meta
@@ -44,7 +44,7 @@ OrganisationReference:
   allOf:
     - $ref: "#/ObjectReference"
     - title: OrganisationReference
-      description: Referens till ett Organisations elemet
+      description: Referens till ett organisationselement
 
 ActivityReference:
   allOf:
