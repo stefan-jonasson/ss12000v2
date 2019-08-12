@@ -12,7 +12,7 @@ StudentGroup:
       type: string
       format: uuid
       description: Identifierare för elevgruppen
-    meta: 
+    meta:
       $ref: "common.yaml#/Meta"
     displayName:
       description: Gruppens benämning.
@@ -48,7 +48,7 @@ StudentGroup:
         allOf:
           - $ref: "common.yaml#/PersonReference"
           - type: object
-            title: StudentMembership 
+            title: StudentMembership
             properties:
               startDate:
                 description: >

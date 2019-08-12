@@ -1,5 +1,5 @@
-attendanceSchedules: 
-  get: 
+attendanceSchedules:
+  get:
     tags:
       - Vistelseschema
     summary: Returnerar registrerade vistelsescheman.
@@ -14,15 +14,15 @@ attendanceSchedules:
             format: uuid
       - name: startDate.onOrAfter
         description: >
-          Begränsa urvalet till vistelseschema som är aktiva inom det 
-          intervall som startar på angivet datum (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande. 
+          Begränsa urvalet till vistelseschema som är aktiva inom det
+          intervall som startar på angivet datum (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
         in: query
         schema:
           type: string
           format: date
       - name: endDate.onOrBefore
         description: >
-          Begränsa urvalet till vistelseschema som är aktiva inom det 
+          Begränsa urvalet till vistelseschema som är aktiva inom det
           intervall som avslutas på angivet datum (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
         in: query
         schema:
@@ -59,7 +59,7 @@ attendanceSchedules:
         application/json:
           schema:
             $ref: "../AttendanceSchedule.yaml#/CreateAttendanceSchedule"
-         
+
     responses:
       "200":
         description: Posten skapad.

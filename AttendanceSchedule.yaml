@@ -48,7 +48,7 @@ CreateAttendanceSchedule:
             allOf:
               - $ref: "common.yaml#/PersonReference"
               - description: Referens till den person som registrerat tillståndet.
-        required: 
+        required:
           - state
           - registeredAt
     scheduleEntries:
@@ -81,7 +81,7 @@ CreateAttendanceSchedule:
           length:
             type: integer
             description: Längden på den tid efter starttid som barnet ska vara
-    
+
   required:
     - startDate
     - scheduleDays

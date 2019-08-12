@@ -27,22 +27,22 @@ Programme:
     parentProgramme:
       type: string
       format: uuid
-      description: | 
-        Referens till det program en programinriktning/utgång tillhör. 
-        Anges endast för typerna _Programinriktning_ och _Utgång_. 
-        Program av typen _Utgång_ pekar alltid ett program av typen _Programinriktning_. 
-        Program av typen _Programinriktning_ perkar alltid på ett program typen 
+      description: |
+        Referens till det program en programinriktning/utgång tillhör.
+        Anges endast för typerna _Programinriktning_ och _Utgång_.
+        Program av typen _Utgång_ pekar alltid ett program av typen _Programinriktning_.
+        Program av typen _Programinriktning_ perkar alltid på ett program typen
         _Yrkesprogram_, _Högskoleförberedande program_, _Intruduktionsprogram_,
         _Nationellt yrkespaket_, _Regionalt yrkespaket_ eller _Fjärde tekniskt år_.
         För övriga programtyper skall värdet inte vara definierat.
     schoolType:
-      allOf: 
+      allOf:
        - $ref: "common.yaml#/components/schemas/SchoolTypesEnum"
        - description: Skolform för programmet.
     code:
       type: string
       description: |
-        Program-/inriktningskod(studievägskod).  
+        Program-/inriktningskod(studievägskod).
         För gymnasieskolans program/inriktningar måste denna finnas och vara enligt
         Skolverkets definition.
     content:

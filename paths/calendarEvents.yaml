@@ -1,4 +1,4 @@
-calendarEvents: 
+calendarEvents:
   get:
     tags:
       - Kalenderhändelser
@@ -37,13 +37,13 @@ calendarEvents:
           items:
             type: string
             format: uuid
-    
+
       - $ref: "searchParameters.yaml#/SearchCreatedBefore"
       - $ref: "searchParameters.yaml#/SearchCreatedAfter"
       - $ref: "searchParameters.yaml#/SearchModifiedBefore"
       - $ref: "searchParameters.yaml#/SearchModifiedAfter"
-      - $ref: "#/ExpandParameter"   
-      - $ref: "searchParameters.yaml#/ExpandReferenceNames"  
+      - $ref: "#/ExpandParameter"
+      - $ref: "searchParameters.yaml#/ExpandReferenceNames"
       - name: sortkey
         description: Anger hur resultatet ska sorteras.
         in: query
@@ -70,7 +70,7 @@ calendarEvents:
           `endTime`, `activity`,`student`). Kan inte kombineras med `pageToken`.
 
 
-calendarEventById: 
+calendarEventById:
   get:
     tags:
       - Kalenderhändelser
@@ -83,8 +83,8 @@ calendarEventById:
         schema:
           type: string
           format: uuid
-      - $ref: "#/ExpandParameter"   
-      - $ref: "searchParameters.yaml#/ExpandReferenceNames"  
+      - $ref: "#/ExpandParameter"
+      - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
       "200":
         description: successful operation
@@ -93,7 +93,7 @@ calendarEventById:
             schema:
               $ref: "../CalendarEvent.yaml#/CalendarEvent"
 
-ExpandParameter: 
+ExpandParameter:
   name: expand
   description: Beskriver om expanderade data ska hämtas för aktiviteten.
   in: query

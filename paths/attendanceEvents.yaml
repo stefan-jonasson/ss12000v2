@@ -20,14 +20,14 @@ attendance_events:
           items:
             type: string
             format: uuid
-     
+
       - $ref: "searchParameters.yaml#/SearchCreatedBefore"
       - $ref: "searchParameters.yaml#/SearchCreatedAfter"
       - $ref: "searchParameters.yaml#/SearchModifiedBefore"
       - $ref: "searchParameters.yaml#/SearchModifiedAfter"
       - $ref: "#/ExpandParameter"
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
-    
+
       - $ref: "searchParameters.yaml#/Limit"
       - $ref: "searchParameters.yaml#/PageToken"
     responses:
@@ -126,7 +126,7 @@ attendance_events_by_id:
       "404":
         description: Posten hittades inte.
 
-ExpandParameter: 
+ExpandParameter:
   name: expand
   description: Beskriver om expanderade data ska hämtas för aktiviteten.
   in: query

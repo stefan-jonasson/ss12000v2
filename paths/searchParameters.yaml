@@ -37,7 +37,7 @@ SearchModifiedBefore:
 
 ExpandReferenceNames:
     name: expandReferenceNames
-    description: Returnera `displayName` för alla refererade objekt. 
+    description: Returnera `displayName` för alla refererade objekt.
     in: query
     schema:
       type: boolean

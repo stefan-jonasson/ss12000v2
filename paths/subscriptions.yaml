@@ -6,7 +6,7 @@ subscriptions:
     summary: Hämta en lista av prenumerationer.
     parameters:
       - $ref: "searchParameters.yaml#/Limit"
-      - $ref: "searchParameters.yaml#/PageToken" 
+      - $ref: "searchParameters.yaml#/PageToken"
     responses:
       200:
         description: successful operation

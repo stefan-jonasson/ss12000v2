@@ -107,7 +107,7 @@ Grade:
 GradesArray:
     type: array
     items:
-      $ref: "#/Grade"  
+      $ref: "#/Grade"
 
 
 Grades:

@@ -60,7 +60,7 @@ Person:
                   - Övrig personal
                   - Elev
                   - Vårdnadshavare
-            required: 
+            required:
               - value
         norEduPersonNIN:
           type: object
@@ -193,7 +193,7 @@ Person:
             $ref: "Enrolment.yaml#/Enrolment"
         responsibles:
           type: array
-          description: > 
+          description: >
             Personens vårdnadshavare eller motsvarande relationer så som familjehemsförälder.
             Denna relation beskriver ett officiellt ansvarsförhållande.
           items:
@@ -245,7 +245,7 @@ PersonExpanded:
             ownedPlacements:
               type: array
               description: >
-                En lista med placeringar där personen är satt som ägare. 
+                En lista med placeringar där personen är satt som ägare.
               items:
                 $ref: "Placement.yaml#/Placement"
             duty:

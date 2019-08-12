@@ -16,7 +16,7 @@ persons:
       - name: enrolment.startDate.onOrAfter
         description: >
           Begränsa urvalet av personer till de som har
-          inskrivningar som är aktiva inom det intervall 
+          inskrivningar som är aktiva inom det intervall
           som startar på angivet datum (RFC 3339-format,
           t.ex. "2016-10-15"). Inkluderande.
         in: query
@@ -26,7 +26,7 @@ persons:
       - name: enrolment.endDate.onOrBefore
         description: >
           Begränsa urvalet av personer till de som har
-          inskrivningar som är aktiva inom det intervall 
+          inskrivningar som är aktiva inom det intervall
           som avslutas på angivet datum (RFC 3339-format,
           t.ex. "2016-10-15"). Inkluderande.
         in: query
@@ -46,8 +46,8 @@ persons:
       - name: placement.startDate.onOrAfter
         description: >
           Begränsa urvalet av personer till de som har
-          placeringar som är aktiva inom det intervall 
-          som startar på angivet datum (RFC 3339-format, 
+          placeringar som är aktiva inom det intervall
+          som startar på angivet datum (RFC 3339-format,
           t.ex. "2016-10-15"). Inkluderande.
         in: query
         schema:
@@ -56,7 +56,7 @@ persons:
       - name: placement.endDate.onOrBefore
         description: >
           Begränsa urvalet av personer till de som har
-          placeringar som är aktiva inom det intervall 
+          placeringar som är aktiva inom det intervall
           som avslutas på angivet datum (RFC 3339-format,
           t.ex. "2016-10-15"). Inkluderande.
         in: query
@@ -86,7 +86,7 @@ persons:
             - GivenNameDesc
             - GivenNameAsc
             - FamilyNameDesc
-            - FamilyNameAsc 
+            - FamilyNameAsc
             - NorEduPersonNIN
             - LastModifiedDesc
           default: LastModifiedDesc
@@ -144,7 +144,7 @@ personsLookup:
                   type: string
                   pattern: '^\d{8}[A-Z0-9]{2}\d{2}$'
             example:
-              ids:  
+              ids:
                 - d544563a-747a-42d3-8d37-415a101537fa
               norEduPersonNINs:
                 - "201002037271"
@@ -179,7 +179,7 @@ personsById:
       "404":
         description: Person not found
 
-ExpandParameter:        
+ExpandParameter:
   name: expand
   description: Beskriver om expanderade data ska hämtas
   in: query

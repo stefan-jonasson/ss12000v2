@@ -11,9 +11,9 @@ ObjectReference:
       type: string
       readOnly: true
       description: >
-        Namn för visinigsyfte för det refereade objektet. 
+        Namn för visinigsyfte för det refereade objektet.
         Skall endast retuneras när query parametern `expandReferenceNames` är satt till sann.
-    
+
 Meta:
   title: Meta
   type: object
@@ -166,8 +166,8 @@ components:
       enum:
         - Beviljad ledighet
         - Anmäld frånvaro
-    
-    CurriculumEnum: 
+
+    CurriculumEnum:
       type: string
       title: Code_Curriculum
       enum:
@@ -218,7 +218,7 @@ components:
         - Mentor
         - Schema
         - Övrigt
- 
+
     DutyRole:
       type: string
       title: Code_DutyRole
@@ -251,4 +251,4 @@ components:
           items:
             type: string
             format: uuid
-     
+

@@ -63,7 +63,7 @@ dutiesLookup:
     description: >
       Hämta många tjänstgöringar.
     parameters:
-      - $ref: "#/ExpandParameter" 
+      - $ref: "#/ExpandParameter"
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
       200:
@@ -119,6 +119,6 @@ ExpandParameter:
     type: array
     items:
       type: string
-      enum: 
+      enum:
         - assignedToStudentGroupAs
 

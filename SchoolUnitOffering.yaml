@@ -3,20 +3,20 @@ SchoolUnitOffering:
   title: SchoolUnitOffering
   description: >
     Används för att beskriva vilka program, ämnen och kurser en skolenhet erbjuder
-    under ett visst tidsintervall. 
+    under ett visst tidsintervall.
   properties:
     startDate:
       type: string
       format: date
       description: >
-        Startdatum för när uppsättningen av program/kurser erbjuds vid skolan. 
+        Startdatum för när uppsättningen av program/kurser erbjuds vid skolan.
         (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
     endDate:
       type: string
       format: date
       description: >
-        Slutdatum för när uppsättningen av program/kurser erbjuds vid skolan. 
-        Ett angivet datum innebär att utbudet inte längre är giltigt efter angivet datum. 
+        Slutdatum för när uppsättningen av program/kurser erbjuds vid skolan.
+        Ett angivet datum innebär att utbudet inte längre är giltigt efter angivet datum.
         (RFC 3339-format, t.ex. "2016-10-15").
     offeredAt:
       allOf:
@@ -24,7 +24,7 @@ SchoolUnitOffering:
        - description: Identifierare för skolenheten (SchoolUnit)
     offeredSyllabuses:
       type: array
-      items: 
+      items:
         allOf:
           - $ref: "common.yaml#/SyllabusReference"
           - description: >
@@ -37,12 +37,12 @@ SchoolUnitOffering:
   required:
     - offeredSyllabuses
     - offeredAt
-          
+
 
 
 SchoolUnitOfferingsArray:
   type: array
-  items: 
+  items:
     $ref: "#/SchoolUnitOffering"
 
 SchoolUnitOfferings:

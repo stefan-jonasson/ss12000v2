@@ -33,8 +33,8 @@ studentGroups:
             format: uuid
       - name: startDate.onOrAfter
         description: >
-          Begränsa urvalet av studentgrupper till de som är aktiva 
-          inom ett intervall som startar på angivet datum 
+          Begränsa urvalet av studentgrupper till de som är aktiva
+          inom ett intervall som startar på angivet datum
           (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
         in: query
         schema:
@@ -43,7 +43,7 @@ studentGroups:
       - name: endDate.onOrBefore
         description: >
           Begränsa urvalet av skolenheter till de som är aktiva
-          inom ett intervall som avslutas på angivet datum 
+          inom ett intervall som avslutas på angivet datum
           (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
         in: query
         schema:
@@ -67,7 +67,7 @@ studentGroups:
             - EndDateAsc
             - EndDateDesc
           default: LastModifiedDesc
-   
+
       - $ref: "searchParameters.yaml#/Limit"
       - $ref: "searchParameters.yaml#/PageToken"
     responses:
@@ -140,7 +140,7 @@ studentGroupsById:
       "404":
         description: StudentGroup not found
 
-ExpandParameter: 
+ExpandParameter:
   name: expand
   description: Beskriver om expanderade data ska hämtas
   in: query

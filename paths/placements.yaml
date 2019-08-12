@@ -15,7 +15,7 @@ placements:
           format: uuid
       - name: studentGroup
         description: >
-          Begränsa urvalet till de barn som har en placering på angiven grupp. 
+          Begränsa urvalet till de barn som har en placering på angiven grupp.
           Detta kan kombineras med startDate.onOrAfter
           och endDate.onOrBefore för att begränsa till aktiva placeringar.
         in: query
@@ -25,8 +25,8 @@ placements:
       - name: startDate.onOrAfter
         description: >
           Begränsa urvalet av placering till de som har
-          placeringar som är aktiva inom det intervall 
-          som startar på angivet datum (RFC 3339-format, 
+          placeringar som är aktiva inom det intervall
+          som startar på angivet datum (RFC 3339-format,
           t.ex. "2016-10-15"). Inkluderande.
         in: query
         schema:
@@ -35,8 +35,8 @@ placements:
       - name: endDate.onOrBefore
         description: >
           Begränsa urvalet av placering till de som har
-          placeringar som är aktiva inom det intervall 
-          som avslutas på angivet datum (RFC 3339-format, 
+          placeringar som är aktiva inom det intervall
+          som avslutas på angivet datum (RFC 3339-format,
           t.ex. "2016-10-15"). Inkluderande.
         in: query
         schema:
@@ -59,7 +59,7 @@ placements:
         schema:
           type: string
           format: uuid
-     
+
       - $ref: "searchParameters.yaml#/SearchCreatedBefore"
       - $ref: "searchParameters.yaml#/SearchCreatedAfter"
       - $ref: "searchParameters.yaml#/SearchModifiedBefore"
@@ -72,9 +72,9 @@ placements:
         schema:
           type: string
           enum:
-            - StartDateAsc 
+            - StartDateAsc
             - StartDateDesc
-            - EndDateAsc 
+            - EndDateAsc
             - EndDateDesc
             - LastModifiedDesc
           default: LastModifiedDesc
@@ -133,7 +133,7 @@ placementsLookup:
                   items:
                     type: string
                     format: uuid
-           
+
       required: true
 
 placementsById:

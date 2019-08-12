@@ -23,7 +23,7 @@ Activity:
       type: string
       format: date
       description: Datum för när aktiviteten startar (RFC 3339-format, t.ex. "2016-10-15").
-    
+
     endDate:
       type: string
       format: date
@@ -103,17 +103,17 @@ Activity:
       description: De lärare (Duty-objekt) som är kopplade till aktiviteten.
 
     syllabus:
-      allOf: 
+      allOf:
         - $ref: "common.yaml#/SyllabusReference"
         - description: Det kurs- eller ämnesplan som aktiviteten är knuten till.
 
     schoolUnit:
-      allOf: 
+      allOf:
        - $ref: "common.yaml#/SchoolUnitReference"
        - description: Den skolenhet som aktiviteten är knuten till.
 
     parentActivity:
-      allOf: 
+      allOf:
        - $ref: "common.yaml#/ActivityReference"
        - description: >
           Möjlighet att koppla aktiviteten till en eller flera

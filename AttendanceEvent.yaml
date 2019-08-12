@@ -1,6 +1,6 @@
 CreateAttendanceEvent:
   type: object
-  title: AttendanceEvent 
+  title: AttendanceEvent
   properties:
     time:
       type: string

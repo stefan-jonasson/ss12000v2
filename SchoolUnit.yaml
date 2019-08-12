@@ -40,13 +40,13 @@ SchoolUnit:
       type: string
       format: date
       description: >
-        Startdatum för skolenhetens giltighetstid 
+        Startdatum för skolenhetens giltighetstid
         (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
     endDate:
       type: string
       format: date
       description: >
-        Slutdatum för skolenhetens giltighetstid 
+        Slutdatum för skolenhetens giltighetstid
         (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
   required:
     - id

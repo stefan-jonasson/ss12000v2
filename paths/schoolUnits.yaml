@@ -5,7 +5,7 @@ schoolUnits:
     summary: Hämta en lista med skolenheter.
     parameters:
       - name: organisation
-        description: > 
+        description: >
           Begränsa urvalet till de skolenheter som hör till det angivna Organisations Id.
         in: query
         schema:

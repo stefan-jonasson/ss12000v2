@@ -94,7 +94,7 @@ CalendarEvent:
           startTime:
             type: string
             format: date-time
-            description: Starttid för undantaget (RFC 3339 format tex "2015-12-12T10:30:00+01:00"). 
+            description: Starttid för undantaget (RFC 3339 format tex "2015-12-12T10:30:00+01:00").
           endTime:
             type: string
             format: date-time

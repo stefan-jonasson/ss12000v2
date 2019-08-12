@@ -25,7 +25,7 @@ Placement:
         En lista med identifierare för de personer som äger placeringen.
         Används primärt för att styra vilka som skall kunna se och lägga schema.
       items:
-        $ref: "common.yaml#/PersonReference"        
+        $ref: "common.yaml#/PersonReference"
     schoolType:
       type: string
       title: Code_SchoolType
@@ -49,11 +49,11 @@ Placement:
       enum:
         - Omsorg
         - Erbjuden tid
-        - Eget behov    
+        - Eget behov
     maxWeeklyScheduleHours:
       type: integer
       description: Anger maximal schematid per vecka för barnets placering.
-    
+
 
 PlacementsArray:
  type: array

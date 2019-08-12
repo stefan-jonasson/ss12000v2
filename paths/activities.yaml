@@ -16,7 +16,7 @@ activities:
         schema:
           type: string
           format: uuid
-     
+
       - $ref: "searchParameters.yaml#/SearchCreatedBefore"
       - $ref: "searchParameters.yaml#/SearchCreatedAfter"
       - $ref: "searchParameters.yaml#/SearchModifiedBefore"

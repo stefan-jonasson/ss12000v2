@@ -21,7 +21,7 @@ StudyPlan:
           title:
             type: string
             description: Anger rubriken i elevens studieplan
-          type: 
+          type:
             type: string
             title: Code_StudyPlanContentType
             enum:
@@ -61,7 +61,7 @@ StudyPlan:
                 hours:
                   type: integer
                   description: >
-                    Planlagda timmar för elevens deltagande i kursen. 
+                    Planlagda timmar för elevens deltagande i kursen.
                     Främst avsedd för studieplaner till vuxenutbildning.
               required:
                 - syllabus
@@ -69,11 +69,11 @@ StudyPlan:
           - syllabuses
     notes:
       type: array
-      items: 
+      items:
         type: object
         title: StudyPlanNotes
         properties:
-          type: 
+          type:
             type: string
             title: Code_StudyPlanNoteType
             enum:

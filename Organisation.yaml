@@ -41,7 +41,7 @@ Organisation:
 OrganisationsArray:
     type: array
     items:
-      $ref: "#/Organisation"  
+      $ref: "#/Organisation"
 
 
 
