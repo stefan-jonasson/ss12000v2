@@ -127,7 +127,7 @@ absence_by_id:
   get:
     tags:
       - Närvaro
-    summary: Hämta anmäld frånvaro baserat på  ID
+    summary: Hämta anmäld frånvaro baserat på ID
     parameters:
       - name: id
         in: path
@@ -135,6 +135,8 @@ absence_by_id:
         required: true
         schema:
           type: string
+          format: uuid
+
     responses:
       "200":
         description: successful operation

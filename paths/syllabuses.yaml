@@ -77,10 +77,11 @@ syllabusById:
     parameters:
       - name: id
         in: path
-        description: ID för studentsyllabusgrupp som ska hämtas
+        description: ID för syllabus som ska hämtas
         required: true
         schema:
           type: string
+          format: uuid
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
       "200":

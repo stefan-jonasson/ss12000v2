@@ -148,6 +148,7 @@ placementsById:
         required: true
         schema:
           type: string
+          format: uuid
       - $ref: "#/ExpandParameter"
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:

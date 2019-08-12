@@ -9,11 +9,13 @@ activities:
         in: query
         schema:
           type: string
+          format: uuid
       - name: schoolUnit
         description: Begränsa urvalet till utpekad skolenhets ID.
         in: query
         schema:
           type: string
+          format: uuid
      
       - $ref: "searchParameters.yaml#/SearchCreatedBefore"
       - $ref: "searchParameters.yaml#/SearchCreatedAfter"
@@ -77,6 +79,7 @@ activityById:
         required: true
         schema:
           type: string
+          format: uuid
       - $ref: "#/ExpandParameter"
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:

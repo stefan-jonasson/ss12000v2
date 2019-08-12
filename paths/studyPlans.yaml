@@ -11,6 +11,7 @@ studyPlans:
           type: array
           items:
             type: string
+            format: uuid
       - name: startDate.onOrAfter
         description: >
           Begränsa urvalet av studieplaner till de som är aktiva inom det intervall
@@ -75,6 +76,7 @@ studyPlanById:
         required: true
         schema:
           type: string
+          format: uuid
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
       "200":

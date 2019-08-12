@@ -147,7 +147,7 @@ personsLookup:
               ids:  
                 - d544563a-747a-42d3-8d37-415a101537fa
               norEduPersonNINs:
-                - 100203-7271
+                - "201002037271"
       required: true
 
 personsById:
@@ -162,6 +162,7 @@ personsById:
         required: true
         schema:
           type: string
+          format: uuid
       - $ref: "#/ExpandParameter"
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:

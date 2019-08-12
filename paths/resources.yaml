@@ -68,6 +68,7 @@ resourceById:
         required: true
         schema:
           type: string
+          format: uuid
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
       "200":

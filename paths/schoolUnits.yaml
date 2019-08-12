@@ -13,7 +13,7 @@ schoolUnits:
           format: uuid
       - name: municipalityCode
         description: >
-          Begränsa urvalet till de  skolenheter som har angiven kommunkoden. 
+          Begränsa urvalet till de  skolenheter som har angiven kommunkod.
         in: query
         schema:
           type: string
@@ -98,10 +98,11 @@ schoolUnitById:
     parameters:
       - name: id
         in: path
-        description: ID för resursen som ska hämtas
+        description: ID för skolenheten som ska hämtas
         required: true
         schema:
           type: string
+          format: uuid
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
       "200":

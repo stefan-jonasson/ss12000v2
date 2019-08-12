@@ -102,6 +102,7 @@ subscription_by_id:
         required: true
         schema:
           type: string
+          format: uuid
     responses:
       "204":
         description: Prenumeration borttagen.
@@ -123,6 +124,7 @@ subscription_by_id:
         required: true
         schema:
           type: string
+          format: uuid
     responses:
       "200":
         description: successful operation
@@ -148,6 +150,7 @@ subscription_by_id:
         required: true
         schema:
           type: string
+          format: uuid
     responses:
       "200":
         description: successful operation
