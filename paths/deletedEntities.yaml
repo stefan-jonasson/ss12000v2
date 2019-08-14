@@ -26,116 +26,116 @@ deletedEntities:
             schema:
               $ref: "#/DeletedEntities"
       400:
-          description: >
-            Filter (ex `after`, `entity`) kan inte kombineras med `pageToken`
+        description: >
+          Filter (ex `after`, `entity`) kan inte kombineras med `pageToken`
 
 DeletedEntity:
-            type: object
-            properties:
-              Activity:
-                type: array
-                items:
-                  type: string
-                  format: uuid
-              AggregatedAttendance:
-                type: array
-                items:
-                  type: string
-                  format: uuid
-              AttendanceEvent:
-                type: array
-                items:
-                  type: string
-                  format: uuid
-              Placement:
-                type: array
-                items:
-                  type: string
-                  format: uuid
-              CalendarEvent:
-                type: array
-                items:
-                  type: string
-                  format: uuid
-              AttendanceSchedule:
-                type: array
-                items:
-                  type: string
-                  format: uuid
-              Duty:
-                type: array
-                items:
-                  type: string
-                  format: uuid
-              Grade:
-                type: array
-                items:
-                  type: string
-                  format: uuid
-              Absence:
-                type: array
-                items:
-                  type: string
-                  format: uuid
-              Organisation:
-                type: array
-                items:
-                  type: string
-                  format: uuid
-              Person:
-                type: array
-                items:
-                  type: string
-                  format: uuid
-              Programme:
-                type: array
-                items:
-                  type: string
-                  format: uuid
-              Resource:
-                type: array
-                items:
-                  type: string
-                  format: uuid
-              Room:
-                type: array
-                items:
-                  type: string
-                  format: uuid
-              SchoolUnit:
-                type: array
-                items:
-                  type: string
-                  format: uuid
-              SchoolUnitGroup:
-                type: array
-                items:
-                  type: string
-                  format: uuid
-              SchoolUnitOffering:
-                type: array
-                items:
-                  type: string
-                  format: uuid
-              Syllabus:
-                type: array
-                items:
-                  type: string
-                  format: uuid
+  type: object
+  properties:
+    Activity:
+      type: array
+      items:
+        type: string
+        format: uuid
+    AggregatedAttendance:
+      type: array
+      items:
+        type: string
+        format: uuid
+    AttendanceEvent:
+      type: array
+      items:
+        type: string
+        format: uuid
+    Placement:
+      type: array
+      items:
+        type: string
+        format: uuid
+    CalendarEvent:
+      type: array
+      items:
+        type: string
+        format: uuid
+    AttendanceSchedule:
+      type: array
+      items:
+        type: string
+        format: uuid
+    Duty:
+      type: array
+      items:
+        type: string
+        format: uuid
+    Grade:
+      type: array
+      items:
+        type: string
+        format: uuid
+    Absence:
+      type: array
+      items:
+        type: string
+        format: uuid
+    Organisation:
+      type: array
+      items:
+        type: string
+        format: uuid
+    Person:
+      type: array
+      items:
+        type: string
+        format: uuid
+    Programme:
+      type: array
+      items:
+        type: string
+        format: uuid
+    Resource:
+      type: array
+      items:
+        type: string
+        format: uuid
+    Room:
+      type: array
+      items:
+        type: string
+        format: uuid
+    SchoolUnit:
+      type: array
+      items:
+        type: string
+        format: uuid
+    SchoolUnitGroup:
+      type: array
+      items:
+        type: string
+        format: uuid
+    SchoolUnitOffering:
+      type: array
+      items:
+        type: string
+        format: uuid
+    Syllabus:
+      type: array
+      items:
+        type: string
+        format: uuid
 
 
 DeletedEntities:
- type: object
- properties:
-      data:
-        type: array
-        items:
-          $ref: "#/DeletedEntity"
-      pageToken:
-        type: string
-        nullable: true
-        description: >
-          Om värdet är null finns inget mer att hämta på det token
-          som skickades in som query parameter.
- required:
+  type: object
+  properties:
+    data:
+      type: array
+      items:
+        $ref: "#/DeletedEntity"
+    pageToken:
+      type: string
+      nullable: true
+      description: >
+        Om värdet är null finns inget mer att hämta på det token
+        som skickades in som query parameter.
+  required:
     - data
