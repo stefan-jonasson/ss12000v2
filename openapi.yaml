@@ -1,4 +1,4 @@
-openapi: 3.0.0
+openapi: 3.0.2
 servers:
   - description: SS12000
     url: http://some.server.se/v2.0
@@ -6,7 +6,7 @@ info:
   description: |
     This is an implementation specification of SS12000 v2
     [TK450](https://www.sis.se/standardutveckling/tksidor/tk400499/sistk450/)
-  version: 1.0.0
+  version: 2.0.0
   title: SS12000
   termsOfService: "https://www.sis.se/standardutveckling/tksidor/tk400499/sistk450/"
   contact:
