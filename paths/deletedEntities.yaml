@@ -2,16 +2,17 @@ deletedEntities:
   get:
     tags:
       - Verktyg
-    summary: Hämta en lista av händelser rörande entiteter som hanteras av tjänsten.
+    summary: Hämta en lista av entiteter som tagits bort av tjänsten.
     parameters:
       - name: after
         in: query
-        description: Hämta händelser som inträffat efter specificerad tidpunkt (RFC 3339 format tex "2015-12-12T10:30:00+01:00").
+        description: Hämta borttag som inträffat efter specificerad tidpunkt (RFC 3339 format tex "2015-12-12T10:30:00+01:00").
         schema:
           type: string
           format: date-time
-      - name: entity
+      - name: entities
         in: query
+        description: En lista med de entitetstyper vars borttag ska hämtas
         schema:
           type: array
           items:
@@ -29,108 +30,105 @@ deletedEntities:
         description: >
           Filter (ex `after`, `entity`) kan inte kombineras med `pageToken`
 
-DeletedEntity:
-  type: object
-  properties:
-    Activity:
-      type: array
-      items:
-        type: string
-        format: uuid
-    AggregatedAttendance:
-      type: array
-      items:
-        type: string
-        format: uuid
-    AttendanceEvent:
-      type: array
-      items:
-        type: string
-        format: uuid
-    Placement:
-      type: array
-      items:
-        type: string
-        format: uuid
-    CalendarEvent:
-      type: array
-      items:
-        type: string
-        format: uuid
-    AttendanceSchedule:
-      type: array
-      items:
-        type: string
-        format: uuid
-    Duty:
-      type: array
-      items:
-        type: string
-        format: uuid
-    Grade:
-      type: array
-      items:
-        type: string
-        format: uuid
-    Absence:
-      type: array
-      items:
-        type: string
-        format: uuid
-    Organisation:
-      type: array
-      items:
-        type: string
-        format: uuid
-    Person:
-      type: array
-      items:
-        type: string
-        format: uuid
-    Programme:
-      type: array
-      items:
-        type: string
-        format: uuid
-    Resource:
-      type: array
-      items:
-        type: string
-        format: uuid
-    Room:
-      type: array
-      items:
-        type: string
-        format: uuid
-    SchoolUnit:
-      type: array
-      items:
-        type: string
-        format: uuid
-    SchoolUnitGroup:
-      type: array
-      items:
-        type: string
-        format: uuid
-    SchoolUnitOffering:
-      type: array
-      items:
-        type: string
-        format: uuid
-    Syllabus:
-      type: array
-      items:
-        type: string
-        format: uuid
-
 
 DeletedEntities:
   type: object
+  title: deletedEntities
   properties:
     data:
-      type: array
-      items:
-        $ref: "#/DeletedEntity"
+      type: object
+      properties:
+        activitites:
+          type: array
+          items:
+            type: string
+            format: uuid
+        aggregatedAttendances:
+          type: array
+          items:
+            type: string
+            format: uuid
+        attendanceEvents:
+          type: array
+          items:
+            type: string
+            format: uuid
+        placements:
+          type: array
+          items:
+            type: string
+            format: uuid
+        calendarEvents:
+          type: array
+          items:
+            type: string
+            format: uuid
+        attendanceSchedules:
+          type: array
+          items:
+            type: string
+            format: uuid
+        duties:
+          type: array
+          items:
+            type: string
+            format: uuid
+        grades:
+          type: array
+          items:
+            type: string
+            format: uuid
+        absences:
+          type: array
+          items:
+            type: string
+            format: uuid
+        organisations:
+          type: array
+          items:
+            type: string
+            format: uuid
+        persons:
+          type: array
+          items:
+            type: string
+            format: uuid
+        programmes:
+          type: array
+          items:
+            type: string
+            format: uuid
+        Resource:
+          type: array
+          items:
+            type: string
+            format: uuid
+        rooms:
+          type: array
+          items:
+            type: string
+            format: uuid
+        schoolUnits:
+          type: array
+          items:
+            type: string
+            format: uuid
+        schoolUnitGroups:
+          type: array
+          items:
+            type: string
+            format: uuid
+        schoolUnitOfferings:
+          type: array
+          items:
+            type: string
+            format: uuid
+        syllabuses:
+          type: array
+          items:
+            type: string
+            format: uuid
+
     pageToken:
       type: string
       nullable: true
