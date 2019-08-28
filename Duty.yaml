@@ -7,6 +7,25 @@ DutyFragment:
       type: string
       format: uuid
       description: Ett ID för tjänsten.
+    assignedToStudentGroupAs:
+      type: array
+      items:
+        type: object
+        allOf:
+          - $ref: "common.yaml#/StudentGroupReference"
+          - type: object
+            properties:
+              assignmentRoleType:
+                $ref: "common.yaml#/components/schemas/AssignmentRoleTypeEnum"
+              startDate:
+                description: Startdatum för tjänstens relation till gruppen (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
+                type: string
+                format: date
+              endDate:
+                description: Slutdatum för tjänstens relation till gruppen (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
+                type: string
+                format: date
+
     dutyAt:
       allOf:
         - $ref: "common.yaml#/ObjectReference"
@@ -54,45 +73,24 @@ Duty:
           allOf:
             - $ref: "common.yaml#/PersonReference"
             - description: Identifierare av person som tjänsten är knuten till.
-        _embedded:
-          type: object
-          properties:
-            assignedToStudentGroupAs:
-              type: array
-              items:
-                type: object
-                allOf:
-                  - $ref: "common.yaml#/StudentGroupReference"
-                  - type: object
-                    properties:
-                      assignmentRoleType:
-                        $ref:  "common.yaml#/components/schemas/AssignmentRoleTypeEnum"
-                      startDate:
-                        description: Startdatum för tjänstens relation till gruppen (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
-                        type: string
-                        format: date
-                      endDate:
-                        description: Slutdatum för tjänstens relation till gruppen (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
-                        type: string
-                        format: date
 
 DutiesArray:
-    type: array
-    items:
-      $ref: "#/Duty"
+  type: array
+  items:
+    $ref: "#/Duty"
 
 Duties:
- type: object
- properties:
-      data:
-        type: array
-        items:
-          $ref: "#/Duty"
-      pageToken:
-        type: string
-        nullable: true
-        description: >
-          Om värdet är null finns inget mer att hämta på det token
-          som skickades in som query parameter.
- required:
+  type: object
+  properties:
+    data:
+      type: array
+      items:
+        $ref: "#/Duty"
+    pageToken:
+      type: string
+      nullable: true
+      description: >
+        Om värdet är null finns inget mer att hämta på det token
+        som skickades in som query parameter.
+  required:
     - data
