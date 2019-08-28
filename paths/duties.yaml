@@ -27,7 +27,6 @@ duties:
       - $ref: "searchParameters.yaml#/SearchCreatedAfter"
       - $ref: "searchParameters.yaml#/SearchModifiedBefore"
       - $ref: "searchParameters.yaml#/SearchModifiedAfter"
-      - $ref: "#/ExpandParameter"
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
       - name: sortkey
         description: Anger hur resultatet ska sorteras.
@@ -54,7 +53,6 @@ duties:
           `meta.created.after`, `meta.created.before`, `expand`, `dutySchoolUnit`,
           `dutyRole`, `person`). Kan inte kombineras med `pageToken`.
 
-
 dutiesLookup:
   post:
     tags:
@@ -63,7 +61,6 @@ dutiesLookup:
     description: >
       Hämta många tjänstgöringar.
     parameters:
-      - $ref: "#/ExpandParameter"
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
       200:
@@ -78,7 +75,7 @@ dutiesLookup:
       content:
         application/json:
           schema:
-            $ref : "../common.yaml#/components/schemas/IdLookup"
+            $ref: "../common.yaml#/components/schemas/IdLookup"
       required: true
 
 duty_by_id:
@@ -94,7 +91,6 @@ duty_by_id:
         schema:
           type: string
           format: uuid
-      - $ref: "#/ExpandParameter"
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
       "200":
@@ -109,16 +105,3 @@ duty_by_id:
         description: Not authorised
       "404":
         description: Duty not found
-
-
-ExpandParameter:
-  name: expand
-  description: Beskriver om expanderade data ska hämtas
-  in: query
-  schema:
-    type: array
-    items:
-      type: string
-      enum:
-        - assignedToStudentGroupAs
-
