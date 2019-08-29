@@ -61,12 +61,12 @@ studentGroups:
         schema:
           type: string
           enum:
-            - LastModifiedDesc
+            - ModifiedDesc
             - StartDateAsc
             - StartDateDesc
             - EndDateAsc
             - EndDateDesc
-          default: LastModifiedDesc
+          default: ModifiedDesc
 
       - $ref: "searchParameters.yaml#/Limit"
       - $ref: "searchParameters.yaml#/PageToken"
@@ -83,7 +83,6 @@ studentGroups:
           `meta.created.after`, `meta.created.before`, `expand`, `studentGroupType`,
           `schoolTypes`, `owner`,`startDate.onOrAfter`, `endDate.onOrBefore`).
           Kan inte kombineras med `pageToken`.
-
 
 studentGroupsLookup:
   post:
@@ -108,7 +107,7 @@ studentGroupsLookup:
       content:
         application/json:
           schema:
-            $ref : "../common.yaml#/components/schemas/IdLookup"
+            $ref: "../common.yaml#/components/schemas/IdLookup"
       required: true
 
 studentGroupsById:

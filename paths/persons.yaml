@@ -88,8 +88,8 @@ persons:
             - FamilyNameDesc
             - FamilyNameAsc
             - NorEduPersonNIN
-            - LastModifiedDesc
-          default: LastModifiedDesc
+            - ModifiedDesc
+          default: ModifiedDesc
       - $ref: "searchParameters.yaml#/Limit"
       - $ref: "searchParameters.yaml#/PageToken"
     responses:
@@ -100,13 +100,13 @@ persons:
             schema:
               $ref: "../Person.yaml#/PersonsExpanded"
       400:
-       description: >
-        Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`,
-        `meta.created.after`, `meta.created.before`, `enrolment.schoolUnit`,
-        `enrolment.startDate.onOrAfter`, `enrolment.endDate.onOrBefore`,
-        `placement.schoolUnit`, `placement.startDate.onOrAfter`,
-        `placement.endDate.onOrBefore`,`dutySchoolUnit`, `expand`).
-        Kan inte kombineras med `pageToken`.
+        description: >
+          Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`,
+          `meta.created.after`, `meta.created.before`, `enrolment.schoolUnit`,
+          `enrolment.startDate.onOrAfter`, `enrolment.endDate.onOrBefore`,
+          `placement.schoolUnit`, `placement.startDate.onOrAfter`,
+          `placement.endDate.onOrBefore`,`dutySchoolUnit`, `expand`).
+          Kan inte kombineras med `pageToken`.
 
 personsLookup:
   post:

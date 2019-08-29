@@ -50,10 +50,10 @@ calendarEvents:
         schema:
           type: string
           enum:
-            - LastModifiedDesc
+            - ModifiedDesc
             - StartTimeAsc
             - StartTimeDesc
-          default: LastModifiedDesc
+          default: ModifiedDesc
       - $ref: "searchParameters.yaml#/Limit"
       - $ref: "searchParameters.yaml#/PageToken"
     responses:
@@ -62,13 +62,12 @@ calendarEvents:
         content:
           application/json:
             schema:
-                $ref: "../CalendarEvent.yaml#/CalendarEvents"
+              $ref: "../CalendarEvent.yaml#/CalendarEvents"
       400:
         description: >
           Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`,
           `meta.created.after`, `meta.created.before`, `expand`, `startTime`,
           `endTime`, `activity`,`student`). Kan inte kombineras med `pageToken`.
-
 
 calendarEventById:
   get:
@@ -101,4 +100,4 @@ ExpandParameter:
     type: array
     items:
       type: string
-      enum: [ activity, attendance ]
+      enum: [activity, attendance]

@@ -36,8 +36,8 @@ duties:
           enum:
             - StartDateDesc
             - StartDateAsc
-            - LastModifiedDesc
-          default: LastModifiedDesc
+            - ModifiedDesc
+          default: ModifiedDesc
       - $ref: "searchParameters.yaml#/Limit"
       - $ref: "searchParameters.yaml#/PageToken"
     responses:

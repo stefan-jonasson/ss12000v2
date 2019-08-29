@@ -76,8 +76,8 @@ placements:
             - StartDateDesc
             - EndDateAsc
             - EndDateDesc
-            - LastModifiedDesc
-          default: LastModifiedDesc
+            - ModifiedDesc
+          default: ModifiedDesc
 
       - $ref: "searchParameters.yaml#/Offset"
       - $ref: "searchParameters.yaml#/Limit"
@@ -90,12 +90,11 @@ placements:
             schema:
               $ref: "../Placement.yaml#/Placements"
       400:
-       description: >
-        Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`,
-        `meta.created.after`, `meta.created.before`, `expand`, `schoolUnit`,
-        `startDate.onOrAfter`,`endDate.onOrBefore`).
-        Kan inte kombineras med `pageToken`.
-
+        description: >
+          Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`,
+          `meta.created.after`, `meta.created.before`, `expand`, `schoolUnit`,
+          `startDate.onOrAfter`,`endDate.onOrBefore`).
+          Kan inte kombineras med `pageToken`.
 
 placementsLookup:
   post:
@@ -121,18 +120,18 @@ placementsLookup:
       content:
         application/json:
           schema:
-              type: object
-              properties:
-                ids:
-                  type: array
-                  items:
-                    type: string
-                    format: uuid
-                personIds:
-                  type: array
-                  items:
-                    type: string
-                    format: uuid
+            type: object
+            properties:
+              ids:
+                type: array
+                items:
+                  type: string
+                  format: uuid
+              personIds:
+                type: array
+                items:
+                  type: string
+                  format: uuid
 
       required: true
 
@@ -173,4 +172,4 @@ ExpandParameter:
     type: array
     items:
       type: string
-      enum: [ child ]
+      enum: [child]
