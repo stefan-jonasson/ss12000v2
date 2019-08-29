@@ -45,21 +45,20 @@ StudentGroup:
       type: array
       items:
         type: object
-        allOf:
-          - $ref: "common.yaml#/PersonReference"
-          - type: object
-            title: StudentMembership
-            properties:
-              startDate:
-                description: >
-                  Startdatum för elevens medlemskap i gruppen (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
-                type: string
-                format: date
-              endDate:
-                description: >
-                  Slutdatum för elevens medlemskap i gruppen (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
-                type: string
-                format: date
+        title: StudentMembership
+        properties:
+          person:
+            $ref: "common.yaml#/PersonReference"
+          startDate:
+            description: >
+              Startdatum för elevens medlemskap i gruppen (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
+            type: string
+            format: date
+          endDate:
+            description: >
+              Slutdatum för elevens medlemskap i gruppen (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
+            type: string
+            format: date
     schoolUnit:
       allOf:
         - description: Den skolenhet som elevgruppen är knuten till.
@@ -76,7 +75,7 @@ StudentGroup:
               - type: object
                 properties:
                   assignmentRoleType:
-                    $ref:  "common.yaml#/components/schemas/AssignmentRoleTypeEnum"
+                    $ref: "common.yaml#/components/schemas/AssignmentRoleTypeEnum"
                   startDate:
                     description: >
                       Startdatum för tjänstens relation till gruppen (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
@@ -94,24 +93,23 @@ StudentGroup:
     - startDate
     - schoolUnit
 
-
 StudentGroupsArray:
-        type: array
-        items:
-          $ref: "#/StudentGroup"
+  type: array
+  items:
+    $ref: "#/StudentGroup"
 
 StudentGroups:
   type: object
   properties:
-      data:
-        type: array
-        items:
-          $ref: "#/StudentGroup"
-      pageToken:
-        type: string
-        nullable: true
-        description: >
-          Om värdet är null finns inget mer att hämta på det token
-          som skickades in som query parameter.
+    data:
+      type: array
+      items:
+        $ref: "#/StudentGroup"
+    pageToken:
+      type: string
+      nullable: true
+      description: >
+        Om värdet är null finns inget mer att hämta på det token
+        som skickades in som query parameter.
   required:
     - data
