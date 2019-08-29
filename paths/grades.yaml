@@ -57,8 +57,8 @@ grades:
           enum:
             - registeredDateAsc
             - registeredDateDesc
-            - LastModifiedDesc
-          default: LastModifiedDesc
+            - ModifiedDesc
+          default: ModifiedDesc
 
       - $ref: "searchParameters.yaml#/Limit"
       - $ref: "searchParameters.yaml#/PageToken"
@@ -98,7 +98,7 @@ gradesLookup:
       content:
         application/json:
           schema:
-           $ref : "../common.yaml#/components/schemas/IdLookup"
+            $ref: "../common.yaml#/components/schemas/IdLookup"
       required: true
 
 gradeById:

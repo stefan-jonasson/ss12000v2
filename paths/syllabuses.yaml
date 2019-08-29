@@ -15,7 +15,7 @@ syllabuses:
         schema:
           type: string
           enum:
-            - LastModifiedDesc
+            - ModifiedDesc
             - SubjectNameAsc
             - SubjectNameDesc
             - SubjectCodeAsc
@@ -26,7 +26,7 @@ syllabuses:
             - CourseCodeDesc
             - SubjectDesignationAsc
             - SubjectDesignationDesc
-          default: LastModifiedDesc
+          default: ModifiedDesc
 
       - $ref: "searchParameters.yaml#/Limit"
       - $ref: "searchParameters.yaml#/PageToken"
@@ -38,11 +38,10 @@ syllabuses:
             schema:
               $ref: "../Syllabus.yaml#/Syllabuses"
       400:
-         description: >
+        description: >
           Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`,
           `meta.created.after`, `meta.created.before`, `expand`).
           Kan inte kombineras med `pageToken`.
-
 
 syllabusesLookup:
   post:
@@ -54,19 +53,19 @@ syllabusesLookup:
     parameters:
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
-        200:
-          description: successful operation
-          content:
-            application/json:
-              schema:
-                $ref: "../Syllabus.yaml#/SyllabusesArray"
-        503:
-          description: The response is too large for the server ie overload
+      200:
+        description: successful operation
+        content:
+          application/json:
+            schema:
+              $ref: "../Syllabus.yaml#/SyllabusesArray"
+      503:
+        description: The response is too large for the server ie overload
     requestBody:
       content:
         application/json:
           schema:
-           $ref : "../common.yaml#/components/schemas/IdLookup"
+            $ref: "../common.yaml#/components/schemas/IdLookup"
       required: true
 
 syllabusById:

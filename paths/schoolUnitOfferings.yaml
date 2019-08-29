@@ -20,7 +20,7 @@ schoolUnitOfferings:
         schema:
           type: string
           enum:
-            - LastModifiedDesc
+            - ModifiedDesc
             - StartDateAsc
             - StartDateDesc
             - EndDateAsc
@@ -39,7 +39,6 @@ schoolUnitOfferings:
           Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`,
           `meta.created.after`, `meta.created.before`, `offeredAt`).
           Kan inte kombineras med `pageToken`.
-
 
 schoolUnitOfferingsLookup:
   post:
@@ -63,7 +62,7 @@ schoolUnitOfferingsLookup:
       content:
         application/json:
           schema:
-             $ref : "../common.yaml#/components/schemas/IdLookup"
+            $ref: "../common.yaml#/components/schemas/IdLookup"
       required: true
 
 schoolUnitOfferingById:

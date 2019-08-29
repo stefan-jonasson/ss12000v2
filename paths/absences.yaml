@@ -53,10 +53,10 @@ absences:
         schema:
           type: string
           enum:
-            - LastModifiedDesc
+            - ModifiedDesc
             - StartTimeAsc
             - StartTimeDesc
-          default: LastModifiedDesc
+          default: ModifiedDesc
 
       - $ref: "searchParameters.yaml#/Limit"
       - $ref: "searchParameters.yaml#/PageToken"
@@ -120,7 +120,7 @@ AbsenceLookup:
       content:
         application/json:
           schema:
-            $ref : "../common.yaml#/components/schemas/IdLookup"
+            $ref: "../common.yaml#/components/schemas/IdLookup"
       required: true
 
 absence_by_id:

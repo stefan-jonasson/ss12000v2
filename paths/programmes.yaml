@@ -35,8 +35,8 @@ programmes:
           enum:
             - NameAsc
             - CodeAsc
-            - LastModifiedDesc
-          default: LastModifiedDesc
+            - ModifiedDesc
+          default: ModifiedDesc
 
       - $ref: "searchParameters.yaml#/Limit"
       - $ref: "searchParameters.yaml#/PageToken"
@@ -48,10 +48,10 @@ programmes:
             schema:
               $ref: "../Programme.yaml#/Programmes"
       400:
-       description: >
-        Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`,
-        `meta.created.after`, `meta.created.before`, `expand`, `schoolType`,
-        `code`). Kan inte kombineras med `pageToken`.
+        description: >
+          Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`,
+          `meta.created.after`, `meta.created.before`, `expand`, `schoolType`,
+          `code`). Kan inte kombineras med `pageToken`.
 
 programmesLookup:
   post:
@@ -75,7 +75,7 @@ programmesLookup:
       content:
         application/json:
           schema:
-           $ref : "../common.yaml#/components/schemas/IdLookup"
+            $ref: "../common.yaml#/components/schemas/IdLookup"
       required: true
 
 programmeById:

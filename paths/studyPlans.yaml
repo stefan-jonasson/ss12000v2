@@ -41,12 +41,12 @@ studyPlans:
         schema:
           type: string
           enum:
-            - LastModifiedDesc
+            - ModifiedDesc
             - StartDateAsc
             - StartDateDesc
             - EndDateAsc
             - EndDateDesc
-          default: LastModifiedDesc
+          default: ModifiedDesc
 
       - $ref: "searchParameters.yaml#/Limit"
       - $ref: "searchParameters.yaml#/PageToken"
@@ -58,7 +58,7 @@ studyPlans:
             schema:
               $ref: "../StudyPlan.yaml#/StudyPlans"
       400:
-         description: >
+        description: >
           Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`,
           `meta.created.after`, `meta.created.before`, `expand`, `student`,
           `startDate.onOrAfter` , `endDate.onOrBefore`, `lastUpdate.before`).
