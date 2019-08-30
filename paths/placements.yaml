@@ -79,7 +79,7 @@ placements:
             - ModifiedDesc
           default: ModifiedDesc
 
-      - $ref: "searchParameters.yaml#/Offset"
+      - $ref: "searchParameters.yaml#/PageToken"
       - $ref: "searchParameters.yaml#/Limit"
 
     responses:
