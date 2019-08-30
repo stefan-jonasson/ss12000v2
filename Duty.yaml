@@ -7,24 +7,48 @@ DutyFragment:
       type: string
       format: uuid
       description: Ett ID för tjänsten.
-    assignedToStudentGroupAs:
+    assignmentRoleStudentGroups:
       type: array
       items:
         type: object
-        allOf:
-          - $ref: "common.yaml#/StudentGroupReference"
-          - type: object
-            properties:
-              assignmentRoleType:
-                $ref: "common.yaml#/components/schemas/AssignmentRoleTypeEnum"
-              startDate:
-                description: Startdatum för tjänstens relation till gruppen (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
-                type: string
-                format: date
-              endDate:
-                description: Slutdatum för tjänstens relation till gruppen (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
-                type: string
-                format: date
+        properties:
+          studentGroup:
+            $ref: "common.yaml#/StudentGroupReference"
+          assignmentRoleType:
+            $ref: "common.yaml#/components/schemas/AssignmentRoleTypeEnum"
+          startDate:
+            description: Startdatum för tjänstens relation till gruppen (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
+            type: string
+            format: date
+          endDate:
+            description: Slutdatum för tjänstens relation till gruppen (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
+            type: string
+            format: date
+        required:
+          - studentGroup
+          - assignmentRoleType
+          - startDate
+    assignmentRoleSchoolUnits:
+      type: array
+      items:
+        type: object
+        properties:
+          schoolUnit:
+            $ref: "common.yaml#/SchoolUnitReference"
+          assignmentRoleType:
+            $ref: "common.yaml#/components/schemas/AssignmentRoleTypeEnum"
+          startDate:
+            description: Startdatum för tjänstens relation till skolenheten (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
+            type: string
+            format: date
+          endDate:
+            description: Slutdatum för tjänstens relation till skolenheten (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
+            type: string
+            format: date
+        required:
+          - studentGroup
+          - assignmentRoleType
+          - startDate
 
     dutyAt:
       allOf:
