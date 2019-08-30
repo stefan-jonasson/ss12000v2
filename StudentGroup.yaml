@@ -61,8 +61,8 @@ StudentGroup:
             format: date
     schoolUnit:
       allOf:
-        - description: Den skolenhet som elevgruppen är knuten till.
         - $ref: "common.yaml#/SchoolUnitReference"
+        - description: Den skolenhet som aktiviteten är knuten till.
     _embedded:
       type: object
       properties:
