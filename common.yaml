@@ -111,21 +111,24 @@ components:
       type: string
       enum:
         - Absence
-        - Activity
         - AttendanceEvent
+        - Attendance
+        - Grade
         - CalendarEvent
         - AttendanceSchedule
-        - Duty
-        - Grade
-        - Organisation
-        - Person
-        - Placement
-        - Programme
         - Resource
         - Room
-        - SchoolUnit
-        - SchoolUnitOffering
+        - Activity
+        - Duty
+        - Placement
+        - StudyPlan
+        - Programme
         - Syllabus
+        - SchoolUnitOffering
+        - StudentGroup
+        - Person
+        - SchoolUnit
+        - Organisation
 
     SchoolTypesEnum:
       title: Code_SchoolType

@@ -8,10 +8,6 @@ CreateSubscription:
     target:
       description: the URL that the webhook will post to
       type: string
-    clientAuthenticationToken:
-      description: |
-        Ska placeras i "Authentication: Bearer XXX"
-      type: string
     resourceTypes:
       type: array
       items:

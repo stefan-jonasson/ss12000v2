@@ -34,8 +34,8 @@ tags:
     description: >
       In- och utpassering. Används för närvarohantering i förskola och fritidshem
       (utan kopplingar till kalenderhändelser).
-  - name: Verktyg
-    description: Metoder för att hantera metadata.
+  - name: Borttag
+    description: Metod för att följa borttag av entititer.
   - name: Prenumeration
     description: Webhook för att prenumerera på uppdateringar.
 paths:

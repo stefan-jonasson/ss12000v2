@@ -1,7 +1,7 @@
 deletedEntities:
   get:
     tags:
-      - Verktyg
+      - Borttag
     summary: Hämta en lista av entiteter som tagits bort av tjänsten.
     parameters:
       - name: after
@@ -38,92 +38,116 @@ DeletedEntities:
     data:
       type: object
       properties:
-        activitites:
-          type: array
-          items:
-            type: string
-            format: uuid
-        aggregatedAttendances:
-          type: array
-          items:
-            type: string
-            format: uuid
-        attendanceEvents:
-          type: array
-          items:
-            type: string
-            format: uuid
-        placements:
-          type: array
-          items:
-            type: string
-            format: uuid
-        calendarEvents:
-          type: array
-          items:
-            type: string
-            format: uuid
-        attendanceSchedules:
-          type: array
-          items:
-            type: string
-            format: uuid
-        duties:
-          type: array
-          items:
-            type: string
-            format: uuid
-        grades:
-          type: array
-          items:
-            type: string
-            format: uuid
+
         absences:
           type: array
           items:
             type: string
             format: uuid
-        organisations:
+
+        attendanceEvents:
           type: array
           items:
             type: string
             format: uuid
-        persons:
+
+        attendances:
           type: array
           items:
             type: string
             format: uuid
-        programmes:
+
+        grades:
           type: array
           items:
             type: string
             format: uuid
-        Resource:
+
+        calendarEvents:
           type: array
           items:
             type: string
             format: uuid
+
+        attendanceSchedules:
+          type: array
+          items:
+            type: string
+            format: uuid
+
+        resources:
+          type: array
+          items:
+            type: string
+            format: uuid
+
         rooms:
           type: array
           items:
             type: string
             format: uuid
-        schoolUnits:
+
+        activitites:
           type: array
           items:
             type: string
             format: uuid
-        schoolUnitGroups:
+
+        duties:
           type: array
           items:
             type: string
             format: uuid
+
+        placements:
+          type: array
+          items:
+            type: string
+            format: uuid
+
+        studyPlans:
+          type: array
+          items:
+            type: string
+            format: uuid
+
+        programmes:
+          type: array
+          items:
+            type: string
+            format: uuid
+
+        syllabuses:
+          type: array
+          items:
+            type: string
+            format: uuid
+
         schoolUnitOfferings:
           type: array
           items:
             type: string
             format: uuid
-        syllabuses:
+
+        studentGroups:
+          type: array
+          items:
+            type: string
+            format: uuid
+
+        persons:
+          type: array
+          items:
+            type: string
+            format: uuid
+
+        schoolUnits:
+          type: array
+          items:
+            type: string
+            format: uuid
+
+        organisations:
           type: array
           items:
             type: string
