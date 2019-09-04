@@ -17,9 +17,9 @@ AbsenceFragment:
       description: Sluttid för den anmälda frånvaron (RFC 3339 format tex "2015-12-12T10:30:00+01:00").
     type:
       allOf:
+        - $ref: "common.yaml#/components/schemas/AbsenceEnum"
         - description: >
             Anger om det rör beviljad ledighet eller frånvaro anmäld av vårdnadshavare.
-        - $ref: "common.yaml#/components/schemas/AbsenceEnum"
     student:
       allOf:
         - $ref: "common.yaml#/PersonReference"
@@ -41,7 +41,6 @@ AbsenceFragment:
 
 Absence:
   allOf:
-    - $ref: "#/AbsenceFragment"
     - type: object
       properties:
         id:
@@ -52,7 +51,7 @@ Absence:
           $ref: "common.yaml#/Meta"
       required:
         - id
-
+    - $ref: "#/AbsenceFragment"
 
 
 AbsencesArray:
