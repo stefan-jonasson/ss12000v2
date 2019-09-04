@@ -32,18 +32,10 @@ subscriptions:
                 - SchoolUnit
                 - Person
                 - Duty
-              clientAuthenticationToken: HemLiGt
     callbacks:
       subscriptionEvent: # Event name
         "{$request.body#/target}": # The callback URL, Refers to the passed URL
           post:
-            parameters:
-              - in: header
-                name: Authentication
-                schema:
-                  type: string
-                  description: >
-                    Bearer HemLiGt
             requestBody: # Contents of the callback message
               required: true
               content:
@@ -51,23 +43,18 @@ subscriptions:
                   schema:
                     type: object
                     properties:
-                      action:
-                        type: string
-                        enum:
-                          - NewOrUpdate
-                          - Deleted
-                      list:
+                      modifiedEntites:
                         type: array
                         items:
-                          type: object
-                          properties:
-                            resource:
-                              $ref: "../common.yaml#/components/schemas/EndPointsEnum"
-                            id:
-                              type: array
-                              items:
-                                type: string
-                                format: uuid
+                          $ref: "../common.yaml#/components/schemas/EndPointsEnum"
+                        description: >
+                          En lista med datatyper där det finns uppdaterad eller ny information att hämta
+                          på respektive ändpunkt.
+                      deletedEntities:
+                        type: boolean
+                        description: >
+                          True indikerar att det finns information om borttagna entiteter
+                          att hämta från ändpunkten `deletedEntitites`.
 
             responses: # Expected responses to the callback message
               "200":
