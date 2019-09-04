@@ -52,7 +52,7 @@ attendance_events:
       content:
         application/json:
           schema:
-            $ref: "../AttendanceEvent.yaml#/CreateAttendanceEvent"
+            $ref: "../AttendanceEvent.yaml#/AttendanceEvent"
 
     responses:
       "200":

@@ -1,7 +1,15 @@
-CreateAttendanceEvent:
+AttendanceEvent:
   type: object
   title: AttendanceEvent
   properties:
+    id:
+      type: string
+      format: uuid
+      description: Identifierare för den anmälda frånvaron.
+      readOnly: true
+    meta:
+      $ref: "common.yaml#/Meta"
+      readOnly: true
     time:
       type: string
       format: date-time
@@ -23,36 +31,25 @@ CreateAttendanceEvent:
       allOf:
         - $ref: "common.yaml#/StudentGroupReference"
         - description: Den avdelning eller grupp på förskoleenheten som närvaron.
+    _embedded:
+      type: object
+      readOnly: true
+      properties:
+        registeredBy:
+          $ref: "Person.yaml#/Person"
+        child:
+          $ref: "Person.yaml#/Person"
+        group:
+          $ref: "StudentGroup.yaml#/StudentGroup"
+
   required:
+    - id
+    - meta
     - time
     - eventType
     - child
     - group
 
-AttendanceEvent:
-  allOf:
-    - type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-          description: Ett ID för närvarohändelsen.
-        meta:
-          $ref: "common.yaml#/Meta"
-      required:
-        - id
-    - $ref: "#/CreateAttendanceEvent"
-    - type: object
-      properties:
-        _embedded:
-          type: object
-          properties:
-            registeredBy:
-              $ref: "Person.yaml#/Person"
-            child:
-              $ref: "Person.yaml#/Person"
-            group:
-              $ref: "StudentGroup.yaml#/StudentGroup"
 
 AttendanceEvents:
   type: object

@@ -1,7 +1,15 @@
-CreateAttendanceSchedule:
+AttendanceSchedule:
   type: object
   title: AttendanceSchedule
   properties:
+    id:
+      type: string
+      format: uuid
+      description: Identifierare för vistelseschemat.
+      readOnly: true
+    meta:
+      $ref: "common.yaml#/Meta"
+      readOnly: true
     placement:
       allOf:
         - $ref: "common.yaml#/PlacementReference"
@@ -83,24 +91,12 @@ CreateAttendanceSchedule:
             description: Längden på den tid efter starttid som barnet ska vara
 
   required:
+    - id
+    - meta
     - startDate
     - scheduleDays
     - placement
     - state
-
-AttendanceSchedule:
-  allOf:
-    - type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-          description: Ett ID för schemat.
-        meta:
-          $ref: "common.yaml#/Meta"
-      required:
-        - id
-    - $ref: "#/CreateAttendanceSchedule"
 
 Error:
   required:

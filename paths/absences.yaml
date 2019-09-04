@@ -82,7 +82,7 @@ absences:
       content:
         application/json:
           schema:
-            $ref: "../Absence.yaml#/AbsenceFragment"
+            $ref: "../Absence.yaml#/Absence"
     responses:
       200:
         description: Posten skapad.

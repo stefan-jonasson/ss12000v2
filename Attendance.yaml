@@ -1,7 +1,15 @@
-CreateAttendance:
+Attendance:
   type: object
   title: Attendance
   properties:
+    id:
+      type: string
+      format: uuid
+      description: Identifierare för närvaroposten.
+      readOnly: true
+    meta:
+      $ref: "common.yaml#/Meta"
+      readOnly: true
     calendarEvent:
       $ref: "common.yaml#/CalendarEventReference"
     student:
@@ -37,29 +45,17 @@ CreateAttendance:
       format: date-time
       description: Tidpunkt för rapportering av kalenderhändelsen (RFC 3339 format tex "2015-12-12T10:30:00+01:00").
   required:
+    - id
+    - meta
     - student
     - calendarEvent
     - isReported
     - attendanceMinutes
 
-Attendance:
-  allOf:
-    - $ref: "#/CreateAttendance"
-    - type: object
-      properties:
-        meta:
-          $ref: "common.yaml#/Meta"
-      required:
-        - meta
-
-
-
 AttendancesArray:
     type: array
     items:
       $ref: "#/Attendance"
-
-
 
 Attendances:
   type: object

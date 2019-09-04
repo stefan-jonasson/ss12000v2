@@ -33,7 +33,7 @@ attendances:
       content:
         application/json:
           schema:
-            $ref: "../Attendance.yaml#/CreateAttendance"
+            $ref: "../Attendance.yaml#/Attendance"
 
     responses:
       "200":

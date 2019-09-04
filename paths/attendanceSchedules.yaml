@@ -58,7 +58,7 @@ attendanceSchedules:
       content:
         application/json:
           schema:
-            $ref: "../AttendanceSchedule.yaml#/CreateAttendanceSchedule"
+            $ref: "../AttendanceSchedule.yaml#/AttendanceSchedule"
 
     responses:
       "200":
