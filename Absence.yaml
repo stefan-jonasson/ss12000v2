@@ -47,6 +47,7 @@ Absence:
         id:
           type: string
           format: uuid
+          description: Identifierare för den anmälda frånvaron.
         meta:
           $ref: "common.yaml#/Meta"
       required:

@@ -5,6 +5,7 @@ Activity:
     id:
       type: string
       format: uuid
+      description: Identifierare för aktiviteten.
 
     meta:
       $ref: "common.yaml#/Meta"
