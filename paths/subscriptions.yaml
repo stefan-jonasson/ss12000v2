@@ -2,7 +2,6 @@ subscriptions:
   get:
     tags:
       - Prenumeration
-      - Verktyg
     summary: Hämta en lista av prenumerationer.
     parameters:
       - $ref: "searchParameters.yaml#/Limit"
@@ -18,7 +17,6 @@ subscriptions:
   post:
     tags:
       - Prenumeration
-      - Verktyg
     summary: Skapa en prenumeration
     requestBody:
       required: true
@@ -93,7 +91,6 @@ subscription_by_id:
   delete:
     tags:
       - Prenumeration
-      - Verktyg
     summary: Ta bort en prenumeration
     parameters:
       - name: id
@@ -115,7 +112,6 @@ subscription_by_id:
   get:
     tags:
       - Prenumeration
-      - Verktyg
     summary: Hämta prenumeration baserat på ID
     parameters:
       - name: id
@@ -141,7 +137,6 @@ subscription_by_id:
   patch:
     tags:
       - Prenumeration
-      - Verktyg
     summary: Uppdatera expire time på prenumerationen baserat på ID
     parameters:
       - name: id
