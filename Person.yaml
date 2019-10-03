@@ -156,9 +156,10 @@ Person:
                 default: Folkbokföringsadress
                 title: Code_AddressType
                 enum:
-                  - Folkbokföringsadress
-                  - Vistelseadress
+                  - Folkbokföring
                   - Särskildpostadress
+                  - Tillfälligadress
+                  - Postadress
               streetAddress:
                 type: string
                 description: Gatuadress.
@@ -209,7 +210,6 @@ Person:
                   mellan olika processer (enl figur 1).
               relationType:
                 $ref: "common.yaml#/components/schemas/RelationTypesEnum"
-
 
 PersonExpanded:
   allOf:
@@ -267,15 +267,15 @@ PersonsExpandedArray:
 PersonsExpanded:
   type: object
   properties:
-      data:
-        type: array
-        items:
-          $ref: "#/PersonExpanded"
-      pageToken:
-        type: string
-        nullable: true
-        description: >
-          Om värdet är null finns inget mer att hämta på det token
-          som skickades in som query parameter.
+    data:
+      type: array
+      items:
+        $ref: "#/PersonExpanded"
+    pageToken:
+      type: string
+      nullable: true
+      description: >
+        Om värdet är null finns inget mer att hämta på det token
+        som skickades in som query parameter.
   required:
     - data
