@@ -91,8 +91,14 @@ Person:
           required:
             - value
         securityMarking:
-          type: boolean
-          default: false
+          type: string
+          title: Code_SecurityMarking
+          description: >
+            Återspeglar värdet från folkbokföringsregistret.
+          enum:
+            - Normal
+            - Sekretessmarkering
+            - Skyddad folkbokföring
         personStatus:
           type: string
           description: >
@@ -210,7 +216,6 @@ Person:
               relationType:
                 $ref: "common.yaml#/components/schemas/RelationTypesEnum"
 
-
 PersonExpanded:
   allOf:
     - $ref: "#/Person"
@@ -267,15 +272,15 @@ PersonsExpandedArray:
 PersonsExpanded:
   type: object
   properties:
-      data:
-        type: array
-        items:
-          $ref: "#/PersonExpanded"
-      pageToken:
-        type: string
-        nullable: true
-        description: >
-          Om värdet är null finns inget mer att hämta på det token
-          som skickades in som query parameter.
+    data:
+      type: array
+      items:
+        $ref: "#/PersonExpanded"
+    pageToken:
+      type: string
+      nullable: true
+      description: >
+        Om värdet är null finns inget mer att hämta på det token
+        som skickades in som query parameter.
   required:
     - data
