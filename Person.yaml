@@ -96,7 +96,7 @@ Person:
           description: >
             Återspeglar värdet från folkbokföringsregistret.
           enum:
-            - Normal
+            - Ingen
             - Sekretessmarkering
             - Skyddad folkbokföring
         personStatus:
