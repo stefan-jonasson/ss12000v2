@@ -91,8 +91,14 @@ Person:
           required:
             - value
         securityMarking:
-          type: boolean
-          default: false
+          type: string
+          title: Code_SecurityMarking
+          description: >
+            Återspeglar värdet från folkbokföringsregistret.
+          enum:
+            - Ingen
+            - Sekretessmarkering
+            - Skyddad folkbokföring
         personStatus:
           type: string
           description: >
