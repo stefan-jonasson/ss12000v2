@@ -2,7 +2,7 @@ activities:
   get:
     tags:
       - Aktiviteter
-    summary: Hämta en lista med aktiviteter.
+    summary: Hämta en lista med aktiviteter baserat på ett antal sökparametrar.
     parameters:
       - name: person
         description: Begränsa urvalet till utpekad persons ID.
@@ -37,17 +37,13 @@ activities:
         description: >
           Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`,
           `meta.created.after`, `meta.created.before`, `expand`, `person`,
-          `schoolUnit`). Kan inte kombineras med `pageToken`.
-
-
+          `schoolUnit`) kan inte kombineras med `pageToken`.
 
 activitiesLookup:
   post:
     tags:
       - Aktiviteter
-    summary: Hämta många aktiviteter baserat på en lista av ID:n.
-    description: >
-      Hämta många aktiviteter.
+    summary: Hämta en lista med aktiviteter baserat på motsvarande lista av ID:n.
     parameters:
       - $ref: "#/ExpandParameter"
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
@@ -59,7 +55,7 @@ activitiesLookup:
             schema:
               $ref: "../Activity.yaml#/ActivitiesArray"
       503:
-        description: The response is too large for the server ie overload
+        description: The response is too large for the server, i.e. overload
     requestBody:
       content:
         application/json:
@@ -71,7 +67,7 @@ activityById:
   get:
     tags:
       - Aktiviteter
-    summary: Hämta aktivitet baserat på ID
+    summary: Hämta en aktivitet baserat på dess ID
     parameters:
       - name: id
         in: path
