@@ -28,10 +28,12 @@ Attendance:
       description: Längd i minuter för elevens närvaro på kalenderhändelsen.
     validAbsenceMinutes:
       type: integer
-      description: Längd i minuter för elevens giltiga frånvaro på kalenderhändelsen.
+      description: >
+        Längd i minuter för elevens giltiga frånvaro på kalenderhändelsen.
     invalidAbsenceMinutes:
       type: integer
-      description: Längd i minuter för elevens ogiltiga frånvaro på kalenderhändelsen.
+      description: >
+        Längd i minuter för elevens ogiltiga frånvaro på kalenderhändelsen.
     otherAttendanceMinutes:
       type: integer
       description: >
@@ -43,7 +45,9 @@ Attendance:
     reportedTimestamp:
       type: string
       format: date-time
-      description: Tidpunkt för rapportering av kalenderhändelsen (RFC 3339 format tex "2015-12-12T10:30:00+01:00").
+      description: >
+        Tidpunkt för rapportering av kalenderhändelsen
+        (RFC 3339 format, tex "2015-12-12T10:30:00+01:00").
   required:
     - id
     - meta

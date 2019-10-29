@@ -114,7 +114,9 @@ personsLookup:
       - Person
     summary: Hämta många personer baserat på en lista av ID:n eller personnummer.
     description: >
-      Hämta många personer.
+      Istället för att hämta personer en i taget med en loop
+      av GET-anrop så finns det även möjlighet att hämta många personer
+      på en gång genom att ange POST:a en lista med önskade personer.
     parameters:
       - $ref: "#/ExpandParameter"
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"

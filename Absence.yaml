@@ -18,16 +18,21 @@ Absence:
     startTime:
       type: string
       format: date-time
-      description: Starttid för den anmälda frånvaron (RFC 3339 format tex "2015-12-12T10:30:00+01:00").
+      description: >
+        Starttid för den anmälda frånvaron
+        (RFC 3339 format, tex "2015-12-12T10:30:00+01:00").
     endTime:
       type: string
       format: date-time
-      description: Sluttid för den anmälda frånvaron (RFC 3339 format tex "2015-12-12T10:30:00+01:00").
+      description: >
+        Sluttid för den anmälda frånvaron
+        (RFC 3339, format tex "2015-12-12T10:30:00+01:00").
     type:
       allOf:
         - $ref: "common.yaml#/components/schemas/AbsenceEnum"
         - description: >
-            Anger om det rör beviljad ledighet eller frånvaro anmäld av vårdnadshavare.
+            Anger om det rör beviljad ledighet eller
+            frånvaro anmäld av vårdnadshavare.
     student:
       allOf:
         - $ref: "common.yaml#/PersonReference"
@@ -67,8 +72,8 @@ Absences:
         type: string
         nullable: true
         description: >
-          Om värdet är null finns inget mer att hämta på det token som skickades in
-          som query parameter.
+          Om värdet är null finns inget mer att hämta
+          på det token som skickades in som query parameter.
   required:
     - data
 

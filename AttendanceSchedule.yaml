@@ -48,7 +48,9 @@ AttendanceSchedule:
           registeredAt:
             type: string
             format: date-time
-            description: Tid och datum för tillstånd (RFC 3339 format tex "2015-12-12T10:30:00+01:00").
+            description: >
+              Tid och datum för tillstånd
+              (RFC 3339 format, tex "2015-12-12T10:30:00+01:00").
           comment:
             type: string
             description: En kommentar angående tillståndet.

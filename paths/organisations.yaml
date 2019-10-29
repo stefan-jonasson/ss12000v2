@@ -46,7 +46,9 @@ organisationsLookup:
       - Organisation
     summary: Hämta många organisationer baserat på en lista av ID:n.
     description: >
-      Hämta många program.
+      Istället för att hämta organisationer en i taget med en loop
+      av GET-anrop så finns det även möjlighet att hämta många organisationer
+      på en gång genom att ange POST:a en lista med önskade organisationer.
     parameters:
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:

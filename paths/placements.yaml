@@ -103,7 +103,9 @@ placementsLookup:
     summary: >
       Hämta många placeringar baserat på en lista av ID:n eller av Id från personer.
     description: >
-      Hämta många placeringar.
+      Istället för att hämta placeringar en i taget med en loop
+      av GET-anrop så finns det även möjlighet att hämta många placeringar
+      på en gång genom att ange POST:a en lista med önskade placeringar.
     parameters:
       - $ref: "#/ExpandParameter"
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"

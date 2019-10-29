@@ -23,13 +23,17 @@ get:
         type: string
         format: date
     - name: schoolUnit
-      description: Inkludera endast närvaro från aktiviteter vilka ägs av angiven skolenhet.
+      description: >
+        Inkludera endast närvaro från aktiviteter vilka ägs av angiven
+        skolenhet.
       in: query
       schema:
         type: string
         format: uuid
     - name: schoolType
-      description: Hämta endast närvaro information från aktiviteter vilka är kopplade mot angiven skolform.
+      description: >
+        Hämta endast närvaro information från aktiviteter
+        vilka är kopplade mot angiven skolform.
       in: query
       schema:
         type: array

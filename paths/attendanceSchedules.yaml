@@ -15,7 +15,8 @@ attendanceSchedules:
       - name: startDate.onOrAfter
         description: >
           Begränsa urvalet till vistelseschema som är aktiva inom det
-          intervall som startar på angivet datum (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
+          intervall som startar på angivet datum
+          (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
         in: query
         schema:
           type: string
@@ -23,7 +24,8 @@ attendanceSchedules:
       - name: endDate.onOrBefore
         description: >
           Begränsa urvalet till vistelseschema som är aktiva inom det
-          intervall som avslutas på angivet datum (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
+          intervall som avslutas på angivet datum
+          (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
         in: query
         schema:
           type: string
@@ -78,9 +80,11 @@ attendanceSchedulesLookup:
   post:
     tags:
       - Vistelseschema
-    summary: Hämta många vistelseschema baserat på en lista av ID:n.
+    summary: Hämta många vistelsescheman baserat på en lista av ID:n.
     description: >
-      Hämta många vistelseschema.
+      Istället för att hämta vistelsescheman ett i taget med en loop
+      av GET-anrop så finns det även möjlighet att hämta många vistelsescheman
+      på en gång genom att ange POST:a en lista med önskade vistelsescheman.
     parameters:
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:

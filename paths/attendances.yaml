@@ -57,7 +57,9 @@ attendancesLookup:
       Hämta närvaro baserat på en lista av ID:n eller av Id från aktiviteter
       eller av Id från elever.
     description: >
-      Hämta många närvaro.
+      Istället för att hämta aktiviteter en i taget med en loop
+      av GET-anrop så finns det även möjlighet att hämta många aktiviteter
+      på en gång genom att ange POST:a en lista med önskade aktiviteter.
     parameters:
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:

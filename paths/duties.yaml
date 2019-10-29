@@ -59,7 +59,9 @@ dutiesLookup:
       - Person
     summary: Hämta många tjänstgöringar baserat på en lista av ID:n.
     description: >
-      Hämta många tjänstgöringar.
+      Istället för att hämta tjänstgöringar en i taget med en loop
+      av GET-anrop så finns det även möjlighet att hämta många tjänstgöringar
+      på en gång genom att ange POST:a en lista med önskade tjänstgöringar.
     parameters:
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:

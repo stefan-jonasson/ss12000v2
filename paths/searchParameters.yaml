@@ -1,7 +1,8 @@
 SearchCreatedAfter:
   name: meta.created.after
   description: >
-    Endast poster skapade efter detta timestamp (RFC 3339 format tex "2015-12-12T10:30:00+01:00"). Exkluderande.
+    Endast poster skapade efter detta timestamp
+    (RFC 3339 format, tex "2015-12-12T10:30:00+01:00"). Exkluderande.
   in: query
   schema:
     type: string
@@ -10,7 +11,8 @@ SearchCreatedAfter:
 SearchCreatedBefore:
   name: meta.created.before
   description: >
-    Endast poster skapade på eller före detta timestamp (RFC 3339 format tex "2015-12-12T10:30:00+01:00"). Inkluderande.
+    Endast poster skapade på eller före detta timestamp
+    (RFC 3339 format, tex "2015-12-12T10:30:00+01:00"). Inkluderande.
   in: query
   schema:
     type: string
@@ -19,7 +21,8 @@ SearchCreatedBefore:
 SearchModifiedAfter:
   name: meta.modified.after
   description: >
-    Endast poster modifierade efter detta timestamp (RFC 3339 format tex "2015-12-12T10:30:00+01:00"). Exkluderande.
+    Endast poster modifierade efter detta timestamp
+    (RFC 3339 format, tex "2015-12-12T10:30:00+01:00"). Exkluderande.
   in: query
   schema:
     type: string
@@ -28,7 +31,8 @@ SearchModifiedAfter:
 SearchModifiedBefore:
   name: meta.modified.before
   description: >
-    Endast poster modifierade på eller före detta timestamp (RFC 3339 format tex "2015-12-12T10:30:00+01:00"). Inkluderande.
+    Endast poster modifierade på eller före detta timestamp
+    (RFC 3339 format, tex "2015-12-12T10:30:00+01:00"). Inkluderande.
   in: query
   schema:
     type: string

@@ -18,11 +18,15 @@ Enrolment:
     startDate:
       type: string
       format: date
-      description: Startdatum för inskrivningen (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
+      description: >
+        Startdatum för inskrivningen
+        (RFC 3339-format, t.ex. "2016-10-15").Inkluderande.
     endDate:
       type: string
       format: date
-      description: Slutdatum för inskrivningen (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
+      description: >
+        Slutdatum för inskrivningen
+        (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
     educationCode:
       type: string
       description: Studievägskod för den aktuella inskrivningen.
@@ -35,8 +39,9 @@ Enrolment:
     specification:
       type: string
       description: >
-        Kompletterande information angående innehåll i elevens utbildning, används som
-        avgränsning av ett visst utbildningsalternativ för exempelvis lärlingsutbildning.
+        Kompletterande information angående innehåll i elevens utbildning,
+        används som avgränsning av ett visst utbildningsalternativ
+        för exempelvis lärlingsutbildning.
   required:
     - enroledAt
     - schoolType

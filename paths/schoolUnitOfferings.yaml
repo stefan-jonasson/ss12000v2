@@ -46,7 +46,9 @@ schoolUnitOfferingsLookup:
       - Studieinformation
     summary: Hämta många program baserat på en lista av ID:n.
     description: >
-      Hämta många program.
+      Istället för att hämta program en i taget med en loop
+      av GET-anrop så finns det även möjlighet att hämta många program
+      på en gång genom att ange POST:a en lista med önskade program.
     parameters:
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:

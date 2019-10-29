@@ -44,6 +44,10 @@ activitiesLookup:
     tags:
       - Aktiviteter
     summary: Hämta en lista med aktiviteter baserat på motsvarande lista av ID:n.
+    description: >
+      Istället för att hämta aktiviteter en i taget med en loop
+      av GET-anrop så finns det även möjlighet att hämta många aktiviteter
+      på en gång genom att ange POST:a en lista med önskade aktiviteter.
     parameters:
       - $ref: "#/ExpandParameter"
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"

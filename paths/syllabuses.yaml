@@ -49,7 +49,9 @@ syllabusesLookup:
       - Studieinformation
     summary: Hämta många syllabuses baserat på en lista av ID:n.
     description: >
-      Hämta många syllabuses.
+      Istället för att hämta syllabuses en i taget med en loop
+      av GET-anrop så finns det även möjlighet att hämta många syllabuses
+      på en gång genom att ange POST:a en lista med önskade syllabuses.
     parameters:
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:

@@ -6,7 +6,9 @@ deletedEntities:
     parameters:
       - name: after
         in: query
-        description: Hämta borttag som inträffat efter specificerad tidpunkt (RFC 3339 format tex "2015-12-12T10:30:00+01:00").
+        description: >
+          Hämta borttag som inträffat efter specificerad tidpunkt
+          (RFC 3339 format, tex "2015-12-12T10:30:00+01:00").
         schema:
           type: string
           format: date-time

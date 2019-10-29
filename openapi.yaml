@@ -3,7 +3,7 @@ servers:
   - description: SS12000
     url: http://some.server.se/v2.0
 info:
-  description: |
+  description: >
     This is an implementation specification of SS12000 v2
     [TK450](https://www.sis.se/standardutveckling/tksidor/tk400499/sistk450/)
   version: 2.0.0

@@ -41,7 +41,7 @@ Programme:
        - description: Skolform för programmet.
     code:
       type: string
-      description: |
+      description: >
         Program-/inriktningskod(studievägskod).
         För gymnasieskolans program/inriktningar måste denna finnas och vara enligt
         Skolverkets definition.

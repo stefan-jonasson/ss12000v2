@@ -71,7 +71,9 @@ schoolUnitsLookup:
       - Organisation
     summary: Hämta många skolenheter baserat på en lista av ID:n.
     description: >
-      Hämta många skolenheter.
+      Istället för att hämta skolenheter en i taget med en loop
+      av GET-anrop så finns det även möjlighet att hämta många skolenheter
+      på en gång genom att ange POST:a en lista med önskade skolenheter.
     parameters:
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:

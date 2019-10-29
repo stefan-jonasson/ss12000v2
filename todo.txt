@@ -222,3 +222,39 @@ studyPlans.yaml
 subscriptions.yaml
 syllabuses.yaml
 
+startTime o endTime i paths/calendarEvents är inte tydliga, from, tom?
+
+deletedEntities, det borde kanske vara plural i namnen på vektorerna, och kanske en tidstämpel med varje rad, möjligen?
+
+
+
+synka eppn typ med dokumentet (ingen vhavarE)
+
+pagetoken bör enklast bara läggas till som extra parameter, inte exkludera användandet av andra parametrar.
+
+
+att "hämta en lista av prenumerationer" är rätt otydligt, vad sjutton menas?
+Bara just mina? Andras? Är det rimligt att ha pageToken där, lär ju knappast
+bli så långa listor?
+
+
+grade saknar ID i dokumentet...
+
+generellt så harr diagrammet  ofta 1...* när det är exakt ett i dokumentet och i yaml
+
+id : int för AttendanceSchedule i diagrammet
+
+
+synka code_objectType med dokumentet. (används för subscriptions)
+
+
+
+
+
+Från html:
+Radera:
+
+USage  and SKD samnples
+Scopes
+Parameters
+

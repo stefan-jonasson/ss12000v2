@@ -4,22 +4,24 @@ absences:
       - Närvaro
     summary: >
       Hämta en lista av beviljad ledighet och anmäld frånvaro.
-    operationId: getAbsence
     parameters:
       - name: schoolUnit
-        description: Begränsa urvalet till den frånvaro/ledighet som är kopplad till skolenheten.
+        description: >
+          Begränsa urvalet till den frånvaro/ledighet som är kopplad till skolenheten.
         in: query
         schema:
           type: string
           format: uuid
       - name: student
-        description: Begränsa urvalet till den frånvaro/ledighet som är kopplad till eleven
+        description: >
+          Begränsa urvalet till den frånvaro/ledighet som är kopplad till eleven
         in: query
         schema:
           type: string
           format: uuid
       - name: registeredBy
-        description: Begränsa urvalet till den frånvaro/ledighet som är registrerad av personen
+        description: >
+          Begränsa urvalet till den frånvaro/ledighet som är registrerad av personen
         in: query
         schema:
           type: string
@@ -31,13 +33,17 @@ absences:
           type: string
           $ref: "../common.yaml#/components/schemas/AbsenceEnum"
       - name: startTime.before
-        description: Endast anmälda frånvaro som startar innan eller på denna tidpunkt (RFC 3339 format tex "2015-12-12T10:30:00+01:00"). Inkluderande.
+        description: >
+          Endast anmälda frånvaro som startar innan eller på denna tidpunkt
+          (RFC 3339 format, tex "2015-12-12T10:30:00+01:00"). Inkluderande.
         in: query
         schema:
           type: string
           format: date-time
       - name: startTime.after
-        description: Endast anmälda frånvaro/ledighet som startar efter denna tidpunkt (RFC 3339 format tex "2015-12-12T10:30:00+01:00"). Exkluderande.
+        description: >
+          Endast anmälda frånvaro/ledighet som startar efter denna tidpunkt
+          (RFC 3339 format, tex "2015-12-12T10:30:00+01:00"). Exkluderande.
         in: query
         schema:
           type: string
@@ -69,9 +75,10 @@ absences:
               $ref: "../Absence.yaml#/Absences"
       400:
         description: >
-          Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`, `meta.created.after`,
-          `meta.created.before`,   `expand`,`schoolUnit`, `student`,`registeredBy`,`type`,
-          `startTime.before`, `startTime.after`) kan inte kombineras med `pageToken`
+          Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`,
+          `meta.created.after`, `meta.created.before`,   `expand`,`schoolUnit`,
+          `student`,`registeredBy`,`type`, `startTime.before`, `startTime.after`)
+          kan inte kombineras med `pageToken`
 
   post:
     tags:
@@ -101,10 +108,12 @@ AbsenceLookup:
   post:
     tags:
       - Närvaro
-    summary: Hämta många anmälda frånvaro baserat på en lista av ID:n.
-    operationId: postAbsenceFilter
+    summary: Hämta många anmälda frånvaroposter baserat på en lista av ID:n.
     description: >
-      Hämta många anmälda frånvaro.
+      Istället för att hämta anmälda frånvaro en i taget med en loop
+      av GET-anrop så finns det även möjlighet att hämta många anmälda
+      frånvaroposter på en gång genom att ange POST:a en lista med
+      önskade objekt.
     parameters:
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:

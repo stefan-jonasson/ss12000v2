@@ -88,9 +88,11 @@ studentGroupsLookup:
   post:
     tags:
       - Grupper
-    summary: Hämta många program baserat på en lista av ID:n.
+    summary: Hämta många studentgrupper baserat på en lista av ID:n.
     description: >
-      Hämta många program.
+      Istället för att hämta studentgrupper en i taget med en loop
+      av GET-anrop så finns det även möjlighet att hämta många studentgrupper
+      på en gång genom att ange POST:a en lista med önskade studentgrupper.
     parameters:
       - $ref: "#/ExpandParameter"
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
