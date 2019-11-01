@@ -16,7 +16,7 @@ CreateSubscription:
           resource:
             $ref: "common.yaml#/components/schemas/EndPointsEnum"
     organisations:
-      description: |
+      description: >
         Begränsa till data härledd till listade organisationer.
         Om denna utelämnas så fås samliga organisationer som klienten har rätt till.
         Vårdnadshavare relateras till organisationer genom sina barn.
@@ -28,8 +28,7 @@ CreateSubscription:
   required:
     - name
     - target
-    - clientAuthenticationToken
-    - events
+    - resourceTypes
 
 Subscription:
   allOf:
