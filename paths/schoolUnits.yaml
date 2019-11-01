@@ -4,6 +4,13 @@ schoolUnits:
       - Organisation
     summary: Hämta en lista med skolenheter.
     parameters:
+      - name: schoolUnitCode
+        description: >
+          Begränsa urvalet till de skolenheter som har den angivna Skolenhetskoden.
+          En Identifierare för skolenheten enligt Skolverket.
+        in: query
+        schema:
+          type: string
       - name: organisation
         description: >
           Begränsa urvalet till de skolenheter som hör till det angivna Organisations Id.
@@ -89,7 +96,7 @@ schoolUnitsLookup:
       content:
         application/json:
           schema:
-           $ref : "../common.yaml#/components/schemas/IdLookup"
+            $ref: "../common.yaml#/components/schemas/IdLookup"
       required: true
 
 schoolUnitById:

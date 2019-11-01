@@ -19,12 +19,14 @@ StudentGroupFragment:
       type: string
       format: date
       description: >
-        Startdatum för gruppens giltighetstid (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
+        Startdatum för gruppens giltighetstid
+        (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
     endDate:
       type: string
       format: date
       description: >
-        Slutdatum för gruppens giltighetstid (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
+        Slutdatum för gruppens giltighetstid
+        (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
     studentGroupType:
       $ref: "common.yaml#/components/schemas/StudentGroupTypesEnum"
 

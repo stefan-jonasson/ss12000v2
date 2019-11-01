@@ -20,11 +20,15 @@ AttendanceSchedule:
     startDate:
       type: string
       format: date
-      description: Anger datum då schemat startar (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
+      description: >
+        Anger datum då schemat startar
+        (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
     endDate:
       type: string
       format: date
-      description: Anger datum då schemat slutar (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
+      description: >
+        Anger datum då schemat slutar
+        (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
     temporary:
       type: boolean
       description: >
@@ -122,6 +126,8 @@ AttendanceSchedules:
       pageToken:
         type: string
         nullable: true
-        description: Om värdet är null finns inget mer att hämta på det token som skickades in som query parameter.
+        description: >
+          Om värdet är null finns inget mer att hämta
+          på det token som skickades in som query parameter.
   required:
     - data
