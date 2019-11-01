@@ -12,7 +12,8 @@ ObjectReference:
       readOnly: true
       description: >
         Namn för visningsyfte för det refererade objektet.
-        Skall endast returneras när query parametern `expandReferenceNames` är satt till "true".
+        Skall endast returneras när query parametern
+        `expandReferenceNames` är satt till "true".
 
 Meta:
   title: Meta
@@ -22,11 +23,15 @@ Meta:
     created:
       type: string
       format: date-time
-      description: Datum och tid för när entiteten skapades (RFC 3339 format tex "2015-12-12T10:30:00+01:00").
+      description: >
+        Datum och tid för när entiteten skapades
+        (RFC 3339 format tex "2015-12-12T10:30:00+01:00").
     modified:
       type: string
       format: date-time
-      description: Datum och tid för när entiteten senast uppdaterades (RFC 3339 format tex "2015-12-12T10:30:00+01:00").
+      description: >
+        Datum och tid för när entiteten senast uppdaterades
+        (RFC 3339 format tex "2015-12-12T10:30:00+01:00").
 
 SchoolUnitReference:
   allOf:
