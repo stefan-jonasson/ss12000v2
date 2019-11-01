@@ -261,6 +261,12 @@ PersonExpanded:
               description: Personens aktuella tjänstgöring
               items:
                 $ref: "./Duty.yaml#/DutyFragment"
+            studentGroups:
+              type: array
+              description: >
+                En lista med studengrupper där eleven är medlem i
+              items:
+                $ref: "./StudentGroup.yaml#/StudentGroupFragment"
 
 Persons:
   type: array
