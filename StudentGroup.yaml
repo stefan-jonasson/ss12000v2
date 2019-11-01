@@ -1,4 +1,4 @@
-StudentGroup:
+StudentGroupFragment:
   type: object
   title: StudentGroup
   description: >
@@ -12,8 +12,6 @@ StudentGroup:
       type: string
       format: uuid
       description: Identifierare för elevgruppen
-    meta:
-      $ref: "common.yaml#/Meta"
     displayName:
       description: Gruppens benämning.
       type: string
@@ -38,60 +36,70 @@ StudentGroup:
             innan gruppen populeras med elever, eftersom  elevens inskrivning är
             ger mer specifik information.
         - $ref: "common.yaml#/components/schemas/SchoolTypesEnum"
-    studentMemberships:
-      description: >
-        Studentmedlemskap anger att en student är medlem i en grupp
-        och vilken tidsperiod medlemskapet omfattar.
-      type: array
-      items:
-        type: object
-        title: StudentMembership
-        properties:
-          person:
-            $ref: "common.yaml#/PersonReference"
-          startDate:
-            description: >
-              Startdatum för elevens medlemskap i gruppen (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
-            type: string
-            format: date
-          endDate:
-            description: >
-              Slutdatum för elevens medlemskap i gruppen (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
-            type: string
-            format: date
+
     schoolUnit:
       allOf:
         - $ref: "common.yaml#/SchoolUnitReference"
         - description: Den skolenhet som aktiviteten är knuten till.
-    _embedded:
-      type: object
-      properties:
-        assignmentRoles:
-          type: array
-          items:
-            type: object
-            allOf:
-              - $ref: "Duty.yaml#/DutyFragment"
-              - type: object
-                properties:
-                  assignmentRoleType:
-                    $ref: "common.yaml#/components/schemas/AssignmentRoleTypeEnum"
-                  startDate:
-                    description: >
-                      Startdatum för tjänstens relation till gruppen (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
-                    type: string
-                    format: date
-                  endDate:
-                    description: >
-                      Slutdatum för tjänstens relation till gruppen (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
-                    type: string
-                    format: date
+
   required:
     - id
     - displayName
     - studentGroupType
     - startDate
     - schoolUnit
+
+StudentGroup:
+  allOf:
+    - $ref: "#/StudentGroupFragment"
+    - type: object
+      properties:
+        meta:
+          $ref: "common.yaml#/Meta"
+        studentMemberships:
+          description: >
+            Studentmedlemskap anger att en student är medlem i en grupp
+            och vilken tidsperiod medlemskapet omfattar.
+          type: array
+          items:
+            type: object
+            title: StudentMembership
+            properties:
+              person:
+                $ref: "common.yaml#/PersonReference"
+              startDate:
+                description: >
+                  Startdatum för elevens medlemskap i gruppen (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
+                type: string
+                format: date
+              endDate:
+                description: >
+                  Slutdatum för elevens medlemskap i gruppen (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
+                type: string
+                format: date
+        _embedded:
+          type: object
+          properties:
+            assignmentRoles:
+              type: array
+              items:
+                type: object
+                allOf:
+                  - $ref: "Duty.yaml#/DutyFragment"
+                  - type: object
+                    properties:
+                      assignmentRoleType:
+                        $ref: "common.yaml#/components/schemas/AssignmentRoleTypeEnum"
+                      startDate:
+                        description: >
+                          Startdatum för tjänstens relation till gruppen (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
+                        type: string
+                        format: date
+                      endDate:
+                        description: >
+                          Slutdatum för tjänstens relation till gruppen (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
+                        type: string
+                        format: date
 
 StudentGroupsArray:
   type: array
