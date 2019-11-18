@@ -124,7 +124,7 @@ AbsenceLookup:
             schema:
               $ref: "../Absence.yaml#/AbsencesArray"
       503:
-        description: The response is too large for the server ie overload
+        description: The response is too large for the server, i.e. overload.
     requestBody:
       content:
         application/json:

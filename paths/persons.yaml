@@ -130,6 +130,8 @@ personsLookup:
       503:
         description: The response is too large for the server ie overload
     requestBody:
+      description: >
+        En lista med personnummer och / eller uuid:n på personer.
       content:
         application/json:
           schema:
