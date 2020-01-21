@@ -1,7 +1,7 @@
 Room:
   type: object
   title: Room
-  description: Ett rum eller en plats som kan bokas i ett skolschema.
+  description: Ett rum eller en plats som kan bokas i ett skolschema. Organisation eller schoolUnits måste anges. Anges båda värdena tillhör rummet allt under Organisationen samt alla refererade skolenheter.
   properties:
     id:
       type: string
@@ -14,17 +14,19 @@ Room:
     seats:
       type: integer
       description: Antal platser i lokalen.
-    owner:
-      type: object
+    organisation:
       allOf:
-        - $ref: "common.yaml#/ObjectReference"
-        - title: OrganisationReference
-          description: Möjlighet att ange vilket organisationselement resursen tillhör.
+        - $ref: "common.yaml#/OrganisationReference"
+        - description: Möjlighet att ange vilket organisationselement rummet tillhör. Måste anges ifall schoolUnits inte är anvigen.
+    schoolUnits:
+      type: array
+      description: Lista av skolenheter som rummet tillhör. Måste anges ifall organisation inte är anvigen.
+      items: 
+        $ref: "common.yaml#/SchoolUnitReference"        
   required:
     - id
     - meta
     - displayName
-    - owner
 
 RoomsArray:
         type: array

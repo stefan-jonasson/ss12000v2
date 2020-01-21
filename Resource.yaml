@@ -13,18 +13,19 @@ Resource:
     description:
       type: string
       description: Beskrivning av resursen.
-    owner:
+    organisation:
       allOf:
-        - $ref: "common.yaml#/ObjectReference"
-        - title: OrganisationReference
-          description: >
-            Möjlighet att ange vilket organisationselement resursen tillhör.
+        - $ref: "common.yaml#/OrganisationReference"
+        - description: Möjlighet att ange vilket organisationselement resursen tillhör. Måste anges ifall schoolUnits inte är anvigen.
+    schoolUnits:
+      type: array
+      description: Lista av skolenheter som resursen tillhör. Måste anges ifall organisation inte är anvigen.
+      items: 
+        $ref: "common.yaml#/SchoolUnitReference"     
   required:
     - id
     - meta
     - displayName
-    - owner
-
 
 ResourcesArray:
       type: array
