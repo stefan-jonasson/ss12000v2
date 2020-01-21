@@ -43,10 +43,7 @@ StudyPlan:
               title: StudyPlanSyllabus
               properties:
                 syllabus:
-                  type: string
-                  title: SyllabusReference
-                  description: Rererens till en kursplan.
-                  format: uuid
+                  $ref: "common.yaml#/SyllabusReference"
                 note:
                   type: string
                   description: Notering angående kursens status i elevens studieplan

@@ -175,6 +175,8 @@ components:
       $ref: "Person.yaml#/Person"
     Duty:
       $ref: "Duty.yaml#/Duty"
+    Placement:
+      $ref: "Placement.yaml#/Placement"
     StudentGroup:
       $ref: "StudentGroup.yaml#/StudentGroup"
     Programme:
