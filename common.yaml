@@ -195,7 +195,7 @@ components:
         * _Klass_ - Klassen är en organisatorisk grupp med elever som är skolplacerade
           på en skola med skolform FSK, GR, GRS, SP, SAM, GY eller GYS.
           Varje elev ska vara placerad i endast en klass. Klassen kan schemaläggas
-          med undervisning enligt timplan. "Klassförestorndare" kan beskrivas genom att koppla en _AssignmentRole_ av typen _Mentor_.
+          med undervisning enligt timplan. "Klassföreståndare" kan beskrivas genom att koppla en _AssignmentRole_ av typen _Mentor_.
         * _Mentor_ - Grupp med elever vilka delar samma mentor/mentorer. 
           Mentor kopplas till gruppen genom en _AssignmentRole_.
         * _Schema_ - Schemagrupper är elevgrupper som utgör ett komplement till
