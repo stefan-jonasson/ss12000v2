@@ -8,7 +8,6 @@ SchoolUnit:
     id:
       type: string
       format: uuid
-
     meta:
       $ref: "common.yaml#/Meta"
     organisation:
