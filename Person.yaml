@@ -260,7 +260,7 @@ PersonExpanded:
               description: >
                 En lista med studengrupper där eleven är medlem i
               items:
-                $ref: "./StudentGroup.yaml#/StudentGroup"
+                $ref: "./StudentGroup.yaml#/StudentGroupFragment"
 
 Persons:
   type: array

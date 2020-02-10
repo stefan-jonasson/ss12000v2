@@ -74,7 +74,7 @@ PlacementExpanded:
                 $ref: "Person.yaml#/Person"
             studentGroup:
               items:
-                $ref: "StudentGroup.yaml#/StudentGroup"
+                $ref: "StudentGroup.yaml#/StudentGroupFragment"
             responsibles:
               type: array
               description: >

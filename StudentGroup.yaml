@@ -1,4 +1,4 @@
-StudentGroup:
+StudentGroupFragment:
   type: object
   title: StudentGroup
   description: >
@@ -46,35 +46,42 @@ StudentGroup:
         - $ref: "common.yaml#/SchoolUnitReference"
         - description: Den skolenhet som aktiviteten är knuten till.
 
-    studentMemberships:
-        description: >
-          Studentmedlemskap anger att en student är medlem i en grupp
-          och vilken tidsperiod medlemskapet omfattar.
-        type: array
-        items:
-          type: object
-          title: StudentMembership
-          properties:
-            person:
-              $ref: "common.yaml#/PersonReference"
-            startDate:
-              description: >
-                Startdatum för elevens medlemskap i gruppen
-                (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
-              type: string
-              format: date
-            endDate:
-              description: >
-                Slutdatum för elevens medlemskap i gruppen
-                (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
-              type: string
-              format: date
+    
   required:
     - id
     - displayName
     - studentGroupType
     - startDate
     - schoolUnit
+
+StudentGroup:
+  allOf:
+    - $ref: "#/StudentGroupFragment"
+    - type: object
+      properties:
+        studentMemberships:
+          description: >
+            Studentmedlemskap anger att en student är medlem i en grupp
+            och vilken tidsperiod medlemskapet omfattar.
+          type: array
+          items:
+            type: object
+            title: StudentMembership
+            properties:
+              person:
+                $ref: "common.yaml#/PersonReference"
+              startDate:
+                description: >
+                  Startdatum för elevens medlemskap i gruppen
+                  (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
+                type: string
+                format: date
+              endDate:
+                description: >
+                  Slutdatum för elevens medlemskap i gruppen
+                  (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
+                type: string
+                format: date
 
 StudentGroupExpanded:
   allOf:
