@@ -269,15 +269,15 @@ PersonExpanded:
                 type: object
                 properties:
                   studentGroup:
-                    $ref: "common.yaml#/StudentGroupReference"
+                    $ref: "common.yaml#/StudentGroupFragment"
                   startDate:
                     description: >
-                      Startdatum för elevens medlemskap i gruppen (RFC 3339-format, t.ex. "2016-10-15"). När utpekad grupps startDate är mer begränsande (angivit och senare) returneras gruppens startDate. Inkluderande.
+                      Startdatum för elevens medlemskap i gruppen (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
                     type: string
                     format: date
                   endDate:
                     description: >
-                      Slutdatum för elevens medlemskap i gruppen (RFC 3339-format, t.ex. "2016-10-15"). När utpekad grupps endDate är mer begränsande (angivit och tidigare) returneras gruppens endDate. Inkluderande.
+                      Slutdatum för elevens medlemskap i gruppen (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
                     type: string
                     format: date
 
