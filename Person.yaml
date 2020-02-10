@@ -260,13 +260,26 @@ PersonExpanded:
               type: array
               description: Personens aktuella tjänstgöring
               items:
-                $ref: "./Duty.yaml#/DutyFragment"
-            studentGroups:
+                $ref: "./Duty.yaml#/DutyFragment"            
+            studentGroupMemberships:
               type: array
               description: >
                 En lista med studengrupper där eleven är medlem i
               items:
-                $ref: "./StudentGroup.yaml#/StudentGroupFragment"
+                type: object
+                properties:
+                  studentGroup:
+                    $ref: "common.yaml#/StudentGroupReference"
+                  startDate:
+                    description: >
+                      Startdatum för elevens medlemskap i gruppen (RFC 3339-format, t.ex. "2016-10-15"). När utpekad grupps startDate är mer begränsande (angivit och senare) returneras gruppens startDate. Inkluderande.
+                    type: string
+                    format: date
+                  endDate:
+                    description: >
+                      Slutdatum för elevens medlemskap i gruppen (RFC 3339-format, t.ex. "2016-10-15"). När utpekad grupps endDate är mer begränsande (angivit och tidigare) returneras gruppens endDate. Inkluderande.
+                    type: string
+                    format: date
 
 Persons:
   type: array
