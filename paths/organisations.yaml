@@ -18,7 +18,17 @@ organisations:
           En Identifierare för skolenheten enligt Skolverket.
         in: query
         schema:
-          type: string     
+          type: array
+          items:
+            type: string
+      - name: code
+        description: >
+          Begränsa urvalet till de organisationselement som har den angivna koden.
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
       - name: municipalityCode
         description: >
           Begränsa urvalet till de organisationselement som har angiven kommunkod.
