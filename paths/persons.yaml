@@ -191,4 +191,4 @@ ExpandParameter:
     type: array
     items:
       type: string
-      enum: [duties, responsibleFor, placements, ownedPlacements, studentGroups]
+      enum: [duties, responsibleFor, placements, ownedPlacements, studentGroupMemberships]
