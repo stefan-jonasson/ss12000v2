@@ -1,4 +1,4 @@
-DutyFragment:
+Duty:
   type: object
   title: Duty
   description: referens till ett Dutyobjekt
@@ -7,6 +7,12 @@ DutyFragment:
       type: string
       format: uuid
       description: Ett ID för tjänsten.
+    meta:
+      $ref: "common.yaml#/Meta"
+    person:
+      allOf:
+        - $ref: "common.yaml#/PersonReference"
+        - description: Identifierare av person som tjänsten är knuten till.
     assignmentRoleStudentGroups:
       type: array
       items:
@@ -57,7 +63,6 @@ DutyFragment:
           - organisation
           - assignmentRoleType
           - startDate
-
     dutyAt:
       allOf:
         - $ref: "common.yaml#/ObjectReference"
@@ -95,18 +100,6 @@ DutyFragment:
     - dutyAt
     - dutyRole
     - startDate
-
-Duty:
-  allOf:
-    - $ref: "#/DutyFragment"
-    - type: object
-      properties:
-        meta:
-          $ref: "common.yaml#/Meta"
-        person:
-          allOf:
-            - $ref: "common.yaml#/PersonReference"
-            - description: Identifierare av person som tjänsten är knuten till.
 
 DutiesArray:
   type: array

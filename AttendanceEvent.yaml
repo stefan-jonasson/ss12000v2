@@ -40,7 +40,7 @@ AttendanceEvent:
         child:
           $ref: "Person.yaml#/Person"
         group:
-          $ref: "StudentGroup.yaml#/StudentGroup"
+          $ref: "StudentGroup.yaml#/StudentGroupFragment"
 
   required:
     - id

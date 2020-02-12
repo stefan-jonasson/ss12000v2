@@ -12,6 +12,8 @@ StudentGroupFragment:
       type: string
       format: uuid
       description: Identifierare för elevgruppen
+    meta:
+      $ref: "common.yaml#/Meta"
     displayName:
       description: Gruppens benämning.
       type: string
@@ -53,8 +55,6 @@ StudentGroup:
     - $ref: "#/StudentGroupFragment"
     - type: object
       properties:
-        meta:
-          $ref: "common.yaml#/Meta"
         studentMemberships:
           description: >
             Studentmedlemskap anger att en student är medlem i en grupp
@@ -78,6 +78,12 @@ StudentGroup:
                   (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
                 type: string
                 format: date
+
+StudentGroupExpanded:
+  allOf:
+    - $ref: "#/StudentGroup"
+    - type: object
+      properties:
         _embedded:
           type: object
           properties:
@@ -86,7 +92,7 @@ StudentGroup:
               items:
                 type: object
                 allOf:
-                  - $ref: "Duty.yaml#/DutyFragment"
+                  - $ref: "Duty.yaml#/Duty"
                   - type: object
                     properties:
                       assignmentRoleType:
@@ -104,18 +110,18 @@ StudentGroup:
                         type: string
                         format: date
 
-StudentGroupsArray:
+StudentGroupsExpandedArray:
   type: array
   items:
-    $ref: "#/StudentGroup"
+    $ref: "#/StudentGroupExpanded"
 
-StudentGroups:
+StudentGroupsExpanded:
   type: object
   properties:
     data:
       type: array
       items:
-        $ref: "#/StudentGroup"
+        $ref: "#/StudentGroupExpanded"
     pageToken:
       type: string
       nullable: true

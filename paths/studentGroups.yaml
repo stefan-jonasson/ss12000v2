@@ -76,7 +76,7 @@ studentGroups:
         content:
           application/json:
             schema:
-              $ref: "../StudentGroup.yaml#/StudentGroups"
+              $ref: "../StudentGroup.yaml#/StudentGroupsExpanded"
       400:
         description: >
           Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`,
@@ -102,7 +102,7 @@ studentGroupsLookup:
         content:
           application/json:
             schema:
-              $ref: "../StudentGroup.yaml#/StudentGroupsArray"
+              $ref: "../StudentGroup.yaml#/StudentGroupsExpandedArray"
       503:
         description: The response is too large for the server ie overload
     requestBody:
@@ -133,7 +133,7 @@ studentGroupsById:
         content:
           application/json:
             schema:
-              $ref: "../StudentGroup.yaml#/StudentGroup"
+              $ref: "../StudentGroup.yaml#/StudentGroupsExpanded"
       "400":
         description: Invalid id supplied
       "403":
