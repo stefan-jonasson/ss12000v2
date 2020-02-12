@@ -257,7 +257,7 @@ PersonExpanded:
                 type: object
                 properties:
                   studentGroup:
-                    $ref: "common.yaml#/StudentGroupFragment"
+                    $ref: "StudentGroup.yaml#/StudentGroupFragment"
                   startDate:
                     description: >
                       Startdatum för elevens medlemskap i gruppen (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
