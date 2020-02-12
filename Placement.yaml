@@ -58,11 +58,37 @@ Placement:
       type: integer
       description: Anger maximal schematid per vecka för barnets placering.
 
+PlacementExpanded:
+  allOf:
+    - $ref: "#/Placement"
+    - type: object
+      properties:
+        _embedded:
+          type: object
+          properties:
+            child:
+              $ref: "Person.yaml#/Person"
+            owners:
+              type: array
+              items: 
+                $ref: "Person.yaml#/Person"
+            studentGroup:
+              items:
+                $ref: "StudentGroup.yaml#/StudentGroup"
+            responsibles:
+              type: array
+              description: >
+                Personens vårdnadshavare eller motsvarande relationer
+                så som familjehemsförälder. Denna relation beskriver
+                ett officiellt ansvarsförhållande.
+              items:
+                $ref: "Person.yaml#/Person"
+
 
 PlacementsArray:
  type: array
  items:
-    $ref: "#/Placement"
+    $ref: "#/PlacementExpanded"
 
 Placements:
   type: object
@@ -70,7 +96,7 @@ Placements:
       data:
         type: array
         items:
-          $ref: "#/Placement"
+          $ref: "#/PlacementExpanded"
       pageToken:
         type: string
         nullable: true

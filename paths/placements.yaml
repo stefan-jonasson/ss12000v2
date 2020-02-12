@@ -174,4 +174,8 @@ ExpandParameter:
     type: array
     items:
       type: string
-      enum: [child]
+      enum: 
+        - child
+        - owners
+        - studentGroup
+        - responsibles
