@@ -53,9 +53,7 @@ CalendarEvent:
           tid och längd för ett enstaka kalendertillfälle.
         properties:
           student:
-            type: string
-            format: uuid
-            description: Referens till en person
+            $ref: common.yaml#/PersonReference
           participates:
             type: boolean
             description: >
@@ -88,9 +86,7 @@ CalendarEvent:
           för ett enstaka kalendertillfälle.
         properties:
           duty:
-            type: string
-            format: uuid
-            description: Anger vilken anställning (Duty) undantaget avser.
+            $ref: common.yaml#/DutyReference            
           participates:
             type: boolean
             description: >

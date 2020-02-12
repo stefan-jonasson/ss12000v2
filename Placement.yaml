@@ -8,7 +8,9 @@ Placement:
     meta:
       $ref: "common.yaml#/Meta"
     placedAt:
-      $ref: "common.yaml#/SchoolUnitReference"
+      allOf: 
+        - $ref: "common.yaml#/SchoolUnitReference"
+        - description: Skolenhet där barnet är placerat.
     studentGroup:
       allOf:
         - $ref: "common.yaml#/StudentGroupReference"

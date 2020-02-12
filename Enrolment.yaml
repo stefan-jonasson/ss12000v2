@@ -29,11 +29,9 @@ Enrolment:
       type: string
       description: Studievägskod för den aktuella inskrivningen.
     programme:
-      type: string
-      format: uuid
-      description: >
-        Identifierare för ett program/inriktining eller yrkesutgång
-        (_Programme_) eleven läser.
+      allOf:
+        - $ref: "common.yaml#/ProgrammeReference"
+        - description: Referens till inskrivningens program, inriktning eller utgång.      
     specification:
       type: string
       description: >
