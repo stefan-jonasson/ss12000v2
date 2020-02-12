@@ -32,13 +32,13 @@ DutyFragment:
           - studentGroup
           - assignmentRoleType
           - startDate
-    assignmentRoleSchoolUnits:
+    assignmentRoleOrganisations:
       type: array
       items:
         type: object
         properties:
-          schoolUnit:
-            $ref: "common.yaml#/SchoolUnitReference"
+          organisation:
+            $ref: "common.yaml#/OrganisationReference"
           assignmentRoleType:
             $ref: "common.yaml#/components/schemas/AssignmentRoleTypeEnum"
           startDate:
@@ -54,7 +54,7 @@ DutyFragment:
             type: string
             format: date
         required:
-          - studentGroup
+          - organisation
           - assignmentRoleType
           - startDate
 

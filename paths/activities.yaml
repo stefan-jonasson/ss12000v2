@@ -10,8 +10,8 @@ activities:
         schema:
           type: string
           format: uuid
-      - name: schoolUnit
-        description: Begränsa urvalet till utpekad skolenhets ID.
+      - name: organisation
+        description: Begränsa urvalet till utpekat organisationselement och dess underliggande element.
         in: query
         schema:
           type: string
@@ -37,7 +37,7 @@ activities:
         description: >
           Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`,
           `meta.created.after`, `meta.created.before`, `expand`, `person`,
-          `schoolUnit`) kan inte kombineras med `pageToken`.
+          `organisation`) kan inte kombineras med `pageToken`.
 
 activitiesLookup:
   post:

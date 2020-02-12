@@ -45,12 +45,6 @@ paths:
     $ref: paths/organisations.yaml#/organisationsLookup
   /organisations/{id}:
     $ref: paths/organisations.yaml#/organisationById
-  /schoolUnits:
-    $ref: paths/schoolUnits.yaml#/schoolUnits
-  /schoolUnits/lookup:
-    $ref: paths/schoolUnits.yaml#/schoolUnitsLookup
-  /schoolUnits/{id}:
-    $ref: paths/schoolUnits.yaml#/schoolUnitById
   /persons:
     $ref: paths/persons.yaml#/persons
   /persons/lookup:
@@ -169,8 +163,6 @@ components:
   schemas:
     Organisation:
       $ref: "Organisation.yaml#/Organisation"
-    SchoolUnit:
-      $ref: "SchoolUnit.yaml#/SchoolUnit"
     Person:
       $ref: "Person.yaml#/Person"
     Duty:

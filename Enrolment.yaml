@@ -3,9 +3,7 @@ Enrolment:
   type: object
   properties:
     enroledAt:
-      type: string
-      format: uuid
-      description: Identifierare för skolenheten där eleven är inskriven.
+      $ref: "common.yaml#/SchoolUnitReference"      
     schoolYear:
       type: integer
       description: >

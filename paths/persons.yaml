@@ -4,7 +4,7 @@ persons:
       - Person
     summary: Hämta en lista med personer.
     parameters:
-      - name: enrolment.schoolUnit
+      - name: enrolment.enroledAt
         description: >
           Begränsa urvalet till de elever som har en inskrivning (enrolment) på angiven
           skolenhet. Detta kan kombineras med enrolment.startDate.onOrAfter
@@ -34,7 +34,7 @@ persons:
           type: string
           format: date
 
-      - name: placement.schoolUnit
+      - name: placement.placedAt
         description: >
           Begränsa urvalet till de elever som har en placering på angiven
           skolenhet. Detta kan kombineras med placement.startDate.onOrAfter
@@ -63,9 +63,9 @@ persons:
         schema:
           type: string
           format: date
-      - name: dutySchoolUnit
+      - name: dutyAt
         description: >
-          Begränsa urvalet till de tjänstgöringar som är kopplade till en skolenhet.
+          Begränsa urvalet till de tjänstgöringar som är kopplade till ett organisationselement eller dess underliggande element.
         in: query
         schema:
           type: string
@@ -102,10 +102,10 @@ persons:
       400:
         description: >
           Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`,
-          `meta.created.after`, `meta.created.before`, `enrolment.schoolUnit`,
+          `meta.created.after`, `meta.created.before`, `enrolment.enroledAt`,
           `enrolment.startDate.onOrAfter`, `enrolment.endDate.onOrBefore`,
-          `placement.schoolUnit`, `placement.startDate.onOrAfter`,
-          `placement.endDate.onOrBefore`,`dutySchoolUnit`, `expand`).
+          `placement.placedAt`, `placement.startDate.onOrAfter`,
+          `placement.endDate.onOrBefore`,`dutyAt`, `expand`).
           Kan inte kombineras med `pageToken`.
 
 personsLookup:

@@ -4,7 +4,7 @@ placements:
       - Person
     summary: Hämta en lista med placeringar.
     parameters:
-      - name: schoolUnit
+      - name: placedAt
         description: >
           Begränsa urvalet till de barn som har en placering på angiven
           skolenhet. Detta kan kombineras med startDate.onOrAfter
@@ -92,7 +92,7 @@ placements:
       400:
         description: >
           Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`,
-          `meta.created.after`, `meta.created.before`, `expand`, `schoolUnit`,
+          `meta.created.after`, `meta.created.before`, `expand`, `placedAt`,
           `startDate.onOrAfter`,`endDate.onOrBefore`).
           Kan inte kombineras med `pageToken`.
 

@@ -38,18 +38,15 @@ StudentGroupFragment:
             innan gruppen populeras med elever, eftersom  elevens inskrivning är
             ger mer specifik information.
         - $ref: "common.yaml#/components/schemas/SchoolTypesEnum"
-
-    schoolUnit:
-      allOf:
-        - $ref: "common.yaml#/SchoolUnitReference"
-        - description: Den skolenhet som aktiviteten är knuten till.
-
+    organisation:
+        $ref: "common.yaml#/OrganisationReference"
+    
   required:
     - id
     - displayName
     - studentGroupType
     - startDate
-    - schoolUnit
+    - organisation
 
 StudentGroup:
   allOf:

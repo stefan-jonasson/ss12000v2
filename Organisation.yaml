@@ -10,17 +10,11 @@ Organisation:
     displayName:
       type: string
       description: Namn på organisationen
+    code: 
+      type: string 
+      description: A code identifying the organisational element. Not globally unique. 
     organisationType:
-      type: string
-      title: Code_OrganisationType
-      description: >
-        Typ av organisation
-      enum:
-        - Huvudman
-        - Stadsdel
-        - Rektorsområde
-        - Skola
-        - Övrigt
+      $ref: "common.yaml#/components/schemas/OrganisationTypeEnum"
     organisationNumber:
       type: string
       description: >
@@ -30,7 +24,36 @@ Organisation:
       allOf:
         - $ref: "common.yaml#/OrganisationReference"
         - description: >
-            Identifierare för en eventellt överliggande organisation.
+            Identifierare för en eventellt överliggande organisation. Kan ej peka på organisationer av typen _Skolenhet_.
+    schoolUnitCode:
+      type: string
+      description: >
+        Skolenhetskod. Identifierare för skolenheten enligt Skolverket.
+        Används för de skolformer där skolverket bestämmer en
+        skolenhetskod för varje enhet. 
+    schoolTypes:
+      type: array
+      uniqueItems: true
+      description: Anges endas för typen Skolenhet.
+      items:
+        $ref: "common.yaml#/components/schemas/SchoolTypesEnum"
+    municipalityCode:
+      type: string
+      description: >
+        Kommunkod. Län och kommunkod för den kommun där skolan är belägen,
+        exempelvis 0180 där 01 anger länet och 80 anger kommunen.
+    startDate:
+      type: string
+      format: date
+      description: >
+        Startdatum för organisationensdelens giltighetstid
+        (RFC 3339-format, t.ex. "2016-10-15"). Gäller för alla underliggande element som inte har ett mer restrektivt värde. Inkluderande.
+    endDate:
+      type: string
+      format: date
+      description: >
+        Slutdatum för organisationensdelens giltighetstid
+        (RFC 3339-format, t.ex. "2016-10-15"). Gäller för alla underliggande element som inte har ett mer restrektivt värde. Inkluderande.
   required:
     - id
     - meta

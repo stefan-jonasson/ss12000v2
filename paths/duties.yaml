@@ -4,9 +4,9 @@ duties:
       - Person
     summary: Hämta en lista med tjänstgöringar.
     parameters:
-      - name: dutySchoolUnit
+      - name: organisation
         description: >
-          Begränsa urvalet till de tjänstgöringar som är kopplade till en skolenhet.
+          Begränsa urvalet till de tjänstgöringar som är kopplade till ett organisationselement eller underliggande element.
         in: query
         schema:
           type: string
@@ -50,7 +50,7 @@ duties:
       400:
         description: >
           Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`,
-          `meta.created.after`, `meta.created.before`, `expand`, `dutySchoolUnit`,
+          `meta.created.after`, `meta.created.before`, `expand`, `organisation`,
           `dutyRole`, `person`). Kan inte kombineras med `pageToken`.
 
 dutiesLookup:

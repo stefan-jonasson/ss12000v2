@@ -24,14 +24,13 @@ subscriptions:
         application/json:
           schema:
             $ref: "../Subscription.yaml#/CreateSubscription"
-            example:
-              name: Nya
-              target: https://pastebin/788
-              resourceTypes:
-                - Organsation
-                - SchoolUnit
-                - Person
-                - Duty
+          example:
+            name: Nya
+            target: https://pastebin/788
+            resourceTypes:
+              - Organsation
+              - Person
+              - Duty
     callbacks:
       subscriptionEvent: # Event name
         "{$request.body#/target}": # The callback URL, Refers to the passed URL

@@ -143,12 +143,6 @@ DeletedEntities:
             type: string
             format: uuid
 
-        schoolUnits:
-          type: array
-          items:
-            type: string
-            format: uuid
-
         organisations:
           type: array
           items:
