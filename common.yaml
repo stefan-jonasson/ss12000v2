@@ -93,22 +93,6 @@ CalendarEventReference:
     - title: CalendarEventReference
       description: Referens till en kalenderhändelse
 
-DateConstrainedObjectReference:
-  allOf:
-    - $ref: "#/ObjectReference"
-    - type: object
-      title: DateConstrainedObjectReference
-      required:
-        - startDate
-        - endDate
-      properties:
-        startDate:
-          type: string
-          format: date
-        endDate:
-          type: string
-          format: date
-
 components:
   schemas:
     EndPointsEnum:
@@ -223,7 +207,9 @@ components:
         * _Klass_ - Klassen är en organisatorisk grupp med elever som är skolplacerade
           på en skola med skolform FSK, GR, GRS, SP, SAM, GY eller GYS.
           Varje elev ska vara placerad i endast en klass. Klassen kan schemaläggas
-          med undervisning enligt timplan.
+          med undervisning enligt timplan. "Klassföreståndare" kan beskrivas genom att koppla en _AssignmentRole_ av typen _Mentor_.
+        * _Mentor_ - Grupp med elever vilka delar samma mentor/mentorer. 
+          Mentor kopplas till gruppen genom en _AssignmentRole_.
         * _Schema_ - Schemagrupper är elevgrupper som utgör ett komplement till
           grupper av typen Undervisning. Schemagrupper ska schemaläggas för att
           åstadkomma anpassningar av schemat för enskilda elever eller grupper
@@ -237,6 +223,7 @@ components:
         - Klass
         - Mentor
         - Schema
+        - Avdelning
         - Övrigt
 
     DutyRole:
