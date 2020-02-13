@@ -88,7 +88,7 @@ placements:
         content:
           application/json:
             schema:
-              $ref: "../Placement.yaml#/Placements"
+              $ref: "../Placement.yaml#/PlacementExpanded"
       400:
         $ref: "../openapi.yaml#/components/responses/400_invalid_filter"
       403: 
@@ -162,7 +162,7 @@ placementsById:
         content:
           application/json:
             schema:
-              $ref: "../Placement.yaml#/Placement"
+              $ref: "../Placement.yaml#/PlacementExpanded"
       400:
         $ref: "../openapi.yaml#/components/responses/400_invalid_id"
       403:
