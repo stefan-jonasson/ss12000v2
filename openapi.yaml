@@ -4,7 +4,7 @@ servers:
     url: http://some.server.se/v2.0
 info:
   description: >
-    This is an implementation specification of SS12000 v2
+    Detta är en implementationsspecifikation av SS12000:2020
     [TK450](https://www.sis.se/standardutveckling/tksidor/tk400499/sistk450/)
   version: 2.0.0
   title: SS12000
@@ -149,7 +149,6 @@ paths:
     $ref: paths/subscriptions.yaml#/subscription_by_id
   /deletedEntities:
     $ref: paths/deletedEntities.yaml#/deletedEntities
-
 externalDocs:
   description: För mer information hämtas från SIS - TK450
   url: "https://sis.se/standardutveckling/tksidor/tk400499/sistk450/"
@@ -201,16 +200,52 @@ components:
       $ref: "Room.yaml#/Room"
     Subscription:
       $ref: "Subscription.yaml#/Subscription"
-  parameters:
-    FilterParam:
-      in: query
-      name: filter
-      required: false
-      schema:
-        type: string
-      description: >-
-        Filters according to
-        [RFC7644](https://tools.ietf.org/html/rfc7644#section-3.4.2.2).
-
+    Error:
+      type: object
+      properties:
+        code:
+          description: Teknisk kod för att beskriva fel, varje källa bestämmer skjälv över möjliga felkoder. 
+          type: string
+        message:
+          description: Text för att beskriva felet.
+          type: string
+      required:
+        - code
+        - message
+  responses:
+    204_removed:
+      description: "Post borttagen."
+    400_invalid_filter:
+      description: "Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`, `meta.created.after`, `meta.created.before` etc.) kan inte kombineras med `pageToken`."
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+    400_invalid_id:
+      description: "Felaktigt id."
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+    403_not_authorised:
+      description: "Åtkomst nekad."
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+    404_not_found:
+      description: "Posten hittades inte."
+    503_overload:
+      description: "Svaret är förstort för servern att hantera."
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+    default_errror:
+      description: "Okänt fel."
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
 security:
   - BearerAuth: []

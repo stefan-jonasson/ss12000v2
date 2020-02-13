@@ -94,19 +94,17 @@ persons:
       - $ref: "searchParameters.yaml#/PageToken"
     responses:
       200:
-        description: successful operation
+        description: Anropet lyckades.
         content:
           application/json:
             schema:
               $ref: "../Person.yaml#/PersonsExpanded"
       400:
-        description: >
-          Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`,
-          `meta.created.after`, `meta.created.before`, `enrolment.enroledAt`,
-          `enrolment.startDate.onOrAfter`, `enrolment.endDate.onOrBefore`,
-          `placement.placedAt`, `placement.startDate.onOrAfter`,
-          `placement.endDate.onOrBefore`,`dutyAt`, `expand`).
-          Kan inte kombineras med `pageToken`.
+        $ref: "../openapi.yaml#/components/responses/400_invalid_filter"
+      403: 
+        $ref: "../openapi.yaml#/components/responses/403_not_authorised"
+      default:
+        $ref: "../openapi.yaml#/components/responses/default_errror"
 
 personsLookup:
   post:
@@ -122,13 +120,17 @@ personsLookup:
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
       200:
-        description: successful operation
+        description: Anropet lyckades.
         content:
           application/json:
             schema:
               $ref: "../Person.yaml#/PersonsExpandedArray"
+      403:
+        $ref: "../openapi.yaml#/components/responses/403_not_authorised"
       503:
-        description: The response is too large for the server ie overload
+        $ref: "../openapi.yaml#/components/responses/503_overload"
+      default:
+        $ref: "../openapi.yaml#/components/responses/default_errror"
     requestBody:
       description: >
         En lista med personnummer och / eller uuid:n på personer.
@@ -170,18 +172,20 @@ personsById:
       - $ref: "#/ExpandParameter"
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
-      "200":
-        description: successful operation
+      200:
+        description: Anropet lyckades.
         content:
           application/json:
             schema:
               $ref: "../Person.yaml#/PersonExpanded"
-      "400":
-        description: Invalid personname supplied
-      "403":
-        description: Not authorised
-      "404":
-        description: Person not found
+      400:
+        $ref: "../openapi.yaml#/components/responses/400_invalid_id"
+      403:
+        $ref: "../openapi.yaml#/components/responses/403_not_authorised"
+      404:
+        $ref: "../openapi.yaml#/components/responses/404_not_found"
+      default:
+        $ref: "../openapi.yaml#/components/responses/default_errror"
 
 ExpandParameter:
   name: expand
