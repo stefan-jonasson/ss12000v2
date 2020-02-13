@@ -93,22 +93,6 @@ CalendarEventReference:
     - title: CalendarEventReference
       description: Referens till en kalenderhändelse
 
-DateConstrainedObjectReference:
-  allOf:
-    - $ref: "#/ObjectReference"
-    - type: object
-      title: DateConstrainedObjectReference
-      required:
-        - startDate
-        - endDate
-      properties:
-        startDate:
-          type: string
-          format: date
-        endDate:
-          type: string
-          format: date
-
 components:
   schemas:
     EndPointsEnum:

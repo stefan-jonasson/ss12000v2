@@ -65,7 +65,7 @@ Duty:
           - startDate
     dutyAt:
       allOf:
-        - $ref: "common.yaml#/ObjectReference"
+        - $ref: "common.yaml#/SchoolUnitReference"
         - description: >
             Identifierare av skolenhet som tjänsten är knuten till.
     dutyRole:
