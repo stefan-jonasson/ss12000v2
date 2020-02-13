@@ -8,11 +8,15 @@ subscriptions:
       - $ref: "searchParameters.yaml#/PageToken"
     responses:
       200:
-        description: successful operation
+        description: Anropet lyckades.
         content:
           application/json:
             schema:
               $ref: "../Subscription.yaml#/Subscriptions"
+      403:
+        $ref: "../openapi.yaml#/components/responses/403_not_authorised"
+      default:
+        $ref: "../openapi.yaml#/components/responses/default_errror"
 
   post:
     tags:
@@ -57,22 +61,20 @@ subscriptions:
                           att hämta från ändpunkten `deletedEntitites`.
 
             responses: # Expected responses to the callback message
-              "200":
-                description: Your server returns this code if it accepts the callback
+              200:
+                description: Kod som retrneras när anropet accepteras.
 
     responses:
       201:
-        description: response of new object
+        description: Prenumeration skapad.
         content:
           application/json:
             schema:
               $ref: "../Subscription.yaml#/Subscription"
+      403:
+        $ref: "../openapi.yaml#/components/responses/403_not_authorised"
       default:
-        description: unexpected error
-        content:
-          application/json:
-            schema:
-              $ref: "../Subscription.yaml#/Error"
+        $ref: "../openapi.yaml#/components/responses/default_errror"
 
 subscription_by_id:
   delete:
@@ -88,14 +90,16 @@ subscription_by_id:
           type: string
           format: uuid
     responses:
-      "204":
+      204:
         description: Prenumeration borttagen.
-      "400":
-        description: Invalid id
-      "403":
-        description: Not authorised
-      "404":
-        description: Prenumeration not found
+      400:
+        $ref: "../openapi.yaml#/components/responses/400_invalid_id"
+      403:
+        $ref: "../openapi.yaml#/components/responses/403_not_authorised"
+      404:
+        $ref: "../openapi.yaml#/components/responses/404_not_found"
+      default:
+        $ref: "../openapi.yaml#/components/responses/default_errror"
   get:
     tags:
       - Prenumeration
@@ -109,18 +113,20 @@ subscription_by_id:
           type: string
           format: uuid
     responses:
-      "200":
-        description: successful operation
+      200:
+        description: Anropet lyckades.
         content:
           application/json:
             schema:
               $ref: "../Subscription.yaml#/Subscription"
-      "400":
-        description: Invalid id supplied
-      "403":
-        description: Not authorised
-      "404":
-        description: Prenumeration not found
+      400:
+        $ref: "../openapi.yaml#/components/responses/400_invalid_id"
+      403:
+        $ref: "../openapi.yaml#/components/responses/403_not_authorised"
+      404:
+        $ref: "../openapi.yaml#/components/responses/404_not_found"
+      default:
+        $ref: "../openapi.yaml#/components/responses/default_errror"
   patch:
     tags:
       - Prenumeration
@@ -134,15 +140,17 @@ subscription_by_id:
           type: string
           format: uuid
     responses:
-      "200":
-        description: successful operation
+      200:
+        description: Anropet lyckades.
         content:
           application/json:
             schema:
               $ref: "../Subscription.yaml#/Subscription"
-      "400":
-        description: Invalid id supplied
-      "403":
-        description: Not authorised
-      "404":
-        description: Prenumeration not found
+      400:
+        $ref: "../openapi.yaml#/components/responses/400_invalid_id"
+      403:
+        $ref: "../openapi.yaml#/components/responses/403_not_authorised"
+      404:
+        $ref: "../openapi.yaml#/components/responses/404_not_found"
+      default:
+        $ref: "../openapi.yaml#/components/responses/default_errror"

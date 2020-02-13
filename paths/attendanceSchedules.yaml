@@ -39,16 +39,17 @@ attendanceSchedules:
       - $ref: "searchParameters.yaml#/PageToken"
     responses:
       200:
-        description: successful operation
+        description: Anropet lyckades.
         content:
           application/json:
             schema:
                 $ref: "../AttendanceSchedule.yaml#/AttendanceSchedules"
       400:
-        description: >
-          Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`,
-          `meta.created.after`, `meta.created.before`, `expand`, `child`, `group`).
-          Kan inte kombineras med `pageToken`.
+        $ref: "../openapi.yaml#/components/responses/400_invalid_filter"
+      403: 
+        $ref: "../openapi.yaml#/components/responses/403_not_authorised"
+      default:
+        $ref: "../openapi.yaml#/components/responses/default_errror"
 
 
   post:
@@ -63,18 +64,14 @@ attendanceSchedules:
             $ref: "../AttendanceSchedule.yaml#/AttendanceSchedule"
 
     responses:
-      "200":
-        description: Posten skapad.
+      200:
+        description: Post skapad.
         content:
           application/json:
             schema:
               $ref: "../AttendanceSchedule.yaml#/AttendanceSchedule"
       default:
-        description: unexpected error
-        content:
-          application/json:
-            schema:
-              $ref: "../AttendanceSchedule.yaml#/Error"
+        $ref: "../openapi.yaml#/components/responses/default_errror"
 
 attendanceSchedulesLookup:
   post:
@@ -89,13 +86,17 @@ attendanceSchedulesLookup:
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
       200:
-        description: successful operation
+        description: Anropet lyckades.
         content:
           application/json:
             schema:
               $ref: "../Activity.yaml#/ActivitiesArray"
+      403:
+        $ref: "../openapi.yaml#/components/responses/403_not_authorised"
       503:
-        description: The response is too large for the server ie overload
+        $ref: "../openapi.yaml#/components/responses/503_overload"
+      default:
+        $ref: "../openapi.yaml#/components/responses/default_errror"
     requestBody:
       content:
         application/json:
@@ -118,24 +119,20 @@ attendanceSchedulesById:
           format: uuid
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
-      "200":
-        description: Posten returneras.
+      200:
+        description: Anropet lyckades.
         content:
           application/json:
             schema:
               $ref: "../AttendanceSchedule.yaml#/AttendanceSchedule"
-      "400":
-        description: Felaktigt id.
-      "403":
-        description: Otilläckliga rättigheter.
-      "404":
-        description: Posten hitades inte.
+      400:
+        $ref: "../openapi.yaml#/components/responses/400_invalid_id"
+      403:
+        $ref: "../openapi.yaml#/components/responses/403_not_authorised"
+      404:
+        $ref: "../openapi.yaml#/components/responses/404_not_found"
       default:
-        description: Okänt fel.
-        content:
-          application/json:
-            schema:
-              $ref: "../AttendanceSchedule.yaml#/Error"
+        $ref: "../openapi.yaml#/components/responses/default_errror"
   delete:
     tags:
         - Vistelseschema
@@ -149,11 +146,13 @@ attendanceSchedulesById:
           type: string
           format: uuid
     responses:
-      "204":
-        description: Post borttagen.
-      "400":
-        description: Felaktigt id.
-      "403":
-        description: Otilläckliga rättigheter.
-      "404":
-        description: Posten hittades inte.
+      204:
+        $ref: "../openapi.yaml#/components/responses/204_removed"
+      400:
+        $ref: "../openapi.yaml#/components/responses/400_invalid_id"
+      403:
+        $ref: "../openapi.yaml#/components/responses/403_not_authorised"
+      404:
+        $ref: "../openapi.yaml#/components/responses/404_not_found"
+      default:
+        $ref: "../openapi.yaml#/components/responses/default_errror"

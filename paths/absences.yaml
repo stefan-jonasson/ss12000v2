@@ -68,18 +68,17 @@ absences:
       - $ref: "searchParameters.yaml#/PageToken"
     responses:
       200:
-        description: successful operation
+        description: Anropet lyckades.
         content:
           application/json:
             schema:
               $ref: "../Absence.yaml#/Absences"
       400:
-        description: >
-          Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`,
-          `meta.created.after`, `meta.created.before`,   `expand`,`schoolUnit`,
-          `student`,`registeredBy`,`type`, `startTime.before`, `startTime.after`)
-          kan inte kombineras med `pageToken`
-
+        $ref: "../openapi.yaml#/components/responses/400_invalid_filter"
+      403:
+        $ref: "../openapi.yaml#/components/responses/403_not_authorised"
+      default:
+        $ref: "../openapi.yaml#/components/responses/default_errror"
   post:
     tags:
       - Närvaro
@@ -92,17 +91,15 @@ absences:
             $ref: "../Absence.yaml#/Absence"
     responses:
       200:
-        description: Posten skapad.
+        description: Post skapad.
         content:
           application/json:
             schema:
               $ref: "../Absence.yaml#/Absence"
+      403:
+        $ref: "../openapi.yaml#/components/responses/403_not_authorised"
       default:
-        description: unexpected error
-        content:
-          application/json:
-            schema:
-              $ref: "../Absence.yaml#/Error"
+        $ref: "../openapi.yaml#/components/responses/default_errror"
 
 AbsenceLookup:
   post:
@@ -118,13 +115,17 @@ AbsenceLookup:
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
       200:
-        description: successful operation
+        description: Anropet lyckades.
         content:
           application/json:
             schema:
               $ref: "../Absence.yaml#/AbsencesArray"
+      403:
+        $ref: "../openapi.yaml#/components/responses/403_not_authorised"
       503:
-        description: The response is too large for the server, i.e. overload.
+        $ref: "../openapi.yaml#/components/responses/503_overload"
+      default:
+        $ref: "../openapi.yaml#/components/responses/default_errror"
     requestBody:
       content:
         application/json:
@@ -147,15 +148,17 @@ absence_by_id:
           format: uuid
 
     responses:
-      "200":
-        description: successful operation
+      200:
+        description: Anropet lyckades.
         content:
           application/json:
             schema:
               $ref: "../Absence.yaml#/Absence"
-      "400":
-        description: Invalid id supplied
-      "403":
-        description: Not authorised
-      "404":
-        description: Duty not found
+      400:
+        $ref: "../openapi.yaml#/components/responses/400_invalid_id"
+      403:
+        $ref: "../openapi.yaml#/components/responses/403_not_authorised"
+      404:
+        $ref: "../openapi.yaml#/components/responses/404_not_found"
+      default:
+        $ref: "../openapi.yaml#/components/responses/default_errror"

@@ -29,16 +29,17 @@ schoolUnitOfferings:
       - $ref: "searchParameters.yaml#/PageToken"
     responses:
       200:
-        description: successful operation
+        description: Anropet lyckades.
         content:
           application/json:
             schema:
               $ref: "../SchoolUnitOffering.yaml#/SchoolUnitOfferings"
       400:
-        description: >
-          Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`,
-          `meta.created.after`, `meta.created.before`, `offeredAt`).
-          Kan inte kombineras med `pageToken`.
+        $ref: "../openapi.yaml#/components/responses/400_invalid_filter"
+      403: 
+        $ref: "../openapi.yaml#/components/responses/403_not_authorised"
+      default:
+        $ref: "../openapi.yaml#/components/responses/default_errror"
 
 schoolUnitOfferingsLookup:
   post:
@@ -53,13 +54,17 @@ schoolUnitOfferingsLookup:
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
       200:
-        description: successful operation
+        description: Anropet lyckades.
         content:
           application/json:
             schema:
               $ref: "../SchoolUnitOffering.yaml#/SchoolUnitOfferingsArray"
+      403:
+        $ref: "../openapi.yaml#/components/responses/403_not_authorised" 
       503:
-        description: The response is too large for the server ie overload
+        $ref: "../openapi.yaml#/components/responses/503_overload"
+      default:
+        $ref: "../openapi.yaml#/components/responses/default_errror"
     requestBody:
       content:
         application/json:
@@ -83,14 +88,16 @@ schoolUnitOfferingById:
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
       200:
-        description: successful operation
+        description: Anropet lyckades.
         content:
           application/json:
             schema:
               $ref: "../SchoolUnitOffering.yaml#/SchoolUnitOffering"
       400:
-        description: Invalid id supplied
+        $ref: "../openapi.yaml#/components/responses/400_invalid_id"
       403:
-        description: Not authorised
+        $ref: "../openapi.yaml#/components/responses/403_not_authorised"
       404:
-        description: Duty not found
+        $ref: "../openapi.yaml#/components/responses/404_not_found"
+      default:
+        $ref: "../openapi.yaml#/components/responses/default_errror"
