@@ -37,7 +37,7 @@ AttendanceEvent:
       properties:
         registeredBy:
           $ref: "Person.yaml#/Person"
-        person:
+        child:
           $ref: "Person.yaml#/Person"
         group:
           $ref: "StudentGroup.yaml#/StudentGroup"
