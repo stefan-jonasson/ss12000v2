@@ -197,15 +197,8 @@ Person:
       items:
         type: object
         properties:
-          id:
-            type: string
-            format: uuid
-            description: >
-              Ett objekt ska ha samma överförings-ID mellan samtliga
-              ingående system och således är det ett enda namespace
-              för de gemensamma ID:na. Objektidentifikatorn är
-              den nyckel som skall vara persistent mellan olika
-              processer (enl figur 1).
+          person:      
+            $ref: "common.yaml#/PersonReference"
           relationType:
             $ref: "common.yaml#/components/schemas/RelationTypesEnum"
   required:
