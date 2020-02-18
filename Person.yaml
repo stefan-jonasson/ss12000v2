@@ -237,7 +237,7 @@ PersonExpanded:
                 En lista med placeringar där personen är satt som ägare.
               items:
                 $ref: "Placement.yaml#/Placement"
-            duty:
+            duties:
               type: array
               description: Personens aktuella tjänstgöring
               items:
