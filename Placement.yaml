@@ -75,14 +75,6 @@ PlacementExpanded:
             studentGroup:
               items:
                 $ref: "StudentGroup.yaml#/StudentGroupFragment"
-            responsibles:
-              type: array
-              description: >
-                Personens vårdnadshavare eller motsvarande relationer
-                så som familjehemsförälder. Denna relation beskriver
-                ett officiellt ansvarsförhållande.
-              items:
-                $ref: "Person.yaml#/Person"
 
 
 PlacementsArray:
