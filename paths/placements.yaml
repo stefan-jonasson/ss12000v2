@@ -183,4 +183,3 @@ ExpandParameter:
       enum: 
         - child
         - owners
-        - studentGroup

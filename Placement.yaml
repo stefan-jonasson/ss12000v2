@@ -72,10 +72,6 @@ PlacementExpanded:
               type: array
               items: 
                 $ref: "Person.yaml#/Person"
-            studentGroup:
-              items:
-                $ref: "StudentGroup.yaml#/StudentGroupFragment"
-
 
 PlacementsArray:
  type: array
