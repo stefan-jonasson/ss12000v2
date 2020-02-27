@@ -137,7 +137,7 @@ studentGroupsById:
         content:
           application/json:
             schema:
-              $ref: "../StudentGroup.yaml#/StudentGroupsExpanded"
+              $ref: "../StudentGroup.yaml#/StudentGroupExpanded"
       400:
         $ref: "../openapi.yaml#/components/responses/400_invalid_id"
       403:
