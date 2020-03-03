@@ -62,6 +62,16 @@ PersonReference:
     - $ref: "#/ObjectReference"
     - title: PersonReference
       description: Referens till en person
+      properties:
+        securityMarking:
+          type: string
+          title: Code_SecurityMarking
+          description: >
+            Återspeglar värdet från folkbokföringsregistret.
+          enum:
+            - Ingen
+            - Sekretessmarkering
+            - Skyddad folkbokföring
 
 PlacementReference:
   allOf:
