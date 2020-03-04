@@ -52,17 +52,17 @@ studyPlans:
       - $ref: "searchParameters.yaml#/PageToken"
     responses:
       200:
-        description: successful operation
+        description: Anropet lyckades.
         content:
           application/json:
             schema:
               $ref: "../StudyPlan.yaml#/StudyPlans"
       400:
-        description: >
-          Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`,
-          `meta.created.after`, `meta.created.before`, `expand`, `student`,
-          `startDate.onOrAfter` , `endDate.onOrBefore`, `lastUpdate.before`).
-          Kan inte kombineras med `pageToken`
+        $ref: "../openapi.yaml#/components/responses/400_invalid_filter"
+      403: 
+        $ref: "../openapi.yaml#/components/responses/403_not_authorised"
+      default:
+        $ref: "../openapi.yaml#/components/responses/default_errror"
 
 studyPlanById:
   get:
@@ -79,15 +79,17 @@ studyPlanById:
           format: uuid
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
-      "200":
-        description: successful operation
+      200:
+        description: Anropet lyckades.
         content:
           application/json:
             schema:
               $ref: "../StudyPlan.yaml#/StudyPlan"
-      "400":
-        description: Invalid id supplied
-      "403":
-        description: Not authorised
-      "404":
-        description: StudyPlan not found
+      400:
+        $ref: "../openapi.yaml#/components/responses/400_invalid_id"
+      403:
+        $ref: "../openapi.yaml#/components/responses/403_not_authorised"
+      404:
+        $ref: "../openapi.yaml#/components/responses/404_not_found"
+      default:
+        $ref: "../openapi.yaml#/components/responses/default_errror"

@@ -73,9 +73,7 @@ Grade:
       type: integer
       description: Året som betyget gäller, exempelvis 2019.
     syllabus:
-      allOf:
-        - $ref: "common.yaml#/ObjectReference"
-        - description: Referens till Syllabusobjektet.
+      $ref: "common.yaml#/SyllabusReference"
     diplomaProject:
       type: object
       properties:

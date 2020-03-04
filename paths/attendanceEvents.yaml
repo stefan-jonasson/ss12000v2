@@ -32,17 +32,17 @@ attendance_events:
       - $ref: "searchParameters.yaml#/PageToken"
     responses:
       200:
-        description: successful operation
+        description: Anropet lyckades.
         content:
           application/json:
             schema:
                 $ref: "../AttendanceEvent.yaml#/AttendanceEvents"
       400:
-        description: >
-          Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`,
-          `meta.created.after`, `meta.created.before`, `expand`,`group`, `child`).
-          Kan inte kombineras med `pageToken`.
-
+        $ref: "../openapi.yaml#/components/responses/400_invalid_filter"
+      403: 
+        $ref: "../openapi.yaml#/components/responses/403_not_authorised"
+      default:
+        $ref: "../openapi.yaml#/components/responses/default_errror"
   post:
     tags:
       - Närvarohändelser
@@ -55,18 +55,16 @@ attendance_events:
             $ref: "../AttendanceEvent.yaml#/AttendanceEvent"
 
     responses:
-      "200":
-        description: Posten skapad.
+      200:
+        description: Post skapad.
         content:
           application/json:
             schema:
               $ref: "../AttendanceEvent.yaml#/AttendanceEvent"
+      403:
+        $ref: "../openapi.yaml#/components/responses/403_not_authorised"
       default:
-        description: unexpected error
-        content:
-          application/json:
-            schema:
-              $ref: "../AttendanceEvent.yaml#/Error"
+        $ref: "../openapi.yaml#/components/responses/default_errror"
 
 attendance_events_by_id:
   get:
@@ -84,26 +82,21 @@ attendance_events_by_id:
       - $ref: "#/ExpandParameter"
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
-      "200":
-        description: Posten returneras.
+      200:
+        description: Anropet lyckades.
         content:
           application/json:
             schema:
               $ref: "../AttendanceEvent.yaml#/AttendanceEvent"
-      "204":
-        description: Posten borttagen.
-      "400":
-        description: Felaktigt id.
-      "403":
-        description: Otilläckliga rättigheter.
-      "404":
-        description: Posten hitades inte.
+      400:
+        $ref: "../openapi.yaml#/components/responses/400_invalid_id"
+      403:
+        $ref: "../openapi.yaml#/components/responses/403_not_authorised"
+      404:
+        $ref: "../openapi.yaml#/components/responses/404_not_found"
       default:
-        description: Okänt fel.
-        content:
-          application/json:
-            schema:
-              $ref: "../AttendanceEvent.yaml#/Error"
+        $ref: "../openapi.yaml#/components/responses/default_errror"
+
   delete:
     tags:
       - Närvarohändelser
@@ -117,14 +110,16 @@ attendance_events_by_id:
           type: string
           format: uuid
     responses:
-      "204":
-        description: Post borttagen.
-      "400":
-        description: Felaktigt id.
-      "403":
-        description: Otilläckliga rättigheter.
-      "404":
-        description: Posten hittades inte.
+      204:
+        $ref: "../openapi.yaml#/components/responses/204_removed"
+      400:
+        $ref: "../openapi.yaml#/components/responses/400_invalid_id"
+      403:
+        $ref: "../openapi.yaml#/components/responses/403_not_authorised"
+      404:
+        $ref: "../openapi.yaml#/components/responses/404_not_found"
+      default:
+        $ref: "../openapi.yaml#/components/responses/default_errror"
 
 ExpandParameter:
   name: expand
@@ -134,4 +129,4 @@ ExpandParameter:
     type: array
     items:
       type: string
-      enum: [child, group, registeredBy]
+      enum: [person, group, registeredBy]

@@ -14,11 +14,8 @@ Resource:
       type: string
       description: Beskrivning av resursen.
     owner:
-      allOf:
-        - $ref: "common.yaml#/ObjectReference"
-        - title: OrganisationReference
-          description: >
-            Möjlighet att ange vilket organisationselement resursen tillhör.
+      $ref: "common.yaml#/OrganisationReference"
+
   required:
     - id
     - meta
