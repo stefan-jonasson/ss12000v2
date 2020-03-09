@@ -97,20 +97,48 @@ Organisation:
     - organisationType
   description: En skolhuvudman eller annan slags organisatorisk enhet.
 
-OrganisationsArray:
+OrganisationExpanded:
+  allOf:
+    - $ref: "#/Organisation"
+    - type: object
+      properties:
+        _embedded:
+          type: object
+          properties:
+            assignmentRoles:
+              type: array
+              items:
+                type: object
+                properties:
+                  duty:
+                    $ref: "common.yaml#/DutyReference"
+                  assignmentRoleType:
+                    $ref: "common.yaml#/components/schemas/AssignmentRoleTypeEnum"
+                  startDate:
+                    description: >
+                      Startdatum för tjänstens relation till gruppen
+                      (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
+                    type: string
+                    format: date
+                  endDate:
+                    description: >
+                      Slutdatum för tjänstens relation till gruppen
+                      (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
+                    type: string
+                    format: date
+
+OrganisationsExpandedArray:
     type: array
     items:
-      $ref: "#/Organisation"
+      $ref: "#/OrganisationExpanded"
 
-
-
-Organisations:
+OrganisationsExpanded:
  type: object
  properties:
       data:
         type: array
         items:
-          $ref: "#/Organisation"
+          $ref: "#/OrganisationExpanded"
       pageToken:
         type: string
         nullable: true
