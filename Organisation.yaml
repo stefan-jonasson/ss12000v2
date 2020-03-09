@@ -10,9 +10,9 @@ Organisation:
     displayName:
       type: string
       description: Namn på organisationen
-    code: 
+    organisationCode: 
       type: string 
-      description: A code identifying the organisational element. Not globally unique. 
+      description: En kod för att identifiera organisationselementet inom organisationen.
     organisationType:
       $ref: "common.yaml#/components/schemas/OrganisationTypeEnum"
     organisationNumber:
@@ -24,7 +24,8 @@ Organisation:
       allOf:
         - $ref: "common.yaml#/OrganisationReference"
         - description: >
-            Identifierare för en eventellt överliggande organisation. Kan ej peka på organisationer av typen _Skolenhet_.
+            Identifierare för en eventellt överliggande organisation.
+            Kan ej peka på organisationer av typen _Skolenhet_.
     schoolUnitCode:
       type: string
       description: >

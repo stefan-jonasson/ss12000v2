@@ -21,7 +21,7 @@ organisations:
           type: array
           items:
             type: string
-      - name: code
+      - name: organisationCode
         description: >
           Begränsa urvalet till de organisationselement som har den angivna koden.
         in: query
@@ -117,8 +117,29 @@ organisationsLookup:
     requestBody:
       content:
         application/json:
-         schema:
-            $ref : "../common.yaml#/components/schemas/IdLookup"
+          schema:
+            type: object
+            properties:
+              ids:
+                type: array
+                items:
+                  type: string
+                  format: uuid
+              schoolUnitCodes:
+                type: array
+                items:
+                  type: string
+              organisationCodes:
+                type: array
+                items:
+                  type: string
+            example:
+              ids:
+                - d544563a-747a-42d3-8d37-415a101537fa
+              schoolUnitCodes:
+                - "55512387"
+              organisationCodes:
+                - "F2311"
       required: true
 
 organisationById:
