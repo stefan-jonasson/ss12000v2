@@ -42,6 +42,40 @@ Organisation:
       description: >
         Kommunkod. Län och kommunkod för den kommun där skolan är belägen,
         exempelvis 0180 där 01 anger länet och 80 anger kommunen.
+    url:
+      type: string
+      format: uri
+      description: >
+        Länk till en websida med information om skolan eller organisationselementet.
+    email:
+      type: string
+      format: email
+      description: >
+        Epost-adress till skolan eller organisationselementet.
+    phoneNumber:
+      type: string
+      description: >
+        Telefonnummer till en skolan eller organisationselementet.
+    contactInfo:
+      type: array
+      items:
+        type: object
+        description: >
+          Kontaktuppgifter till skolan eller organisationselementet.
+          Kan användas för supportkontakt och andra publika kontaktuppgifter.
+        properties:
+          infoType:
+            type: string
+            description: >
+              Typ av kontaktuppgift. Publika uppgifter avser uppgifter som kan visas för allmänheten,
+              såsom adress och telefonnummer till skolan.
+            enum:
+              - Support
+              - Public
+          info:
+            type: string
+            description: >
+              Beskrivning i fritext av kontaktuppgifter till skolan eller organisationsenheten.
     startDate:
       type: string
       format: date
