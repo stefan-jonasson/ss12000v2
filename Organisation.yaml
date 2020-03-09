@@ -66,6 +66,7 @@ Organisation:
         properties:
           infoType:
             type: string
+            title: Code_ContactInfoType
             description: >
               Typ av kontaktuppgift. Publika uppgifter avser uppgifter som kan visas för allmänheten,
               såsom adress och telefonnummer till skolan.
