@@ -4,7 +4,7 @@ placements:
       - Person
     summary: Hämta en lista med placeringar.
     parameters:
-      - name: schoolUnit
+      - name: placedAt
         description: >
           Begränsa urvalet till de barn som har en placering på angiven
           skolenhet. Detta kan kombineras med startDate.onOrAfter
@@ -84,17 +84,17 @@ placements:
 
     responses:
       200:
-        description: successful operation
+        description: Anropet lyckades.
         content:
           application/json:
             schema:
               $ref: "../Placement.yaml#/Placements"
       400:
-        description: >
-          Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`,
-          `meta.created.after`, `meta.created.before`, `expand`, `schoolUnit`,
-          `startDate.onOrAfter`,`endDate.onOrBefore`).
-          Kan inte kombineras med `pageToken`.
+        $ref: "../openapi.yaml#/components/responses/400_invalid_filter"
+      403: 
+        $ref: "../openapi.yaml#/components/responses/403_not_authorised"
+      default:
+        $ref: "../openapi.yaml#/components/responses/default_errror"
 
 placementsLookup:
   post:
@@ -111,13 +111,17 @@ placementsLookup:
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
       200:
-        description: successful operation
+        description: Anropet lyckades.
         content:
           application/json:
             schema:
               $ref: "../Placement.yaml#/PlacementsArray"
+      403:
+        $ref: "../openapi.yaml#/components/responses/403_not_authorised"
       503:
-        description: The response is too large for the server ie overload
+        $ref: "../openapi.yaml#/components/responses/503_overload"
+      default:
+        $ref: "../openapi.yaml#/components/responses/default_errror"
     requestBody:
       content:
         application/json:
@@ -153,18 +157,20 @@ placementsById:
       - $ref: "#/ExpandParameter"
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
-      "200":
-        description: successful operation
+      200:
+        description: Anropet lyckades.
         content:
           application/json:
             schema:
-              $ref: "../Placement.yaml#/Placement"
-      "400":
-        description: Invalid id supplied
-      "403":
-        description: Not authorised
-      "404":
-        description: Placement not found
+              $ref: "../Placement.yaml#/PlacementExpanded"
+      400:
+        $ref: "../openapi.yaml#/components/responses/400_invalid_id"
+      403:
+        $ref: "../openapi.yaml#/components/responses/403_not_authorised"
+      404:
+        $ref: "../openapi.yaml#/components/responses/404_not_found"
+      default:
+        $ref: "../openapi.yaml#/components/responses/default_errror"
 
 ExpandParameter:
   name: expand

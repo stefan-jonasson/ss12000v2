@@ -112,10 +112,10 @@ Activity:
         - $ref: "common.yaml#/SyllabusReference"
         - description: Det kurs- eller ämnesplan som aktiviteten är knuten till.
 
-    schoolUnit:
+    organisation:
       allOf:
-       - $ref: "common.yaml#/SchoolUnitReference"
-       - description: Den skolenhet som aktiviteten är knuten till.
+       - $ref: "common.yaml#/OrganisationReference"
+       - description: Den skolenhet/skola som aktiviteten är knuten till.
 
     parentActivity:
       allOf:
@@ -127,7 +127,7 @@ Activity:
   required:
     - id
     - displayName
-    - schoolUnit
+    - organisation
     - calendarEventsRequired
     - startDate
     - groups

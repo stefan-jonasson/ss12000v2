@@ -23,14 +23,17 @@ deletedEntities:
       - $ref: "searchParameters.yaml#/PageToken"
     responses:
       200:
-        description: successful operation
+        description: Anropet lyckades.
         content:
           application/json:
             schema:
               $ref: "#/DeletedEntities"
       400:
-        description: >
-          Filter (ex `after`, `entity`) kan inte kombineras med `pageToken`
+        $ref: "../openapi.yaml#/components/responses/400_invalid_filter"
+      403: 
+        $ref: "../openapi.yaml#/components/responses/403_not_authorised"
+      default:
+        $ref: "../openapi.yaml#/components/responses/default_errror"
 
 
 DeletedEntities:
@@ -138,12 +141,6 @@ DeletedEntities:
             format: uuid
 
         persons:
-          type: array
-          items:
-            type: string
-            format: uuid
-
-        schoolUnits:
           type: array
           items:
             type: string

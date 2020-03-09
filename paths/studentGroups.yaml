@@ -72,17 +72,17 @@ studentGroups:
       - $ref: "searchParameters.yaml#/PageToken"
     responses:
       200:
-        description: successful operation
+        description: Anropet lyckades.
         content:
           application/json:
             schema:
-              $ref: "../StudentGroup.yaml#/StudentGroups"
+              $ref: "../StudentGroup.yaml#/StudentGroupsExpanded"
       400:
-        description: >
-          Filter (ex `sortkey`, `meta.modified.after`, `meta.modified.before`,
-          `meta.created.after`, `meta.created.before`, `expand`, `studentGroupType`,
-          `schoolTypes`, `owner`,`startDate.onOrAfter`, `endDate.onOrBefore`).
-          Kan inte kombineras med `pageToken`.
+        $ref: "../openapi.yaml#/components/responses/400_invalid_filter"
+      403: 
+        $ref: "../openapi.yaml#/components/responses/403_not_authorised"
+      default:
+        $ref: "../openapi.yaml#/components/responses/default_errror"
 
 studentGroupsLookup:
   post:
@@ -98,13 +98,17 @@ studentGroupsLookup:
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
       200:
-        description: successful operation
+        description: Anropet lyckades.
         content:
           application/json:
             schema:
-              $ref: "../StudentGroup.yaml#/StudentGroupsArray"
+              $ref: "../StudentGroup.yaml#/StudentGroupsExpandedArray"
+      403:
+        $ref: "../openapi.yaml#/components/responses/403_not_authorised"
       503:
-        description: The response is too large for the server ie overload
+        $ref: "../openapi.yaml#/components/responses/503_overload"
+      default:
+        $ref: "../openapi.yaml#/components/responses/default_errror"
     requestBody:
       content:
         application/json:
@@ -128,18 +132,20 @@ studentGroupsById:
       - $ref: "#/ExpandParameter"
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
-      "200":
-        description: successful operation
+      200:
+        description: Anropet lyckades.
         content:
           application/json:
             schema:
-              $ref: "../StudentGroup.yaml#/StudentGroup"
-      "400":
-        description: Invalid id supplied
-      "403":
-        description: Not authorised
-      "404":
-        description: StudentGroup not found
+              $ref: "../StudentGroup.yaml#/StudentGroupExpanded"
+      400:
+        $ref: "../openapi.yaml#/components/responses/400_invalid_id"
+      403:
+        $ref: "../openapi.yaml#/components/responses/403_not_authorised"
+      404:
+        $ref: "../openapi.yaml#/components/responses/404_not_found"
+      default:
+        $ref: "../openapi.yaml#/components/responses/default_errror"
 
 ExpandParameter:
   name: expand
