@@ -241,7 +241,7 @@ components:
         application/json:
           schema:
             $ref: "#/components/schemas/Error"
-    default_errror:
+    default_error:
       description: "Okänt fel."
       content:
         application/json:

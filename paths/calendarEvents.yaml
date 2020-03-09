@@ -68,7 +68,7 @@ calendarEvents:
       403: 
         $ref: "../openapi.yaml#/components/responses/403_not_authorised"
       default:
-        $ref: "../openapi.yaml#/components/responses/default_errror"
+        $ref: "../openapi.yaml#/components/responses/default_error"
 
 calendarEventById:
   get:
@@ -99,7 +99,7 @@ calendarEventById:
       404:
         $ref: "../openapi.yaml#/components/responses/404_not_found"
       default:
-        $ref: "../openapi.yaml#/components/responses/default_errror"
+        $ref: "../openapi.yaml#/components/responses/default_error"
 
 ExpandParameter:
   name: expand

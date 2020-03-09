@@ -23,7 +23,7 @@ attendances:
       403: 
         $ref: "../openapi.yaml#/components/responses/403_not_authorised"
       default:
-        $ref: "../openapi.yaml#/components/responses/default_errror"
+        $ref: "../openapi.yaml#/components/responses/default_error"
 
   post:
     tags:
@@ -44,7 +44,7 @@ attendances:
             schema:
               $ref: "../Attendance.yaml#/Attendance"
       default:
-        $ref: "../openapi.yaml#/components/responses/default_errror"
+        $ref: "../openapi.yaml#/components/responses/default_error"
 
 attendancesLookup:
   post:
@@ -69,7 +69,7 @@ attendancesLookup:
       503:
         $ref: "../openapi.yaml#/components/responses/503_overload"
       default:
-        $ref: "../openapi.yaml#/components/responses/default_errror"
+        $ref: "../openapi.yaml#/components/responses/default_error"
     requestBody:
       content:
         application/json:
@@ -120,7 +120,7 @@ attendanceById:
       404:
         $ref: "../openapi.yaml#/components/responses/404_not_found"
       default:
-        $ref: "../openapi.yaml#/components/responses/default_errror"
+        $ref: "../openapi.yaml#/components/responses/default_error"
 
   delete:
     tags:
@@ -144,4 +144,4 @@ attendanceById:
       404:
         $ref: "../openapi.yaml#/components/responses/404_not_found"
       default:
-        $ref: "../openapi.yaml#/components/responses/default_errror"
+        $ref: "../openapi.yaml#/components/responses/default_error"

@@ -16,7 +16,7 @@ subscriptions:
       403:
         $ref: "../openapi.yaml#/components/responses/403_not_authorised"
       default:
-        $ref: "../openapi.yaml#/components/responses/default_errror"
+        $ref: "../openapi.yaml#/components/responses/default_error"
 
   post:
     tags:
@@ -73,7 +73,7 @@ subscriptions:
       403:
         $ref: "../openapi.yaml#/components/responses/403_not_authorised"
       default:
-        $ref: "../openapi.yaml#/components/responses/default_errror"
+        $ref: "../openapi.yaml#/components/responses/default_error"
 
 subscription_by_id:
   delete:
@@ -98,7 +98,7 @@ subscription_by_id:
       404:
         $ref: "../openapi.yaml#/components/responses/404_not_found"
       default:
-        $ref: "../openapi.yaml#/components/responses/default_errror"
+        $ref: "../openapi.yaml#/components/responses/default_error"
   get:
     tags:
       - Prenumeration
@@ -125,7 +125,7 @@ subscription_by_id:
       404:
         $ref: "../openapi.yaml#/components/responses/404_not_found"
       default:
-        $ref: "../openapi.yaml#/components/responses/default_errror"
+        $ref: "../openapi.yaml#/components/responses/default_error"
   patch:
     tags:
       - Prenumeration
@@ -152,4 +152,4 @@ subscription_by_id:
       404:
         $ref: "../openapi.yaml#/components/responses/404_not_found"
       default:
-        $ref: "../openapi.yaml#/components/responses/default_errror"
+        $ref: "../openapi.yaml#/components/responses/default_error"

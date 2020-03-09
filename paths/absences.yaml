@@ -78,7 +78,7 @@ absences:
       403:
         $ref: "../openapi.yaml#/components/responses/403_not_authorised"
       default:
-        $ref: "../openapi.yaml#/components/responses/default_errror"
+        $ref: "../openapi.yaml#/components/responses/default_error"
   post:
     tags:
       - Närvaro
@@ -99,7 +99,7 @@ absences:
       403:
         $ref: "../openapi.yaml#/components/responses/403_not_authorised"
       default:
-        $ref: "../openapi.yaml#/components/responses/default_errror"
+        $ref: "../openapi.yaml#/components/responses/default_error"
 
 AbsenceLookup:
   post:
@@ -125,7 +125,7 @@ AbsenceLookup:
       503:
         $ref: "../openapi.yaml#/components/responses/503_overload"
       default:
-        $ref: "../openapi.yaml#/components/responses/default_errror"
+        $ref: "../openapi.yaml#/components/responses/default_error"
     requestBody:
       content:
         application/json:
@@ -161,4 +161,4 @@ absence_by_id:
       404:
         $ref: "../openapi.yaml#/components/responses/404_not_found"
       default:
-        $ref: "../openapi.yaml#/components/responses/default_errror"
+        $ref: "../openapi.yaml#/components/responses/default_error"

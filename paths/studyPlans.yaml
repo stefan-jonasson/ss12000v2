@@ -62,7 +62,7 @@ studyPlans:
       403: 
         $ref: "../openapi.yaml#/components/responses/403_not_authorised"
       default:
-        $ref: "../openapi.yaml#/components/responses/default_errror"
+        $ref: "../openapi.yaml#/components/responses/default_error"
 
 studyPlanById:
   get:
@@ -92,4 +92,4 @@ studyPlanById:
       404:
         $ref: "../openapi.yaml#/components/responses/404_not_found"
       default:
-        $ref: "../openapi.yaml#/components/responses/default_errror"
+        $ref: "../openapi.yaml#/components/responses/default_error"

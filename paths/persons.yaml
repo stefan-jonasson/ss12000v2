@@ -104,7 +104,7 @@ persons:
       403: 
         $ref: "../openapi.yaml#/components/responses/403_not_authorised"
       default:
-        $ref: "../openapi.yaml#/components/responses/default_errror"
+        $ref: "../openapi.yaml#/components/responses/default_error"
 
 personsLookup:
   post:
@@ -130,7 +130,7 @@ personsLookup:
       503:
         $ref: "../openapi.yaml#/components/responses/503_overload"
       default:
-        $ref: "../openapi.yaml#/components/responses/default_errror"
+        $ref: "../openapi.yaml#/components/responses/default_error"
     requestBody:
       description: >
         En lista med personnummer och / eller uuid:n på personer.
@@ -187,7 +187,7 @@ personsById:
       404:
         $ref: "../openapi.yaml#/components/responses/404_not_found"
       default:
-        $ref: "../openapi.yaml#/components/responses/default_errror"
+        $ref: "../openapi.yaml#/components/responses/default_error"
 
 ExpandParameter:
   name: expand
