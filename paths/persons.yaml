@@ -4,6 +4,17 @@ persons:
       - Person
     summary: Hämta en lista med personer.
     parameters:
+      - name: nameContains
+        description: >
+          Begränsa urvalet till de personer vars namn innehåller något av parameterns värden.
+          Sökningen **ska** ske shiftlägesokänsligt och värdet kan förekomma var
+          som helst i något av alla tre namnfälten. Anges flera värden så måste samtliga värden
+          matcha minst ett av namnfälten.
+          Exempel: [ "Pa", "gens" ] kommer matcha Palle Girgensohn.
+        schema:
+          type: array
+          items:
+            type: string
       - name: enrolment.enroledAt
         description: >
           Begränsa urvalet till de elever som har en inskrivning (enrolment) på angiven
@@ -65,7 +76,8 @@ persons:
           format: date
       - name: dutyAt
         description: >
-          Begränsa urvalet till de tjänstgöringar som är kopplade till ett organisationselement eller dess underliggande element.
+          Begränsa urvalet till de tjänstgöringar som är kopplade
+          till ett organisationselement eller dess underliggande element.
         in: query
         schema:
           type: string
