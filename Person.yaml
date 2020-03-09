@@ -52,7 +52,7 @@ Person:
               - Vårdnadshavare
         required:
           - value
-    norEduPersonNIN:
+    civicNo:
       type: object
       description: Personnummer.
       properties:

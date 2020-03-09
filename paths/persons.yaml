@@ -87,7 +87,7 @@ persons:
             - GivenNameAsc
             - FamilyNameDesc
             - FamilyNameAsc
-            - NorEduPersonNIN
+            - civicNo
             - ModifiedDesc
           default: ModifiedDesc
       - $ref: "searchParameters.yaml#/Limit"
@@ -144,15 +144,17 @@ personsLookup:
                 items:
                   type: string
                   format: uuid
-              norEduPersonNINs:
+              civicNos:
                 type: array
                 items:
+                  description: >
+                    Personnummer, samordningsnummer eller tillfälliga personnummer, och motsvarande för andra länder.
+                    För svenska personnummner **ska** formatet 12 tecken utan divis användas. Se exempel.
                   type: string
-                  pattern: '^\d{8}[A-Z0-9]{2}\d{2}$'
             example:
               ids:
                 - d544563a-747a-42d3-8d37-415a101537fa
-              norEduPersonNINs:
+              civicNos:
                 - "201002037271"
       required: true
 
