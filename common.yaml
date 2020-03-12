@@ -32,6 +32,11 @@ Meta:
       description: >
         Datum och tid för när entiteten senast uppdaterades
         (RFC 3339 format tex "2015-12-12T10:30:00+01:00").
+        Tidpunkten avser den senaste tidpunkt när något av de attribut
+        som direkt tillhör entiteten har ändrats. Attribut som kan tas fram
+        med parametrarna expand eller expandReferenceNames räknas **inte** som
+        ett attribut till entiteten, och ska således **inte** påverka
+        detta värde.
 
 SchoolUnitReference:
   allOf:
