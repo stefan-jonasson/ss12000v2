@@ -24,9 +24,9 @@ Grade:
       allOf:
         - $ref: "common.yaml#/PersonReference"
         - description: Den behöriga lärare som är ansvarig för betyget.
-    studentGroup:
+    group:
       allOf:
-        - $ref: "common.yaml#/StudentGroupReference"
+        - $ref: "common.yaml#/GroupReference"
         - description: Anger vilken elevgrupp eleven ingick i.
     registeredDate:
       type: string

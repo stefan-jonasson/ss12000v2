@@ -13,7 +13,7 @@ placements:
         schema:
           type: string
           format: uuid
-      - name: studentGroup
+      - name: group
         description: >
           Begränsa urvalet till de barn som har en placering på angiven grupp.
           Detta kan kombineras med startDate.onOrAfter
@@ -183,4 +183,4 @@ ExpandParameter:
       enum: 
         - child
         - owners
-        - studentGroup
+        - group

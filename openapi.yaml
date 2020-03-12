@@ -63,12 +63,12 @@ paths:
     $ref: paths/duties.yaml#/dutiesLookup
   /duties/{id}:
     $ref: paths/duties.yaml#/duty_by_id
-  /studentGroups:
-    $ref: paths/studentGroups.yaml#/studentGroups
-  /studentGroups/lookup:
-    $ref: paths/studentGroups.yaml#/studentGroupsLookup
-  /studentGroups/{id}:
-    $ref: paths/studentGroups.yaml#/studentGroupsById
+  /groups:
+    $ref: paths/groups.yaml#/groups
+  /groups/lookup:
+    $ref: paths/groups.yaml#/groupsLookup
+  /groups/{id}:
+    $ref: paths/groups.yaml#/groupsById
   /programmes:
     $ref: paths/programmes.yaml#/programmes
   /programmes/lookup:
@@ -168,8 +168,8 @@ components:
       $ref: "Duty.yaml#/Duty"
     Placement:
       $ref: "Placement.yaml#/Placement"
-    StudentGroup:
-      $ref: "StudentGroup.yaml#/StudentGroup"
+    Group:
+      $ref: "Group.yaml#/Group"
     Programme:
       $ref: "Programme.yaml#/Programme"
     Syllabus:

@@ -134,7 +134,7 @@ DeletedEntities:
             type: string
             format: uuid
 
-        studentGroups:
+        groups:
           type: array
           items:
             type: string

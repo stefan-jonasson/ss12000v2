@@ -111,4 +111,4 @@ ExpandParameter:
     type: array
     items:
       type: string
-      enum: [studentGroups]
+      enum: [groups]
