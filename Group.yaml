@@ -1,8 +1,8 @@
-StudentGroupFragment:
+GroupFragment:
   type: object
-  title: StudentGroup
+  title: Group
   description: >
-    StudentGroup kan innehålla elever eller bara vara en tom "platshållare" utan
+    Group kan innehålla personer eller bara vara en tom "platshållare" utan
     medlemmar, som kan populeras vid ett senare tillfälle. Notera att gruppens
     koppling till ämnen/kurser och lärare görs via Aktivitet. Grupper har olika
     egenskaper baserat på grupptyp. Individer kan ha olika roller
@@ -29,8 +29,8 @@ StudentGroupFragment:
       description: >
         Slutdatum för gruppens giltighetstid
         (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
-    studentGroupType:
-      $ref: "common.yaml#/components/schemas/StudentGroupTypesEnum"
+    groupType:
+      $ref: "common.yaml#/components/schemas/GroupTypesEnum"
 
     schoolType:
       allOf:
@@ -46,13 +46,13 @@ StudentGroupFragment:
   required:
     - id
     - displayName
-    - studentGroupType
+    - groupType
     - startDate
     - organisation
 
-StudentGroup:
+Group:
   allOf:
-    - $ref: "#/StudentGroupFragment"
+    - $ref: "#/GroupFragment"
     - type: object
       properties:
         studentMemberships:
@@ -79,9 +79,9 @@ StudentGroup:
                 type: string
                 format: date
 
-StudentGroupExpanded:
+GroupExpanded:
   allOf:
-    - $ref: "#/StudentGroup"
+    - $ref: "#/Group"
     - type: object
       properties:
         _embedded:
@@ -109,18 +109,18 @@ StudentGroupExpanded:
                     type: string
                     format: date
 
-StudentGroupsExpandedArray:
+GroupsExpandedArray:
   type: array
   items:
-    $ref: "#/StudentGroupExpanded"
+    $ref: "#/GroupExpanded"
 
-StudentGroupsExpanded:
+GroupsExpanded:
   type: object
   properties:
     data:
       type: array
       items:
-        $ref: "#/StudentGroupExpanded"
+        $ref: "#/GroupExpanded"
     pageToken:
       type: string
       nullable: true

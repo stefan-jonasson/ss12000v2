@@ -29,7 +29,7 @@ AttendanceEvent:
         - description: Anger den person som registrat in- respektive utcheckning.
     group:
       allOf:
-        - $ref: "common.yaml#/StudentGroupReference"
+        - $ref: "common.yaml#/GroupReference"
         - description: Den avdelning eller grupp på förskoleenheten som närvaron.
     _embedded:
       type: object
@@ -40,7 +40,7 @@ AttendanceEvent:
         person:
           $ref: "Person.yaml#/Person"
         group:
-          $ref: "StudentGroup.yaml#/StudentGroupFragment"
+          $ref: "Group.yaml#/GroupFragment"
 
   required:
     - id

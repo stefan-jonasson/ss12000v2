@@ -13,13 +13,13 @@ Duty:
       allOf:
         - $ref: "common.yaml#/PersonReference"
         - description: Identifierare av person som tjänsten är knuten till.
-    assignmentRoleStudentGroups:
+    assignmentRoleGroups:
       type: array
       items:
         type: object
         properties:
-          studentGroup:
-            $ref: "common.yaml#/StudentGroupReference"
+          group:
+            $ref: "common.yaml#/GroupReference"
           assignmentRoleType:
             $ref: "common.yaml#/components/schemas/AssignmentRoleTypeEnum"
           startDate:
@@ -35,7 +35,7 @@ Duty:
             type: string
             format: date
         required:
-          - studentGroup
+          - group
           - assignmentRoleType
           - startDate
     assignmentRoleOrganisations:

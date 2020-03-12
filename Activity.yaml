@@ -79,7 +79,7 @@ Activity:
       type: array
       minItems: 1
       items:
-        $ref: "common.yaml#/StudentGroupReference"
+        $ref: "common.yaml#/GroupReference"
       description: De grupper som är kopplade till aktiviteten.
 
     teachers:

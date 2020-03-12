@@ -1,17 +1,17 @@
-studentGroups:
+groups:
   get:
     tags:
       - Grupper
     summary: Hämta en lista med studentgrupper.
     parameters:
-      - name: studentGroupType
+      - name: groupType
         description: >
           Begränsa urvalet till grupper av en eller flera type.
         in: query
         schema:
           type: array
           items:
-            $ref: "../common.yaml#/components/schemas/StudentGroupTypesEnum"
+            $ref: "../common.yaml#/components/schemas/GroupTypesEnum"
       - name: schoolTypes
         description: >
           Begränsa urvalet av studentgrupper till de som är har en av de angivna
@@ -77,7 +77,7 @@ studentGroups:
         content:
           application/json:
             schema:
-              $ref: "../StudentGroup.yaml#/StudentGroupsExpanded"
+              $ref: "../Group.yaml#/GroupsExpanded"
       400:
         $ref: "../openapi.yaml#/components/responses/400_invalid_filter"
       403: 
@@ -85,7 +85,7 @@ studentGroups:
       default:
         $ref: "../openapi.yaml#/components/responses/default_error"
 
-studentGroupsLookup:
+groupsLookup:
   post:
     tags:
       - Grupper
@@ -103,7 +103,7 @@ studentGroupsLookup:
         content:
           application/json:
             schema:
-              $ref: "../StudentGroup.yaml#/StudentGroupsExpandedArray"
+              $ref: "../Group.yaml#/GroupsExpandedArray"
       403:
         $ref: "../openapi.yaml#/components/responses/403_not_authorised"
       503:
@@ -117,7 +117,7 @@ studentGroupsLookup:
             $ref: "../common.yaml#/components/schemas/IdLookup"
       required: true
 
-studentGroupsById:
+groupsById:
   get:
     tags:
       - Grupper
@@ -138,7 +138,7 @@ studentGroupsById:
         content:
           application/json:
             schema:
-              $ref: "../StudentGroup.yaml#/StudentGroupExpanded"
+              $ref: "../Group.yaml#/GroupExpanded"
       400:
         $ref: "../openapi.yaml#/components/responses/400_invalid_id"
       403:
