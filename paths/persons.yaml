@@ -15,73 +15,58 @@ persons:
           type: array
           items:
             type: string
-      - name: enrolment.enroledAt
+      - name: relationship.entity.type
+        description: |
+          Begränsa urvalet till de personer som har en denna typ av relation
+          till andra entititeter. Denna parameter styr vilket entitetstyp som
+          övriga relationship-parametrar filterar på. Anges inga andra parametrar så
+          returneras personer som har en relation av denna typ.
+          - _enrolements_ - filtrerar utifrån elever inskrivning.
+          - _duty_ - filtrerar utifrån personer som har minst en tjänstgöring.
+          - _placement.child_ - filtrerar utifrån barn som har minst en placering.
+          - _placement.owner_ - filtrerar utifrån personer som satta som ägare av minst en placering.
+          - _responsibleFor.enrolment_ - filterar utifrån personer som har en _"responsibleFor"_-relation,
+            dvs är en vårdnadshavare eller annan ansvarig vuxen, till en elev med minst en inskrivning.
+          - _responsibleFor.placement_ - filterar utifrån personer som har en _"responsibleFor"_-relation,
+            dvs är en vårdnadshavare eller annan ansvarig vuxen, till ett barn med minst en placering.
+            Notera att oftast är det bättre att använda _placement.owner_ än denna parameter.
+          Detta kan kombineras med _relationship.startDate.onOrAfter_
+          och _relationship.endDate.onOrBefore_ för att begränsa till aktiva relationer.
+        schema:
+          type: string
+          enum:
+            - enrolment
+            - duty
+            - placement.child
+            - placement.owner
+            - responsibleFor.enrolment
+            - responsibleFor.placement
+      - name: relationship.organisation
         description: >
-          Begränsa urvalet till de elever som har en inskrivning (enrolment) på angiven
-          skolenhet. Detta kan kombineras med enrolment.startDate.onOrAfter
-          och enrolment.endDate.onOrBefore för att begränsa till aktiva inskrivningar.
+          Begränsa urvalet till de personer som har en relation av typen _relationship.entity.type_
+          till angivet organisationselement (vanligtvis en skolenhet).
         in: query
         schema:
           type: string
           format: uuid
-      - name: enrolment.startDate.onOrAfter
+      - name: relationship.startDate.onOrAfter
         description: >
-          Begränsa urvalet av personer till de som har
-          inskrivningar som är aktiva inom det intervall
-          som startar på angivet datum (RFC 3339-format,
+          Begränsa urvalet av personer till de som har relationer av typen _relationship.entity.type_
+          som är aktiva inom det intervall som startar på angivet datum (RFC 3339-format,
           t.ex. "2016-10-15"). Inkluderande.
         in: query
         schema:
           type: string
           format: date
-      - name: enrolment.endDate.onOrBefore
+      - name: relationship.endDate.onOrBefore
         description: >
-          Begränsa urvalet av personer till de som har
-          inskrivningar som är aktiva inom det intervall
-          som avslutas på angivet datum (RFC 3339-format,
+          Begränsa urvalet av personer till de som har relationer av typen _relationship.entity.type_
+          som är aktiva inom det intervall som startar på angivet datum (RFC 3339-format,
           t.ex. "2016-10-15"). Inkluderande.
         in: query
         schema:
           type: string
           format: date
-
-      - name: placement.placedAt
-        description: >
-          Begränsa urvalet till de elever som har en placering på angiven
-          skolenhet. Detta kan kombineras med placement.startDate.onOrAfter
-          och placement.endDate.onOrBefore för att begränsa till aktiva placeringar.
-        in: query
-        schema:
-          type: string
-          format: uuid
-      - name: placement.startDate.onOrAfter
-        description: >
-          Begränsa urvalet av personer till de som har
-          placeringar som är aktiva inom det intervall
-          som startar på angivet datum (RFC 3339-format,
-          t.ex. "2016-10-15"). Inkluderande.
-        in: query
-        schema:
-          type: string
-          format: date
-      - name: placement.endDate.onOrBefore
-        description: >
-          Begränsa urvalet av personer till de som har
-          placeringar som är aktiva inom det intervall
-          som avslutas på angivet datum (RFC 3339-format,
-          t.ex. "2016-10-15"). Inkluderande.
-        in: query
-        schema:
-          type: string
-          format: date
-      - name: dutyAt
-        description: >
-          Begränsa urvalet till de tjänstgöringar som är kopplade
-          till ett organisationselement eller dess underliggande element.
-        in: query
-        schema:
-          type: string
-          format: uuid
       - $ref: "searchParameters.yaml#/SearchCreatedBefore"
       - $ref: "searchParameters.yaml#/SearchCreatedAfter"
       - $ref: "searchParameters.yaml#/SearchModifiedBefore"
