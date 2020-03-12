@@ -204,7 +204,7 @@ components:
       type: object
       properties:
         code:
-          description: Teknisk kod för att beskriva fel, varje källa bestämmer skjälv över möjliga felkoder. 
+          description: Teknisk kod för att beskriva fel, varje källa bestämmer själv över möjliga felkoder. 
           type: string
         message:
           description: Text för att beskriva felet.
