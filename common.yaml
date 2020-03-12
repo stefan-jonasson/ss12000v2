@@ -88,7 +88,7 @@ GroupReference:
   allOf:
     - $ref: "#/ObjectReference"
     - title: GroupReference
-      description: Referens till en elevgrupp
+      description: Referens till en grupp
 
 SyllabusReference:
   allOf:
@@ -216,7 +216,7 @@ components:
       description: |
         Grupptyp anger vad en grupp ska användas till.
         Ett värdeförråd för att indikera anger vilka grupptyper som finns.
-        * _Undervisning_ - Undervisningsgruppen är en elevgrupp som har koppling
+        * _Undervisning_ - Undervisningsgruppen är en grupp som har koppling
           till ett ämne eller en kurs, och som ska schemaläggas med undervisningstid
           ihop med en lärare.
         * _Klass_ - Klassen är en organisatorisk grupp med elever som är skolplacerade
@@ -226,12 +226,12 @@ components:
           koppla en _AssignmentRole_ av typen _Mentor_.
         * _Mentor_ - Grupp med elever vilka delar samma mentor/mentorer. 
           Mentor kopplas till gruppen genom en _AssignmentRole_.
-        * _Schema_ - Schemagrupper är elevgrupper som utgör ett komplement till
+        * _Schema_ - Schemagrupper är grupper som utgör ett komplement till
           grupper av typen Undervisning. Schemagrupper ska schemaläggas för att
           åstadkomma anpassningar av schemat för enskilda elever eller grupper
           av elever. Exempel på schemagrupper är delgrupper och grupper som
           används för stödundervisning eller läxhjälp.
-        * _Avdelning_ - Avdelningen är en elevgrupp för placering inom skolformerna
+        * _Avdelning_ - Avdelningen är en grupp för placering inom skolformerna
           förskola eller fritidshem.
         * _Personalgrupp_ - En grupp vars medlemmar utgörs av personal.
         * _Övrigt_ - Övriga grupper är andra grupper som inte är något av ovanstående.

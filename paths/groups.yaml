@@ -2,7 +2,7 @@ groups:
   get:
     tags:
       - Grupper
-    summary: Hämta en lista med studentgrupper.
+    summary: Hämta en lista med grupper.
     parameters:
       - name: groupType
         description: >
@@ -14,7 +14,7 @@ groups:
             $ref: "../common.yaml#/components/schemas/GroupTypesEnum"
       - name: schoolTypes
         description: >
-          Begränsa urvalet av studentgrupper till de som är har en av de angivna
+          Begränsa urvalet av grupper till de som är har en av de angivna
           skolformerna.
         in: query
         schema:
@@ -23,7 +23,7 @@ groups:
             $ref: "../common.yaml#/components/schemas/SchoolTypesEnum"
       - name: owner
         description: >
-          Begränsa urvalet av studentgrupper till de som vars ansvariga skolenhet
+          Begränsa urvalet av grupper till de som vars ansvariga skolenhet
           är en av de som anges av parametern.
         in: query
         schema:
@@ -89,11 +89,11 @@ groupsLookup:
   post:
     tags:
       - Grupper
-    summary: Hämta många studentgrupper baserat på en lista av ID:n.
+    summary: Hämta många grupper baserat på en lista av ID:n.
     description: >
-      Istället för att hämta studentgrupper en i taget med en loop
-      av GET-anrop så finns det även möjlighet att hämta många studentgrupper
-      på en gång genom att ange POST:a en lista med önskade studentgrupper.
+      Istället för att hämta grupper en i taget med en loop
+      av GET-anrop så finns det även möjlighet att hämta många grupper
+      på en gång genom att ange POST:a en lista med önskade grupper.
     parameters:
       - $ref: "#/ExpandParameter"
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
@@ -121,11 +121,11 @@ groupsById:
   get:
     tags:
       - Grupper
-    summary: Hämta studentgrupper baserat på ID
+    summary: Hämta grupper baserat på ID
     parameters:
       - name: id
         in: path
-        description: ID för studentgrupp som ska hämtas
+        description: ID för grupp som ska hämtas
         required: true
         schema:
           type: string

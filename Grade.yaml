@@ -27,7 +27,7 @@ Grade:
     group:
       allOf:
         - $ref: "common.yaml#/GroupReference"
-        - description: Anger vilken elevgrupp eleven ingick i.
+        - description: Anger vilken grupp eleven ingick i.
     registeredDate:
       type: string
       format: date

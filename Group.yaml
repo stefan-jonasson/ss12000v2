@@ -11,7 +11,7 @@ GroupFragment:
     id:
       type: string
       format: uuid
-      description: Identifierare för elevgruppen
+      description: Identifierare för gruppen
     meta:
       $ref: "common.yaml#/Meta"
     displayName:
