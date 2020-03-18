@@ -25,14 +25,14 @@ duties:
           format: uuid
       - name: startDate.onOrBefore
         description: |
-          Begränsa urvalet till tjänstgöringar som har ett startDate värde innan eller på det angivna datumet (RFC 3339-format, t.ex. "2016-10-15"). 
+          Begränsa urvalet till tjänstgöringar som har ett startDate värde innan eller på det angivna datumet (RFC 3339-format, t.ex. "2016-10-15").
         in: query
         schema:
           type: string
           format: date
       - name: startDate.onOrAfter
         description: |
-          Begränsa urvalet till tjänstgöringar som har ett startDate värde på eller efter det angivna datumet (RFC 3339-format, t.ex. "2016-10-15"). 
+          Begränsa urvalet till tjänstgöringar som har ett startDate värde på eller efter det angivna datumet (RFC 3339-format, t.ex. "2016-10-15").
         in: query
         schema:
           type: string
@@ -40,7 +40,7 @@ duties:
       - name: endDate.onOrBefore
         description: |
           Begränsa urvalet till tjänstgöringar som har ett endDate värde innan eller på det angivna datumet (RFC 3339-format, t.ex. "2016-10-15"). 
-          Poster med ett endDate som ej är satt, tas alltid med. 
+          Poster med ett endDate som ej är satt, tas alltid med.
         in: query
         schema:
           type: string
@@ -48,7 +48,7 @@ duties:
       - name: endDate.onOrAfter
         description: |
           Begränsa urvalet till tjänstgöringar som har ett endDate värde på eller efter det angivna datumet (RFC 3339-format, t.ex. "2016-10-15"). 
-          Poster med ett endDate som ej är satt, tas alltid med. 
+          Poster med ett endDate som ej är satt, tas alltid med.
         in: query
         schema:
           type: string
@@ -57,6 +57,7 @@ duties:
       - $ref: "searchParameters.yaml#/SearchCreatedAfter"
       - $ref: "searchParameters.yaml#/SearchModifiedBefore"
       - $ref: "searchParameters.yaml#/SearchModifiedAfter"
+      - $ref: "#/ExpandParameter"
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
       - name: sortkey
         description: Anger hur resultatet ska sorteras.
@@ -79,7 +80,7 @@ duties:
               $ref: "../Duty.yaml#/Duties"
       400:
         $ref: "../openapi.yaml#/components/responses/400_invalid_filter"
-      403: 
+      403:
         $ref: "../openapi.yaml#/components/responses/403_not_authorised"
       default:
         $ref: "../openapi.yaml#/components/responses/default_error"
@@ -94,6 +95,7 @@ dutiesLookup:
       av GET-anrop så finns det även möjlighet att hämta många tjänstgöringar
       på en gång genom att ange POST:a en lista med önskade tjänstgöringar.
     parameters:
+      - $ref: "#/ExpandParameter"
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
       200:
@@ -128,6 +130,7 @@ duty_by_id:
         schema:
           type: string
           format: uuid
+      - $ref: "#/ExpandParameter"
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
       200:
@@ -144,3 +147,13 @@ duty_by_id:
         $ref: "../openapi.yaml#/components/responses/404_not_found"
       default:
         $ref: "../openapi.yaml#/components/responses/default_error"
+
+ExpandParameter:
+  name: expand
+  description: Beskriver om expanderade data ska hämtas
+  in: query
+  schema:
+    type: array
+    items:
+      type: string
+      enum: [person]

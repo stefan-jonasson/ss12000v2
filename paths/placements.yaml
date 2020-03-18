@@ -13,15 +13,6 @@ placements:
         schema:
           type: string
           format: uuid
-      - name: group
-        description: >
-          Begränsa urvalet till de barn som har en placering på angiven grupp.
-          Detta kan kombineras med startDate.onOrBefore
-          och endDate.onOrAfter för att begränsa till aktiva placeringar.
-        in: query
-        schema:
-          type: string
-          format: uuid
       - name: startDate.onOrBefore
         description: |
           Begränsa urvalet till placeringar som har ett startDate värde innan eller på det angivna datumet (RFC 3339-format, t.ex. "2016-10-15"). 
@@ -193,4 +184,3 @@ ExpandParameter:
       enum: 
         - child
         - owners
-        - group

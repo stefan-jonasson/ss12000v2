@@ -96,7 +96,7 @@ organisations:
         content:
           application/json:
             schema:
-              $ref: "../Organisation.yaml#/OrganisationsExpanded"
+              $ref: "../Organisation.yaml#/Organisations"
       400:
         $ref: "../openapi.yaml#/components/responses/400_invalid_filter"
       403: 
@@ -121,7 +121,7 @@ organisationsLookup:
         content:
           application/json:
             schema:
-              $ref: "../Organisation.yaml#/OrganisationsExpandedArray"
+              $ref: "../Organisation.yaml#/OrganisationsArray"
       403:
         $ref: "../openapi.yaml#/components/responses/403_not_authorised"
       503:

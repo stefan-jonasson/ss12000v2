@@ -13,8 +13,9 @@ Duty:
       allOf:
         - $ref: "common.yaml#/PersonReference"
         - description: Identifierare av person som tjänsten är knuten till.
-    assignmentRoleGroups:
+    assignmentRole:
       type: array
+      description: Datatyp som ska användas för att beskriva arbetsuppgifter för en person i relation till elevgrupp. Lärares undervisning ska inte uttryckas som en arbetsuppgift, för detta syfte används i stället Aktivitet. 
       items:
         type: object
         properties:
@@ -38,36 +39,8 @@ Duty:
           - group
           - assignmentRoleType
           - startDate
-    assignmentRoleOrganisations:
-      type: array
-      items:
-        type: object
-        properties:
-          organisation:
-            $ref: "common.yaml#/OrganisationReference"
-          assignmentRoleType:
-            $ref: "common.yaml#/components/schemas/AssignmentRoleTypeEnum"
-          startDate:
-            description: >
-              Startdatum för tjänstens relation till skolenheten
-              (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
-            type: string
-            format: date
-          endDate:
-            description: >
-              Slutdatum för tjänstens relation till skolenheten
-              (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
-            type: string
-            format: date
-        required:
-          - organisation
-          - assignmentRoleType
-          - startDate
     dutyAt:
-      allOf:
-        - $ref: "common.yaml#/SchoolUnitReference"
-        - description: >
-            Identifierare av skolenhet som tjänsten är knuten till.
+      $ref: "common.yaml#/OrganisationReference"
     dutyRole:
       allOf:
         - $ref: "common.yaml#/components/schemas/DutyRole"
@@ -101,10 +74,22 @@ Duty:
     - dutyRole
     - startDate
 
+DutyExpanded:
+  allOf:
+    - $ref: "#/Duty"
+    - type: object
+      properties:
+        _embedded:
+          type: object
+          properties:
+            person:
+              $ref: "Person.yaml#/Person"
+
+
 DutiesArray:
   type: array
   items:
-    $ref: "#/Duty"
+    $ref: "#/DutyExpanded"
 
 Duties:
   type: object
@@ -112,7 +97,7 @@ Duties:
     data:
       type: array
       items:
-        $ref: "#/Duty"
+        $ref: "#/DutyExpanded"
     pageToken:
       type: string
       nullable: true
