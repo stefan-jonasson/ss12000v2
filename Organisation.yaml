@@ -103,7 +103,7 @@ OrganisationsArray:
     items:
       $ref: "#/Organisation"
 
-Organisation:
+Organisations:
  type: object
  properties:
       data:
