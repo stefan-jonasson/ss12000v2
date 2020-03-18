@@ -6,7 +6,8 @@ persons:
     parameters:
       - name: nameContains
         description: |
-          Begränsa urvalet till de personer vars namn innehåller något av parameterns värden. Sökningen **ska** ske shiftlägesokänsligt och värdet kan förekomma var som helst i något av alla tre namnfälten. 
+          Begränsa urvalet till de personer vars namn innehåller något av parameterns värden.
+          Sökningen **ska** ske shiftlägesokänsligt och värdet kan förekomma var som helst i något av alla tre namnfälten. 
           Anges flera värden så måste samtliga värden matcha minst ett av namnfälten.
           
           Exempel: [ "Pa", "gens" ] kommer matcha Palle Girgensohn.
@@ -18,7 +19,8 @@ persons:
       - name: relationship.entity.type
         description: |
           Begränsa urvalet till de personer som har en denna typ av relation till andra entititeter. 
-          Denna parameter styr vilket entitetstyp som övriga relationship-parametrar filterar på. Anges inga andra parametrar så returneras personer som har en relation av denna typ.
+          Denna parameter styr vilket entitetstyp som övriga relationship-parametrar filterar på.
+          Anges inga andra parametrar så returneras personer som har en relation av denna typ.
           
           Möjliga relationer:
           - _enrolements_ - filtrerar utifrån elever inskrivning.
