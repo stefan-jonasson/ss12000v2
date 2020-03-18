@@ -132,12 +132,31 @@ Activity:
     - startDate
     - groups
 
-
+ActivityExpanded:
+  allOf:
+    - $ref: "#/Activity"
+    - type: object
+      properties:
+        _embedded:
+          type: object
+          properties:
+            groups:
+              type: array
+              items:
+                $ref: "Group.yaml#/Group"
+            syllabus:
+              $ref: "Syllabus.yaml#/Syllabus"
+            teachers:
+              type: array
+              items:
+                $ref: "Duty.yaml#/Duty"
+            
+                 
 
 ActivitiesArray:
     type: array
     items:
-      $ref: "#/Activity"
+      $ref: "#/ActivityExpanded"
 
 Activities:
   type: object
@@ -145,7 +164,7 @@ Activities:
       data:
         type: array
         items:
-          $ref: "#/Activity"
+          $ref: "#/ActivityExpanded"
       pageToken:
         type: string
         nullable: true
