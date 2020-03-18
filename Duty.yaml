@@ -15,6 +15,7 @@ Duty:
         - description: Identifierare av person som tjänsten är knuten till.
     assignmentRole:
       type: array
+      description: Datatyp som ska användas för att beskriva arbetsuppgifter för en person i relation till elevgrupp. Lärares undervisning ska inte uttryckas som en arbetsuppgift, för detta syfte används i stället Aktivitet. 
       items:
         type: object
         properties:
