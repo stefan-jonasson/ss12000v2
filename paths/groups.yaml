@@ -31,20 +31,32 @@ groups:
           items:
             type: string
             format: uuid
+      - name: startDate.onOrBefore
+        description: |
+          Begränsa urvalet till grupper som har ett startDate värde innan eller på det angivna datumet (RFC 3339-format, t.ex. "2016-10-15"). 
+        in: query
+        schema:
+          type: string
+          format: date
       - name: startDate.onOrAfter
-        description: >
-          Begränsa urvalet av grupper till de som är aktiva
-          inom ett intervall som startar på angivet datum
-          (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
+        description: |
+          Begränsa urvalet till grupper som har ett startDate värde på eller efter det angivna datumet (RFC 3339-format, t.ex. "2016-10-15"). 
         in: query
         schema:
           type: string
           format: date
       - name: endDate.onOrBefore
-        description: >
-          Begränsa urvalet av grupper till de som är aktiva
-          inom ett intervall som avslutas på angivet datum
-          (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
+        description: |
+          Begränsa urvalet till grupper som har ett endDate värde innan eller på det angivna datumet (RFC 3339-format, t.ex. "2016-10-15"). 
+          Poster med ett endDate som ej är satt, tas alltid med. 
+        in: query
+        schema:
+          type: string
+          format: date
+      - name: endDate.onOrAfter
+        description: |
+          Begränsa urvalet till grupper som har ett endDate värde på eller efter det angivna datumet (RFC 3339-format, t.ex. "2016-10-15"). 
+          Poster med ett endDate som ej är satt, tas alltid med. 
         in: query
         schema:
           type: string
