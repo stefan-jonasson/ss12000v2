@@ -13,32 +13,7 @@ Duty:
       allOf:
         - $ref: "common.yaml#/PersonReference"
         - description: Identifierare av person som tjänsten är knuten till.
-    assignmentRole:
-      type: array
-      description: Datatyp som ska användas för att beskriva arbetsuppgifter för en person i relation till elevgrupp. Lärares undervisning ska inte uttryckas som en arbetsuppgift, för detta syfte används i stället Aktivitet. 
-      items:
-        type: object
-        properties:
-          group:
-            $ref: "common.yaml#/GroupReference"
-          assignmentRoleType:
-            $ref: "common.yaml#/components/schemas/AssignmentRoleTypeEnum"
-          startDate:
-            description: >
-              Startdatum för tjänstens relation till gruppen
-              (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
-            type: string
-            format: date
-          endDate:
-            description: >
-              Slutdatum för tjänstens relation till gruppen
-              (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
-            type: string
-            format: date
-        required:
-          - group
-          - assignmentRoleType
-          - startDate
+    
     dutyAt:
       $ref: "common.yaml#/OrganisationReference"
     dutyRole:

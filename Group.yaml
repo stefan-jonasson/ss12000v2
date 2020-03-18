@@ -92,8 +92,8 @@ GroupExpanded:
               items:
                 type: object
                 properties:
-                  duty: 
-                    $ref: "common.yaml#/DutyReference"
+                  person: 
+                    $ref: "common.yaml#/PersonReference"
                   assignmentRoleType:
                     $ref: "common.yaml#/components/schemas/AssignmentRoleTypeEnum"
                   startDate:
