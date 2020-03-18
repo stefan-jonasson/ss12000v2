@@ -74,10 +74,22 @@ Duty:
     - dutyRole
     - startDate
 
+DutyExpanded:
+  allOf:
+    - $ref: "#/Duty"
+    - type: object
+      properties:
+        _embedded:
+          type: object
+          properties:
+            person:
+              $ref: "Person.yaml#/Person"
+
+
 DutiesArray:
   type: array
   items:
-    $ref: "#/Duty"
+    $ref: "#/DutyExpanded"
 
 Duties:
   type: object
@@ -85,7 +97,7 @@ Duties:
     data:
       type: array
       items:
-        $ref: "#/Duty"
+        $ref: "#/DutyExpanded"
     pageToken:
       type: string
       nullable: true
