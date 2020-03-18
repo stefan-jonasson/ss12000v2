@@ -57,6 +57,11 @@ Placement:
     maxWeeklyScheduleHours:
       type: integer
       description: Anger maximal schematid per vecka för barnets placering.
+  required:
+    - id
+    - placedAt
+    - child
+    - startDate
 
 PlacementExpanded:
   allOf:
