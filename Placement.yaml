@@ -11,10 +11,6 @@ Placement:
       allOf: 
         - $ref: "common.yaml#/SchoolUnitReference"
         - description: Skolenhet där barnet är placerat.
-    group:
-      allOf:
-        - $ref: "common.yaml#/GroupReference"
-        - description: Barngrupp eller avdelning knutet till denna placering.
     child:
       allOf:
         - $ref: "common.yaml#/PersonReference"
@@ -77,9 +73,7 @@ PlacementExpanded:
               type: array
               items: 
                 $ref: "Person.yaml#/Person"
-            group:
-              items:
-                $ref: "Group.yaml#/Group"
+
 
 PlacementsArray:
  type: array
