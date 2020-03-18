@@ -109,7 +109,7 @@ Organisations:
       data:
         type: array
         items:
-          $ref: "#/OrganisationExpanded"
+          $ref: "#/Organisation"
       pageToken:
         type: string
         nullable: true
