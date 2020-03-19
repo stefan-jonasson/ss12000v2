@@ -36,8 +36,6 @@ programmes:
             - NameAsc
             - CodeAsc
             - ModifiedDesc
-          default: ModifiedDesc
-
       - $ref: "searchParameters.yaml#/Limit"
       - $ref: "searchParameters.yaml#/PageToken"
     responses:

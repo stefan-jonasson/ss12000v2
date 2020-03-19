@@ -60,8 +60,6 @@ studyPlans:
             - StartDateDesc
             - EndDateAsc
             - EndDateDesc
-          default: ModifiedDesc
-
       - $ref: "searchParameters.yaml#/Limit"
       - $ref: "searchParameters.yaml#/PageToken"
     responses:
