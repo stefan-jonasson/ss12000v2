@@ -151,7 +151,8 @@ persons:
             - GivenNameAsc
             - FamilyNameDesc
             - FamilyNameAsc
-            - civicNo
+            - CivicNoAsc
+            - CivicNoDesc
             - ModifiedDesc
       - $ref: "searchParameters.yaml#/Limit"
       - $ref: "searchParameters.yaml#/PageToken"
