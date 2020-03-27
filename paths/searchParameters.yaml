@@ -51,9 +51,8 @@ Sortkey:
   schema:
     type: string
     enum:
-      - DisplayNameAsc
       - ModifiedDesc
-    default: ModifiedDesc
+      - DisplayNameAsc
 
 Offset:
   in: query

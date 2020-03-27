@@ -26,8 +26,6 @@ syllabuses:
             - CourseCodeDesc
             - SubjectDesignationAsc
             - SubjectDesignationDesc
-          default: ModifiedDesc
-
       - $ref: "searchParameters.yaml#/Limit"
       - $ref: "searchParameters.yaml#/PageToken"
     responses:

@@ -78,8 +78,6 @@ placements:
             - EndDateAsc
             - EndDateDesc
             - ModifiedDesc
-          default: ModifiedDesc
-
       - $ref: "searchParameters.yaml#/PageToken"
       - $ref: "searchParameters.yaml#/Limit"
 
