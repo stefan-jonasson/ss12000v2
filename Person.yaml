@@ -32,26 +32,32 @@ Person:
         _Exempel: kalko@edu.goteborg.se_
       uniqueItems: true
       items:
+        type: string
+    externalIdentifiers:
+      type: array
+      items:
         type: object
-        title: EduPersonPrincipalName
+        title: externalIdentifier
         properties:
           value:
             type: string
             description: Identifierare för användaren.
-            format: email
-          type:
+          context:
             type: string
             description: >
-              Anger för vilket syfte användaridentifieraren har skapats,
-              kan ange en roll eller ett utpekat system.
-            title: Code_EduPersonPrincipalType
-            enum:
-              - Pedagogisk personal
-              - Övrig personal
-              - Elev
-              - Vårdnadshavare
+              Anger för vilket sammanhang användaridentifieraren ska användas. Beskriv med en URI.
+              Värdet kan överenskommas bilateralt mellan två integrerande parter.
+            example:
+              http://linkoping.se/AD
+          globallyUnique:
+            type: boolean
+            description: >
+              Anger om identifieraren är så utformad att den kan anses vara globalt unik.
         required:
+          - context
           - value
+          - globallyUnique
+
     civicNo:
       type: object
       description: Personnummer.
@@ -60,7 +66,7 @@ Person:
           type: string
           description: |
             Svenskt personnummer, tilldelat personnummer eller Skatteverkets
-            samordningsnummer för personen. Ska anges med 12 siffror utan
+            samordningsnummer för personen. **Ska** anges med 12 siffror utan
             separatorer. _Exempel: 200112240123_
 
             Samordningsnummer ska anges med 12 siffror utan separator.
@@ -71,7 +77,6 @@ Person:
             "tillfälligt personnummer" definieras i elevregistret. Dessa är möjliga
             att beskriva i detta fält och i så fall tillåts de två första positionerna
             efter datumdelen att vara bokstäver. _Exempel: 20130101TF01_
-          pattern: '^\d{8}[A-Z0-9]{2}\d{2}$'
         nationality:
           type: string
           default: SE
