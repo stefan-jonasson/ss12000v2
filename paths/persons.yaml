@@ -9,7 +9,7 @@ persons:
           Begränsa urvalet till de personer vars namn innehåller något av parameterns värden.
           Sökningen **ska** ske shiftlägesokänsligt och värdet kan förekomma var som helst i något av alla tre namnfälten. 
           Anges flera värden så måste samtliga värden matcha minst ett av namnfälten.
-          
+
           Exempel: [ "Pa", "gens" ] kommer matcha Palle Girgensohn.
         in: query
         schema:
@@ -21,7 +21,7 @@ persons:
           Begränsa urvalet till de personer som har en denna typ av relation till andra entititeter. 
           Denna parameter styr vilket entitetstyp som övriga relationship-parametrar filterar på.
           Anges inga andra parametrar så returneras personer som har en relation av denna typ.
-          
+
           Möjliga relationer:
           - _enrolements_ - filtrerar utifrån elever inskrivning.
           - _duty_ - filtrerar utifrån personer som har minst en tjänstgöring.
@@ -64,7 +64,7 @@ persons:
           Begränsa urvalet av personer till de som har relationer med startDate innan eller på det angivna datumet (RFC 3339-format, t.ex. "2016-10-15"). 
           Poster med ett startDate som ej är satt, tas alltid med. 
           För att begränsa till en viss relationtyp används parametern `relationship.entity.type`.
-          
+
           Följande fält/relationer används vid filtreringen:
           - _enrolements_ - poster matchandes `person.enrolment.startDate`
           - _duty_ - person poster matchandes `duty.person` i en lista filtrerad utifrån `duty.startDate`.
@@ -83,7 +83,7 @@ persons:
           Begränsa urvalet av personer till de som har relationer med startDate efter eller på det angivna datumet (RFC 3339-format, t.ex. "2016-10-15"). 
           Poster med ett startDate som ej är satt, tas alltid med. 
           För att begränsa till en viss relationtyp används parametern `relationship.entity.type`.
-          
+
           Följande fält/relationer används vid filtreringen:
           - _enrolements_ - poster matchandes `person.enrolment.startDate`
           - _duty_ - person poster matchandes `duty.person` i en lista filtrerad utifrån `duty.startDate`.
@@ -91,7 +91,7 @@ persons:
           - _placement.owner_ - person poster matchandes `placement.owner` i en lista filtrerad utifrån `placement.startDate`.
           - _responsibleFor.enrolment_ - person poster matchandes `person.responsibles` i en lista filtrerad utifrån `person.enrolment.startDate`.
           - _responsibleFor.placement_ - person poster matchandes `person.responsibles` i en lista med person poster som i sin tur matchar `placement.child` i en lista filtrerad utifrån `placement.startDate`.
-            
+
         in: query
         schema:
           type: string
@@ -109,7 +109,7 @@ persons:
           - _placement.owner_ - person poster matchandes `placement.owner` i en lista filtrerad utifrån `placement.endDate`.
           - _responsibleFor.enrolment_ - person poster matchandes `person.responsibles` i en lista filtrerad utifrån `person.enrolment.endDate`.
           - _responsibleFor.placement_ - person poster matchandes `person.responsibles` i en lista med person poster som i sin tur matchar `placement.child` i en lista filtrerad utifrån `placement.endDate`.
-            
+
         in: query
         schema:
           type: string
@@ -127,7 +127,7 @@ persons:
            - _placement.owner_ - person poster matchandes `placement.owner` i en lista filtrerad utifrån `placement.endDate`.
            - _responsibleFor.enrolment_ - person poster matchandes `person.responsibles` i en lista filtrerad utifrån `person.enrolment.endDate`.
            - _responsibleFor.placement_ - person poster matchandes `person.responsibles` i en lista med person poster som i sin tur matchar `placement.child` i en lista filtrerad utifrån `placement.endDate`.
-          
+
           Detta kan kombineras med _relationship.startDate.onOrBefore_ för att begränsa till aktiva relationer.
 
         in: query
@@ -151,7 +151,8 @@ persons:
             - GivenNameAsc
             - FamilyNameDesc
             - FamilyNameAsc
-            - civicNo
+            - CivicNoAsc
+            - CivicNoDesc
             - ModifiedDesc
       - $ref: "searchParameters.yaml#/Limit"
       - $ref: "searchParameters.yaml#/PageToken"
@@ -164,7 +165,7 @@ persons:
               $ref: "../Person.yaml#/PersonsExpanded"
       400:
         $ref: "../openapi.yaml#/components/responses/400_invalid_filter"
-      403: 
+      403:
         $ref: "../openapi.yaml#/components/responses/403_not_authorised"
       default:
         $ref: "../openapi.yaml#/components/responses/default_error"
@@ -260,4 +261,5 @@ ExpandParameter:
     type: array
     items:
       type: string
-      enum: [duties, responsibleFor, placements, ownedPlacements, memberships]
+      enum:
+        [duties, responsibleFor, placements, ownedPlacements, groupMemberships]
