@@ -15,7 +15,7 @@ Duty:
         - description: Identifierare av person som tjänsten är knuten till.
     assignmentRole:
       type: array
-      description: Datatyp som ska användas för att beskriva arbetsuppgifter för en person i relation till elevgrupp. Lärares undervisning ska inte uttryckas som en arbetsuppgift, för detta syfte används i stället Aktivitet. 
+      description: Datatyp som ska användas för att beskriva arbetsuppgifter för en person i relation till elevgrupp. Lärares undervisning ska inte uttryckas som en arbetsuppgift, för detta syfte används i stället Aktivitet.
       items:
         type: object
         properties:
@@ -84,7 +84,33 @@ DutyExpanded:
           properties:
             person:
               $ref: "Person.yaml#/Person"
-
+            dutyAssignments:
+              type: array
+              description: >
+                En lista med aktiviter tjänsten är knuten till
+              items:
+                type: object
+                properties:
+                  activity:
+                    $ref: "Activity.yaml#/Activity"
+                  startDate:
+                    type: string
+                    format: date
+                    description: >
+                      Datum för när lärarens deltagande i aktiviteten startar
+                      (RFC 3339-format, t.ex. "2016-10-15").
+                  endDate:
+                    type: string
+                    format: date
+                    description: >
+                      Datum för när lärarens deltagande i aktiviteten slutar
+                      (RFC 3339-format, t.ex. "2016-10-15").
+                  minutesPlanned:
+                    type: integer
+                    description: Det antal minuter läraren är kopplad till aktiviteten
+                  grader:
+                    type: boolean
+                    description: Markerar att läraren har rollen som betygsättande lärare för aktiviteten
 
 DutiesArray:
   type: array
