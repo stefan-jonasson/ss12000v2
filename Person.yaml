@@ -89,6 +89,7 @@ Person:
       format: date
       description: Födelsedatum (RFC 3339-format, t.ex. "2016-10-15")
     sex:
+      title: Code_Sex
       type: string
       enum:
         - Man
