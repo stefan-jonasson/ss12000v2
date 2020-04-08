@@ -47,18 +47,18 @@ StatisticsEntry:
     resourceType:
       $ref: "common.yaml#/components/schemas/EndPointsEnum"
     newCount:
-      type: numeric
+      type: integer
       description: Antalet nya objekt skapade hos klienten.
     updatedCount:
-      type: numeric
+      type: integer
       description: Antalet uppdaterade objekt hos klienten.
     deletedCount:
-      type: numeric
+      type: integer
       description: Antalet raderade objekt hos klienten.
     resourceUrl:
       type: string
       format: uri
-      description: Eventuell url till relaterad fråga som låg till grund för synkroniserade objekt.
+      description: Eventuell url för relaterad fråga som låg till grund för synkroniserade objekt.
     timeOfOccurance:
       type: string
       format: date-time

@@ -37,6 +37,7 @@ logStatistics:
             $ref: "../LogEntry.yaml#/StatisticsEntry"
           example:
             resourceType: Activity
+            resourceUrl: https://service.example.se/ss12000/activities?organisation=1bf329c9-2f42-4c60-8e39-01cdbcc1704f
             newCount: 2
             updatedCount: 234
             deletedCount: 0
