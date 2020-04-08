@@ -132,7 +132,7 @@ components:
         - Group
         - Person
         - Organisation
-    
+
     OrganisationTypeEnum:
       type: string
       title: Code_OrganisationType
@@ -145,7 +145,7 @@ components:
         - Skola
         - Skolenhet
         - Övrigt
-        
+
     SchoolTypesEnum:
       title: Code_SchoolType
       type: string
@@ -226,6 +226,7 @@ components:
           koppla en _AssignmentRole_ av typen _Mentor_.
         * _Mentor_ - Grupp med elever vilka delar samma mentor/mentorer. 
           Mentor kopplas till gruppen genom en _AssignmentRole_.
+        * _Provgrupp_ - Grupp med elever vilka ska genomföra ett eller flera prov. 
         * _Schema_ - Schemagrupper är grupper som utgör ett komplement till
           grupper av typen Undervisning. Schemagrupper ska schemaläggas för att
           åstadkomma anpassningar av schemat för enskilda elever eller grupper
@@ -239,6 +240,7 @@ components:
         - Undervisning
         - Klass
         - Mentor
+        - Provgrupp
         - Schema
         - Avdelning
         - Personalgrupp

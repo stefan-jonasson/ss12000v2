@@ -19,7 +19,7 @@ Person:
       description: Mellannamn.
     familyName:
       type: string
-      description: Efternamn.  
+      description: Efternamn.
     eduPersonPrincipalNames:
       type: array
       description: >
@@ -47,8 +47,7 @@ Person:
             description: >
               Anger för vilket sammanhang användaridentifieraren ska användas. Beskriv med en URI.
               Värdet kan överenskommas bilateralt mellan två integrerande parter.
-            example:
-              http://linkoping.se/AD
+            example: http://linkoping.se/AD
           globallyUnique:
             type: boolean
             description: >
@@ -85,6 +84,18 @@ Person:
             enligt ISO 3166-1 alpha-2.
       required:
         - value
+    birthDate:
+      type: string
+      format: date
+      description: Födelsedatum (RFC 3339-format, t.ex. "2016-10-15")
+    sex:
+      title: Code_Sex
+      type: string
+      enum:
+        - Man
+        - Kvinna
+        - Okänt
+      description: Biologiskt kön
     securityMarking:
       type: string
       title: Code_SecurityMarking
@@ -202,7 +213,7 @@ Person:
       items:
         type: object
         properties:
-          person:      
+          person:
             $ref: "common.yaml#/PersonReference"
           relationType:
             $ref: "common.yaml#/components/schemas/RelationTypesEnum"
@@ -226,7 +237,7 @@ PersonExpanded:
               items:
                 type: object
                 properties:
-                  person:      
+                  person:
                     $ref: "common.yaml#/PersonReference"
                   relationType:
                     $ref: "common.yaml#/components/schemas/RelationTypesEnum"
@@ -246,7 +257,7 @@ PersonExpanded:
               type: array
               description: Personens aktuella tjänstgöring
               items:
-                $ref: "./Duty.yaml#/Duty"       
+                $ref: "./Duty.yaml#/Duty"
             groupMemberships:
               type: array
               description: >

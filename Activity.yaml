@@ -40,32 +40,16 @@ Activity:
       enum:
         - Undervisning
         - Elevaktivitet
+        - Provaktivitet
         - Läraraktivitet
-        - Mentorskap
-        - Omsorg
         - Övrigt
-      description: >
+      description: |
         Beskriver vilken typ av aktivitet som avses.
-
-        - _Undervisning_
-
-            Schemalagd tid med koppling till timplan, som ska närvarorapporteras.
-
-        - _Elevaktivitet_
-
-            Schemalagd tid för elever som inte är undervisning enligt timplan,
-            och som ska närvarorapporteras, exempelvis mentorstid, klassråd
-            eller friluftsdag
-
-        - _Läraraktivitet_
-
-            Tid för lärare som inte är undervisning och som ingår i lärarens arbetstid,
-            kan vara schemalagd, men ska inte närvarorapporteras, exempelvis konferenstid.
-
-        - _Övrigt_
-
-            Läxhjälp, lunch, bokning och annat som finns på schemat,
-            men inte är undervisning och inte ska närvarorapporteras`
+        * _Undervisning_ - Schemalagd tid med koppling till timplan, som ska närvarorapporteras.
+        * _Elevaktivitet_ - Schemalagd tid för elever som inte är undervisning enligt timplan, och som ska närvarorapporteras, exempelvis mentorstid, klassråd eller friluftsdag
+        * _Provaktivitet_ - En aktivitet som är avsedd för att definiera ett eller flera provtillfällen
+        * _Läraraktivitet_ - Tid för lärare som inte är undervisning och som ingår i lärarens arbetstid, kan vara schemalagd, men ska inte närvarorapporteras, exempelvis konferenstid.
+        * _Övrigt_ - Läxhjälp, lunch, bokning och annat som finns på schemat, men inte är undervisning och inte ska närvarorapporteras
 
     comment:
       type: string
@@ -105,6 +89,9 @@ Activity:
           minutesPlanned:
             type: integer
             description: Det antal minuter läraren är kopplad till aktiviteten
+          grader:
+            type: boolean
+            description: Markerar att läraren har rollen som betygsättande lärare för aktiviteten
       description: De lärare (Duty-objekt) som är kopplade till aktiviteten.
 
     syllabus:
@@ -114,15 +101,15 @@ Activity:
 
     organisation:
       allOf:
-       - $ref: "common.yaml#/OrganisationReference"
-       - description: Den skolenhet/skola som aktiviteten är knuten till.
+        - $ref: "common.yaml#/OrganisationReference"
+        - description: Den skolenhet/skola som aktiviteten är knuten till.
 
     parentActivity:
       allOf:
-       - $ref: "common.yaml#/ActivityReference"
-       - description: >
-          Möjlighet att koppla aktiviteten till en eller flera
-          ursprungliga “föräldraaktiviteter”.
+        - $ref: "common.yaml#/ActivityReference"
+        - description: >
+            Möjlighet att koppla aktiviteten till en eller flera
+            ursprungliga “föräldraaktiviteter”.
 
   required:
     - id
@@ -150,26 +137,24 @@ ActivityExpanded:
               type: array
               items:
                 $ref: "Duty.yaml#/Duty"
-            
-                 
 
 ActivitiesArray:
-    type: array
-    items:
-      $ref: "#/ActivityExpanded"
+  type: array
+  items:
+    $ref: "#/ActivityExpanded"
 
 Activities:
   type: object
   properties:
-      data:
-        type: array
-        items:
-          $ref: "#/ActivityExpanded"
-      pageToken:
-        type: string
-        nullable: true
-        description: >
-          Om värdet är null finns inget mer att hämta på det token
-          som skickades in som query parameter.
+    data:
+      type: array
+      items:
+        $ref: "#/ActivityExpanded"
+    pageToken:
+      type: string
+      nullable: true
+      description: >
+        Om värdet är null finns inget mer att hämta på det token
+        som skickades in som query parameter.
   required:
     - data

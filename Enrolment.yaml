@@ -3,7 +3,7 @@ Enrolment:
   type: object
   properties:
     enroledAt:
-      $ref: "common.yaml#/SchoolUnitReference"      
+      $ref: "common.yaml#/SchoolUnitReference"
     schoolYear:
       type: integer
       description: >
@@ -25,13 +25,16 @@ Enrolment:
       description: >
         Slutdatum för inskrivningen
         (RFC 3339-format, t.ex. "2016-10-15"). Inkluderande.
+    cancelled:
+      type: boolean
+      description: Inskrivningen har avbrutits i förväg.
     educationCode:
       type: string
       description: Studievägskod för den aktuella inskrivningen.
     programme:
       allOf:
         - $ref: "common.yaml#/ProgrammeReference"
-        - description: Referens till inskrivningens program, inriktning eller utgång.      
+        - description: Referens till inskrivningens program, inriktning eller utgång.
     specification:
       type: string
       description: >

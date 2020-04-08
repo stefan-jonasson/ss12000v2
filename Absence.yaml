@@ -37,7 +37,7 @@ Absence:
       allOf:
         - $ref: "common.yaml#/PersonReference"
         - description: Referens till eleven.
-    schoolUnit:
+    organisation:
       allOf:
         - $ref: "common.yaml#/SchoolUnitReference"
         - description: Den skolenhet som den anmälda frånvaron avser.
@@ -54,25 +54,23 @@ Absence:
     - type
     - student
 
-
 AbsencesArray:
-    type: array
-    items:
-      $ref: "#/Absence"
-
+  type: array
+  items:
+    $ref: "#/Absence"
 
 Absences:
   type: object
   properties:
-      data:
-        type: array
-        items:
-          $ref: "#/Absence"
-      pageToken:
-        type: string
-        nullable: true
-        description: >
-          Om värdet är null finns inget mer att hämta
-          på det token som skickades in som query parameter.
+    data:
+      type: array
+      items:
+        $ref: "#/Absence"
+    pageToken:
+      type: string
+      nullable: true
+      description: >
+        Om värdet är null finns inget mer att hämta
+        på det token som skickades in som query parameter.
   required:
     - data
