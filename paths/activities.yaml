@@ -5,7 +5,13 @@ activities:
     summary: Hämta en lista med aktiviteter baserat på ett antal sökparametrar.
     parameters:
       - name: person
-        description: Begränsa urvalet till utpekad persons ID.
+        description: Begränsa urvalet till aktiviteter vars grupper inkluderar detta värde i attributet `groupMemberships.person.id`.
+        in: query
+        schema:
+          type: string
+          format: uuid
+      - name: teacher
+        description: Begränsa urvalet till aktiviteter vars lärare inkluderar detta värde i attributet `duty.id`.
         in: query
         schema:
           type: string
@@ -16,7 +22,6 @@ activities:
         schema:
           type: string
           format: uuid
-
       - $ref: "searchParameters.yaml#/SearchCreatedBefore"
       - $ref: "searchParameters.yaml#/SearchCreatedAfter"
       - $ref: "searchParameters.yaml#/SearchModifiedBefore"
