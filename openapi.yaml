@@ -38,6 +38,8 @@ tags:
     description: Metod för att följa borttag av entititer.
   - name: Prenumeration
     description: Webhook för att prenumerera på uppdateringar.
+  - name: Loggning
+    description: Endpunkter för återrapportering av statistik och händelser.
 paths:
   /organisations:
     $ref: paths/organisations.yaml#/organisations
@@ -147,6 +149,10 @@ paths:
     $ref: paths/subscriptions.yaml#/subscriptions
   /subscriptions/{id}:
     $ref: paths/subscriptions.yaml#/subscription_by_id
+  /log/:
+    $ref: paths/log.yaml#/log
+  /statistics/:
+    $ref: paths/log.yaml#/logStatistics
   /deletedEntities:
     $ref: paths/deletedEntities.yaml#/deletedEntities
 externalDocs:
@@ -204,7 +210,7 @@ components:
       type: object
       properties:
         code:
-          description: Teknisk kod för att beskriva fel, varje källa bestämmer själv över möjliga felkoder. 
+          description: Teknisk kod för att beskriva fel, varje källa bestämmer själv över möjliga felkoder.
           type: string
         message:
           description: Text för att beskriva felet.
