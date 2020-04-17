@@ -1,0 +1,70 @@
+LogEntry:
+  type: object
+  title: LogEntry
+  description: >
+    Information runt en händelse, används för att återsända information för att avhjälpa vid olika typer av felsökning.
+  properties:
+    message:
+      description: Situationssepcifik text rörande loggad händelse.
+      type: string
+    messageType:
+      type: string
+      description: Hos klienten unikt ID på meddelandetypen
+    resourceType:
+      $ref: "common.yaml#/components/schemas/EndPointsEnum"
+    resourceId:
+      type: string
+      format: uuid
+      description: Eventuellt id relaterat till loggad händelse.
+    resourceUrl:
+      type: string
+      format: uri
+      description: Eventuell url till relaterad fråga som låg till grund till loggad händelse.
+    severityLevel:
+      type: string
+      description: |
+        Loggad händelses allvarlighetsgrad.
+        * _Info_ - Händelse som ej är ett problem men kan vara bra att veta vid felsökning.
+        * _Warning_ - Behöver uppmärksammas, eventuellt problem.
+        * _Error_ - Problem som kärver någon typ av åtgärd.
+      enum:
+        - Info
+        - Warning
+        - Error
+    timeOfOccurance:
+      type: string
+      format: date-time
+      description: Tidpunkt för loggad händelse.
+  required:
+    - message
+    - severityLevel
+
+StatisticsEntry:
+  type: object
+  title: statisticsEntry
+  description: Statistik rörande objekt synkronisering.
+  properties:
+    resourceType:
+      $ref: "common.yaml#/components/schemas/EndPointsEnum"
+    newCount:
+      type: integer
+      description: Antalet nya objekt skapade hos klienten.
+    updatedCount:
+      type: integer
+      description: Antalet uppdaterade objekt hos klienten.
+    deletedCount:
+      type: integer
+      description: Antalet raderade objekt hos klienten.
+    resourceUrl:
+      type: string
+      format: uri
+      description: Eventuell url för relaterad fråga som låg till grund för synkroniserade objekt.
+    timeOfOccurance:
+      type: string
+      format: date-time
+      description: Tidpunkt för loggad händelse.
+  required:
+    - resourceType
+    - newCount
+    - updatedCount
+    - deletedCount
