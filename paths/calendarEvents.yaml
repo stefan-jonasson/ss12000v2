@@ -30,14 +30,17 @@ calendarEvents:
             type: string
             format: uuid
       - name: student
-        description: Begränsa urvalet till utpekade studenters ID.
+        description: Begränsa urvalet till kalenderhändelser vars aktiviteter samt `studentExceptions` inkluderar denna person (`Person`). Tidsbegräninsgar (`startDate`, `endDate`) appliceras inte för detta filter.
         in: query
         schema:
-          type: array
-          items:
-            type: string
-            format: uuid
-
+          type: string
+          format: uuid
+      - name: teacher
+        description: Begränsa urvalet till kalenderhändelser vars aktiviteter samt `teacherExceptions` inkluderar denna tjänst (`Duty`). Tidsbegräninsgar (`startDate`, `endDate`) appliceras inte för detta filter.
+        in: query
+        schema:
+          type: string
+          format: uuid
       - $ref: "searchParameters.yaml#/SearchCreatedBefore"
       - $ref: "searchParameters.yaml#/SearchCreatedAfter"
       - $ref: "searchParameters.yaml#/SearchModifiedBefore"
@@ -64,7 +67,7 @@ calendarEvents:
               $ref: "../CalendarEvent.yaml#/CalendarEvents"
       400:
         $ref: "../openapi.yaml#/components/responses/400_invalid_filter"
-      403: 
+      403:
         $ref: "../openapi.yaml#/components/responses/403_not_authorised"
       default:
         $ref: "../openapi.yaml#/components/responses/default_error"
