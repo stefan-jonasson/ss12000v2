@@ -148,6 +148,29 @@ components:
 
     SchoolTypesEnum:
       title: Code_SchoolType
+      description: |
+        Följande värden används för att beskriva skolform:
+          - _FS_ - Förskola 
+          - _FKLASS_ - Förskoleklass 
+          - _FTH_ - Fritidshem
+          - _OPPFTH_ - Öppen fritidsverksamhet 
+          - _GR_ - Grundskola 
+          - _GRS_ - Grundsärskola 
+          - _SP_ - Specialskola 
+          - _SAM_ - Sameskola 
+          - _GY_ - Gymnasieskola 
+          - _GYS_ - Gymnasiesärskola 
+          - _KOMVUX_ - Kommunal vuxenutbildning på grundläggande och gymnasial nivå 
+          - _SARVUX_ - Särskild utbildning för vuxna 
+          - _SFI_ - Kommunal vuxenutbildning i svenska för invandrare 
+          - _KU_ - Kulturskola 
+          - _YH_ - Yrkeshögskola 
+          - _FHS_ - Folkhögskola 
+          - _STF_ - Studieförbund 
+          - _KKU_ - Konst- och kulturutbildning 
+          - _HS_ - Högskola 
+          - _ABU_ - Arbetsmarknadsutbildning 
+          - _AU_ - Annan undervisning
       type: string
       enum:
         - FS
@@ -163,9 +186,13 @@ components:
         - KOMVUX
         - SARVUX
         - SFI
+        - KU
         - YH
         - FHS
+        - STF
+        - KKU
         - HS
+        - ABU
         - AU
 
     RelationTypesEnum:
