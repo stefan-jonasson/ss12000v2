@@ -4,8 +4,8 @@ schoolUnitOfferings:
       - Studieinformation
     summary: Hämta en lista med skolenheters erbjudanden.
     parameters:
-      - name: offeredAt
-        description: Begränsa urvalet till en viss skolenhet.
+      - name: organisation
+        description: Begränsa urvalet till ett visst organisationslement (offeredAt).
         in: query
         schema:
           type: string
@@ -36,7 +36,7 @@ schoolUnitOfferings:
               $ref: "../SchoolUnitOffering.yaml#/SchoolUnitOfferings"
       400:
         $ref: "../openapi.yaml#/components/responses/400_invalid_filter"
-      403: 
+      403:
         $ref: "../openapi.yaml#/components/responses/403_not_authorised"
       default:
         $ref: "../openapi.yaml#/components/responses/default_error"
@@ -60,7 +60,7 @@ schoolUnitOfferingsLookup:
             schema:
               $ref: "../SchoolUnitOffering.yaml#/SchoolUnitOfferingsArray"
       403:
-        $ref: "../openapi.yaml#/components/responses/403_not_authorised" 
+        $ref: "../openapi.yaml#/components/responses/403_not_authorised"
       503:
         $ref: "../openapi.yaml#/components/responses/503_overload"
       default:

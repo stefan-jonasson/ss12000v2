@@ -30,7 +30,7 @@ calendarEvents:
             type: string
             format: uuid
       - name: student
-        description: Begränsa urvalet till utpekade studenters ID.
+        description: Begränsa urvalet till utpekade studenters ID (person).
         in: query
         schema:
           type: array
@@ -64,7 +64,7 @@ calendarEvents:
               $ref: "../CalendarEvent.yaml#/CalendarEvents"
       400:
         $ref: "../openapi.yaml#/components/responses/400_invalid_filter"
-      403: 
+      403:
         $ref: "../openapi.yaml#/components/responses/403_not_authorised"
       default:
         $ref: "../openapi.yaml#/components/responses/default_error"
