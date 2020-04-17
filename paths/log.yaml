@@ -1,0 +1,51 @@
+log:
+  post:
+    tags:
+      - Loggning
+    summary: Logga en händelse
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "../LogEntry.yaml#/LogEntry"
+          example:
+            message: courseCode "MAT101" kan inte mappas mot någon känd kurs.
+            messageType: ValueMapping
+            resourceType: Syllabus
+            resourceId: 5e10f18c-6d0d-450b-a4b8-fa99e1053f78
+            resourceUrl: https://service.example.se/ss12000/activities?organisation=1bf329c9-2f42-4c60-8e39-01cdbcc1704f&expand=syllabus
+            severityLevel: Warning
+    responses:
+      201:
+        description: Loggpost skapad.
+      403:
+        $ref: "../openapi.yaml#/components/responses/403_not_authorised"
+      default:
+        $ref: "../openapi.yaml#/components/responses/default_error"
+
+logStatistics:
+  post:
+    tags:
+      - Loggning
+    summary: Logga statistik relaterat till överförda objekt
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "../LogEntry.yaml#/StatisticsEntry"
+          example:
+            resourceType: Activity
+            resourceUrl: https://service.example.se/ss12000/activities?organisation=1bf329c9-2f42-4c60-8e39-01cdbcc1704f
+            newCount: 2
+            updatedCount: 234
+            deletedCount: 0
+            timeOfOccurance: "2020-04-08T12:51:31.322Z"
+    responses:
+      201:
+        description: Statistikpost skapad.
+      403:
+        $ref: "../openapi.yaml#/components/responses/403_not_authorised"
+      default:
+        $ref: "../openapi.yaml#/components/responses/default_error"

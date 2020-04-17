@@ -22,10 +22,9 @@ get:
       schema:
         type: string
         format: date
-    - name: schoolUnit
+    - name: organisation
       description: >
-        Inkludera endast närvaro från aktiviteter vilka ägs av angiven
-        skolenhet.
+        Inkludera endast närvaro från aktiviteter vilka ägs av angivet organisationselement.
       in: query
       schema:
         type: string
@@ -56,7 +55,7 @@ get:
         type: array
         items:
           type: string
-          enum: [ activity, student ]
+          enum: [activity, student]
     - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     - $ref: "searchParameters.yaml#/Limit"
     - $ref: "searchParameters.yaml#/PageToken"
@@ -67,10 +66,10 @@ get:
       content:
         application/json:
           schema:
-              $ref: "../AggregatedAttendance.yaml#/AggregatedAttendances"
+            $ref: "../AggregatedAttendance.yaml#/AggregatedAttendances"
     400:
       $ref: "../openapi.yaml#/components/responses/400_invalid_filter"
-    403: 
+    403:
       $ref: "../openapi.yaml#/components/responses/403_not_authorised"
     default:
       $ref: "../openapi.yaml#/components/responses/default_error"

@@ -4,8 +4,8 @@ resources:
       - Rum och resurser
     summary: Hämta en lista med resurser.
     parameters:
-      - name: owner
-        description: Begränsa urvalet till en viss organisation.
+      - name: organisation
+        description: Begränsa urvalet till ett visst organisationselemet (owner).
         in: query
         schema:
           type: string
@@ -27,7 +27,7 @@ resources:
               $ref: "../Resource.yaml#/Resources"
       400:
         $ref: "../openapi.yaml#/components/responses/400_invalid_filter"
-      403: 
+      403:
         $ref: "../openapi.yaml#/components/responses/403_not_authorised"
       default:
         $ref: "../openapi.yaml#/components/responses/default_error"
@@ -60,7 +60,7 @@ resourcesLookup:
       content:
         application/json:
           schema:
-            $ref : "../common.yaml#/components/schemas/IdLookup"
+            $ref: "../common.yaml#/components/schemas/IdLookup"
       required: true
 
 resourceById:

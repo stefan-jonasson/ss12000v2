@@ -4,8 +4,8 @@ rooms:
       - Rum och resurser
     summary: Hämta en lista med salar.
     parameters:
-      - name: owner
-        description: Begränsa urvalet till en viss organisation.
+      - name: organisation
+        description: Begränsa urvalet till ett visst organisationselemet (owner).
         in: query
         schema:
           type: string
@@ -27,11 +27,10 @@ rooms:
               $ref: "../Room.yaml#/Rooms"
       400:
         $ref: "../openapi.yaml#/components/responses/400_invalid_filter"
-      403: 
+      403:
         $ref: "../openapi.yaml#/components/responses/403_not_authorised"
       default:
         $ref: "../openapi.yaml#/components/responses/default_error"
-
 
 roomsLookup:
   post:
@@ -61,7 +60,7 @@ roomsLookup:
       content:
         application/json:
           schema:
-           $ref : "../common.yaml#/components/schemas/IdLookup"
+            $ref: "../common.yaml#/components/schemas/IdLookup"
       required: true
 
 roomById:
