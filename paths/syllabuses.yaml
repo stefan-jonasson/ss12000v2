@@ -37,11 +37,11 @@ syllabuses:
               $ref: "../Syllabus.yaml#/Syllabuses"
       400:
         $ref: "../openapi.yaml#/components/responses/400_invalid_filter"
-      403: 
+      403:
         $ref: "../openapi.yaml#/components/responses/403_not_authorised"
       default:
         $ref: "../openapi.yaml#/components/responses/default_error"
-        
+
 syllabusesLookup:
   post:
     tags:
