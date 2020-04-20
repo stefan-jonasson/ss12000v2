@@ -36,9 +36,7 @@ Programme:
         _Nationellt yrkespaket_, _Regionalt yrkespaket_ eller _Fjärde tekniskt år_.
         För övriga programtyper skall värdet inte vara definierat.
     schoolType:
-      allOf:
-       - $ref: "common.yaml#/components/schemas/SchoolTypesEnum"
-       - description: Skolform för programmet.
+      $ref: "common.yaml#/components/schemas/SchoolTypesEnum"
     code:
       type: string
       description: >
@@ -81,23 +79,22 @@ Programme:
     - schoolType
 
 ProgrammesArray:
-    type: array
-    items:
-      $ref: "#/Programme"
+  type: array
+  items:
+    $ref: "#/Programme"
 
 Programmes:
   type: object
   properties:
-      data:
-        type: array
-        items:
-          $ref: "#/Programme"
-      pageToken:
-        type: string
-        nullable: true
-        description: >
-          Om värdet är null finns inget mer att hämta på det token
-          som skickades in som query parameter.
+    data:
+      type: array
+      items:
+        $ref: "#/Programme"
+    pageToken:
+      type: string
+      nullable: true
+      description: >
+        Om värdet är null finns inget mer att hämta på det token
+        som skickades in som query parameter.
   required:
     - data
-

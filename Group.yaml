@@ -33,16 +33,11 @@ GroupFragment:
       $ref: "common.yaml#/components/schemas/GroupTypesEnum"
 
     schoolType:
-      allOf:
-        - description: >
-            Beskriver vilken skolform gruppen är tänkt att användas för.
-            Denna information är mest relevant för planering och schemaläggning,
-            innan gruppen populeras med elever, eftersom  elevens inskrivning är
-            ger mer specifik information.
-        - $ref: "common.yaml#/components/schemas/SchoolTypesEnum"
+      $ref: "common.yaml#/components/schemas/SchoolTypesEnum"
+
     organisation:
-        $ref: "common.yaml#/OrganisationReference"
-    
+      $ref: "common.yaml#/OrganisationReference"
+
   required:
     - id
     - displayName
@@ -92,7 +87,7 @@ GroupExpanded:
               items:
                 type: object
                 properties:
-                  duty: 
+                  duty:
                     $ref: "common.yaml#/DutyReference"
                   assignmentRoleType:
                     $ref: "common.yaml#/components/schemas/AssignmentRoleTypeEnum"
