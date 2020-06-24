@@ -23,7 +23,7 @@ persons:
           Anges inga andra parametrar så returneras personer som har en relation av denna typ.
 
           Möjliga relationer:
-          - _enrolements_ - filtrerar utifrån elever inskrivning.
+          - _enrolment_ - filtrerar utifrån elever inskrivning.
           - _duty_ - filtrerar utifrån personer som har minst en tjänstgöring.
           - _placement.child_ - filtrerar utifrån barn som har minst en placering.
           - _placement.owner_ - filtrerar utifrån personer som satta som ägare av minst en placering.
@@ -48,7 +48,7 @@ persons:
           För att begränsa till en viss relationtyp används parametern `relationship.entity.type`.
 
           Följande fält/relationer används vid filtreringen:
-          - _enrolement_ - poster matchandes `person.enrolment.enroledAt`
+          - _enrolment_ - poster matchandes `person.enrolment.enroledAt`
           - _duty_ - person poster matchandes `duty.person` i en lista filtrerad utifrån `duty.dutyAt`.
           - _placement.child_ - person poster matchandes `placement.child` i en lista filtrerad utifrån `placement.placedAt`.
           - _placement.owner_ - person poster matchandes `placement.owner` i en lista filtrerad utifrån `placement.placedAt`.
@@ -66,7 +66,7 @@ persons:
           För att begränsa till en viss relationtyp används parametern `relationship.entity.type`.
 
           Följande fält/relationer används vid filtreringen:
-          - _enrolements_ - poster matchandes `person.enrolment.startDate`
+          - _enrolment_ - poster matchandes `person.enrolment.startDate`
           - _duty_ - person poster matchandes `duty.person` i en lista filtrerad utifrån `duty.startDate`.
           - _placement.child_ - person poster matchandes `placement.child` i en lista filtrerad utifrån `placement.startDate`.
           - _placement.owner_ - person poster matchandes `placement.owner` i en lista filtrerad utifrån `placement.startDate`.
@@ -85,7 +85,7 @@ persons:
           För att begränsa till en viss relationtyp används parametern `relationship.entity.type`.
 
           Följande fält/relationer används vid filtreringen:
-          - _enrolements_ - poster matchandes `person.enrolment.startDate`
+          - _enrolment_ - poster matchandes `person.enrolment.startDate`
           - _duty_ - person poster matchandes `duty.person` i en lista filtrerad utifrån `duty.startDate`.
           - _placement.child_ - person poster matchandes `placement.child` i en lista filtrerad utifrån `placement.startDate`.
           - _placement.owner_ - person poster matchandes `placement.owner` i en lista filtrerad utifrån `placement.startDate`.
@@ -103,7 +103,7 @@ persons:
           För att begränsa till en viss relationtyp används parametern `relationship.entity.type`.
 
           Följande fält/relationer används vid filtreringen:
-          - _enrolements_ - poster matchandes `person.enrolment.endDate`
+          - _enrolment_ - poster matchandes `person.enrolment.endDate`
           - _duty_ - person poster matchandes `duty.person` i en lista filtrerad utifrån `duty.endDate`.
           - _placement.child_ - person poster matchandes `placement.child` i en lista filtrerad utifrån `placement.endDate`.
           - _placement.owner_ - person poster matchandes `placement.owner` i en lista filtrerad utifrån `placement.endDate`.
@@ -121,7 +121,7 @@ persons:
           För att begränsa till en viss relationtyp används parametern `relationship.entity.type`.
 
           Flöjande fält/relationer används vid filtreringen:
-           - _enrolements_ - poster matchandes `person.enrolment.endDate`
+           - _enrolment_ - poster matchandes `person.enrolment.endDate`
            - _duty_ - person poster matchandes `duty.person` i en lista filtrerad utifrån `duty.endDate`.
            - _placement.child_ - person poster matchandes `placement.child` i en lista filtrerad utifrån `placement.endDate`.
            - _placement.owner_ - person poster matchandes `placement.owner` i en lista filtrerad utifrån `placement.endDate`.
