@@ -39,7 +39,7 @@ tags:
   - name: Prenumeration
     description: Webhook för att prenumerera på uppdateringar.
   - name: Loggning
-    description: Endpunkter för återrapportering av statistik och händelser.
+    description: Ändpunkter för återrapportering av statistik och händelser.
 paths:
   /organisations:
     $ref: paths/organisations.yaml#/organisations
