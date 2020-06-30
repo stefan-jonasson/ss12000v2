@@ -45,13 +45,13 @@ calendarEvents:
           type: string
           format: uuid
       - name: student
-        description: Begränsa urvalet till kalenderhändelser vars aktiviteter samt `studentExceptions` inkluderar denna person (`Person`). Tidsbegräninsgar (`startDate`, `endDate`) appliceras inte för detta filter.
+        description: Begränsa urvalet till kalenderhändelser vars aktivitet `activity.group` => `group.groupMemberships.person.id` eller `studentExceptions.student.id` inkluderar denna person. Tidsbegräninsgar (`startDate`, `endDate`) appliceras inte för detta filter.
         in: query
         schema:          
           type: string
           format: uuid
       - name: teacher
-        description: Begränsa urvalet till kalenderhändelser vars aktiviteter samt `teacherExceptions` inkluderar denna tjänst (`Duty`). Tidsbegräninsgar (`startDate`, `endDate`) appliceras inte för detta filter.
+        description: Begränsa urvalet till kalenderhändelser vars aktiviteter `activity.teachers.duty.id` samt `teacherExceptions.duty.id` inkluderar denna tjänst `duty.id`. Tidsbegräninsgar (`startDate`, `endDate`) appliceras inte för detta filter.
         schema:
           type: string
           format: uuid
