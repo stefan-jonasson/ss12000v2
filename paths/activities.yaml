@@ -4,8 +4,14 @@ activities:
       - Aktiviteter
     summary: Hämta en lista med aktiviteter baserat på ett antal sökparametrar.
     parameters:
-      - name: person
-        description: Begränsa urvalet till utpekad persons ID.
+      - name: member
+        description: Begränsa urvalet till aktiviteter vars grupper `groups` inkluderar denna person. Tidsbegräninsgar (`startDate`, `endDate`) appliceras inte för detta filter.
+        in: query
+        schema:
+          type: string
+          format: uuid
+      - name: teacher
+        description: Begränsa urvalet till aktiviteter vars lärare `teachers` inkluderar detta id i attributet `duty.id`. Tidsbegräninsgar (`startDate`, `endDate`) appliceras inte för detta filter.
         in: query
         schema:
           type: string
