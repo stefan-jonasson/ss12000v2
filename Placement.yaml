@@ -8,9 +8,13 @@ Placement:
     meta:
       $ref: "common.yaml#/Meta"
     placedAt:
-      allOf: 
+      allOf:
         - $ref: "common.yaml#/SchoolUnitReference"
         - description: Skolenhet där barnet är placerat.
+    group:
+      allOf:
+        - $ref: "common.yaml#/GroupReference"
+        - description: Barngrupp eller avdelning knutet till denna placering.
     child:
       allOf:
         - $ref: "common.yaml#/PersonReference"
@@ -71,28 +75,26 @@ PlacementExpanded:
               $ref: "Person.yaml#/Person"
             owners:
               type: array
-              items: 
+              items:
                 $ref: "Person.yaml#/Person"
 
-
 PlacementsArray:
- type: array
- items:
+  type: array
+  items:
     $ref: "#/PlacementExpanded"
 
 Placements:
   type: object
   properties:
-      data:
-        type: array
-        items:
-          $ref: "#/PlacementExpanded"
-      pageToken:
-        type: string
-        nullable: true
-        description: >
-          Om värdet är null finns inget mer att hämta på det token
-          som skickades in som query parameter.
+    data:
+      type: array
+      items:
+        $ref: "#/PlacementExpanded"
+    pageToken:
+      type: string
+      nullable: true
+      description: >
+        Om värdet är null finns inget mer att hämta på det token
+        som skickades in som query parameter.
   required:
     - data
-
