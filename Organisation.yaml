@@ -35,7 +35,7 @@ Organisation:
     schoolTypes:
       type: array
       uniqueItems: true
-      description: Anges endas för typen Skolenhet.
+      description: Anges endas för organisationselement typen Skolenhet.
       items:
         $ref: "common.yaml#/components/schemas/SchoolTypesEnum"
     municipalityCode:
@@ -61,6 +61,7 @@ Organisation:
       type: array
       items:
         type: object
+        title: ContactInfo
         description: >
           Kontaktuppgifter till skolan eller organisationselementet.
           Kan användas för supportkontakt och andra publika kontaktuppgifter.
@@ -73,7 +74,7 @@ Organisation:
               såsom adress och telefonnummer till skolan.
             enum:
               - Support
-              - Public
+              - Publik
           info:
             type: string
             description: >
