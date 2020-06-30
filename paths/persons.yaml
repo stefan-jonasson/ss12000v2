@@ -23,7 +23,7 @@ persons:
           type: string
 
       - name: eduPersonPrincipalName
-        description: Begränsa urvalet till deb person vars eduPersonPrincipalNames matchar parameterns värde.
+        description: Begränsa urvalet till den person vars eduPersonPrincipalNames matchar parameterns värde.
         in: query
         schema:
           type: string
