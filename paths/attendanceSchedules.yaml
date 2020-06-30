@@ -5,7 +5,13 @@ attendanceSchedules:
     summary: Returnerar registrerade vistelsescheman.
     parameters:
       - name: placement
-        description: Begränsa urvalet till scheman för utpekade placeringar.
+        description: Begränsa urvalet till scheman för utpekad placering.
+        in: query
+        schema:
+          type: string
+          format: uuid
+      - name: group
+        description: Begränsa urvalet till scheman vars placeringar är kopplad till utpekad grupp.
         in: query
         schema:
           type: string
