@@ -17,25 +17,25 @@ persons:
           items:
             type: string
       - name: civicNo
-        description: Begränsa urvalet till de personer vars civicNo matchar parameterns värden.
+        description: Begränsa urvalet till den person vars civicNo matchar parameterns värde.
         in: query
         schema:
           type: string
 
       - name: eduPersonPrincipalName
-        description: Begränsa urvalet till de personer vars eduPersonPrincipalNames matchar parameterns värden.
+        description: Begränsa urvalet till deb person vars eduPersonPrincipalNames matchar parameterns värde.
         in: query
         schema:
           type: string
 
       - name: identifier.value
-        description: Begränsa urvalet till de personer vilka har ett värde i `externalIdentifiers.value` som matchar parameterns värden. Kan kombineras med paramtern `identifier.context` för att begränsa matchningen till en specifik typ av indentifierare.
+        description: Begränsa urvalet till den person vilka har ett värde i `externalIdentifiers.value` som matchar parameterns värde. Kan kombineras med parametern `identifier.context` för att begränsa matchningen till en specifik typ av indentifierare.
         in: query
         schema:
           type: string
 
       - name: identifier.context
-        description: Begränsa urvalet till de personer vilka har ett värde i `externalIdentifiers.context` som matchar parameterns värden. Kombineras vanligtvis med `identifier.value` paramtern.
+        description: Begränsa urvalet till den person vilka har ett värde i `externalIdentifiers.context` som matchar parameterns värde. Kombineras vanligtvis med `identifier.value` parametern.
         in: query
         schema:
           type: string
