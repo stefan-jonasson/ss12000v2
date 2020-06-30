@@ -5,9 +5,9 @@ absences:
     summary: >
       Hämta en lista av beviljad ledighet och anmäld frånvaro.
     parameters:
-      - name: schoolUnit
+      - name: organisation
         description: >
-          Begränsa urvalet till den frånvaro/ledighet som är kopplad till skolenheten.
+          Begränsa urvalet till den frånvaro/ledighet som är kopplad till organisationen.
         in: query
         schema:
           type: string
@@ -32,7 +32,7 @@ absences:
         schema:
           type: string
           $ref: "../common.yaml#/components/schemas/AbsenceEnum"
-      - name: startTime.before
+      - name: startTime.onOrBefore
         description: >
           Endast anmälda frånvaro som startar innan eller på denna tidpunkt
           (RFC 3339 format, tex "2015-12-12T10:30:00+01:00"). Inkluderande.
@@ -40,9 +40,25 @@ absences:
         schema:
           type: string
           format: date-time
-      - name: startTime.after
+      - name: startTime.onOrAfter
         description: >
           Endast anmälda frånvaro/ledighet som startar efter denna tidpunkt
+          (RFC 3339 format, tex "2015-12-12T10:30:00+01:00"). Exkluderande.
+        in: query
+        schema:
+          type: string
+          format: date-time
+      - name: endTime.onOrBefore
+        description: >
+          Endast anmälda frånvaro som slutar innan eller på denna tidpunkt
+          (RFC 3339 format, tex "2015-12-12T10:30:00+01:00"). Inkluderande.
+        in: query
+        schema:
+          type: string
+          format: date-time
+      - name: endTime.onOrAfter
+        description: >
+          Endast anmälda frånvaro/ledighet som slutar efter denna tidpunkt
           (RFC 3339 format, tex "2015-12-12T10:30:00+01:00"). Exkluderande.
         in: query
         schema:

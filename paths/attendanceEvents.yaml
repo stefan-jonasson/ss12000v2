@@ -12,15 +12,12 @@ attendance_events:
           items:
             type: string
             format: uuid
-      - name: child
-        description: Begränsa urvalet till utpekade barns ID.
+      - name: person
+        description: Begränsa urvalet till utpekad person.
         in: query
         schema:
-          type: array
-          items:
-            type: string
-            format: uuid
-
+          type: string
+          format: uuid
       - $ref: "searchParameters.yaml#/SearchCreatedBefore"
       - $ref: "searchParameters.yaml#/SearchCreatedAfter"
       - $ref: "searchParameters.yaml#/SearchModifiedBefore"
@@ -36,10 +33,10 @@ attendance_events:
         content:
           application/json:
             schema:
-                $ref: "../AttendanceEvent.yaml#/AttendanceEvents"
+              $ref: "../AttendanceEvent.yaml#/AttendanceEvents"
       400:
         $ref: "../openapi.yaml#/components/responses/400_invalid_filter"
-      403: 
+      403:
         $ref: "../openapi.yaml#/components/responses/403_not_authorised"
       default:
         $ref: "../openapi.yaml#/components/responses/default_error"
@@ -120,6 +117,56 @@ attendance_events_by_id:
         $ref: "../openapi.yaml#/components/responses/404_not_found"
       default:
         $ref: "../openapi.yaml#/components/responses/default_error"
+
+attendance_events_lookup:
+  post:
+    tags:
+      - Närvarohändelser
+    summary: Hämta en lista med närvarohändelser baserat på motsvarande lista av ID:n.
+    description: >
+      Istället för att hämta närvarohändelse en i taget med en loop
+      av GET-anrop så finns det även möjlighet att hämta många närvarohändelser
+      på en gång genom att ange POST:a en lista med önskade närvarohändelser.
+    parameters:
+      - $ref: "#/ExpandParameter"
+      - $ref: "searchParameters.yaml#/ExpandReferenceNames"
+    responses:
+      200:
+        description: Anropet lyckades.
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: "../AttendanceEvent.yaml#/AttendanceEvent"
+      403:
+        $ref: "../openapi.yaml#/components/responses/403_not_authorised"
+      503:
+        $ref: "../openapi.yaml#/components/responses/503_overload"
+      default:
+        $ref: "../openapi.yaml#/components/responses/default_error"
+    requestBody:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              ids:
+                type: array
+                items:
+                  type: string
+                  format: uuid
+              person:
+                type: array
+                items:
+                  type: string
+                  format: uuid
+              group:
+                type: array
+                items:
+                  type: string
+                  format: uuid
+        required: true
 
 ExpandParameter:
   name: expand

@@ -4,7 +4,7 @@ grades:
       - Betyg
     summary: Hämta en lista med betyg.
     parameters:
-      - name: schoolUnit
+      - name: organisation
         description: Begränsa urvalet till de betyg som är kopplade till skolenhet.
         in: query
         schema:
@@ -69,7 +69,7 @@ grades:
               $ref: "../Grade.yaml#/Grades"
       400:
         $ref: "../openapi.yaml#/components/responses/400_invalid_filter"
-      403: 
+      403:
         $ref: "../openapi.yaml#/components/responses/403_not_authorised"
       default:
         $ref: "../openapi.yaml#/components/responses/default_error"
