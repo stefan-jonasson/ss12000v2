@@ -123,7 +123,7 @@ AbsenceLookup:
     description: >
       Istället för att hämta anmälda frånvaro en i taget med en loop
       av GET-anrop så finns det även möjlighet att hämta många anmälda
-      frånvaroposter på en gång genom att ange POST:a en lista med
+      frånvaroposter på en gång genom att skicka ett anrop med en lista med
       önskade objekt.
     parameters:
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"

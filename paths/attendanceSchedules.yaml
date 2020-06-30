@@ -96,7 +96,7 @@ attendanceSchedulesLookup:
     description: >
       Istället för att hämta vistelsescheman ett i taget med en loop
       av GET-anrop så finns det även möjlighet att hämta många vistelsescheman
-      på en gång genom att ange POST:a en lista med önskade vistelsescheman.
+      på en gång genom att skicka ett anrop med en lista med önskade vistelsescheman.
     parameters:
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:

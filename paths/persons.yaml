@@ -202,7 +202,7 @@ personsLookup:
     description: >
       Istället för att hämta personer en i taget med en loop
       av GET-anrop så finns det även möjlighet att hämta många personer
-      på en gång genom att ange POST:a en lista med önskade personer.
+      på en gång genom att skicka ett anrop med en lista med önskade personer.
     parameters:
       - $ref: "#/ExpandParameter"
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"

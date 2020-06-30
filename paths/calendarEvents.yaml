@@ -144,7 +144,7 @@ calendarEventLookup:
     description: >
       Istället för att hämta kalenderhändelser en i taget med en loop
       av GET-anrop så finns det även möjlighet att hämta många kalenderhändelser
-      på en gång genom att ange POST:a en lista med önskade kalenderhändelser.
+      på en gång genom att skicka ett anrop med en lista med önskade kalenderhändelser.
     parameters:
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:

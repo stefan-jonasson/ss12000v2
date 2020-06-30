@@ -47,7 +47,7 @@ programmes:
               $ref: "../Programme.yaml#/Programmes"
       400:
         $ref: "../openapi.yaml#/components/responses/400_invalid_filter"
-      403: 
+      403:
         $ref: "../openapi.yaml#/components/responses/403_not_authorised"
       default:
         $ref: "../openapi.yaml#/components/responses/default_error"
@@ -60,7 +60,7 @@ programmesLookup:
     description: >
       Istället för att hämta program en i taget med en loop
       av GET-anrop så finns det även möjlighet att hämta många program
-      på en gång genom att ange POST:a en lista med önskade program.
+      på en gång genom att skicka ett anrop med en lista med önskade program.
     parameters:
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:

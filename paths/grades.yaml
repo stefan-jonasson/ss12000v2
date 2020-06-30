@@ -82,7 +82,7 @@ gradesLookup:
     description: >
       Istället för att hämta betyg ett i taget med en loop a GET-anrop
       så finns det även möjlighet att hämta många betyg på en gång genom
-      att ange POST:a en lista med önskade objekt.
+      att skicka ett anrop med en lista med önskade objekt.
     parameters:
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:

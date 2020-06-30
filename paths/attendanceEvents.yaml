@@ -126,7 +126,7 @@ attendance_events_lookup:
     description: >
       Istället för att hämta närvarohändelse en i taget med en loop
       av GET-anrop så finns det även möjlighet att hämta många närvarohändelser
-      på en gång genom att ange POST:a en lista med önskade närvarohändelser.
+      på en gång genom att skicka ett anrop med en lista med önskade närvarohändelser.
     parameters:
       - $ref: "#/ExpandParameter"
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
