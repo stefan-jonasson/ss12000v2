@@ -4,7 +4,7 @@ calendarEvents:
       - Kalenderhändelser
     summary: Returnerar kalenderhändelser utifrån en aktivitet eller student.
     parameters:
-      - name: startTime
+      - name: startTime.onOrAfter
         description: >
           Hämta kalenderhändelser från och med denna tidpunkt
           (RFC 3339 format, t.ex. "2016-10-15T09:00:00+02:00").
@@ -13,7 +13,16 @@ calendarEvents:
         schema:
           type: string
           format: date-time
-      - name: endTime
+      - name: startTime.onOrBefore
+        description: >
+          Hämta kalenderhändelser till och med denna tidpunkt
+          (RFC 3339 format, t.ex. "2016-10-15T09:00:00+02:00").
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date-time
+      - name: endTime.onOrBefore
         description: >
           Hämta kalenderhändelser till och med denna tidpunkt
           (RFC 3339 format, t.ex. "2016-10-15T11:00:00+02:00").
@@ -21,23 +30,38 @@ calendarEvents:
         schema:
           type: string
           format: date-time
+      - name: endTime.onOrAfter
+        description: >
+          Hämta kalenderhändelser från och med denna tidpunkt
+          (RFC 3339 format, t.ex. "2016-10-15T11:00:00+02:00").
+        in: query
+        schema:
+          type: string
+          format: date-time
       - name: activity
-        description: Begränsa urvalet till utpekade aktiviteters ID.
+        description: Begränsa urvalet till utpekad aktivitet.
         in: query
         schema:
-          type: array
-          items:
-            type: string
-            format: uuid
-      - name: student
-        description: Begränsa urvalet till utpekade studenters ID (person).
+          type: string
+          format: uuid
+      - name: person
+        description: Begränsa urvalet till utpekad person.
         in: query
         schema:
-          type: array
-          items:
-            type: string
-            format: uuid
-
+          type: string
+          format: uuid
+      - name: organisation
+        description: Begränsa urvalet till utpekat organisationselement och dess underliggande element.
+        in: query
+        schema:
+          type: string
+          format: uuid
+      - name: group
+        description: Begränsa urvalet till utpekad grupp relaterat genom kopplade aktiviteter.
+        in: query
+        schema:
+          type: string
+          format: uuid
       - $ref: "searchParameters.yaml#/SearchCreatedBefore"
       - $ref: "searchParameters.yaml#/SearchCreatedAfter"
       - $ref: "searchParameters.yaml#/SearchModifiedBefore"
@@ -109,3 +133,50 @@ ExpandParameter:
     items:
       type: string
       enum: [activity, attendance]
+
+calendarEventLookup:
+  post:
+    tags:
+      - Kalenderhändelser
+    summary: >
+      Hämta kalenderhändelser baserat på en lista av ID:n eller av Id från aktiviteter
+      eller av Id från personer.
+    description: >
+      Istället för att hämta kalenderhändelser en i taget med en loop
+      av GET-anrop så finns det även möjlighet att hämta många kalenderhändelser
+      på en gång genom att skicka ett anrop med en lista med önskade kalenderhändelser.
+    parameters:
+      - $ref: "searchParameters.yaml#/ExpandReferenceNames"
+    responses:
+      200:
+        description: Anropet lyckades.
+        content:
+          application/json:
+            schema:
+              $ref: "../Attendance.yaml#/AttendancesArray"
+      503:
+        $ref: "../openapi.yaml#/components/responses/503_overload"
+      default:
+        $ref: "../openapi.yaml#/components/responses/default_error"
+    requestBody:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              ids:
+                type: array
+                items:
+                  type: string
+                  format: uuid
+              activities:
+                type: array
+                items:
+                  type: string
+                  format: uuid
+              person:
+                type: array
+                items:
+                  type: string
+                  format: uuid
+        required: true

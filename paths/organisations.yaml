@@ -53,7 +53,7 @@ organisations:
       - name: startDate.onOrBefore
         description: |
           Begränsa urvalet till organisationselement som har ett startDate värde innan eller på det angivna datumet (RFC 3339-format, t.ex. "2016-10-15"). 
-          Poster med ett endDate som ej är satt, tas alltid med. 
+          Poster med ett endDate som ej är satt, tas alltid med.
         in: query
         schema:
           type: string
@@ -61,7 +61,7 @@ organisations:
       - name: startDate.onOrAfter
         description: |
           Begränsa urvalet till organisationselement som har ett startDate värde på eller efter det angivna datumet (RFC 3339-format, t.ex. "2016-10-15"). 
-          Poster med ett endDate som ej är satt, tas alltid med. 
+          Poster med ett endDate som ej är satt, tas alltid med.
         in: query
         schema:
           type: string
@@ -69,7 +69,7 @@ organisations:
       - name: endDate.onOrBefore
         description: |
           Begränsa urvalet till organisationselement som har ett endDate värde innan eller på det angivna datumet (RFC 3339-format, t.ex. "2016-10-15"). 
-          Poster med ett endDate som ej är satt, tas alltid med. 
+          Poster med ett endDate som ej är satt, tas alltid med.
         in: query
         schema:
           type: string
@@ -77,7 +77,7 @@ organisations:
       - name: endDate.onOrAfter
         description: |
           Begränsa urvalet till organisationselement som har ett endDate värde på eller efter det angivna datumet (RFC 3339-format, t.ex. "2016-10-15"). 
-          Poster med ett endDate som ej är satt, tas alltid med. 
+          Poster med ett endDate som ej är satt, tas alltid med.
         in: query
         schema:
           type: string
@@ -89,7 +89,7 @@ organisations:
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
       - $ref: "searchParameters.yaml#/Sortkey"
       - $ref: "searchParameters.yaml#/Limit"
-      - $ref: "searchParameters.yaml#/PageToken"      
+      - $ref: "searchParameters.yaml#/PageToken"
     responses:
       200:
         description: Anropet lyckades.
@@ -99,7 +99,7 @@ organisations:
               $ref: "../Organisation.yaml#/Organisations"
       400:
         $ref: "../openapi.yaml#/components/responses/400_invalid_filter"
-      403: 
+      403:
         $ref: "../openapi.yaml#/components/responses/403_not_authorised"
       default:
         $ref: "../openapi.yaml#/components/responses/default_error"
@@ -112,7 +112,7 @@ organisationsLookup:
     description: >
       Istället för att hämta organisationer en i taget med en loop
       av GET-anrop så finns det även möjlighet att hämta många organisationer
-      på en gång genom att ange POST:a en lista med önskade organisationer.
+      på en gång genom att skicka ett anrop med en lista med önskade organisationer.
     parameters:
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:

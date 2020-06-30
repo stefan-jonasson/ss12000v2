@@ -103,6 +103,8 @@ paths:
     $ref: paths/calendarEvents.yaml#/calendarEvents
   /calendarEvents/{id}:
     $ref: paths/calendarEvents.yaml#/calendarEventById
+  /calendarEvents/lookup:
+    $ref: paths/calendarEvents.yaml#/calendarEventLookup
   /attendances:
     $ref: paths/attendances.yaml#/attendances
   /attendances/lookup:
@@ -113,6 +115,8 @@ paths:
     $ref: paths/attendanceEvents.yaml#/attendance_events
   /attendanceEvents/{id}:
     $ref: paths/attendanceEvents.yaml#/attendance_events_by_id
+  /attendanceEvents/lookup:
+    $ref: paths/attendanceEvents.yaml#/attendance_events_lookup
   /attendanceSchedule:
     $ref: paths/attendanceSchedules.yaml#/attendanceSchedules
   /attendanceSchedule/{id}:

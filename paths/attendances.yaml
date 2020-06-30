@@ -4,6 +4,24 @@ attendances:
       - Närvaro
     summary: Returnerar registrerad närvaro utifrån en aktivitet eller student.
     parameters:
+      - name: student
+        description: Begränsa urvalet till utpekad person.
+        in: query
+        schema:
+          type: string
+          format: uuid
+      - name: organisation
+        description: Begränsa urvalet till utpekat organisationselement och dess underliggande element.
+        in: query
+        schema:
+          type: string
+          format: uuid
+      - name: calendarEvent
+        description: Begränsa urvalet till utpekad kalenderpost.
+        in: query
+        schema:
+          type: string
+          format: uuid
       - $ref: "searchParameters.yaml#/SearchCreatedBefore"
       - $ref: "searchParameters.yaml#/SearchCreatedAfter"
       - $ref: "searchParameters.yaml#/SearchModifiedBefore"
@@ -20,7 +38,7 @@ attendances:
               $ref: "../Attendance.yaml#/Attendances"
       400:
         $ref: "../openapi.yaml#/components/responses/400_invalid_filter"
-      403: 
+      403:
         $ref: "../openapi.yaml#/components/responses/403_not_authorised"
       default:
         $ref: "../openapi.yaml#/components/responses/default_error"
@@ -56,7 +74,7 @@ attendancesLookup:
     description: >
       Istället för att hämta aktiviteter en i taget med en loop
       av GET-anrop så finns det även möjlighet att hämta många aktiviteter
-      på en gång genom att ange POST:a en lista med önskade aktiviteter.
+      på en gång genom att skicka ett anrop med en lista med önskade aktiviteter.
     parameters:
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:
@@ -74,24 +92,29 @@ attendancesLookup:
       content:
         application/json:
           schema:
-              type: object
-              properties:
-                ids:
-                  type: array
-                  items:
-                    type: string
-                    format: uuid
-                activities:
-                  type: array
-                  items:
-                    type: string
-                    format: uuid
-                students:
-                  type: array
-                  items:
-                    type: string
-                    format: uuid
-      required: true
+            type: object
+            properties:
+              ids:
+                type: array
+                items:
+                  type: string
+                  format: uuid
+              activities:
+                type: array
+                items:
+                  type: string
+                  format: uuid
+              students:
+                type: array
+                items:
+                  type: string
+                  format: uuid
+              calendareEvents:
+                type: array
+                items:
+                  type: string
+                  format: uuid
+        required: true
 
 attendanceById:
   get:
