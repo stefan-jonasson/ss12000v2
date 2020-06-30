@@ -25,16 +25,6 @@ CreateSubscription:
         properties:
           resource:
             $ref: "common.yaml#/components/schemas/EndPointsEnum"
-    organisations:
-      description: >
-        Begränsa till data härledd till listade organisationer.
-        Om denna utelämnas så fås samliga organisationer som klienten har rätt till.
-        Vårdnadshavare relateras till organisationer genom sina barn.
-        Anställdas barn kan inte härledas till organisationen baserat sina föräldrar.
-      type: array
-      items:
-        type: string
-        format: uuid
   required:
     - name
     - target
@@ -58,15 +48,15 @@ Subscription:
 Subscriptions:
   type: object
   properties:
-      data:
-        type: array
-        items:
-          $ref: "#/Subscription"
-      pageToken:
-        type: string
-        nullable: true
-        description: >
-          Om värdet är null finns inget mer att hämta på det token
-          som skickades in som query parameter.
+    data:
+      type: array
+      items:
+        $ref: "#/Subscription"
+    pageToken:
+      type: string
+      nullable: true
+      description: >
+        Om värdet är null finns inget mer att hämta på det token
+        som skickades in som query parameter.
   required:
     - data

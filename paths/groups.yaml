@@ -103,7 +103,7 @@ groupsLookup:
     description: >
       Istället för att hämta grupper en i taget med en loop
       av GET-anrop så finns det även möjlighet att hämta många grupper
-      på en gång genom att ange POST:a en lista med önskade grupper.
+      på en gång genom att skicka ett anrop med en lista med önskade grupper.
     parameters:
       - $ref: "#/ExpandParameter"
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"

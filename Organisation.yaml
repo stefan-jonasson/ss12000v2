@@ -10,8 +10,8 @@ Organisation:
     displayName:
       type: string
       description: Namn på organisationen
-    organisationCode: 
-      type: string 
+    organisationCode:
+      type: string
       description: En kod för att identifiera organisationselementet inom organisationen.
     organisationType:
       $ref: "common.yaml#/components/schemas/OrganisationTypeEnum"
@@ -31,11 +31,11 @@ Organisation:
       description: >
         Skolenhetskod. Identifierare för skolenheten enligt Skolverket.
         Används för de skolformer där skolverket bestämmer en
-        skolenhetskod för varje enhet. 
+        skolenhetskod för varje enhet.
     schoolTypes:
       type: array
       uniqueItems: true
-      description: Anges endas för typen Skolenhet.
+      description: Anges endas för organisationselement typen Skolenhet.
       items:
         $ref: "common.yaml#/components/schemas/SchoolTypesEnum"
     municipalityCode:
@@ -61,19 +61,20 @@ Organisation:
       type: array
       items:
         type: object
+        title: ContactInfo
         description: >
           Kontaktuppgifter till skolan eller organisationselementet.
           Kan användas för supportkontakt och andra publika kontaktuppgifter.
         properties:
           infoType:
             type: string
-            title: Code_ContactInfoType
+            title: Code_OrganisationContactInfoType
             description: >
               Typ av kontaktuppgift. Publika uppgifter avser uppgifter som kan visas för allmänheten,
               såsom adress och telefonnummer till skolan.
             enum:
               - Support
-              - Public
+              - Publik
           info:
             type: string
             description: >
@@ -97,24 +98,23 @@ Organisation:
     - organisationType
   description: En skolhuvudman eller annan slags organisatorisk enhet.
 
-
 OrganisationsArray:
-    type: array
-    items:
-      $ref: "#/Organisation"
+  type: array
+  items:
+    $ref: "#/Organisation"
 
 Organisations:
- type: object
- properties:
-      data:
-        type: array
-        items:
-          $ref: "#/Organisation"
-      pageToken:
-        type: string
-        nullable: true
-        description: >
-          Om värdet är null finns inget mer att hämta på det token
-          som skickades in som query parameter.
- required:
+  type: object
+  properties:
+    data:
+      type: array
+      items:
+        $ref: "#/Organisation"
+    pageToken:
+      type: string
+      nullable: true
+      description: >
+        Om värdet är null finns inget mer att hämta på det token
+        som skickades in som query parameter.
+  required:
     - data

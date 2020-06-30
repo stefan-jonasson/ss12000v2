@@ -16,6 +16,30 @@ persons:
           type: array
           items:
             type: string
+      - name: civicNo
+        description: Begränsa urvalet till den person vars civicNo matchar parameterns värde.
+        in: query
+        schema:
+          type: string
+
+      - name: eduPersonPrincipalName
+        description: Begränsa urvalet till den person vars eduPersonPrincipalNames matchar parameterns värde.
+        in: query
+        schema:
+          type: string
+
+      - name: identifier.value
+        description: Begränsa urvalet till den person vilka har ett värde i `externalIdentifiers.value` som matchar parameterns värde. Kan kombineras med parametern `identifier.context` för att begränsa matchningen till en specifik typ av indentifierare.
+        in: query
+        schema:
+          type: string
+
+      - name: identifier.context
+        description: Begränsa urvalet till den person vilka har ett värde i `externalIdentifiers.context` som matchar parameterns värde. Kombineras vanligtvis med `identifier.value` parametern.
+        in: query
+        schema:
+          type: string
+
       - name: relationship.entity.type
         description: |
           Begränsa urvalet till de personer som har en denna typ av relation till andra entititeter. 
@@ -23,7 +47,7 @@ persons:
           Anges inga andra parametrar så returneras personer som har en relation av denna typ.
 
           Möjliga relationer:
-          - _enrolements_ - filtrerar utifrån elever inskrivning.
+          - _enrolment_ - filtrerar utifrån elever inskrivning.
           - _duty_ - filtrerar utifrån personer som har minst en tjänstgöring.
           - _placement.child_ - filtrerar utifrån barn som har minst en placering.
           - _placement.owner_ - filtrerar utifrån personer som satta som ägare av minst en placering.
@@ -48,7 +72,7 @@ persons:
           För att begränsa till en viss relationtyp används parametern `relationship.entity.type`.
 
           Följande fält/relationer används vid filtreringen:
-          - _enrolement_ - poster matchandes `person.enrolment.enroledAt`
+          - _enrolment_ - poster matchandes `person.enrolment.enroledAt`
           - _duty_ - person poster matchandes `duty.person` i en lista filtrerad utifrån `duty.dutyAt`.
           - _placement.child_ - person poster matchandes `placement.child` i en lista filtrerad utifrån `placement.placedAt`.
           - _placement.owner_ - person poster matchandes `placement.owner` i en lista filtrerad utifrån `placement.placedAt`.
@@ -66,7 +90,7 @@ persons:
           För att begränsa till en viss relationtyp används parametern `relationship.entity.type`.
 
           Följande fält/relationer används vid filtreringen:
-          - _enrolements_ - poster matchandes `person.enrolment.startDate`
+          - _enrolment_ - poster matchandes `person.enrolment.startDate`
           - _duty_ - person poster matchandes `duty.person` i en lista filtrerad utifrån `duty.startDate`.
           - _placement.child_ - person poster matchandes `placement.child` i en lista filtrerad utifrån `placement.startDate`.
           - _placement.owner_ - person poster matchandes `placement.owner` i en lista filtrerad utifrån `placement.startDate`.
@@ -85,7 +109,7 @@ persons:
           För att begränsa till en viss relationtyp används parametern `relationship.entity.type`.
 
           Följande fält/relationer används vid filtreringen:
-          - _enrolements_ - poster matchandes `person.enrolment.startDate`
+          - _enrolment_ - poster matchandes `person.enrolment.startDate`
           - _duty_ - person poster matchandes `duty.person` i en lista filtrerad utifrån `duty.startDate`.
           - _placement.child_ - person poster matchandes `placement.child` i en lista filtrerad utifrån `placement.startDate`.
           - _placement.owner_ - person poster matchandes `placement.owner` i en lista filtrerad utifrån `placement.startDate`.
@@ -103,7 +127,7 @@ persons:
           För att begränsa till en viss relationtyp används parametern `relationship.entity.type`.
 
           Följande fält/relationer används vid filtreringen:
-          - _enrolements_ - poster matchandes `person.enrolment.endDate`
+          - _enrolment_ - poster matchandes `person.enrolment.endDate`
           - _duty_ - person poster matchandes `duty.person` i en lista filtrerad utifrån `duty.endDate`.
           - _placement.child_ - person poster matchandes `placement.child` i en lista filtrerad utifrån `placement.endDate`.
           - _placement.owner_ - person poster matchandes `placement.owner` i en lista filtrerad utifrån `placement.endDate`.
@@ -121,7 +145,7 @@ persons:
           För att begränsa till en viss relationtyp används parametern `relationship.entity.type`.
 
           Flöjande fält/relationer används vid filtreringen:
-           - _enrolements_ - poster matchandes `person.enrolment.endDate`
+           - _enrolment_ - poster matchandes `person.enrolment.endDate`
            - _duty_ - person poster matchandes `duty.person` i en lista filtrerad utifrån `duty.endDate`.
            - _placement.child_ - person poster matchandes `placement.child` i en lista filtrerad utifrån `placement.endDate`.
            - _placement.owner_ - person poster matchandes `placement.owner` i en lista filtrerad utifrån `placement.endDate`.
@@ -178,7 +202,7 @@ personsLookup:
     description: >
       Istället för att hämta personer en i taget med en loop
       av GET-anrop så finns det även möjlighet att hämta många personer
-      på en gång genom att ange POST:a en lista med önskade personer.
+      på en gång genom att skicka ett anrop med en lista med önskade personer.
     parameters:
       - $ref: "#/ExpandParameter"
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"

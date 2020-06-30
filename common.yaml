@@ -209,6 +209,7 @@ components:
     AbsenceEnum:
       type: string
       title: Code_AbsenceType
+      description: Anger om frånvaron är en beviljad ledighet eller en annan typ av anmäld frånvaro.
       enum:
         - Beviljad ledighet
         - Anmäld frånvaro
@@ -216,6 +217,7 @@ components:
     CurriculumEnum:
       type: string
       title: Code_Curriculum
+      description: Anger vilken läroplan aktiviteten avser. För vissa skolformer saknas läroplan.
       enum:
         - Lgy70
         - Lgr80

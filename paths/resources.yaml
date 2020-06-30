@@ -40,7 +40,7 @@ resourcesLookup:
     description: >
       Istället för att hämta resurser en i taget med en loop
       av GET-anrop så finns det även möjlighet att hämta många resurser
-      på en gång genom att ange POST:a en lista med önskade resurser.
+      på en gång genom att skicka ett anrop med en lista med önskade resurser.
     parameters:
       - $ref: "searchParameters.yaml#/ExpandReferenceNames"
     responses:

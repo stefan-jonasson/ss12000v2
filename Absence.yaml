@@ -28,11 +28,7 @@ Absence:
         Sluttid för den anmälda frånvaron
         (RFC 3339, format tex "2015-12-12T10:30:00+01:00").
     type:
-      allOf:
-        - $ref: "common.yaml#/components/schemas/AbsenceEnum"
-        - description: >
-            Anger om det rör beviljad ledighet eller
-            frånvaro anmäld av vårdnadshavare.
+      $ref: "common.yaml#/components/schemas/AbsenceEnum"
     student:
       allOf:
         - $ref: "common.yaml#/PersonReference"

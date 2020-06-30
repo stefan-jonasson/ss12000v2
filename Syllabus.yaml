@@ -12,9 +12,7 @@ Syllabus:
     meta:
       $ref: "common.yaml#/Meta"
     schoolType:
-      allOf:
-        - description: Skolform för undervisningen
-        - $ref: "common.yaml#/components/schemas/SchoolTypesEnum"
+      $ref: "common.yaml#/components/schemas/SchoolTypesEnum"
     subjectCode:
       type: string
       description: >
@@ -51,11 +49,7 @@ Syllabus:
       type: integer
       description: Antalet poäng för en specifik kurs. Exempelvis 100 poäng.
     curriculum:
-      allOf:
-        - $ref: "common.yaml#/components/schemas/CurriculumEnum"
-        - description: >
-            Referens till Skolverkets läroplan om det är en officiell kurs
-            eller ett officiellt ämne. Exempelvis GY2011, LGR11.
+      $ref: "common.yaml#/components/schemas/CurriculumEnum"
     languageCode:
       type: string
       description: Språkkod för moderna språk och modersmål. Enligt ISO 639-3.
@@ -91,25 +85,23 @@ Syllabus:
     - subjectName
     - official
 
-
 SyllabusesArray:
-        type: array
-        items:
-          $ref: "#/Syllabus"
-
+  type: array
+  items:
+    $ref: "#/Syllabus"
 
 Syllabuses:
   type: object
   properties:
-      data:
-        type: array
-        items:
-          $ref: "#/Syllabus"
-      pageToken:
-        type: string
-        nullable: true
-        description: >
-          Om värdet är null finns inget mer att hämta på det token
-          som skickades in som query parameter.
+    data:
+      type: array
+      items:
+        $ref: "#/Syllabus"
+    pageToken:
+      type: string
+      nullable: true
+      description: >
+        Om värdet är null finns inget mer att hämta på det token
+        som skickades in som query parameter.
   required:
     - data
