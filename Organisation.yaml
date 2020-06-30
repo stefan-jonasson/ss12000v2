@@ -10,8 +10,8 @@ Organisation:
     displayName:
       type: string
       description: Namn på organisationen
-    organisationCode: 
-      type: string 
+    organisationCode:
+      type: string
       description: En kod för att identifiera organisationselementet inom organisationen.
     organisationType:
       $ref: "common.yaml#/components/schemas/OrganisationTypeEnum"
@@ -31,7 +31,7 @@ Organisation:
       description: >
         Skolenhetskod. Identifierare för skolenheten enligt Skolverket.
         Används för de skolformer där skolverket bestämmer en
-        skolenhetskod för varje enhet. 
+        skolenhetskod för varje enhet.
     schoolTypes:
       type: array
       uniqueItems: true
@@ -67,7 +67,7 @@ Organisation:
         properties:
           infoType:
             type: string
-            title: Code_ContactInfoType
+            title: Code_OrganisationContactInfoType
             description: >
               Typ av kontaktuppgift. Publika uppgifter avser uppgifter som kan visas för allmänheten,
               såsom adress och telefonnummer till skolan.
@@ -97,24 +97,23 @@ Organisation:
     - organisationType
   description: En skolhuvudman eller annan slags organisatorisk enhet.
 
-
 OrganisationsArray:
-    type: array
-    items:
-      $ref: "#/Organisation"
+  type: array
+  items:
+    $ref: "#/Organisation"
 
 Organisations:
- type: object
- properties:
-      data:
-        type: array
-        items:
-          $ref: "#/Organisation"
-      pageToken:
-        type: string
-        nullable: true
-        description: >
-          Om värdet är null finns inget mer att hämta på det token
-          som skickades in som query parameter.
- required:
+  type: object
+  properties:
+    data:
+      type: array
+      items:
+        $ref: "#/Organisation"
+    pageToken:
+      type: string
+      nullable: true
+      description: >
+        Om värdet är null finns inget mer att hämta på det token
+        som skickades in som query parameter.
+  required:
     - data
