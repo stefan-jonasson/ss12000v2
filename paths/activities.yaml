@@ -16,7 +16,12 @@ activities:
         schema:
           type: string
           format: uuid
-
+      - name: group
+        description: Begränsa urvalet till utpekad grupp.
+        in: query
+        schema:
+          type: string
+          format: uuid
       - $ref: "searchParameters.yaml#/SearchCreatedBefore"
       - $ref: "searchParameters.yaml#/SearchCreatedAfter"
       - $ref: "searchParameters.yaml#/SearchModifiedBefore"
