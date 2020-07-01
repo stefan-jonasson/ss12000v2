@@ -184,7 +184,6 @@ calendarEventLookup:
                 items:
                   type: string
                   format: uuid
-                    type: array
               teacher:
                 type: array
                 items:
