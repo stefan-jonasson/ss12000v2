@@ -164,6 +164,7 @@ calendarEventLookup:
       default:
         $ref: "../openapi.yaml#/components/responses/default_error"
     requestBody:
+      required: true
       content:
         application/json:
           schema:
@@ -189,4 +190,3 @@ calendarEventLookup:
                 items:
                   type: string
                   format: uuid
-        required: true

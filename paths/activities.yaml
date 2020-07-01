@@ -77,6 +77,7 @@ activitiesLookup:
       default:
         $ref: "../openapi.yaml#/components/responses/default_error"
     requestBody:
+      required: true
       content:
         application/json:
           schema:
@@ -92,7 +93,6 @@ activitiesLookup:
                 items:
                   type: string
                   format: uuid
-        required: true
 
 activityById:
   get:

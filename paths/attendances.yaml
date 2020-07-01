@@ -89,6 +89,7 @@ attendancesLookup:
       default:
         $ref: "../openapi.yaml#/components/responses/default_error"
     requestBody:
+      required: true
       content:
         application/json:
           schema:
@@ -114,7 +115,6 @@ attendancesLookup:
                 items:
                   type: string
                   format: uuid
-        required: true
 
 attendanceById:
   get:

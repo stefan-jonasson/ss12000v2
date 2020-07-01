@@ -146,6 +146,7 @@ attendance_events_lookup:
       default:
         $ref: "../openapi.yaml#/components/responses/default_error"
     requestBody:
+      required: true
       content:
         application/json:
           schema:
@@ -166,7 +167,6 @@ attendance_events_lookup:
                 items:
                   type: string
                   format: uuid
-        required: true
 
 ExpandParameter:
   name: expand
