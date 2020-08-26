@@ -88,8 +88,15 @@ activitiesLookup:
                 items:
                   type: string
                   format: uuid
-              person:
+              teachers:
                 type: array
+                description: Hämta aktiviteter där attributet `teachers` inkluderar något av de angivna idn i `duty.id`.
+                items:
+                  type: string
+                  format: uuid
+              members:
+                type: array
+                description: Hämta aktiviteter där attributet `groups` inkluderar en grupp som matchar ett av angivna idn utifrån `groupMemberships.person.id`.
                 items:
                   type: string
                   format: uuid
