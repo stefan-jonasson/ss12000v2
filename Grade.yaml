@@ -12,7 +12,7 @@ Grade:
       allOf:
         - $ref: "common.yaml#/PersonReference"
         - description: Referens till eleven.
-    schoolUnit:
+    organisation:
       allOf:
         - $ref: "common.yaml#/SchoolUnitReference"
         - description: Skolenheten där undervisningen genomförts.
@@ -94,11 +94,10 @@ Grade:
         - description
   required:
     - id
-    - schoolUnit
     - student
-    - registeredBy
     - registeredDate
     - gradeValue
+    - syllabus
     - finalGrade
     - adaptedStudyPlan
 
