@@ -61,7 +61,7 @@ subscriptions:
 
             responses: # Expected responses to the callback message
               200:
-                description: Kod som retrneras när anropet accepteras.
+                description: Kod som returneras när anropet accepteras.
 
     responses:
       201:
