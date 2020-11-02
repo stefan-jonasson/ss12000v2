@@ -74,6 +74,7 @@ Activity:
         properties:
           duty:
             $ref: "common.yaml#/DutyReference"
+            required: true
           startDate:
             type: string
             format: date
